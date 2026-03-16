@@ -86,7 +86,7 @@ export default function FocusAreasPage() {
             color: 'bg-blue-500',
             accent: 'text-blue-500',
             border: 'hover:border-blue-500/50',
-            images: ['/images/homepage/Ai.jpg']
+            images: ['/images/homepage/Key-Domains.png']
         },
         {
             title: t('protoTitle'),
@@ -95,7 +95,7 @@ export default function FocusAreasPage() {
             color: 'bg-[#84CC16]',
             accent: 'text-[#84CC16]',
             border: 'hover:border-[#84CC16]/50',
-            images: ['/images/homepage/agriculture.jpg']
+            images: ['/images/homepage/Prototype-image.png']
         },
         {
             title: t('acadTitle'),
@@ -104,7 +104,7 @@ export default function FocusAreasPage() {
             color: 'bg-purple-500',
             accent: 'text-purple-500',
             border: 'hover:border-purple-500/50',
-            images: ['/images/homepage/cyberSecure.jpg']
+            images: ['/images/homepage/Problem-Decomposition.png']
         },
         {
             title: t('techTitle'),
@@ -113,7 +113,7 @@ export default function FocusAreasPage() {
             color: 'bg-amber-500',
             accent: 'text-amber-500',
             border: 'hover:border-amber-500/50',
-            images: ['/images/homepage/smart.jpg']
+            images: ['/images/homepage/Our-Vision.png']
         }
     ];
 

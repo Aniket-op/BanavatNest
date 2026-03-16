@@ -104,7 +104,7 @@ export default function DomainsPage() {
             color: 'bg-teal-500',
             accent: 'text-teal-500',
             border: 'hover:border-teal-500/50',
-            images: ['/images/homepage/smart.jpg']
+            images: ['/images/homepage/smartHeath.png']
         },
         {
             title: t('agriTitle'),
@@ -113,7 +113,7 @@ export default function DomainsPage() {
             color: 'bg-lime-500',
             accent: 'text-lime-500',
             border: 'hover:border-lime-500/50',
-            images: ['/images/homepage/agriculture.jpg']
+            images: ['/images/homepage/Prototype-image.png']
         }
     ];
 

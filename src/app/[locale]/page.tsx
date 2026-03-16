@@ -32,7 +32,7 @@ const Home = () => {
     },
     {
       title: t('domainSmartTitle'),
-      url: '/images/homepage/smart.jpg',
+      url: '/images/homepage/Our-Vision.png',
       desc: t('domainSmartDesc'),
       icon: <Microscope className="w-7 h-7" />,
       accent: 'from-purple-500 to-pink-500',
@@ -40,7 +40,7 @@ const Home = () => {
     },
     {
       title: t('domainAgriTitle'),
-      url: '/images/homepage/agriculture.jpg',
+      url: '/images/homepage/Prototype-image.png',
       desc: t('domainAgriDesc'),
       icon: <Zap className="w-7 h-7" />,
       accent: 'from-amber-500 to-[#84CC16]',
@@ -54,9 +54,9 @@ const Home = () => {
       route: "/",
     },
     {
-      title: t('updateTitle2'),
+      title: t('updateTitle'),
       route: "/",
-    },
+    }
   ];
 
   return (
