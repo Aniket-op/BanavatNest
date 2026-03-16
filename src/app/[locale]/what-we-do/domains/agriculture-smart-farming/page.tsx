@@ -41,17 +41,27 @@ export default function AgricultureSmartFarmingPage() {
                                 summary="We apply advanced technologies to agriculture through data analytics, IoT-based monitoring, and AI-driven decision support systems. Our work aims to enhance productivity, optimize resource usage, and promote sustainable and precision farming practices."
                                 accentColor="#84cc16"
                             >
-                                <p>
-                                    Agriculture remains one of the most important sectors for economic stability and food security. At BanavatNest, we focus on developing technology-driven solutions that address challenges at the root level of agricultural practices. Our goal is to identify real problems faced by farmers, agricultural enterprises, and related industries, and explore practical ways to solve them through research, engineering, and technological innovation.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Technology-Driven Agriculture</h3>
+                                        <p>BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation.</p>
+                                    </div>
 
-                                <p>
-                                    A major focus of our work is to develop cost-effective and practical solutions that can improve productivity, efficiency, and safety in agricultural operations. In many agricultural environments, certain tasks require continuous human involvement in conditions that may be physically demanding, risky, or inefficient. Through our research and prototyping efforts, we aim to design systems and devices that can reduce unnecessary human intervention, especially in situations where direct human involvement may expose individuals to hazards or operational difficulties.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Smart Monitoring & Automation</h3>
+                                        <p>We integrate IoT-based sensors, monitoring systems, and automation tools to support modern farming environments. These technologies enable real-time data collection and intelligent farm management.</p>
+                                    </div>
 
-                                <p>
-                                    Our work in this domain often integrates smart technologies, including sensor-based monitoring, automation, Internet of Things (IoT) systems, and data-driven decision support tools. These technologies help in improving operational efficiency, enabling remote monitoring, and supporting more informed decision-making in farming activities. By combining technological innovation with practical agricultural needs, BanavatNest aims to contribute toward the development of smart farming practices that are accessible, efficient, and scalable. Our objective is not only to enhance productivity but also to support sustainable agricultural practices through intelligent and affordable technological solutions.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Decision Support</h3>
+                                        <p>Using AI/ML and data analytics, we develop systems that assist farmers and agricultural enterprises in making informed decisions. These solutions help optimize resource usage and improve crop management strategies.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Sustainable & Scalable Farming Solutions</h3>
+                                        <p>Our innovations aim to reduce unnecessary human intervention while improving safety and efficiency. BanavatNest promotes smart farming practices that are practical, affordable, and environmentally sustainable.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

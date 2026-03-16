@@ -41,21 +41,27 @@ export default function ResearchAndDevelopmentPage() {
                                 summary="BanavatNest emphasizes research-driven innovation by addressing real-world problems through systematic investigation, analytical modeling, and experimental validation. Our R&D activities focus on developing scalable, reliable, and application-oriented solutions."
                                 accentColor="#3b82f6"
                             >
-                                <p>
-                                    At BanavatNest, research is not limited to theory. It is centered on solving real problems faced by industries, businesses, and society. Our Research & Development activities focus on identifying practical challenges from industry and product-specific needs, and then exploring how those challenges can be addressed through systematic investigation, design, experimentation, and innovation.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Research-Driven Innovation</h3>
+                                        <p>BanavatNest focuses on research-driven innovation by addressing real-world challenges through systematic investigation, analytical modeling, and experimental validation. Our goal is to develop scalable, reliable, and application-oriented solutions.</p>
+                                    </div>
 
-                                <p>
-                                    We follow a problem-driven approach. Rather than developing technology first and then searching for an application, we begin with the actual problem. We study the need carefully, examine the limitations in the present system, and identify where improvement is required. In many situations, the challenge may not lie in the entire product but in a specific part, process, or component. Therefore, our research often focuses on improving or redesigning a single component that can make the complete system more effective, efficient, reliable, or intelligent.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Problem-First Approach</h3>
+                                        <p>Our R&D begins with identifying real problems faced by industry and society. Instead of building technology first, we carefully study existing limitations and redesign components, processes, or systems to create practical improvements.</p>
+                                    </div>
 
-                                <p>
-                                    Our work spans multiple domains where practical innovation can create meaningful impact. These include healthcare, agriculture, cybersecurity, IoT-enabled systems, and AI/ML-driven analytics. In healthcare, we explore solutions that can support improved monitoring, diagnosis, analysis, and intelligent assistance. In agriculture, we work on smart and application-oriented technologies that can improve productivity, automation, and sustainability. In cybersecurity and IoT, we investigate secure, connected, and intelligent systems that can address present-day digital and industrial challenges. Alongside these areas, we use Artificial Intelligence (AI) and Machine Learning (ML) tools and techniques to study data, detect patterns, support decision-making, and build practical analytical solutions.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Multidisciplinary Technology Development</h3>
+                                        <p>Our work spans domains such as healthcare, agriculture, cybersecurity, IoT, and AI/ML-driven analytics. We develop intelligent solutions that enable data-driven insights, automation, secure systems, and technology-enabled decision support.</p>
+                                    </div>
 
-                                <p>
-                                    At present, we are actively working on eight problem statements, distributed equally across four broad areas: software development, healthcare, agriculture, and IoT. This includes two ongoing problems in each of these domains. Each problem is being explored with the aim of developing practical outcomes that can eventually be translated into scalable products, processes, or services.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Ongoing Research Programs</h3>
+                                        <p>Currently, BanavatNest is working on eight active problem statements across software development, healthcare, agriculture, and IoT. Each project aims to translate research outcomes into scalable products, services, or deployable technologies.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

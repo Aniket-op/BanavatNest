@@ -41,17 +41,27 @@ export default function AiMlDataSciencePage() {
                                 summary="We develop data-driven models and intelligent algorithms for prediction, optimization, and decision support. Our work focuses on applying AI and ML techniques to solve complex problems across engineering, healthcare, and societal applications."
                                 accentColor="#84CC16"
                             >
-                                <p>
-                                    Artificial Intelligence (AI), Machine Learning (ML), and Data Science form the technological backbone of many of the solutions developed at BanavatNest. These domains act as a common platform that supports innovation across multiple sectors including agriculture, healthcare, cybersecurity, IoT-enabled systems, and software development.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Intelligence</h3>
+                                        <p>BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications.</p>
+                                    </div>
 
-                                <p>
-                                    Through AI and ML techniques, we analyze complex datasets, identify hidden patterns, develop predictive models, and design intelligent systems that can assist in decision-making and automation. Data science enables us to transform raw data collected from sensors, digital platforms, and operational systems into meaningful insights that can guide technological solutions.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Core Technology Platform</h3>
+                                        <p>Artificial Intelligence, Machine Learning, and Data Science form the technological backbone of our innovation ecosystem. These domains support solutions across healthcare, agriculture, cybersecurity, IoT systems, and software development.</p>
+                                    </div>
 
-                                <p>
-                                    Across our projects, these technologies play a central role in enabling intelligent monitoring, anomaly detection, predictive analysis, and optimization of systems. Whether it is analyzing agricultural data, supporting healthcare monitoring systems, strengthening cybersecurity frameworks, or enabling smart IoT environments, AI and ML provide the analytical capability required to develop effective solutions.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Advanced Data Analysis</h3>
+                                        <p>Through AI and ML techniques, we analyze large datasets, detect patterns, and develop predictive models. Data science enables us to convert sensor data and digital information into meaningful insights.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Intelligent Systems & Automation</h3>
+                                        <p>These technologies enable intelligent monitoring, anomaly detection, predictive analysis, and system optimization. AI-driven analytics strengthen decision-making across smart systems and data-intensive applications.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

@@ -41,17 +41,27 @@ export default function CybersecurityIotBlockchainPage() {
                                 summary="We design secure, scalable, and trustworthy systems for connected environments. Our research addresses network security, secure IoT architectures, data privacy, and blockchain-based solutions for transparency, authentication, and decentralized applications."
                                 accentColor="#22c55e"
                             >
-                                <p>
-                                    Modern digital infrastructure increasingly depends on interconnected devices, data exchange, and intelligent systems. At BanavatNest, we explore technological solutions in the areas of Cybersecurity, Internet of Things (IoT), and Blockchain to support secure, reliable, and efficient digital ecosystems. The rapid growth of IoT systems has enabled smart environments where devices, sensors, and platforms continuously collect and exchange information. While these connected systems offer significant advantages in automation and monitoring, they also introduce challenges related to data security, system integrity, and privacy. Our research focuses on developing secure IoT frameworks, intelligent monitoring mechanisms, and reliable communication architectures that can support large-scale connected systems.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Secure Connected Systems</h3>
+                                        <p>BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely.</p>
+                                    </div>
 
-                                <p>
-                                    Cybersecurity is a critical component of these digital infrastructures. We investigate methods for detecting vulnerabilities, identifying anomalies, and protecting networks and digital platforms from potential threats. Using analytical techniques and AI/ML-based approaches, we explore ways to strengthen security mechanisms and improve the resilience of digital systems.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• IoT-Based Intelligent Environments</h3>
+                                        <p>We explore IoT-enabled systems that integrate sensors, devices, and data platforms for smart monitoring and automation. Our research focuses on designing secure frameworks for large-scale connected infrastructures.</p>
+                                    </div>
 
-                                <p>
-                                    In addition, we study the use of blockchain technologies for building transparent, decentralized, and tamper-resistant systems. Blockchain-based architectures can provide secure data sharing, trusted digital records, and improved system accountability across various applications.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Cybersecurity & Threat Detection</h3>
+                                        <p>Our research investigates network security, vulnerability detection, and anomaly identification in digital systems. Using analytical and AI/ML-based approaches, we aim to strengthen security and system resilience.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Blockchain for Trust & Transparency</h3>
+                                        <p>We study blockchain technologies to develop decentralized and tamper-resistant systems. These solutions enable secure data sharing, trusted digital records, and transparent digital transactions.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

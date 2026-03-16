@@ -41,17 +41,27 @@ export default function SmartSystemsHealthcareSustainabilityPage() {
                                 summary="We work on intelligent and sustainable systems that integrate sensing, analytics, and automation. Our focus includes smart healthcare solutions, resource-efficient technologies, and sustainability-driven innovations for improved quality of life."
                                 accentColor="#14b8a6"
                             >
-                                <p>
-                                    At BanavatNest, we recognize that data plays a critical role in the development of modern smart systems. Whether it is data collection, analysis, or prediction, information derived from real-world environments helps in understanding complex systems and making informed decisions. In this domain, we explore solutions that integrate sensor-based technologies, data analytics, and Artificial Intelligence/Machine Learning (AI/ML) to develop intelligent and responsive systems.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Intelligent Sensor-Based Systems</h3>
+                                        <p>BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support.</p>
+                                    </div>
 
-                                <p>
-                                    Our work focuses on designing smart monitoring and decision-support systems that can collect data from physical environments using sensors and connected devices. The collected data is then analyzed using advanced analytical techniques and AI/ML models to extract meaningful insights, detect patterns, and generate predictive outcomes. In the healthcare sector, such approaches can assist in monitoring health conditions, supporting diagnostic processes, and enabling early detection of potential risks. In broader sustainability applications, smart sensing and intelligent analytics can help optimize resource usage, improve system efficiency, and support environmentally responsible practices.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Healthcare Solutions</h3>
+                                        <p>In healthcare, we explore sensor-enabled monitoring and AI/ML-based analytics to support diagnosis and health assessment. These technologies assist in early detection, continuous monitoring, and improved healthcare decision-making.</p>
+                                    </div>
 
-                                <p>
-                                    By combining sensor technologies with data-driven intelligence, BanavatNest aims to build systems that are not only technologically advanced but also practical and sustainable. Our objective is to create solutions that improve monitoring, enhance decision-making, and contribute toward safer, healthier, and more sustainable environments.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Sustainable Technology Development</h3>
+                                        <p>Our work focuses on designing technologies that optimize resource usage and improve operational efficiency. Smart sensing and analytics help create solutions that support sustainability and responsible system management.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data, Analytics & Predictive Intelligence</h3>
+                                        <p>By combining sensor technologies with data-driven analytics, we develop systems capable of detecting patterns and generating predictive insights. These intelligent systems contribute to safer, healthier, and more sustainable environments.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

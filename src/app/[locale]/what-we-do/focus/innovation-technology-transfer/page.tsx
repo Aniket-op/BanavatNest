@@ -41,25 +41,27 @@ export default function InnovationAndTechnologyTransferPage() {
                                 summary="We support the transformation of research outputs into deployable technologies through structured innovation processes. Our focus includes intellectual property development, proof-of-concept validation, and facilitating technology transfer to industry partners."
                                 accentColor="#f59e0b"
                             >
-                                <p>
-                                    At BanavatNest, innovation is encouraged not only within the organization but also across the broader academic ecosystem. We welcome students, faculty members, and researchers from academic institutions who identify meaningful problems and wish to explore solutions through research and technological development.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Enabling Research-Based Innovation</h3>
+                                        <p>BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies.</p>
+                                    </div>
 
-                                <p>
-                                    Researchers and innovators are encouraged to bring forward their ideas or identified challenges and work toward developing solutions through systematic investigation and experimentation. When such efforts lead to promising innovations, BanavatNest provides a supportive platform for prototype development, allowing these ideas to evolve into functional proof-of-concept systems.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Open Innovation Ecosystem</h3>
+                                        <p>Students, faculty members, and researchers are encouraged to bring forward ideas and identified challenges. BanavatNest provides a collaborative platform where these ideas can be explored through research and technological development.</p>
+                                    </div>
 
-                                <p>
-                                    Beyond prototype development, BanavatNest also supports innovators in pursuing intellectual property protection, including patent filing and documentation where appropriate. In this process, BanavatNest acts as a facilitating platform and a stakeholder in the resulting technology, helping guide the innovation through the stages of development, validation, and protection.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Intellectual Property Development</h3>
+                                        <p>Promising innovations are supported through intellectual property development, including patent documentation and protection where appropriate. BanavatNest acts as a facilitating platform and stakeholder in the resulting technology.</p>
+                                    </div>
 
-                                <p>
-                                    Once a technology reaches a suitable level of maturity, we further explore possibilities for commercialization or technology transfer. This may involve refining the prototype, conducting additional testing, or collaborating with relevant industry partners who have the capability to manufacture, deploy, or scale the technology in real-world environments.
-                                </p>
-
-                                <p>
-                                    Through this framework, BanavatNest aims to create a pathway where academic ideas can evolve into practical technologies. By supporting innovation, protecting intellectual property, and connecting innovators with industry, we seek to ensure that promising research outcomes move beyond laboratories and contribute to real-world applications and societal impact.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Technology Transfer & Commercialization</h3>
+                                        <p>Once technologies reach sufficient maturity, we explore commercialization and industry collaboration. This includes prototype refinement, testing, and transferring technologies to partners capable of scaling and deployment.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

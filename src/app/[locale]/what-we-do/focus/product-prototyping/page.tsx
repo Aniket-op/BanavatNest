@@ -41,17 +41,27 @@ export default function ProductPrototypingPage() {
                                 summary="We translate research ideas into functional prototypes by integrating design, engineering, and testing. Our prototyping efforts aim to validate feasibility, performance, and usability before large-scale deployment or commercialization."
                                 accentColor="#84CC16"
                             >
-                                <p>
-                                    At BanavatNest, product prototyping plays an important role in transforming research ideas into practical and usable technologies. Our prototyping activities span across the same domains in which we conduct research, including healthcare, agriculture, cybersecurity, IoT-enabled systems, software development, and AI/ML-driven analytics.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• From Idea to Prototype</h3>
+                                        <p>BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance.</p>
+                                    </div>
 
-                                <p>
-                                    We develop prototypes through two primary pathways. Some prototypes are developed in response to specific requirements from industry partners, where organizations approach us with a problem or product idea that requires technical exploration or proof-of-concept development. In other cases, prototypes emerge from innovative ideas identified by students, faculty members, and researchers who are part of the BanavatNest innovation ecosystem. These ideas are evaluated for their feasibility, relevance, and potential impact before moving into the prototype development stage.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Industry & Innovation Pathways</h3>
+                                        <p>Prototypes are developed either through industry collaborations or innovative ideas proposed by students, faculty, and researchers. Each concept is evaluated for feasibility, relevance, and potential impact.</p>
+                                    </div>
 
-                                <p>
-                                    Our goal in prototyping is to build a functional proof-of-concept that demonstrates how a particular technology or idea can work in practice. This stage allows us to test design assumptions, evaluate performance, identify limitations, and refine the system before considering larger-scale development. Once a prototype is successfully developed, we explore possibilities for its commercialization. Depending on the nature of the technology, this may involve further product refinement, field testing, or collaboration with relevant industry partners who have the capability to scale and deploy the solution. In many cases, BanavatNest works closely with industry stakeholders to jointly explore pathways for transforming prototypes into market-ready products.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Proof-of-Concept Development</h3>
+                                        <p>Our prototyping stage focuses on building working models that demonstrate how a technology performs in real conditions. This allows us to test assumptions, evaluate limitations, and refine system design.</p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Towards Commercialization</h3>
+                                        <p>Once prototypes are validated, we explore product refinement, field testing, and industry partnerships. Our goal is to convert prototypes into scalable and market-ready technologies.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 

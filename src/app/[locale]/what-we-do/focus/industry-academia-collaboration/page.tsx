@@ -41,25 +41,27 @@ export default function IndustryAcademiaCollaborationPage() {
                                 summary="BanavatNest actively bridges the gap between academia and industry by enabling collaborative research, student-driven projects, and faculty-led innovation. This collaboration ensures knowledge transfer, skill development, and industry-relevant outcomes."
                                 accentColor="#a855f7"
                             >
-                                <p>
-                                    At BanavatNest, we actively work to bridge the gap between academia and industry. We believe that meaningful innovation often emerges when practical experience from industry is combined with strong scientific and technical foundations from academia. Industry professionals deal with real-world operational challenges, while academic researchers bring analytical thinking, fundamental knowledge, and systematic problem-solving approaches. Bringing these two perspectives together creates a powerful environment for innovation.
-                                </p>
+                                <div className="space-y-8">
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Bridging Research and Practice</h3>
+                                        <p>BanavatNest bridges the gap between academia and industry by combining scientific research with real-world industrial experience. This collaboration enables practical innovation and technology-driven problem solving.</p>
+                                    </div>
 
-                                <p>
-                                    Industry partners are encouraged to share the challenges, ideas, and technical problems they encounter in their day-to-day operations. Once a problem is identified, our team follows a divide-and-module approach, where complex challenges are carefully analyzed and broken down into smaller, manageable components. In this process, we often reshape or abstract the original problem so that it can be studied scientifically while still respecting the confidentiality, operational constraints, and domain sensitivities of our industry partners.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Industry Problem Integration</h3>
+                                        <p>Industry partners share operational challenges, product ideas, or technical problems. Our team analyzes these challenges and breaks them into manageable research modules for systematic investigation and solution development.</p>
+                                    </div>
 
-                                <p>
-                                    Each sub-component of the problem is then explored through research, experimentation, and technological development. Our researchers investigate possible solutions, test concepts, and develop models or prototype components that address the individual parts of the larger challenge. Once promising solutions are identified, the findings and developed modules are shared back with the industry partner for further discussion, validation, and potential implementation.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Collaborative Research Ecosystem</h3>
+                                        <p>Students, faculty members, and researchers work together on industry-relevant problems through research, experimentation, and technological development. This process strengthens both academic learning and practical experience.</p>
+                                    </div>
 
-                                <p>
-                                    This collaborative framework creates a mutually beneficial ecosystem. Students, faculty members, and researchers associated with BanavatNest gain the opportunity to work on real-world industrial problems, allowing them to complement their theoretical understanding with hands-on experience. At the same time, industry partners benefit from fresh perspectives, analytical insights, and innovative technological solutions developed through academic research.
-                                </p>
-
-                                <p>
-                                    Through such collaborations, BanavatNest aims to create a dynamic platform where knowledge, practical experience, and innovation intersect, enabling both academia and industry to jointly explore new possibilities and develop solutions that address real challenges.
-                                </p>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Mutual Innovation Platform</h3>
+                                        <p>Industry partners benefit from analytical insights and innovative solutions, while academia gains exposure to real-world challenges. BanavatNest creates a platform where knowledge, experience, and innovation intersect.</p>
+                                    </div>
+                                </div>
                             </ReadMoreContent>
                         </div>
 
