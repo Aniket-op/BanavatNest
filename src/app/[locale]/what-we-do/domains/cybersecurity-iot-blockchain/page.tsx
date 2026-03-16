@@ -5,6 +5,7 @@ import { GlobeLock, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
+import ReadMoreContent from '@/components/ReadMoreContent';
 
 export default function CybersecurityIotBlockchainPage() {
     return (
@@ -36,11 +37,10 @@ export default function CybersecurityIotBlockchainPage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                                    We design secure, scalable, and trustworthy systems for connected environments. Our research addresses network security, secure IoT architectures, data privacy, and blockchain-based solutions for transparency, authentication, and decentralized applications.
-                                </p>
-
+                            <ReadMoreContent
+                                summary="We design secure, scalable, and trustworthy systems for connected environments. Our research addresses network security, secure IoT architectures, data privacy, and blockchain-based solutions for transparency, authentication, and decentralized applications."
+                                accentColor="#22c55e"
+                            >
                                 <p>
                                     Modern digital infrastructure increasingly depends on interconnected devices, data exchange, and intelligent systems. At BanavatNest, we explore technological solutions in the areas of Cybersecurity, Internet of Things (IoT), and Blockchain to support secure, reliable, and efficient digital ecosystems. The rapid growth of IoT systems has enabled smart environments where devices, sensors, and platforms continuously collect and exchange information. While these connected systems offer significant advantages in automation and monitoring, they also introduce challenges related to data security, system integrity, and privacy. Our research focuses on developing secure IoT frameworks, intelligent monitoring mechanisms, and reliable communication architectures that can support large-scale connected systems.
                                 </p>
@@ -52,7 +52,7 @@ export default function CybersecurityIotBlockchainPage() {
                                 <p>
                                     In addition, we study the use of blockchain technologies for building transparent, decentralized, and tamper-resistant systems. Blockchain-based architectures can provide secure data sharing, trusted digital records, and improved system accountability across various applications.
                                 </p>
-                            </div>
+                            </ReadMoreContent>
                         </div>
 
                         {/* Image Section */}

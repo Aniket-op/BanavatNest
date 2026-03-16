@@ -5,6 +5,7 @@ import { Tractor, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
+import ReadMoreContent from '@/components/ReadMoreContent';
 
 export default function AgricultureSmartFarmingPage() {
     return (
@@ -36,11 +37,10 @@ export default function AgricultureSmartFarmingPage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                                    We apply advanced technologies to agriculture through data analytics, IoT-based monitoring, and AI-driven decision support systems. Our work aims to enhance productivity, optimize resource usage, and promote sustainable and precision farming practices.
-                                </p>
-
+                            <ReadMoreContent
+                                summary="We apply advanced technologies to agriculture through data analytics, IoT-based monitoring, and AI-driven decision support systems. Our work aims to enhance productivity, optimize resource usage, and promote sustainable and precision farming practices."
+                                accentColor="#84cc16"
+                            >
                                 <p>
                                     Agriculture remains one of the most important sectors for economic stability and food security. At BanavatNest, we focus on developing technology-driven solutions that address challenges at the root level of agricultural practices. Our goal is to identify real problems faced by farmers, agricultural enterprises, and related industries, and explore practical ways to solve them through research, engineering, and technological innovation.
                                 </p>
@@ -52,7 +52,7 @@ export default function AgricultureSmartFarmingPage() {
                                 <p>
                                     Our work in this domain often integrates smart technologies, including sensor-based monitoring, automation, Internet of Things (IoT) systems, and data-driven decision support tools. These technologies help in improving operational efficiency, enabling remote monitoring, and supporting more informed decision-making in farming activities. By combining technological innovation with practical agricultural needs, BanavatNest aims to contribute toward the development of smart farming practices that are accessible, efficient, and scalable. Our objective is not only to enhance productivity but also to support sustainable agricultural practices through intelligent and affordable technological solutions.
                                 </p>
-                            </div>
+                            </ReadMoreContent>
                         </div>
 
                         {/* Image Section */}

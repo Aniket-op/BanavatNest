@@ -6,16 +6,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://banavatnest.com";
 
     const pages = [
-        { path: "", changeFrequency: "daily" as const, priority: 1 },
+        { path: "", changeFrequency: "daily" as const, priority: 1.0 },
         // About
         { path: "/about/name", changeFrequency: "weekly" as const, priority: 0.8 },
         { path: "/about/philosophy", changeFrequency: "weekly" as const, priority: 0.8 },
         { path: "/about/mission", changeFrequency: "weekly" as const, priority: 0.8 },
         { path: "/about/team", changeFrequency: "monthly" as const, priority: 0.7 },
         { path: "/about/board", changeFrequency: "monthly" as const, priority: 0.7 },
-        // What We Do
+        // What We Do - Focus Areas
         { path: "/what-we-do/focus", changeFrequency: "weekly" as const, priority: 0.9 },
+        { path: "/what-we-do/focus/research-and-development", changeFrequency: "weekly" as const, priority: 0.8 },
+        { path: "/what-we-do/focus/product-prototyping", changeFrequency: "weekly" as const, priority: 0.8 },
+        { path: "/what-we-do/focus/industry-academia-collaboration", changeFrequency: "weekly" as const, priority: 0.8 },
+        { path: "/what-we-do/focus/innovation-technology-transfer", changeFrequency: "weekly" as const, priority: 0.8 },
+        // What We Do - Domains
         { path: "/what-we-do/domains", changeFrequency: "weekly" as const, priority: 0.9 },
+        { path: "/what-we-do/domains/ai-ml-data-science", changeFrequency: "weekly" as const, priority: 0.8 },
+        { path: "/what-we-do/domains/cybersecurity-iot-blockchain", changeFrequency: "weekly" as const, priority: 0.8 },
+        { path: "/what-we-do/domains/smart-systems-healthcare-sustainability", changeFrequency: "weekly" as const, priority: 0.8 },
+        { path: "/what-we-do/domains/agriculture-smart-farming", changeFrequency: "weekly" as const, priority: 0.8 },
         // Bridge
         { path: "/bridge/collaboration", changeFrequency: "weekly" as const, priority: 0.9 },
         { path: "/bridge/opportunities", changeFrequency: "weekly" as const, priority: 0.8 },

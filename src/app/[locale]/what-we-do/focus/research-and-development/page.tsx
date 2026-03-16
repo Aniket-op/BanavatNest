@@ -5,6 +5,7 @@ import { Microscope, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
+import ReadMoreContent from '@/components/ReadMoreContent';
 
 export default function ResearchAndDevelopmentPage() {
     return (
@@ -36,19 +37,18 @@ export default function ResearchAndDevelopmentPage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                                    BanavatNest emphasizes research-driven innovation by addressing real-world problems through systematic investigation, analytical modeling, and experimental validation. Our R&D activities focus on developing scalable, reliable, and application-oriented solutions.
-                                </p>
-                                
+                            <ReadMoreContent
+                                summary="BanavatNest emphasizes research-driven innovation by addressing real-world problems through systematic investigation, analytical modeling, and experimental validation. Our R&D activities focus on developing scalable, reliable, and application-oriented solutions."
+                                accentColor="#3b82f6"
+                            >
                                 <p>
                                     At BanavatNest, research is not limited to theory. It is centered on solving real problems faced by industries, businesses, and society. Our Research & Development activities focus on identifying practical challenges from industry and product-specific needs, and then exploring how those challenges can be addressed through systematic investigation, design, experimentation, and innovation.
                                 </p>
-                                
+
                                 <p>
                                     We follow a problem-driven approach. Rather than developing technology first and then searching for an application, we begin with the actual problem. We study the need carefully, examine the limitations in the present system, and identify where improvement is required. In many situations, the challenge may not lie in the entire product but in a specific part, process, or component. Therefore, our research often focuses on improving or redesigning a single component that can make the complete system more effective, efficient, reliable, or intelligent.
                                 </p>
-                                
+
                                 <p>
                                     Our work spans multiple domains where practical innovation can create meaningful impact. These include healthcare, agriculture, cybersecurity, IoT-enabled systems, and AI/ML-driven analytics. In healthcare, we explore solutions that can support improved monitoring, diagnosis, analysis, and intelligent assistance. In agriculture, we work on smart and application-oriented technologies that can improve productivity, automation, and sustainability. In cybersecurity and IoT, we investigate secure, connected, and intelligent systems that can address present-day digital and industrial challenges. Alongside these areas, we use Artificial Intelligence (AI) and Machine Learning (ML) tools and techniques to study data, detect patterns, support decision-making, and build practical analytical solutions.
                                 </p>
@@ -56,7 +56,7 @@ export default function ResearchAndDevelopmentPage() {
                                 <p>
                                     At present, we are actively working on eight problem statements, distributed equally across four broad areas: software development, healthcare, agriculture, and IoT. This includes two ongoing problems in each of these domains. Each problem is being explored with the aim of developing practical outcomes that can eventually be translated into scalable products, processes, or services.
                                 </p>
-                            </div>
+                            </ReadMoreContent>
                         </div>
 
                         {/* Image Section */}

@@ -5,6 +5,7 @@ import { Zap, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
+import ReadMoreContent from '@/components/ReadMoreContent';
 
 export default function InnovationAndTechnologyTransferPage() {
     return (
@@ -24,7 +25,6 @@ export default function InnovationAndTechnologyTransferPage() {
                     >
                         {/* Text Content */}
                         <div className="order-2 lg:order-1">
-                            {/* Header */}
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
                                 <div className="w-20 h-20 rounded-3xl flex items-center justify-center bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm shrink-0">
                                     <Zap className="w-10 h-10 text-amber-500" />
@@ -37,12 +37,10 @@ export default function InnovationAndTechnologyTransferPage() {
                                 </div>
                             </div>
 
-                            {/* Content */}
-                            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200 mb-8">
-                                    We support the transformation of research outputs into deployable technologies through structured innovation processes. Our focus includes intellectual property development, proof-of-concept validation, and facilitating technology transfer to industry partners.
-                                </p>
-
+                            <ReadMoreContent
+                                summary="We support the transformation of research outputs into deployable technologies through structured innovation processes. Our focus includes intellectual property development, proof-of-concept validation, and facilitating technology transfer to industry partners."
+                                accentColor="#f59e0b"
+                            >
                                 <p>
                                     At BanavatNest, innovation is encouraged not only within the organization but also across the broader academic ecosystem. We welcome students, faculty members, and researchers from academic institutions who identify meaningful problems and wish to explore solutions through research and technological development.
                                 </p>
@@ -62,7 +60,7 @@ export default function InnovationAndTechnologyTransferPage() {
                                 <p>
                                     Through this framework, BanavatNest aims to create a pathway where academic ideas can evolve into practical technologies. By supporting innovation, protecting intellectual property, and connecting innovators with industry, we seek to ensure that promising research outcomes move beyond laboratories and contribute to real-world applications and societal impact.
                                 </p>
-                            </div>
+                            </ReadMoreContent>
                         </div>
 
                         {/* Image Section */}

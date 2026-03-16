@@ -5,6 +5,7 @@ import { Cpu, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
+import ReadMoreContent from '@/components/ReadMoreContent';
 
 export default function SmartSystemsHealthcareSustainabilityPage() {
     return (
@@ -36,11 +37,10 @@ export default function SmartSystemsHealthcareSustainabilityPage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                                    We work on intelligent and sustainable systems that integrate sensing, analytics, and automation. Our focus includes smart healthcare solutions, resource-efficient technologies, and sustainability-driven innovations for improved quality of life.
-                                </p>
-
+                            <ReadMoreContent
+                                summary="We work on intelligent and sustainable systems that integrate sensing, analytics, and automation. Our focus includes smart healthcare solutions, resource-efficient technologies, and sustainability-driven innovations for improved quality of life."
+                                accentColor="#14b8a6"
+                            >
                                 <p>
                                     At BanavatNest, we recognize that data plays a critical role in the development of modern smart systems. Whether it is data collection, analysis, or prediction, information derived from real-world environments helps in understanding complex systems and making informed decisions. In this domain, we explore solutions that integrate sensor-based technologies, data analytics, and Artificial Intelligence/Machine Learning (AI/ML) to develop intelligent and responsive systems.
                                 </p>
@@ -52,7 +52,7 @@ export default function SmartSystemsHealthcareSustainabilityPage() {
                                 <p>
                                     By combining sensor technologies with data-driven intelligence, BanavatNest aims to build systems that are not only technologically advanced but also practical and sustainable. Our objective is to create solutions that improve monitoring, enhance decision-making, and contribute toward safer, healthier, and more sustainable environments.
                                 </p>
-                            </div>
+                            </ReadMoreContent>
                         </div>
 
                         {/* Image Section */}

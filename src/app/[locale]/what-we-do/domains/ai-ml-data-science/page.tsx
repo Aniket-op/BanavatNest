@@ -5,6 +5,7 @@ import { BrainCircuit, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
+import ReadMoreContent from '@/components/ReadMoreContent';
 
 export default function AiMlDataSciencePage() {
     return (
@@ -36,11 +37,10 @@ export default function AiMlDataSciencePage() {
                                 </div>
                             </div>
 
-                            <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                                    We develop data-driven models and intelligent algorithms for prediction, optimization, and decision support. Our work focuses on applying AI and ML techniques to solve complex problems across engineering, healthcare, and societal applications.
-                                </p>
-
+                            <ReadMoreContent
+                                summary="We develop data-driven models and intelligent algorithms for prediction, optimization, and decision support. Our work focuses on applying AI and ML techniques to solve complex problems across engineering, healthcare, and societal applications."
+                                accentColor="#84CC16"
+                            >
                                 <p>
                                     Artificial Intelligence (AI), Machine Learning (ML), and Data Science form the technological backbone of many of the solutions developed at BanavatNest. These domains act as a common platform that supports innovation across multiple sectors including agriculture, healthcare, cybersecurity, IoT-enabled systems, and software development.
                                 </p>
@@ -52,7 +52,7 @@ export default function AiMlDataSciencePage() {
                                 <p>
                                     Across our projects, these technologies play a central role in enabling intelligent monitoring, anomaly detection, predictive analysis, and optimization of systems. Whether it is analyzing agricultural data, supporting healthcare monitoring systems, strengthening cybersecurity frameworks, or enabling smart IoT environments, AI and ML provide the analytical capability required to develop effective solutions.
                                 </p>
-                            </div>
+                            </ReadMoreContent>
                         </div>
 
                         {/* Image Section */}
