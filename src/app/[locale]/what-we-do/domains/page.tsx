@@ -5,6 +5,7 @@ import { BrainCircuit, GlobeLock, Cpu, Tractor } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import ImageCarousel from '@/components/ImageCarousel';
 import PageWrapper from '@/components/PageWrapper';
+import { Link } from '@/i18n/navigation';
 
 interface DomainItem {
     title: string;
@@ -14,6 +15,7 @@ interface DomainItem {
     accent: string;
     border: string;
     images: string[];
+    href: string;
 }
 
 interface DomainCardProps {
@@ -23,6 +25,7 @@ interface DomainCardProps {
 
 const DomainCard: React.FC<DomainCardProps> = ({ domain, index }) => {
     return (
+        <Link href={domain.href}>
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,6 +75,7 @@ const DomainCard: React.FC<DomainCardProps> = ({ domain, index }) => {
             `} />
 
         </motion.div>
+        </Link>
     );
 };
 
@@ -86,7 +90,8 @@ export default function DomainsPage() {
             color: 'bg-[#84CC16]',
             accent: 'text-[#84CC16]',
             border: 'hover:border-[#84CC16]/50',
-            images: ['/images/homepage/Ai.jpg']
+            images: ['/images/homepage/Ai.jpg'],
+            href: '/what-we-do/domains/ai-ml-data-science'
         },
         {
             title: t('cyberTitle'),
@@ -95,7 +100,8 @@ export default function DomainsPage() {
             color: 'bg-green-500',
             accent: 'text-green-500',
             border: 'hover:border-green-500/50',
-            images: ['/images/homepage/cyberSecure.jpg']
+            images: ['/images/homepage/cyberSecure.jpg'],
+            href: '/what-we-do/domains/cybersecurity-iot-blockchain'
         },
         {
             title: t('smartTitle'),
@@ -104,7 +110,8 @@ export default function DomainsPage() {
             color: 'bg-teal-500',
             accent: 'text-teal-500',
             border: 'hover:border-teal-500/50',
-            images: ['/images/homepage/smart.jpg']
+            images: ['/images/homepage/smartHeath.png'],
+            href: '/what-we-do/domains/smart-systems-healthcare-sustainability'
         },
         {
             title: t('agriTitle'),
@@ -113,21 +120,14 @@ export default function DomainsPage() {
             color: 'bg-lime-500',
             accent: 'text-lime-500',
             border: 'hover:border-lime-500/50',
-            images: ['/images/homepage/agriculture.jpg']
+            images: ['/images/homepage/Prototype-image.png'],
+            href: '/what-we-do/domains/agriculture-smart-farming'
         }
     ];
 
     return (
         <PageWrapper>
-            <section className="relative bg-white dark:bg-[#09090b] py-24 lg:py-32 overflow-hidden transition-colors duration-500">
-
-                {/* Subtle Grid Background */}
-                <div className="absolute inset-0 pointer-events-none 
-                    bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)]
-                    bg-[size:24px_24px]
-                    [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-                />
-
+            <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 overflow-hidden transition-colors duration-500">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
 
                     {/* Header */}
