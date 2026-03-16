@@ -5,6 +5,7 @@ import { Microscope, Code2, Users2, Zap } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import ImageCarousel from '@/components/ImageCarousel';
 import PageWrapper from '@/components/PageWrapper';
+import { Link } from '@/i18n/navigation';
 
 interface FocusAreaItem {
     title: string;
@@ -14,6 +15,7 @@ interface FocusAreaItem {
     accent: string;
     border: string;
     images: string[];
+    href: string;
 }
 
 interface FocusAreaCardProps {
@@ -23,8 +25,9 @@ interface FocusAreaCardProps {
 
 const FocusAreaCard: React.FC<FocusAreaCardProps> = ({ area, index }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
+        <Link href={area.href as any} className="block group xl:h-full">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -71,7 +74,8 @@ const FocusAreaCard: React.FC<FocusAreaCardProps> = ({ area, index }) => {
                 group-hover:opacity-10 blur-[80px] transition-opacity duration-500 pointer-events-none
             `} />
 
-        </motion.div>
+            </motion.div>
+        </Link>
     );
 };
 
@@ -86,7 +90,8 @@ export default function FocusAreasPage() {
             color: 'bg-blue-500',
             accent: 'text-blue-500',
             border: 'hover:border-blue-500/50',
-            images: ['/images/homepage/Key-Domains.png']
+            images: ['/images/homepage/Key-Domains.png'],
+            href: '/what-we-do/focus/research-and-development'
         },
         {
             title: t('protoTitle'),
@@ -95,7 +100,8 @@ export default function FocusAreasPage() {
             color: 'bg-[#84CC16]',
             accent: 'text-[#84CC16]',
             border: 'hover:border-[#84CC16]/50',
-            images: ['/images/homepage/Prototype-image.png']
+            images: ['/images/homepage/Prototype-image.png'],
+            href: '/what-we-do/focus/product-prototyping'
         },
         {
             title: t('acadTitle'),
@@ -104,7 +110,8 @@ export default function FocusAreasPage() {
             color: 'bg-purple-500',
             accent: 'text-purple-500',
             border: 'hover:border-purple-500/50',
-            images: ['/images/homepage/Problem-Decomposition.png']
+            images: ['/images/homepage/Problem-Decomposition.png'],
+            href: '/what-we-do/focus/industry-academia-collaboration'
         },
         {
             title: t('techTitle'),
@@ -113,21 +120,14 @@ export default function FocusAreasPage() {
             color: 'bg-amber-500',
             accent: 'text-amber-500',
             border: 'hover:border-amber-500/50',
-            images: ['/images/homepage/Our-Vision.png']
+            images: ['/images/homepage/Our-Vision.png'],
+            href: '/what-we-do/focus/innovation-technology-transfer'
         }
     ];
 
     return (
         <PageWrapper>
-            <section className="relative bg-zinc-50 dark:bg-[#09090b] py-24 lg:py-32 overflow-hidden transition-colors duration-500">
-
-                {/* Subtle Grid Background */}
-                <div className="absolute inset-0 pointer-events-none 
-                    bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)]
-                    bg-[size:24px_24px]
-                    [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-                />
-
+            <section className="relative grid-bg bg-zinc-50 dark:bg-[#09090b] py-24 lg:py-32 overflow-hidden transition-colors duration-500">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
 
                     {/* Header */}

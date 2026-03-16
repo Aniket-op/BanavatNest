@@ -119,15 +119,7 @@ export default function DomainsPage() {
 
     return (
         <PageWrapper>
-            <section className="relative bg-white dark:bg-[#09090b] py-24 lg:py-32 overflow-hidden transition-colors duration-500">
-
-                {/* Subtle Grid Background */}
-                <div className="absolute inset-0 pointer-events-none 
-                    bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)]
-                    bg-[size:24px_24px]
-                    [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-                />
-
+            <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 overflow-hidden transition-colors duration-500">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
 
                     {/* Header */}
