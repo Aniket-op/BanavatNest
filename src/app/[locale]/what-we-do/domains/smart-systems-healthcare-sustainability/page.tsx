@@ -6,15 +6,19 @@ import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import ReadMoreContent from '@/components/ReadMoreContent';
+import { useTranslations } from 'next-intl';
 
 export default function SmartSystemsHealthcareSustainabilityPage() {
+    const t = useTranslations('domainSmartPage');
+    const tNav = useTranslations('readMore');
+
     return (
         <PageWrapper>
             <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 transition-colors duration-500 min-h-screen">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
                     <Link href="/what-we-do/domains" className="inline-flex items-center gap-2 text-zinc-500 hover:text-teal-500 transition-colors mb-12 font-medium">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Domains
+                        {tNav('backToDomains')}
                     </Link>
 
                     <motion.div
@@ -31,31 +35,31 @@ export default function SmartSystemsHealthcareSustainabilityPage() {
                                 </div>
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                        Smart Systems, Healthcare & Sustainability
+                                        {t('pageTitle')}
                                     </h1>
                                     <div className="h-1 w-20 bg-teal-500 rounded-full"></div>
                                 </div>
                             </div>
 
                             <ReadMoreContent
-                                summaryHeading="• Intelligent Sensor-Based Systems"
-                                summaryContent="BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support."
+                                summaryHeading={t('summaryHeading')}
+                                summaryContent={t('summaryContent')}
                                 accentColor="#14b8a6"
                             >
                                 <div className="space-y-8">
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Healthcare Solutions</h3>
-                                        <p>In healthcare, we explore sensor-enabled monitoring and AI/ML-based analytics to support diagnosis and health assessment. These technologies assist in early detection, continuous monitoring, and improved healthcare decision-making.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h2')}</h3>
+                                        <p>{t('p2')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Sustainable Technology Development</h3>
-                                        <p>Our work focuses on designing technologies that optimize resource usage and improve operational efficiency. Smart sensing and analytics help create solutions that support sustainability and responsible system management.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h3')}</h3>
+                                        <p>{t('p3')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data, Analytics & Predictive Intelligence</h3>
-                                        <p>By combining sensor technologies with data-driven analytics, we develop systems capable of detecting patterns and generating predictive insights. These intelligent systems contribute to safer, healthier, and more sustainable environments.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h4')}</h3>
+                                        <p>{t('p4')}</p>
                                     </div>
                                 </div>
                             </ReadMoreContent>

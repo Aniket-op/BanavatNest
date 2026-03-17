@@ -6,15 +6,19 @@ import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import ReadMoreContent from '@/components/ReadMoreContent';
+import { useTranslations } from 'next-intl';
 
 export default function AgricultureSmartFarmingPage() {
+    const t = useTranslations('domainAgriPage');
+    const tNav = useTranslations('readMore');
+
     return (
         <PageWrapper>
             <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 transition-colors duration-500 min-h-screen">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
                     <Link href="/what-we-do/domains" className="inline-flex items-center gap-2 text-zinc-500 hover:text-lime-500 transition-colors mb-12 font-medium">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Domains
+                        {tNav('backToDomains')}
                     </Link>
 
                     <motion.div
@@ -31,31 +35,31 @@ export default function AgricultureSmartFarmingPage() {
                                 </div>
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                        Agriculture & Smart Farming
+                                        {t('pageTitle')}
                                     </h1>
                                     <div className="h-1 w-20 bg-lime-500 rounded-full"></div>
                                 </div>
                             </div>
 
                             <ReadMoreContent
-                                summaryHeading="• Technology-Driven Agriculture"
-                                summaryContent="BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation."
+                                summaryHeading={t('summaryHeading')}
+                                summaryContent={t('summaryContent')}
                                 accentColor="#84cc16"
                             >
                                 <div className="space-y-8">
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Smart Monitoring & Automation</h3>
-                                        <p>We integrate IoT-based sensors, monitoring systems, and automation tools to support modern farming environments. These technologies enable real-time data collection and intelligent farm management.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h2')}</h3>
+                                        <p>{t('p2')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Decision Support</h3>
-                                        <p>Using AI/ML and data analytics, we develop systems that assist farmers and agricultural enterprises in making informed decisions. These solutions help optimize resource usage and improve crop management strategies.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h3')}</h3>
+                                        <p>{t('p3')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Sustainable & Scalable Farming Solutions</h3>
-                                        <p>Our innovations aim to reduce unnecessary human intervention while improving safety and efficiency. BanavatNest promotes smart farming practices that are practical, affordable, and environmentally sustainable.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h4')}</h3>
+                                        <p>{t('p4')}</p>
                                     </div>
                                 </div>
                             </ReadMoreContent>

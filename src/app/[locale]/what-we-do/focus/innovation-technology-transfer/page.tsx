@@ -1,20 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Zap, ArrowLeft } from 'lucide-react';
+import { Lightbulb, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import ReadMoreContent from '@/components/ReadMoreContent';
+import { useTranslations } from 'next-intl';
 
-export default function InnovationAndTechnologyTransferPage() {
+export default function InnovationTechnologyTransferPage() {
+    const t = useTranslations('focusInnovPage');
+    const tNav = useTranslations('readMore');
+
     return (
         <PageWrapper>
             <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 transition-colors duration-500 min-h-screen">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
                     <Link href="/what-we-do/focus" className="inline-flex items-center gap-2 text-zinc-500 hover:text-amber-500 transition-colors mb-12 font-medium">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Focus Areas
+                        {tNav('backToFocusAreas')}
                     </Link>
 
                     <motion.div
@@ -25,38 +29,39 @@ export default function InnovationAndTechnologyTransferPage() {
                     >
                         {/* Text Content */}
                         <div className="order-2 lg:order-1">
-                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12">
-                                <div className="w-20 h-20 rounded-3xl flex items-center justify-center bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm shrink-0">
-                                    <Zap className="w-10 h-10 text-amber-500" />
+                            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+                                <div className="w-20 h-20 rounded-3xl flex items-center justify-center bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm shrink-0">
+                                    <Lightbulb className="w-10 h-10 text-amber-500" />
                                 </div>
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                        Innovation & Technology Transfer
+                                        {t('pageTitle')}
                                     </h1>
                                     <div className="h-1 w-20 bg-amber-500 rounded-full"></div>
                                 </div>
                             </div>
 
                             <ReadMoreContent
-                                summaryHeading="• Enabling Research-Based Innovation"
-                                summaryContent="BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies."
+                                summaryHeading={t('summaryHeading')}
+                                summaryContent={t('summaryContent')}
                                 accentColor="#f59e0b"
+                                isFocusArea
                             >
                                 <div className="space-y-8">
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Open Innovation Ecosystem</h3>
-                                        <p>Students, faculty members, and researchers are encouraged to bring forward ideas and identified challenges. BanavatNest provides a collaborative platform where these ideas can be explored through research and technological development.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h2')}</h3>
+                                        <p>{t('p2')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Intellectual Property Development</h3>
-                                        <p>Promising innovations are supported through intellectual property development, including patent documentation and protection where appropriate. BanavatNest acts as a facilitating platform and stakeholder in the resulting technology.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h3')}</h3>
+                                        <p>{t('p3')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Technology Transfer & Commercialization</h3>
-                                        <p>Once technologies reach sufficient maturity, we explore commercialization and industry collaboration. This includes prototype refinement, testing, and transferring technologies to partners capable of scaling and deployment.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h4')}</h3>
+                                        <p>{t('p4')}</p>
                                     </div>
                                 </div>
                             </ReadMoreContent>

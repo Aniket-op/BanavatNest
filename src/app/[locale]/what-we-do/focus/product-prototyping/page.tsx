@@ -1,20 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code2, ArrowLeft } from 'lucide-react';
+import { Box, ArrowLeft } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import ReadMoreContent from '@/components/ReadMoreContent';
+import { useTranslations } from 'next-intl';
 
 export default function ProductPrototypingPage() {
+    const t = useTranslations('focusProtoPage');
+    const tNav = useTranslations('readMore');
+
     return (
         <PageWrapper>
             <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 transition-colors duration-500 min-h-screen">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
-                    <Link href="/what-we-do/focus" className="inline-flex items-center gap-2 text-zinc-500 hover:text-[#84CC16] transition-colors mb-12 font-medium">
+                    <Link href="/what-we-do/focus" className="inline-flex items-center gap-2 text-zinc-500 hover:text-blue-500 transition-colors mb-12 font-medium">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Focus Areas
+                        {tNav('backToFocusAreas')}
                     </Link>
 
                     <motion.div
@@ -27,36 +31,37 @@ export default function ProductPrototypingPage() {
                         <div className="order-2 lg:order-1">
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
                                 <div className="w-20 h-20 rounded-3xl flex items-center justify-center bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm shrink-0">
-                                    <Code2 className="w-10 h-10 text-[#84CC16]" />
+                                    <Box className="w-10 h-10 text-blue-500" />
                                 </div>
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                        Product Prototyping
+                                        {t('pageTitle')}
                                     </h1>
-                                    <div className="h-1 w-20 bg-[#84CC16] rounded-full"></div>
+                                    <div className="h-1 w-20 bg-blue-500 rounded-full"></div>
                                 </div>
                             </div>
 
                             <ReadMoreContent
-                                summaryHeading="• From Idea to Prototype"
-                                summaryContent="BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance."
-                                accentColor="#84CC16"
+                                summaryHeading={t('summaryHeading')}
+                                summaryContent={t('summaryContent')}
+                                accentColor="#3b82f6"
+                                isFocusArea
                             >
                                 <div className="space-y-8">
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Industry & Innovation Pathways</h3>
-                                        <p>Prototypes are developed either through industry collaborations or innovative ideas proposed by students, faculty, and researchers. Each concept is evaluated for feasibility, relevance, and potential impact.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h2')}</h3>
+                                        <p>{t('p2')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Proof-of-Concept Development</h3>
-                                        <p>Our prototyping stage focuses on building working models that demonstrate how a technology performs in real conditions. This allows us to test assumptions, evaluate limitations, and refine system design.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h3')}</h3>
+                                        <p>{t('p3')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Towards Commercialization</h3>
-                                        <p>Once prototypes are validated, we explore product refinement, field testing, and industry partnerships. Our goal is to convert prototypes into scalable and market-ready technologies.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h4')}</h3>
+                                        <p>{t('p4')}</p>
                                     </div>
                                 </div>
                             </ReadMoreContent>

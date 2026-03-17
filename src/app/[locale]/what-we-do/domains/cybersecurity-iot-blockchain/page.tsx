@@ -6,15 +6,19 @@ import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import ReadMoreContent from '@/components/ReadMoreContent';
+import { useTranslations } from 'next-intl';
 
 export default function CybersecurityIotBlockchainPage() {
+    const t = useTranslations('domainCyberPage');
+    const tNav = useTranslations('readMore');
+
     return (
         <PageWrapper>
             <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 transition-colors duration-500 min-h-screen">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
                     <Link href="/what-we-do/domains" className="inline-flex items-center gap-2 text-zinc-500 hover:text-green-500 transition-colors mb-12 font-medium">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Domains
+                        {tNav('backToDomains')}
                     </Link>
 
                     <motion.div
@@ -31,32 +35,32 @@ export default function CybersecurityIotBlockchainPage() {
                                 </div>
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                        Cybersecurity, Internet of Things & Blockchain
+                                        {t('pageTitle')}
                                     </h1>
                                     <div className="h-1 w-20 bg-green-500 rounded-full"></div>
                                 </div>
                             </div>
 
                             <ReadMoreContent
-                                summaryHeading="• Secure Connected Systems"
-                                summaryContent="BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely."
+                                summaryHeading={t('summaryHeading')}
+                                summaryContent={t('summaryContent')}
                                 accentColor="#22c55e"
                             >
                                 <div className="space-y-8">
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• IoT-Based Intelligent Environments</h3>
-                                        <p>We explore IoT-enabled systems that integrate sensors, devices, and data platforms for smart monitoring and automation. Our research focuses on designing secure frameworks for large-scale connected infrastructures.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h2')}</h3>
+                                        <p>{t('p2')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Cybersecurity & Threat Detection</h3>
-                                        <p>Our research investigates network security, vulnerability detection, and anomaly identification in digital systems. Using analytical and AI/ML-based approaches, we aim to strengthen security and system resilience.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h3')}</h3>
+                                        <p>{t('p3')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Blockchain for Trust & Transparency</h3>
-                                        <p>We study blockchain technologies to develop decentralized and tamper-resistant systems. These solutions enable secure data sharing, trusted digital records, and transparent digital transactions.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h4')}</h3>
+                                        <p>{t('p4')}</p>
                                     </div>
                                 </div>
                             </ReadMoreContent>

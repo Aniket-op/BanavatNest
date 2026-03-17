@@ -6,15 +6,19 @@ import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import ImageCarousel from '@/components/ImageCarousel';
 import ReadMoreContent from '@/components/ReadMoreContent';
+import { useTranslations } from 'next-intl';
 
 export default function AiMlDataSciencePage() {
+    const t = useTranslations('domainAiPage');
+    const tNav = useTranslations('readMore');
+
     return (
         <PageWrapper>
             <section className="relative grid-bg bg-white dark:bg-[#09090b] py-24 lg:py-32 transition-colors duration-500 min-h-screen">
                 <div className="relative z-10 max-w-7xl mx-auto px-6">
                     <Link href="/what-we-do/domains" className="inline-flex items-center gap-2 text-zinc-500 hover:text-[#84CC16] transition-colors mb-12 font-medium">
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Domains
+                        {tNav('backToDomains')}
                     </Link>
 
                     <motion.div
@@ -31,32 +35,32 @@ export default function AiMlDataSciencePage() {
                                 </div>
                                 <div>
                                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
-                                        Artificial Intelligence, Machine Learning & Data Science
+                                        {t('pageTitle')}
                                     </h1>
                                     <div className="h-1 w-20 bg-[#84CC16] rounded-full"></div>
                                 </div>
                             </div>
 
                             <ReadMoreContent
-                                summaryHeading="• Data-Driven Intelligence"
-                                summaryContent="BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications."
+                                summaryHeading={t('summaryHeading')}
+                                summaryContent={t('summaryContent')}
                                 accentColor="#84CC16"
                             >
                                 <div className="space-y-8">
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Core Technology Platform</h3>
-                                        <p>Artificial Intelligence, Machine Learning, and Data Science form the technological backbone of our innovation ecosystem. These domains support solutions across healthcare, agriculture, cybersecurity, IoT systems, and software development.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h2')}</h3>
+                                        <p>{t('p2')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Advanced Data Analysis</h3>
-                                        <p>Through AI and ML techniques, we analyze large datasets, detect patterns, and develop predictive models. Data science enables us to convert sensor data and digital information into meaningful insights.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h3')}</h3>
+                                        <p>{t('p3')}</p>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Intelligent Systems & Automation</h3>
-                                        <p>These technologies enable intelligent monitoring, anomaly detection, predictive analysis, and system optimization. AI-driven analytics strengthen decision-making across smart systems and data-intensive applications.</p>
+                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{t('h4')}</h3>
+                                        <p>{t('p4')}</p>
                                     </div>
                                 </div>
                             </ReadMoreContent>
