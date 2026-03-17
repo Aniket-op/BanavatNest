@@ -38,14 +38,11 @@ export default function ProductPrototypingPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="We translate research ideas into functional prototypes by integrating design, engineering, and testing. Our prototyping efforts aim to validate feasibility, performance, and usability before large-scale deployment or commercialization."
+                                summaryHeading="• From Idea to Prototype"
+                                summaryContent="BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance."
                                 accentColor="#84CC16"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• From Idea to Prototype</h3>
-                                        <p>BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance.</p>
-                                    </div>
 
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Industry & Innovation Pathways</h3>

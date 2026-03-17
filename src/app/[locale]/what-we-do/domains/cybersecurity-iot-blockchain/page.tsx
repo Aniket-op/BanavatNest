@@ -38,14 +38,11 @@ export default function CybersecurityIotBlockchainPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="We design secure, scalable, and trustworthy systems for connected environments. Our research addresses network security, secure IoT architectures, data privacy, and blockchain-based solutions for transparency, authentication, and decentralized applications."
+                                summaryHeading="• Secure Connected Systems"
+                                summaryContent="BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely."
                                 accentColor="#22c55e"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Secure Connected Systems</h3>
-                                        <p>BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely.</p>
-                                    </div>
 
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• IoT-Based Intelligent Environments</h3>

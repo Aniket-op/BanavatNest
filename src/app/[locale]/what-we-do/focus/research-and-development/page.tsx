@@ -38,14 +38,11 @@ export default function ResearchAndDevelopmentPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="BanavatNest emphasizes research-driven innovation by addressing real-world problems through systematic investigation, analytical modeling, and experimental validation. Our R&D activities focus on developing scalable, reliable, and application-oriented solutions."
+                                summaryHeading="• Research-Driven Innovation"
+                                summaryContent="BanavatNest focuses on research-driven innovation by addressing real-world challenges through systematic investigation, analytical modeling, and experimental validation. Our goal is to develop scalable, reliable, and application-oriented solutions."
                                 accentColor="#3b82f6"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Research-Driven Innovation</h3>
-                                        <p>BanavatNest focuses on research-driven innovation by addressing real-world challenges through systematic investigation, analytical modeling, and experimental validation. Our goal is to develop scalable, reliable, and application-oriented solutions.</p>
-                                    </div>
 
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Problem-First Approach</h3>

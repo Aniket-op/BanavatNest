@@ -38,15 +38,11 @@ export default function SmartSystemsHealthcareSustainabilityPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="We work on intelligent and sustainable systems that integrate sensing, analytics, and automation. Our focus includes smart healthcare solutions, resource-efficient technologies, and sustainability-driven innovations for improved quality of life."
+                                summaryHeading="• Intelligent Sensor-Based Systems"
+                                summaryContent="BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support."
                                 accentColor="#14b8a6"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Intelligent Sensor-Based Systems</h3>
-                                        <p>BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support.</p>
-                                    </div>
-
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Healthcare Solutions</h3>
                                         <p>In healthcare, we explore sensor-enabled monitoring and AI/ML-based analytics to support diagnosis and health assessment. These technologies assist in early detection, continuous monitoring, and improved healthcare decision-making.</p>

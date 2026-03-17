@@ -38,14 +38,11 @@ export default function AiMlDataSciencePage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="We develop data-driven models and intelligent algorithms for prediction, optimization, and decision support. Our work focuses on applying AI and ML techniques to solve complex problems across engineering, healthcare, and societal applications."
+                                summaryHeading="• Data-Driven Intelligence"
+                                summaryContent="BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications."
                                 accentColor="#84CC16"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Data-Driven Intelligence</h3>
-                                        <p>BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications.</p>
-                                    </div>
 
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Core Technology Platform</h3>

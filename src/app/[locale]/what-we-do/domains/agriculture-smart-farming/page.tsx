@@ -38,15 +38,11 @@ export default function AgricultureSmartFarmingPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="We apply advanced technologies to agriculture through data analytics, IoT-based monitoring, and AI-driven decision support systems. Our work aims to enhance productivity, optimize resource usage, and promote sustainable and precision farming practices."
+                                summaryHeading="• Technology-Driven Agriculture"
+                                summaryContent="BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation."
                                 accentColor="#84cc16"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Technology-Driven Agriculture</h3>
-                                        <p>BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation.</p>
-                                    </div>
-
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Smart Monitoring & Automation</h3>
                                         <p>We integrate IoT-based sensors, monitoring systems, and automation tools to support modern farming environments. These technologies enable real-time data collection and intelligent farm management.</p>

@@ -38,14 +38,11 @@ export default function InnovationAndTechnologyTransferPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="We support the transformation of research outputs into deployable technologies through structured innovation processes. Our focus includes intellectual property development, proof-of-concept validation, and facilitating technology transfer to industry partners."
+                                summaryHeading="• Enabling Research-Based Innovation"
+                                summaryContent="BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies."
                                 accentColor="#f59e0b"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Enabling Research-Based Innovation</h3>
-                                        <p>BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies.</p>
-                                    </div>
 
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Open Innovation Ecosystem</h3>

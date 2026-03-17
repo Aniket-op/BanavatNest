@@ -38,14 +38,11 @@ export default function IndustryAcademiaCollaborationPage() {
                             </div>
 
                             <ReadMoreContent
-                                summary="BanavatNest actively bridges the gap between academia and industry by enabling collaborative research, student-driven projects, and faculty-led innovation. This collaboration ensures knowledge transfer, skill development, and industry-relevant outcomes."
+                                summaryHeading="• Bridging Research and Practice"
+                                summaryContent="BanavatNest bridges the gap between academia and industry by combining scientific research with real-world industrial experience. This collaboration enables practical innovation and technology-driven problem solving."
                                 accentColor="#a855f7"
                             >
                                 <div className="space-y-8">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Bridging Research and Practice</h3>
-                                        <p>BanavatNest bridges the gap between academia and industry by combining scientific research with real-world industrial experience. This collaboration enables practical innovation and technology-driven problem solving.</p>
-                                    </div>
 
                                     <div>
                                         <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">• Industry Problem Integration</h3>
