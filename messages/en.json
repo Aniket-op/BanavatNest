@@ -253,6 +253,100 @@
         "s7Title": "7. Contact",
         "s7Text": "For queries regarding this Privacy Policy, please contact:"
     },
+    "readMore": {
+        "readMore": "Read More",
+        "readLess": "Read Less",
+        "backToDomains": "Back to Domains",
+        "backToFocusAreas": "Back to Focus Areas"
+    },
+    "domainAgriPage": {
+        "pageTitle": "Agriculture & Smart Farming",
+        "summaryHeading": "• Technology-Driven Agriculture",
+        "summaryContent": "BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation.",
+        "h2": "• Smart Monitoring & Automation",
+        "p2": "We integrate IoT-based sensors, monitoring systems, and automation tools to support modern farming environments. These technologies enable real-time data collection and intelligent farm management.",
+        "h3": "• Data-Driven Decision Support",
+        "p3": "Using AI/ML and data analytics, we develop systems that assist farmers and agricultural enterprises in making informed decisions. These solutions help optimize resource usage and improve crop management strategies.",
+        "h4": "• Sustainable & Scalable Farming Solutions",
+        "p4": "Our innovations aim to reduce unnecessary human intervention while improving safety and efficiency. BanavatNest promotes smart farming practices that are practical, affordable, and environmentally sustainable."
+    },
+    "domainAiPage": {
+        "pageTitle": "Artificial Intelligence, Machine Learning & Data Science",
+        "summaryHeading": "• Data-Driven Intelligence",
+        "summaryContent": "BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications.",
+        "h2": "• Core Technology Platform",
+        "p2": "Artificial Intelligence, Machine Learning, and Data Science form the technological backbone of our innovation ecosystem. These domains support solutions across healthcare, agriculture, cybersecurity, IoT systems, and software development.",
+        "h3": "• Advanced Data Analysis",
+        "p3": "Through AI and ML techniques, we analyze large datasets, detect patterns, and develop predictive models. Data science enables us to convert sensor data and digital information into meaningful insights.",
+        "h4": "• Intelligent Systems & Automation",
+        "p4": "These technologies enable intelligent monitoring, anomaly detection, predictive analysis, and system optimization. AI-driven analytics strengthen decision-making across smart systems and data-intensive applications."
+    },
+    "domainCyberPage": {
+        "pageTitle": "Cybersecurity, Internet of Things & Blockchain",
+        "summaryHeading": "• Secure Connected Systems",
+        "summaryContent": "BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely.",
+        "h2": "• IoT-Based Intelligent Environments",
+        "p2": "We explore IoT-enabled systems that integrate sensors, devices, and data platforms for smart monitoring and automation. Our research focuses on designing secure frameworks for large-scale connected infrastructures.",
+        "h3": "• Cybersecurity & Threat Detection",
+        "p3": "Our research investigates network security, vulnerability detection, and anomaly identification in digital systems. Using analytical and AI/ML-based approaches, we aim to strengthen security and system resilience.",
+        "h4": "• Blockchain for Trust & Transparency",
+        "p4": "We study blockchain technologies to develop decentralized and tamper-resistant systems. These solutions enable secure data sharing, trusted digital records, and transparent digital transactions."
+    },
+    "domainSmartPage": {
+        "pageTitle": "Smart Systems, Healthcare & Sustainability",
+        "summaryHeading": "• Intelligent Sensor-Based Systems",
+        "summaryContent": "BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support.",
+        "h2": "• Data-Driven Healthcare Solutions",
+        "p2": "In healthcare, we explore sensor-enabled monitoring and AI/ML-based analytics to support diagnosis and health assessment. These technologies assist in early detection, continuous monitoring, and improved healthcare decision-making.",
+        "h3": "• Sustainable Technology Development",
+        "p3": "Our work focuses on designing technologies that optimize resource usage and improve operational efficiency. Smart sensing and analytics help create solutions that support sustainability and responsible system management.",
+        "h4": "• Data, Analytics & Predictive Intelligence",
+        "p4": "By combining sensor technologies with data-driven analytics, we develop systems capable of detecting patterns and generating predictive insights. These intelligent systems contribute to safer, healthier, and more sustainable environments."
+    },
+    "focusRdPage": {
+        "pageTitle": "Research & Development",
+        "summaryHeading": "• Research-Driven Innovation",
+        "summaryContent": "BanavatNest focuses on research-driven innovation by addressing real-world challenges through systematic investigation, analytical modeling, and experimental validation. Our goal is to develop scalable, reliable, and application-oriented solutions.",
+        "h2": "• Problem-First Approach",
+        "p2": "Our R&D begins with identifying real problems faced by industry and society. Instead of building technology first, we carefully study existing limitations and redesign components, processes, or systems to create practical improvements.",
+        "h3": "• Multidisciplinary Technology Development",
+        "p3": "Our work spans domains such as healthcare, agriculture, cybersecurity, IoT, and AI/ML-driven analytics. We develop intelligent solutions that enable data-driven insights, automation, secure systems, and technology-enabled decision support.",
+        "h4": "• Ongoing Research Programs",
+        "p4": "Currently, BanavatNest is working on eight active problem statements across software development, healthcare, agriculture, and IoT. Each project aims to translate research outcomes into scalable products, services, or deployable technologies."
+    },
+    "focusProtoPage": {
+        "pageTitle": "Product Prototyping",
+        "summaryHeading": "• From Idea to Prototype",
+        "summaryContent": "BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance.",
+        "h2": "• Industry & Innovation Pathways",
+        "p2": "Prototypes are developed either through industry collaborations or innovative ideas proposed by students, faculty, and researchers. Each concept is evaluated for feasibility, relevance, and potential impact.",
+        "h3": "• Proof-of-Concept Development",
+        "p3": "Our prototyping stage focuses on building working models that demonstrate how a technology performs in real conditions. This allows us to test assumptions, evaluate limitations, and refine system design.",
+        "h4": "• Towards Commercialization",
+        "p4": "Once prototypes are validated, we explore product refinement, field testing, and industry partnerships. Our goal is to convert prototypes into scalable and market-ready technologies."
+    },
+    "focusInnovPage": {
+        "pageTitle": "Innovation & Technology Transfer",
+        "summaryHeading": "• Enabling Research-Based Innovation",
+        "summaryContent": "BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies.",
+        "h2": "• Open Innovation Ecosystem",
+        "p2": "Students, faculty members, and researchers are encouraged to bring forward ideas and identified challenges. BanavatNest provides a collaborative platform where these ideas can be explored through research and technological development.",
+        "h3": "• Intellectual Property Development",
+        "p3": "Promising innovations are supported through intellectual property development, including patent documentation and protection where appropriate. BanavatNest acts as a facilitating platform and stakeholder in the resulting technology.",
+        "h4": "• Technology Transfer & Commercialization",
+        "p4": "Once technologies reach sufficient maturity, we explore commercialization and industry collaboration. This includes prototype refinement, testing, and transferring technologies to partners capable of scaling and deployment."
+    },
+    "focusCollabPage": {
+        "pageTitle": "Industry–Academia Collaboration",
+        "summaryHeading": "• Bridging Research and Practice",
+        "summaryContent": "BanavatNest bridges the gap between academia and industry by combining scientific research with real-world industrial experience. This collaboration enables practical innovation and technology-driven problem solving.",
+        "h2": "• Industry Problem Integration",
+        "p2": "Industry partners share operational challenges, product ideas, or technical problems. Our team analyzes these challenges and breaks them into manageable research modules for systematic investigation and solution development.",
+        "h3": "• Collaborative Research Ecosystem",
+        "p3": "Students, faculty members, and researchers work together on industry-relevant problems through research, experimentation, and technological development. This process strengthens both academic learning and practical experience.",
+        "h4": "• Mutual Innovation Platform",
+        "p4": "Industry partners benefit from analytical insights and innovative solutions, while academia gains exposure to real-world challenges. BanavatNest creates a platform where knowledge, experience, and innovation intersect."
+    },
     "terms": {
         "title": "Terms of Use",
         "intro": "By accessing or using the BanavatNest platform, you agree to the following terms:",

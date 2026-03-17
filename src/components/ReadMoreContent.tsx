@@ -3,22 +3,33 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface ReadMoreContentProps {
-    summary: React.ReactNode;
+    summaryHeading: React.ReactNode;
+    summaryContent: React.ReactNode;
     children: React.ReactNode;
     accentColor?: string;
+    isFocusArea?: boolean;
 }
 
-const ReadMoreContent: React.FC<ReadMoreContentProps> = ({ summary, children, accentColor = '#84CC16' }) => {
+const ReadMoreContent: React.FC<ReadMoreContentProps> = ({
+    summaryHeading,
+    summaryContent,
+    children,
+    accentColor = '#84CC16',
+    isFocusArea = false,
+}) => {
     const [expanded, setExpanded] = useState(false);
+    const t = useTranslations('readMore');
 
     return (
         <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-sm">
-            <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
-                {summary}
-            </p>
 
+            <div>
+                <h2 className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mb-2">{summaryHeading}</h2>
+                <p>{summaryContent}</p>
+            </div>
             <AnimatePresence>
                 {expanded && (
                     <motion.div
@@ -38,7 +49,7 @@ const ReadMoreContent: React.FC<ReadMoreContentProps> = ({ summary, children, ac
                 className="inline-flex items-center gap-2 font-semibold transition-colors duration-200 group cursor-pointer"
                 style={{ color: accentColor }}
             >
-                {expanded ? 'Read Less' : 'Read More'}
+                {expanded ? t('readLess') : t('readMore')}
                 {expanded ? (
                     <ChevronUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
                 ) : (
