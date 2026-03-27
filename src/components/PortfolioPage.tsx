@@ -196,7 +196,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                     <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Briefcase className="w-6 h-6 text-[#84CC16]" /></div>
                                     <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">My Job</h2>
                                 </div>
-                                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium mb-10 max-w-4xl">{data.job.summary}</p>
+                                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium mb-10 text-justify">{data.job.summary}</p>
 
                                 <div className="space-y-4">
                                     {data.job.positions.map((pos, idx) => (
@@ -242,7 +242,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                         <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Microscope className="w-6 h-6 text-[#84CC16]" /></div>
                                         <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Research</h2>
                                     </div>
-                                    <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium max-w-4xl">{data.research.summary}</p>
+                                    <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium text-justify">{data.research.summary}</p>
                                 </div>
 
                                 {/* Publications */}
@@ -320,7 +320,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                         <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><GraduationCap className="w-6 h-6 text-[#84CC16]" /></div>
                                         <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Education</h2>
                                     </div>
-                                    <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium max-w-4xl">{data.education.summary}</p>
+                                    <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium text-justify">{data.education.summary}</p>
                                 </div>
 
                                 {/* Timeline */}
