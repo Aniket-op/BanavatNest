@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CircleDot } from 'lucide-react';
+import { CircleDot, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import PageWrapper from '@/components/PageWrapper';
 
 export default function BoardPage() {
@@ -39,11 +40,18 @@ export default function BoardPage() {
                             <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">
                                 {t('sukhdevBio')}
                             </p>
-                            <ul className="space-y-3 text-zinc-500 dark:text-zinc-500 font-bold text-sm">
+                            <ul className="space-y-3 text-zinc-500 dark:text-zinc-500 font-bold text-sm mb-8">
                                 <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#84CC16]" /> {t('sukhdevAch1')}</li>
                                 <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#84CC16]" /> {t('sukhdevAch2')}</li>
                                 <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#84CC16]" /> {t('sukhdevAch3')}</li>
                             </ul>
+                            
+                            <Link 
+                                href="/about/board/dr-sukhdev-singh"
+                                className="inline-flex items-center gap-2 text-[#84CC16] font-bold text-lg hover:text-[#65A30D] transition-colors group"
+                            >
+                                View Portfolio <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                         </motion.div>
 
                         {/* Dr. Sangita Roy Card */}
@@ -59,11 +67,18 @@ export default function BoardPage() {
                             <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">
                                 {t('sangitaBio')}
                             </p>
-                            <ul className="space-y-3 text-zinc-500 dark:text-zinc-500 font-bold text-sm">
+                            <ul className="space-y-3 text-zinc-500 dark:text-zinc-500 font-bold text-sm mb-8">
                                 <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#84CC16]" /> {t('sangitaAch1')}</li>
                                 <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#84CC16]" /> {t('sangitaAch2')}</li>
                                 <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#84CC16]" /> {t('sangitaAch3')}</li>
                             </ul>
+                            
+                            <Link 
+                                href="/about/board/dr-sangita-roy"
+                                className="inline-flex items-center gap-2 text-[#84CC16] font-bold text-lg hover:text-[#65A30D] transition-colors group"
+                            >
+                                View Portfolio <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
