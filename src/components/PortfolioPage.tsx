@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, ExternalLink, GraduationCap, Briefcase, Microscope, Award, Calendar, ChevronDown, ChevronUp, BookOpen, Users, FileText, Trophy, Linkedin } from 'lucide-react';
+import { Mail, Phone, ExternalLink, GraduationCap, Briefcase, Microscope, Calendar, ChevronDown, ChevronUp, BookOpen, Users, FileText, Trophy } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
 
 /* ───────────────────── Data Model ───────────────────── */
@@ -57,6 +57,7 @@ export interface AcademicProfile {
 }
 
 export interface PortfolioData {
+
     id: string;
     name: string;
     role: string;
@@ -95,18 +96,21 @@ interface PortfolioPageProps {
 
 /* ───────────────────── Constants ───────────────────── */
 
-const SECTION_IDS = ['home', 'job', 'research', 'education', 'contact'];
-const SECTION_LABELS = ['Home', 'My Job', 'Research', 'Education', 'Contact'];
+// "overview" tab merges home + job + contact; director name is the label
+const SECTION_IDS = ['overview', 'research', 'education'];
 
 /* ───────────────────── Component ───────────────────── */
 
 export default function PortfolioPage({ data }: PortfolioPageProps) {
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState('overview');
     const [isScrolled, setIsScrolled] = useState(false);
     const [showAllPubs, setShowAllPubs] = useState(false);
     const [expandedPosition, setExpandedPosition] = useState<number | null>(0);
     const [showThesis, setShowThesis] = useState(false);
+    const [bioExpanded, setBioExpanded] = useState(false);
     const navRef = useRef<HTMLDivElement>(null);
+
+    const SECTION_LABELS = [data.name, 'Research', 'Education'];
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -151,86 +155,166 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 <div className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-12">
                     <AnimatePresence mode="wait">
 
-                        {/* ════════════════ HOME ════════════════ */}
-                        {activeSection === 'home' && (
-                            <motion.section key="home" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="relative grid-bg pt-12 pb-16">
-                                <div className="hidden dark:block">
-                                    <motion.div animate={{ scale: [1, 1.05, 1], opacity: [0.08, 0.12, 0.08] }} transition={{ duration: 6, repeat: Infinity }} className="absolute top-[15%] right-[5%] w-[35rem] h-[35rem] bg-[#84CC16]/10 blur-[130px] rounded-full pointer-events-none z-0" />
-                                </div>
-                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
-                                    <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-6">
-                                        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800">
-                                            <img src={data.image} alt={data.name} className="w-full h-full object-cover object-top" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                                        </div>
-                                        <div className="text-center lg:text-left">
-                                            <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-lime-50 dark:bg-lime-900/10 border border-lime-100/50 dark:border-lime-500/20 shadow-sm mb-4">
-                                                <span className="flex h-2 w-2 rounded-full bg-[#84CC16] animate-pulse"></span>
-                                                <span className="text-[10px] font-black text-[#65A30D] dark:text-[#84CC16] uppercase tracking-[0.2em]">Board of Directors</span>
+                        {/* ════════════════ OVERVIEW (Home + My Job + Contact) ════════════════ */}
+                        {activeSection === 'overview' && (
+                            <motion.section key="overview" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="space-y-16 pb-16">
+
+                                {/* ── Hero / Intro ── */}
+                                <div className="relative grid-bg pt-12">
+                                    <div className="hidden dark:block">
+                                        <motion.div animate={{ scale: [1, 1.05, 1], opacity: [0.08, 0.12, 0.08] }} transition={{ duration: 6, repeat: Infinity }} className="absolute top-[15%] right-[5%] w-[35rem] h-[35rem] bg-[#84CC16]/10 blur-[130px] rounded-full pointer-events-none z-0" />
+                                    </div>
+                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+                                        {/* Photo + name */}
+                                        <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-6">
+                                            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800">
+                                                <img src={data.image} alt={data.name} className="w-full h-full object-cover object-top" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                                             </div>
-                                            <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">{data.name}</h1>
-                                            <p className="text-xl font-bold text-[#84CC16] uppercase tracking-widest mt-2">{data.role}</p>
-                                        </div>
-                                    </div>
-                                    <div className="lg:col-span-8 space-y-6">
-                                        <h2 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Biography</h2>
-                                        <div className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium space-y-5 whitespace-pre-line">
-                                            {data.bio.split('\n\n').map((para, i) => (
-                                                <p key={i}>{para}</p>
-                                            ))}
-                                        </div>
-                                        <div className="flex flex-wrap gap-4 pt-4">
-                                            <button onClick={() => handleTabClick('contact')} className="bg-[#5D3A1A] dark:bg-zinc-100 text-white dark:text-zinc-900 px-8 py-4 rounded-full font-black text-lg hover:bg-[#4B2C13] dark:hover:bg-zinc-200 transition-all shadow-xl flex items-center gap-2 hover:scale-[1.03] active:scale-95">
-                                                Get in Touch
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.section>
-                        )}
-
-                        {/* ════════════════ MY JOB ════════════════ */}
-                        {activeSection === 'job' && (
-                            <motion.section key="job" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="py-8">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Briefcase className="w-6 h-6 text-[#84CC16]" /></div>
-                                    <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">My Job</h2>
-                                </div>
-                                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium mb-10 text-justify">{data.job.summary}</p>
-
-                                <div className="space-y-4">
-                                    {data.job.positions.map((pos, idx) => (
-                                        <div key={idx} className="bg-white dark:bg-zinc-900/50 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300 overflow-hidden">
-                                            <button onClick={() => setExpandedPosition(expandedPosition === idx ? null : idx)} className="w-full flex items-center justify-between p-6 md:p-8 text-left">
-                                                <div>
-                                                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">{pos.title}</h3>
-                                                    <p className="text-[#84CC16] font-bold text-sm uppercase tracking-wider">{pos.organization}</p>
-                                                    {pos.period && <p className="text-zinc-500 text-sm font-medium mt-1">{pos.period}</p>}
+                                            <div className="text-center lg:text-left">
+                                                <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-lime-50 dark:bg-lime-900/10 border border-lime-100/50 dark:border-lime-500/20 shadow-sm mb-4">
+                                                    <span className="flex h-2 w-2 rounded-full bg-[#84CC16] animate-pulse"></span>
+                                                    <span className="text-[10px] font-black text-[#65A30D] dark:text-[#84CC16] uppercase tracking-[0.2em]">Board of Directors</span>
                                                 </div>
-                                                {expandedPosition === idx ? <ChevronUp className="w-5 h-5 text-zinc-400" /> : <ChevronDown className="w-5 h-5 text-zinc-400" />}
-                                            </button>
-                                            <AnimatePresence>
-                                                {expandedPosition === idx && (
-                                                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                                                        <div className="px-6 md:px-8 pb-8 space-y-4">
-                                                            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">{pos.description}</p>
-                                                            {pos.highlights && pos.highlights.length > 0 && (
-                                                                <div className="grid sm:grid-cols-2 gap-3">
-                                                                    {pos.highlights.map((h, hi) => (
-                                                                        <div key={hi} className="flex items-start gap-3 bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl">
-                                                                            <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#84CC16] shrink-0" />
-                                                                            <span className="text-zinc-700 dark:text-zinc-300 font-medium text-sm">{h}</span>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
+                                                <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">{data.name}</h1>
+                                                <p className="text-xl font-bold text-[#84CC16] uppercase tracking-widest mt-2">{data.role}</p>
+                                            </div>
                                         </div>
-                                    ))}
+
+                                        {/* Biography */}
+                                        <div className="lg:col-span-8 space-y-6">
+                                            <h2 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Biography</h2>
+
+                                            {/* Clamp to ~1 screen when collapsed */}
+                                            <div className="relative">
+                                                <div
+                                                    className={`text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium space-y-5 whitespace-pre-line overflow-hidden transition-all duration-500`}
+                                                    style={{ maxHeight: bioExpanded ? '9999px' : '65vh' }}
+                                                >
+                                                    {data.bio.split('\n\n').map((para, i) => (
+                                                        <p key={i}>{para}</p>
+                                                    ))}
+                                                </div>
+
+                                                {/* Fade gradient at bottom when collapsed */}
+                                                {!bioExpanded && (
+                                                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-zinc-50 dark:from-[#09090b] to-transparent pointer-events-none" />
+                                                )}
+                                            </div>
+
+                                            {/* See More / Show Less */}
+                                            <button
+                                                onClick={() => setBioExpanded(!bioExpanded)}
+                                                className="inline-flex items-center gap-2 text-sm font-bold text-[#84CC16] hover:text-[#65A30D] transition-colors"
+                                            >
+                                                {bioExpanded ? (
+                                                    <><ChevronUp className="w-4 h-4" /> Show Less</>
+                                                ) : (
+                                                    <><ChevronDown className="w-4 h-4" /> See More</>
+                                                )}
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                {/* ── Divider ── */}
+                                <div className="border-t border-zinc-200 dark:border-zinc-800" />
+
+                                {/* ── My Job ── */}
+                                <div>
+                                    <div className="flex items-center gap-4 mb-6">
+                                        <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Briefcase className="w-6 h-6 text-[#84CC16]" /></div>
+                                        <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">My Job</h2>
+                                    </div>
+                                    <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium mb-10 text-justify">{data.job.summary}</p>
+
+                                    <div className="space-y-4">
+                                        {data.job.positions.map((pos, idx) => (
+                                            <div key={idx} className="bg-white dark:bg-zinc-900/50 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300 overflow-hidden">
+                                                <button onClick={() => setExpandedPosition(expandedPosition === idx ? null : idx)} className="w-full flex items-center justify-between p-6 md:p-8 text-left">
+                                                    <div>
+                                                        <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">{pos.title}</h3>
+                                                        <p className="text-[#84CC16] font-bold text-sm uppercase tracking-wider">{pos.organization}</p>
+                                                        {pos.period && <p className="text-zinc-500 text-sm font-medium mt-1">{pos.period}</p>}
+                                                    </div>
+                                                    {expandedPosition === idx ? <ChevronUp className="w-5 h-5 text-zinc-400" /> : <ChevronDown className="w-5 h-5 text-zinc-400" />}
+                                                </button>
+                                                <AnimatePresence>
+                                                    {expandedPosition === idx && (
+                                                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                                                            <div className="px-6 md:px-8 pb-8 space-y-4">
+                                                                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">{pos.description}</p>
+                                                                {pos.highlights && pos.highlights.length > 0 && (
+                                                                    <div className="grid sm:grid-cols-2 gap-3">
+                                                                        {pos.highlights.map((h, hi) => (
+                                                                            <div key={hi} className="flex items-start gap-3 bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl">
+                                                                                <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#84CC16] shrink-0" />
+                                                                                <span className="text-zinc-700 dark:text-zinc-300 font-medium text-sm">{h}</span>
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* ── Divider ── */}
+                                <div className="border-t border-zinc-200 dark:border-zinc-800" />
+
+                                {/* ── Contact ── */}
+                                <div>
+                                    <div className="flex items-center gap-4 mb-10">
+                                        <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Mail className="w-6 h-6 text-[#84CC16]" /></div>
+                                        <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Contact</h2>
+                                    </div>
+
+                                    <div className="bg-[#84CC16] rounded-[2.5rem] p-1 border border-[#65A30D]/20 shadow-xl relative overflow-hidden">
+                                        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+                                        <div className="bg-white dark:bg-zinc-900 rounded-[2.3rem] p-8 md:p-12 h-full relative z-10 grid md:grid-cols-2 gap-12 items-start">
+                                            <div>
+                                                <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4">Let&apos;s Connect</h3>
+                                                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-8">For research collaborations, project discussions, or academic inquiries, feel free to reach out.</p>
+                                                <div className="space-y-6">
+                                                    <div className="flex items-start gap-4">
+                                                        <div className="mt-1 bg-lime-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#84CC16]"><Mail className="w-5 h-5" /></div>
+                                                        <div>
+                                                            <p className="text-sm font-bold text-zinc-500 mb-1 uppercase tracking-widest">Email</p>
+                                                            <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}`} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-zinc-900 dark:text-zinc-100 hover:text-[#84CC16] transition-colors">{data.contact.email}</a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex items-start gap-4">
+                                                        <div className="mt-1 bg-lime-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#84CC16]"><Phone className="w-5 h-5" /></div>
+                                                        <div>
+                                                            <p className="text-sm font-bold text-zinc-500 mb-1 uppercase tracking-widest">Phone</p>
+                                                            <div className="space-y-1">{data.contact.phone.map((num, i) => <p key={i} className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{num}</p>)}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {data.contact.profiles.length > 0 && (
+                                                <div className="bg-zinc-50 dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-100 dark:border-zinc-800">
+                                                    <h4 className="font-bold text-zinc-900 dark:text-zinc-100 mb-4">Academic Profiles</h4>
+                                                    <ul className="space-y-3">
+                                                        {data.contact.profiles.map((p, i) => (
+                                                            <li key={i}>
+                                                                <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-[#84CC16] font-medium transition-colors">
+                                                                    <ExternalLink className="w-4 h-4" /> {p.name}
+                                                                </a>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
                             </motion.section>
                         )}
 
@@ -246,24 +330,26 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 </div>
 
                                 {/* Publications */}
-                                <div>
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <FileText className="w-5 h-5 text-[#84CC16]" />
-                                        <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Publications ({data.research.publications.length})</h3>
+                                {data.research.publications.length > 0 && (
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <FileText className="w-5 h-5 text-[#84CC16]" />
+                                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Publications ({data.research.publications.length})</h3>
+                                        </div>
+                                        <div className="space-y-3">
+                                            {visiblePubs.map((pub, idx) => (
+                                                <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm">
+                                                    <p className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed font-medium">{pub.citation}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        {data.research.publications.length > 5 && (
+                                            <button onClick={() => setShowAllPubs(!showAllPubs)} className="mt-4 text-[#84CC16] font-bold text-sm hover:text-[#65A30D] transition-colors flex items-center gap-1">
+                                                {showAllPubs ? <>Show Less <ChevronUp className="w-4 h-4" /></> : <>Show All {data.research.publications.length} Publications <ChevronDown className="w-4 h-4" /></>}
+                                            </button>
+                                        )}
                                     </div>
-                                    <div className="space-y-3">
-                                        {visiblePubs.map((pub, idx) => (
-                                            <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm">
-                                                <p className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed font-medium">{pub.citation}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    {data.research.publications.length > 5 && (
-                                        <button onClick={() => setShowAllPubs(!showAllPubs)} className="mt-4 text-[#84CC16] font-bold text-sm hover:text-[#65A30D] transition-colors flex items-center gap-1">
-                                            {showAllPubs ? <>Show Less <ChevronUp className="w-4 h-4" /></> : <>Show All {data.research.publications.length} Publications <ChevronDown className="w-4 h-4" /></>}
-                                        </button>
-                                    )}
-                                </div>
+                                )}
 
                                 {/* Co-Authors */}
                                 {data.research.coAuthors.length > 0 && (
@@ -352,7 +438,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                     <div>
                                         <div className="flex items-center gap-3 mb-6">
                                             <Trophy className="w-5 h-5 text-[#84CC16]" />
-                                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Awards & Fellowships</h3>
+                                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Awards &amp; Fellowships</h3>
                                         </div>
                                         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                                             {data.education.awards.map((aw, idx) => (
@@ -414,55 +500,6 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                         </AnimatePresence>
                                     </div>
                                 )}
-                            </motion.section>
-                        )}
-
-                        {/* ════════════════ CONTACT ════════════════ */}
-                        {activeSection === 'contact' && (
-                            <motion.section key="contact" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="py-8">
-                                <div className="flex items-center gap-4 mb-10">
-                                    <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Mail className="w-6 h-6 text-[#84CC16]" /></div>
-                                    <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Contact</h2>
-                                </div>
-
-                                <div className="bg-[#84CC16] rounded-[2.5rem] p-1 border border-[#65A30D]/20 shadow-xl relative overflow-hidden">
-                                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-                                    <div className="bg-white dark:bg-zinc-900 rounded-[2.3rem] p-8 md:p-12 h-full relative z-10 grid md:grid-cols-2 gap-12 items-start">
-                                        <div>
-                                            <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4">Let&apos;s Connect</h3>
-                                            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-8">For research collaborations, project discussions, or academic inquiries, feel free to reach out.</p>
-                                            <div className="space-y-6">
-                                                <div className="flex items-start gap-4">
-                                                    <div className="mt-1 bg-lime-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#84CC16]"><Mail className="w-5 h-5" /></div>
-                                                    <div>
-                                                        <p className="text-sm font-bold text-zinc-500 mb-1 uppercase tracking-widest">Email</p>
-                                                        <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}`} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-zinc-900 dark:text-zinc-100 hover:text-[#84CC16] transition-colors">{data.contact.email}</a>
-                                                    </div>
-                                                </div>
-                                                <div className="flex items-start gap-4">
-                                                    <div className="mt-1 bg-lime-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#84CC16]"><Phone className="w-5 h-5" /></div>
-                                                    <div>
-                                                        <p className="text-sm font-bold text-zinc-500 mb-1 uppercase tracking-widest">Phone</p>
-                                                        <div className="space-y-1">{data.contact.phone.map((num, i) => <p key={i} className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{num}</p>)}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="bg-zinc-50 dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-100 dark:border-zinc-800">
-                                            <h4 className="font-bold text-zinc-900 dark:text-zinc-100 mb-4">Academic Profiles</h4>
-                                            <ul className="space-y-3">
-                                                {data.contact.profiles.map((p, i) => (
-                                                    <li key={i}>
-                                                        <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-[#84CC16] font-medium transition-colors">
-                                                            <ExternalLink className="w-4 h-4" /> {p.name}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                             </motion.section>
                         )}
                     </AnimatePresence>
