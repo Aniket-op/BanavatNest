@@ -563,8 +563,46 @@ Dr. Roy's research interests include Cryptography and Network Security, Image Pr
 };
 
 export const metadata: Metadata = {
-    title: 'Dr. Sangita Roy | Director Portfolio',
-    description: 'Portfolio of Dr. Sangita Roy, Director at BanavatNest Private Limited.',
+    title: 'Dr. Sangita Roy | Portfolio – BanavatNest',
+    description: 'Explore the portfolio of Dr. Sangita Roy, Assistant Professor at Thapar Institute of Engineering & Technology and Director at BanavatNest. Expert in Cryptography, Network Security, Image Processing, and IoT.',
+    keywords: [
+        'Dr. Sangita Roy',
+        'Portfolio',
+        'BanavatNest',
+        'Director Portfolio',
+        'Cryptography',
+        'Network Security',
+        'Image Processing',
+        'Internet of Things',
+        'Deep Learning',
+        'IIT Patna',
+        'Tel Aviv University',
+        'Thapar Institute',
+        'Computer Science',
+        'Research Publications',
+        'Academic Portfolio',
+    ],
+    openGraph: {
+        title: 'Dr. Sangita Roy | Portfolio – BanavatNest',
+        description: 'Explore the portfolio of Dr. Sangita Roy, Assistant Professor at Thapar Institute and Director at BanavatNest. Expert in Cryptography, Network Security, and Deep Learning.',
+        url: 'https://banavatnest.com/en/about/board/dr-sangita-roy',
+        siteName: 'BanavatNest',
+        images: [
+            {
+                url: '/images/Director/Sangita.jpeg',
+                width: 800,
+                height: 800,
+                alt: 'Dr. Sangita Roy – Portfolio',
+            },
+        ],
+        type: 'profile',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Dr. Sangita Roy | Portfolio – BanavatNest',
+        description: 'Portfolio of Dr. Sangita Roy – Cryptography, Network Security & IoT researcher, Director at BanavatNest.',
+        images: ['/images/Director/Sangita.jpeg'],
+    },
 };
 
 export default function SangitaPortfolio() {

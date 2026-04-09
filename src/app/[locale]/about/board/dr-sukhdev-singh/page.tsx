@@ -370,8 +370,47 @@ We also considered inverse Weibull distribution under progressive type-I interva
 };
 
 export const metadata: Metadata = {
-    title: 'Dr. Sukhdev Singh | Director Portfolio',
-    description: 'Portfolio of Dr. Sukhdev Singh, Director at BanavatNest Private Limited.',
+    title: 'Dr. Sukhdev Singh | Portfolio – BanavatNest',
+    description: 'Explore the portfolio of Dr. Sukhdev Singh, Assistant Professor of Mathematics at Thapar Institute of Engineering & Technology and Director at BanavatNest. Expert in Statistical Estimation, Reliability Analysis, and Life Testing.',
+    keywords: [
+        'Dr. Sukhdev Singh',
+        'Portfolio',
+        'BanavatNest',
+        'Director Portfolio',
+        'Statistical Estimation',
+        'Reliability Analysis',
+        'Life Testing',
+        'Bayesian Estimation',
+        'Mathematics',
+        'IIT Patna',
+        'Thapar Institute',
+        'CSIR Fellowship',
+        'Research Publications',
+        'Academic Portfolio',
+        'Lognormal Distribution',
+        'IEEE Transactions on Reliability',
+    ],
+    openGraph: {
+        title: 'Dr. Sukhdev Singh | Portfolio – BanavatNest',
+        description: 'Explore the portfolio of Dr. Sukhdev Singh, Assistant Professor at Thapar Institute and Director at BanavatNest. Expert in Statistical Estimation, Reliability Analysis, and Bayesian Methods.',
+        url: 'https://banavatnest.com/en/about/board/dr-sukhdev-singh',
+        siteName: 'BanavatNest',
+        images: [
+            {
+                url: '/images/Director/Sukhdev.jpeg',
+                width: 800,
+                height: 800,
+                alt: 'Dr. Sukhdev Singh – Portfolio',
+            },
+        ],
+        type: 'profile',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Dr. Sukhdev Singh | Portfolio – BanavatNest',
+        description: 'Portfolio of Dr. Sukhdev Singh – Statistical Estimation & Reliability Analysis researcher, Director at BanavatNest.',
+        images: ['/images/Director/Sukhdev.jpeg'],
+    },
 };
 
 export default function SukhdevPortfolio() {
