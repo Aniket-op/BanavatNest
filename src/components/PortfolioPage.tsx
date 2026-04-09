@@ -8,6 +8,7 @@ import {
     FlaskConical, Award, ScrollText, Newspaper, Star
 } from 'lucide-react';
 import PageWrapper from '@/components/PageWrapper';
+import ResearchAndDevelopmentPage from '@/app/[locale]/what-we-do/focus/research-and-development/page';
 
 /* ───────────────────── Data Model ───────────────────── */
 
@@ -28,27 +29,29 @@ export interface JobPosition {
 export type Publication =
     | { citation: string }
     | {
-          type: 'journal' | 'conference' | 'book-authored' | 'book-edited' | 'patent-granted' | 'patent-published';
-          title: string;
-          authors?: string[];
-          // Journal-specific
-          journal?: string;
-          volume?: string;
-          pages?: string;
-          articleNumber?: string;
-          year?: number | null;
-          doi?: string;
-          impactFactor?: number;
-          publisher?: string;
-          // Conference-specific
-          conference?: string;
-          location?: string;
-          date?: string;
-          // Patent-specific
-          patentNumber?: string;
-          applicationNumber?: string;
-          inventors?: string[];
-      };
+        type: 'journal' | 'conference' | 'book-authored' | 'book-edited' | 'patent-granted' | 'patent-published' | 'Research-Publications';
+        title: string;
+        authors?: string[];
+        // Journal-specific
+        journal?: string;
+        volume?: string;
+        pages?: string;
+        articleNumber?: string;
+        year?: number | null;
+        doi?: string;
+        impactFactor?: number;
+        publisher?: string;
+        // Conference-specific
+        conference?: string;
+        location?: string;
+        date?: string;
+        // Patent-specific
+        patentNumber?: string;
+        applicationNumber?: string;
+        inventors?: string[];
+        //Research-Publications-specific
+        ResearchPublications?: string;
+    };
 
 export interface CoAuthor {
     name: string;
@@ -68,13 +71,13 @@ export interface ReviewerJournal {
 export type Degree =
     | { degree: string; institution: string; year: string | null; details: string }
     | {
-          level: string;
-          field: string;
-          institution: string;
-          location?: string;
-          year: string | null;
-          supervisor?: string;
-      };
+        level: string;
+        field: string;
+        institution: string;
+        location?: string;
+        year: string | null;
+        supervisor?: string;
+    };
 
 /** Sukhdev uses { title, year, description }; Sangita adds optional `category` */
 export interface AwardItem {
@@ -178,9 +181,10 @@ const PUB_CONFIG: Record<PubType, { label: string; icon: React.ComponentType<{ c
     'book-edited': { label: 'Books Edited', icon: BookOpen },
     'patent-granted': { label: 'Patents Granted', icon: Award },
     'patent-published': { label: 'Patents Published', icon: FlaskConical },
+    // 'Research-Publications': { label: 'Research Publications', icon: FlaskConical },
 };
 
-const PUB_ORDER: PubType[] = ['book-authored', 'book-edited', 'journal', 'conference', 'patent-granted', 'patent-published'];
+const PUB_ORDER: PubType[] = ['book-authored', 'book-edited', 'journal', 'conference', 'patent-granted', 'patent-published', 'Research-Publications'];
 
 interface PortfolioPageProps {
     data: PortfolioData;
@@ -303,6 +307,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
     const [activeSection, setActiveSection] = useState('overview');
     const [isScrolled, setIsScrolled] = useState(false);
     const [showAllPubs, setShowAllPubs] = useState(false);
+    const [showAllRichPubs, setShowAllRichPubs] = useState(false);
     const [expandedPosition, setExpandedPosition] = useState<number | null>(0);
     const [showThesis, setShowThesis] = useState(false);
     const [bioExpanded, setBioExpanded] = useState(false);
@@ -317,12 +322,12 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
     /* Group publications by type */
     const pubGroups = hasRichPubs
         ? PUB_ORDER.reduce<Record<string, Array<{ pub: Publication; origIdx: number }>>>((acc, type) => {
-              const matches = data.research.publications
-                  .map((p, i) => ({ pub: p, origIdx: i }))
-                  .filter(({ pub }) => !isSimpleCitation(pub) && (pub as { type: string }).type === type);
-              if (matches.length) acc[type] = matches;
-              return acc;
-          }, {})
+            const matches = data.research.publications
+                .map((p, i) => ({ pub: p, origIdx: i }))
+                .filter(({ pub }) => !isSimpleCitation(pub) && (pub as { type: string }).type === type);
+            if (matches.length) acc[type] = matches;
+            return acc;
+        }, {})
         : {};
 
     const pubTabKeys = ['all', ...Object.keys(pubGroups)];
@@ -339,6 +344,11 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    /* Reset show-more when the filter tab changes */
+    useEffect(() => {
+        setShowAllRichPubs(false);
+    }, [activePubTab]);
+
     const handleTabClick = (id: string) => {
         setActiveSection(id);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -350,11 +360,18 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: 'easeIn' as const } },
     };
 
-    /* Publications shown in rich mode based on active tab */
-    const richPubsToShow: Array<{ pub: Publication; origIdx: number }> =
+    const RICH_PUBS_INITIAL = 5;
+
+    /* All publications for the active tab */
+    const allRichPubsInTab: Array<{ pub: Publication; origIdx: number }> =
         activePubTab === 'all'
             ? data.research.publications.map((pub, i) => ({ pub, origIdx: i }))
             : (pubGroups[activePubTab] ?? []);
+
+    /* Slice unless expanded */
+    const richPubsToShow = showAllRichPubs
+        ? allRichPubsInTab
+        : allRichPubsInTab.slice(0, RICH_PUBS_INITIAL);
 
     return (
         <PageWrapper>
@@ -615,6 +632,17 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                         )
                                                     ))}
                                                 </div>
+
+                                                {allRichPubsInTab.length > RICH_PUBS_INITIAL && (
+                                                    <button
+                                                        onClick={() => setShowAllRichPubs(!showAllRichPubs)}
+                                                        className="mt-4 text-[#84CC16] font-bold text-sm hover:text-[#65A30D] transition-colors flex items-center gap-1"
+                                                    >
+                                                        {showAllRichPubs
+                                                            ? <><ChevronUp className="w-4 h-4" /> Show Less</>
+                                                            : <><ChevronDown className="w-4 h-4" /> Show All {allRichPubsInTab.length} Publications</>}
+                                                    </button>
+                                                )}
                                             </>
                                         )}
 

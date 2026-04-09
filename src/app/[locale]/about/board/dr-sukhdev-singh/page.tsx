@@ -66,25 +66,194 @@ Dr. Singh worked with CL Educate Ltd- Accendere Knowledge Management Services as
     research: {
         summary: "Dr. Singh's research interests include statistical estimation, prediction, reliability sampling plan and record values in the area of life testing and reliability analysis. He went on to publish in various International Journals such as IEEE Transactions on Reliability, Statistical Papers, Journal of Statistical Computation and Simulation etc. He also serves as a reviewer for many reputed journals including IEEE Transactions on Reliability, Journal of Applied Statistics and Quality Technology & Quantitative Management.",
         publications: [
-            { citation: 'B. Diyali, D. Kumar, S. Singh: Discriminating among inverse Weibull, lognormal, and inverse Gaussian distributions, Quality and Reliability Engineering International, 1-21, 2023.' },
-            { citation: 'P. Yadav, D. Kumar, S. Singh: Statistical analysis for log-normal distribution in the presence of hybrid censoring and step-stress, Strength of Materials, in press, 2023.' },
-            { citation: 'B. Diyali, D. Kumar, S. Singh: Discriminating between log-normal and log-logistic distributions in the presence of type-II censoring, Computational Statistics, 1-25, 2023.' },
-            { citation: 'D. Khurana, A. Koli, K. Khatter, S. Singh: Natural language processing: State of the art, current trends and challenges. Multimedia Tools and Applications, 2022.' },
-            { citation: 'M. M. Monfared, R. A. Belaghi, M. H. Behzadi, S. Singh: Estimation and prediction based on type-I hybrid censored data from the Poisson-Exponential distribution. Communications in Statistics: Simulation and Computation, 2019.' },
-            { citation: 'S. Singh, S. Dey, D. Kumar: Statistical inference based on generalized Lindley record values. Journal of Applied Statistics, Vol. 47(9), 1543-1561, 2020.' },
-            { citation: 'S. Singh, Y. M. Tripathi, S. J. Wu: Bayesian analysis for lognormal distribution under progressive type-II censoring. Hacettepe Journal of Mathematics and Statistics. Vol. 48(5), 1488-1504, 2019.' },
-            { citation: 'S. Singh, R. A. Belaghi, M. N. Asl: Estimation and prediction using classical and Bayesian approaches for Burr III model under progressive type-I hybrid censoring. International Journal of Systems Assurance Engineering and Management. Vol. 10(4), 746-764, 2019.' },
-            { citation: 'T. Sen, S. Singh, Y. M. Tripathi: Statistical inference for lognormal distribution with type-I progressive hybrid censored data. American Journal of Mathematical and Management Sciences. Vol. 38(1), 70-95, 2019.' },
-            { citation: 'R. A. Belaghi, M. N. Asl, O. G. Alma, S. Singh, M. Vasfi: Estimation and prediction for the Poisson-Exponential distribution based on type-II censored data. American Journal of Mathematical and Management Sciences. Vol. 38(1), 96-115, 2019.' },
-            { citation: 'S. Singh, Y. M. Tripathi: Estimating the parameters of an inverse Weibull distribution under progressive type-I interval censoring. Statistical Papers, Vol. 59(1), 21-56, 2018.' },
-            { citation: 'S. Singh, Y. M. Tripathi: Acceptance sampling plans for inverse Weibull distribution based on truncated life test. Life Cycle Reliability and Safety Engineering, Vol. 6(3), 169-178, 2017.' },
-            { citation: 'R. A. Belaghi, M. N. Asl, S. Singh: On estimating the parameters of the Burr XII model under progressive type-I interval censoring. Journal of Statistical Computation and Simulation, Vol. 87(16), 3132-3151, 2017.' },
-            { citation: 'S. Singh, Y. M. Tripathi, S. J. Wu: Bayesian estimation and prediction based on lognormal record values. Journal of Applied Statistics, Vol. 44(5), 916-940, 2017.' },
-            { citation: 'S. Dey, S. Singh, Y. M. Tripathi, A. Asgharzadeh: Estimation and prediction for a progressively censored generalized inverted exponential distribution. Statistical Methodology, Vol. 32, 185-202, 2016.' },
-            { citation: 'S. Singh, Y. M. Tripathi: Bayesian estimation and prediction for a hybrid censored lognormal distribution. IEEE Transactions on Reliability, Vol. 65(2), 782-795, 2016.' },
-            { citation: 'S. Singh, Y. M. Tripathi: Reliability sampling plans for a lognormal distribution under progressive first-failure censoring with cost constraint. Statistical Papers, Vol. 56(3), 773-817, 2015.' },
-            { citation: 'S. Singh, Y. M. Tripathi, S. J. Wu: On estimating parameters of a progressively censored lognormal distribution. Journal of Statistical Computation and Simulation, Vol. 85(6), 1071-1089, 2015.' },
-            { citation: 'S. Singh, Y. M. Tripathi, C. H. Jun: Sampling plans based on truncated life test for a generalized inverted exponential distribution. Industrial Engineering & Management Systems, Vol. 14(2), 183-195, 2015.' },
+            // { citation: 'B. Diyali, D. Kumar, S. Singh: Discriminating among inverse Weibull, lognormal, and inverse Gaussian distributions, Quality and Reliability Engineering International, 1-21, 2023.' },
+            // { citation: 'P. Yadav, D. Kumar, S. Singh: Statistical analysis for log-normal distribution in the presence of hybrid censoring and step-stress, Strength of Materials, in press, 2023.' },
+            // { citation: 'B. Diyali, D. Kumar, S. Singh: Discriminating between log-normal and log-logistic distributions in the presence of type-II censoring, Computational Statistics, 1-25, 2023.' },
+            // { citation: 'D. Khurana, A. Koli, K. Khatter, S. Singh: Natural language processing: State of the art, current trends and challenges. Multimedia Tools and Applications, 2022.' },
+            // { citation: 'M. M. Monfared, R. A. Belaghi, M. H. Behzadi, S. Singh: Estimation and prediction based on type-I hybrid censored data from the Poisson-Exponential distribution. Communications in Statistics: Simulation and Computation, 2019.' },
+            // { citation: 'S. Singh, S. Dey, D. Kumar: Statistical inference based on generalized Lindley record values. Journal of Applied Statistics, Vol. 47(9), 1543-1561, 2020.' },
+            // { citation: 'S. Singh, Y. M. Tripathi, S. J. Wu: Bayesian analysis for lognormal distribution under progressive type-II censoring. Hacettepe Journal of Mathematics and Statistics. Vol. 48(5), 1488-1504, 2019.' },
+            // { citation: 'S. Singh, R. A. Belaghi, M. N. Asl: Estimation and prediction using classical and Bayesian approaches for Burr III model under progressive type-I hybrid censoring. International Journal of Systems Assurance Engineering and Management. Vol. 10(4), 746-764, 2019.' },
+            // { citation: 'T. Sen, S. Singh, Y. M. Tripathi: Statistical inference for lognormal distribution with type-I progressive hybrid censored data. American Journal of Mathematical and Management Sciences. Vol. 38(1), 70-95, 2019.' },
+            // { citation: 'R. A. Belaghi, M. N. Asl, O. G. Alma, S. Singh, M. Vasfi: Estimation and prediction for the Poisson-Exponential distribution based on type-II censored data. American Journal of Mathematical and Management Sciences. Vol. 38(1), 96-115, 2019.' },
+            // { citation: 'S. Singh, Y. M. Tripathi: Estimating the parameters of an inverse Weibull distribution under progressive type-I interval censoring. Statistical Papers, Vol. 59(1), 21-56, 2018.' },
+            // { citation: 'S. Singh, Y. M. Tripathi: Acceptance sampling plans for inverse Weibull distribution based on truncated life test. Life Cycle Reliability and Safety Engineering, Vol. 6(3), 169-178, 2017.' },
+            // { citation: 'R. A. Belaghi, M. N. Asl, S. Singh: On estimating the parameters of the Burr XII model under progressive type-I interval censoring. Journal of Statistical Computation and Simulation, Vol. 87(16), 3132-3151, 2017.' },
+            // { citation: 'S. Singh, Y. M. Tripathi, S. J. Wu: Bayesian estimation and prediction based on lognormal record values. Journal of Applied Statistics, Vol. 44(5), 916-940, 2017.' },
+            // { citation: 'S. Dey, S. Singh, Y. M. Tripathi, A. Asgharzadeh: Estimation and prediction for a progressively censored generalized inverted exponential distribution. Statistical Methodology, Vol. 32, 185-202, 2016.' },
+            // { citation: 'S. Singh, Y. M. Tripathi: Bayesian estimation and prediction for a hybrid censored lognormal distribution. IEEE Transactions on Reliability, Vol. 65(2), 782-795, 2016.' },
+            // { citation: 'S. Singh, Y. M. Tripathi: Reliability sampling plans for a lognormal distribution under progressive first-failure censoring with cost constraint. Statistical Papers, Vol. 56(3), 773-817, 2015.' },
+            // { citation: 'S. Singh, Y. M. Tripathi, S. J. Wu: On estimating parameters of a progressively censored lognormal distribution. Journal of Statistical Computation and Simulation, Vol. 85(6), 1071-1089, 2015.' },
+            // { citation: 'S. Singh, Y. M. Tripathi, C. H. Jun: Sampling plans based on truncated life test for a generalized inverted exponential distribution. Industrial Engineering & Management Systems, Vol. 14(2), 183-195, 2015.' },
+
+            {
+                type: "journal",
+                title: "Discriminating among inverse Weibull, lognormal, and inverse Gaussian distributions",
+                authors: ["B. Diyali", "D. Kumar", "S. Singh"],
+                journal: "Quality and Reliability Engineering International",
+                publisher: "Wiley",
+                year: 2023,
+            },
+
+            {
+                type: "journal",
+                title: "Statistical analysis for log-normal distribution in the presence of hybrid censoring and step-stress",
+                authors: ["P. Yadav", "D. Kumar", "S. Singh"],
+                journal: "Strength of Materials",
+                publisher: "Springer",
+                year: 2023,
+            },
+
+            {
+                type: "journal",
+                title: "Discriminating between log-normal and log-logistic distributions in the presence of type-II censoring",
+                authors: ["B. Diyali", "D. Kumar", "S. Singh"],
+                journal: "Computational Statistics",
+                publisher: "Springer",
+                year: 2023,
+            },
+
+            {
+                type: "journal",
+                title: "Natural language processing: State of the art, current trends and challenges",
+                authors: ["D. Khurana", "A. Koli", "K. Khatter", "S. Singh"],
+                journal: "Multimedia Tools and Applications",
+                publisher: "Springer",
+                year: 2022,
+            },
+
+            {
+                type: "journal",
+                title: "Estimation and prediction based on type-I hybrid censored data from the Poisson-Exponential distribution",
+                authors: ["M. M. Monfared", "R. A. Belaghi", "M. H. Behzadi", "S. Singh"],
+                journal: "Communications in Statistics: Simulation and Computation",
+                publisher: "Taylor & Francis",
+                year: 2019,
+            },
+
+            {
+                type: "journal",
+                title: "Statistical inference based on generalized Lindley record values",
+                authors: ["S. Singh", "S. Dey", "D. Kumar"],
+                journal: "Journal of Applied Statistics",
+                publisher: "Taylor & Francis",
+                year: 2020,
+            },
+
+            {
+                type: "journal",
+                title: "Bayesian analysis for lognormal distribution under progressive type-II censoring",
+                authors: ["S. Singh", "Y. M. Tripathi", "S. J. Wu"],
+                journal: "Hacettepe Journal of Mathematics and Statistics",
+                year: 2019,
+            },
+
+            {
+                type: "journal",
+                title: "Estimation and prediction using classical and Bayesian approaches for Burr III model under progressive type-I hybrid censoring",
+                authors: ["S. Singh", "R. A. Belaghi", "M. N. Asl"],
+                journal: "International Journal of Systems Assurance Engineering and Management",
+                publisher: "Springer",
+                year: 2019,
+            },
+
+            {
+                type: "journal",
+                title: "Statistical inference for lognormal distribution with type-I progressive hybrid censored data",
+                authors: ["T. Sen", "S. Singh", "Y. M. Tripathi"],
+                journal: "American Journal of Mathematical and Management Sciences",
+                publisher: "Taylor & Francis",
+                year: 2019,
+            },
+
+            {
+                type: "journal",
+                title: "Estimation and prediction for the Poisson-Exponential distribution based on type-II censored data",
+                authors: ["R. A. Belaghi", "M. N. Asl", "O. G. Alma", "S. Singh", "M. Vasfi"],
+                journal: "American Journal of Mathematical and Management Sciences",
+                publisher: "Taylor & Francis",
+                year: 2019,
+            },
+
+            {
+                type: "journal",
+                title: "Estimating the parameters of an inverse Weibull distribution under progressive type-I interval censoring",
+                authors: ["S. Singh", "Y. M. Tripathi"],
+                journal: "Statistical Papers",
+                publisher: "Springer",
+                year: 2018,
+            },
+
+            {
+                type: "journal",
+                title: "Acceptance sampling plans for inverse Weibull distribution based on truncated life test",
+                authors: ["S. Singh", "Y. M. Tripathi"],
+                journal: "Life Cycle Reliability and Safety Engineering",
+                year: 2017,
+            },
+
+            {
+                type: "journal",
+                title: "On estimating the parameters of the Burr XII model under progressive type-I interval censoring",
+                authors: ["R. A. Belaghi", "M. N. Asl", "S. Singh"],
+                journal: "Journal of Statistical Computation and Simulation",
+                publisher: "Taylor & Francis",
+                year: 2017,
+            },
+
+            {
+                type: "journal",
+                title: "Bayesian estimation and prediction based on lognormal record values",
+                authors: ["S. Singh", "Y. M. Tripathi", "S. J. Wu"],
+                journal: "Journal of Applied Statistics",
+                publisher: "Taylor & Francis",
+                year: 2017,
+            },
+
+            {
+                type: "journal",
+                title: "Estimation and prediction for a progressively censored generalized inverted exponential distribution",
+                authors: ["S. Dey", "S. Singh", "Y. M. Tripathi", "A. Asgharzadeh"],
+                journal: "Statistical Methodology",
+                publisher: "Elsevier",
+                year: 2016,
+            },
+
+            {
+                type: "journal",
+                title: "Bayesian estimation and prediction for a hybrid censored lognormal distribution",
+                authors: ["S. Singh", "Y. M. Tripathi"],
+                journal: "IEEE Transactions on Reliability",
+                publisher: "IEEE",
+                year: 2016,
+            },
+
+            {
+                type: "journal",
+                title: "Reliability sampling plans for a lognormal distribution under progressive first-failure censoring with cost constraint",
+                authors: ["S. Singh", "Y. M. Tripathi"],
+                journal: "Statistical Papers",
+                publisher: "Springer",
+                year: 2015,
+            },
+
+            {
+                type: "journal",
+                title: "On estimating parameters of a progressively censored lognormal distribution",
+                authors: ["S. Singh", "Y. M. Tripathi", "S. J. Wu"],
+                journal: "Journal of Statistical Computation and Simulation",
+                publisher: "Taylor & Francis",
+                year: 2015,
+            },
+
+            {
+                type: "journal",
+                title: "Sampling plans based on truncated life test for a generalized inverted exponential distribution",
+                authors: ["S. Singh", "Y. M. Tripathi", "C. H. Jun"],
+                journal: "Industrial Engineering & Management Systems",
+                year: 2015,
+            }
+
         ],
         coAuthors: [
             { name: 'Yogesh Mani Tripathi', count: 10, role: 'PhD Supervisor', link: 'http://www.iitp.ac.in/index.php/departments/school-of-basic-sciences/mathematics/people/faculty/dr-yogesh-mani-tripathi.html' },
