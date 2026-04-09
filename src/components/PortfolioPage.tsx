@@ -183,8 +183,8 @@ const PUB_CONFIG: Record<PubType, { label: string; icon: React.ComponentType<{ c
     'patent-published': { label: 'Patents Published', icon: FlaskConical },
     // 'Research-Publications': { label: 'Research Publications', icon: FlaskConical },
 };
-
-const PUB_ORDER: PubType[] = ['book-authored', 'book-edited', 'journal', 'conference', 'patent-granted', 'patent-published', 'Research-Publications'];
+const PUB_ORDER: PubType[] = ['book-authored', 'book-edited', 'journal', 'conference', 'patent-granted', 'patent-published'];
+// , 'Research-Publications'
 
 interface PortfolioPageProps {
     data: PortfolioData;
