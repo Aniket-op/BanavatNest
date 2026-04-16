@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import DomainCarousel from '@/components/DomainCarousel';
 import InfiniteUpdateBar from '@/components/InfiniteUpdateBar';
 import FluidCursor from '@/components/FluidCursor';
+import HowItWorks from '@/components/HowItWorks';
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -146,6 +147,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* How It Works Section */}
+      <HowItWorks />
     </div>
   );
 };
