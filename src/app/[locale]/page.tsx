@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import DomainCarousel from '@/components/DomainCarousel';
 import InfiniteUpdateBar from '@/components/InfiniteUpdateBar';
 import FluidCursor from '@/components/FluidCursor';
-import HowItWorks from '@/components/HowItWorks';
+import HowItWorks from '@/components/WhatWeDo_hm';
 
 const Home = () => {
   const { scrollY } = useScroll();
