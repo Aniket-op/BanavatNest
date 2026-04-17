@@ -45,10 +45,10 @@ const Home = () => {
         <ProcessSection />
       </FadeInSection>
 
-      <FadeInSection>
-        {/* 5. Case Studies — Proof of impact */}
-        <CaseStudiesSection />
-      </FadeInSection>
+      {/* <FadeInSection> */}
+      {/* 5. Case Studies — Proof of impact */}
+      {/* <CaseStudiesSection /> */}
+      {/* </FadeInSection> */}
 
       <FadeInSection>
         {/* 6. Testimonials — Trust signals */}

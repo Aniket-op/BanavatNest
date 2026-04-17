@@ -14,7 +14,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full max-w-7xl mx-auto overflow-hidden bg-[#FAFAF7] dark:bg-[#0C0C0A] flex flex-col" style={{ minHeight: '30vh' }}
+      className="lg:pt-25  relative w-full max-w-7xl mx-auto overflow-hidden bg-[#FAFAF7] dark:bg-[#0C0C0A] flex flex-col" style={{ minHeight: '30vh' }}
     >
       {/* ────────────────────────────────────────────
           BACKGROUND — dot grid overlay
@@ -119,11 +119,11 @@ export default function HeroSection() {
             className="flex items-center divide-x divide-zinc-200 dark:divide-zinc-800 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden w-fit bg-white dark:bg-zinc-900/50 shadow-sm"
           >
             {[
-              { v: '20+', l: 'Research Papers' },
-              { v: '4', l: 'Core Domains' },
-              { v: '8+', l: 'Live Projects' },
+              { v: '2', l: 'Patents' },
+              { v: '4', l: 'Research Domains' },
+              { v: '10+', l: 'Live Projects' },
             ].map((s) => (
-              <div key={s.l} className="flex flex-col items-center px-6 py-3.5">
+              <div key={s.l} className="flex flex-col items-center px-3 sm:px-10 py-3.5">
                 <span className="text-lg font-black text-zinc-900 dark:text-zinc-100 tracking-tight">{s.v}</span>
                 <span className="text-[8px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-[0.14em] mt-0.5 whitespace-nowrap">{s.l}</span>
               </div>
@@ -132,7 +132,7 @@ export default function HeroSection() {
         </div>
 
         {/* ── RIGHT: ILLUSTRATION ── */}
-        <div className="relative w-full flex items-center justify-center overflow-visible pb-16 px-6 sm:px-10 lg:px-0 lg:pb-0 z-10 mt-12 lg:mt-0">
+        <div className="relative w-full flex items-center justify-center overflow-visible  px-6 sm:px-10 lg:px-0 lg:pb-0 z-10 mt-12 lg:mt-0">
           <motion.div
             style={{ y: imgY }}
             initial={{ opacity: 0, scale: 0.96 }}
