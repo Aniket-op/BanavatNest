@@ -13,7 +13,7 @@ const domains = [
     accent: '#3B82F6',
     accentLight: '#EFF6FF',
     accentDark: '#1E3A5F',
-    href: '/what-we-do/domains',
+    href: '/what-we-do/domains/ai-ml-data-science',
     number: '01',
   },
   {
@@ -24,7 +24,7 @@ const domains = [
     accent: '#10B981',
     accentLight: '#ECFDF5',
     accentDark: '#064E3B',
-    href: '/what-we-do/domains',
+    href: '/what-we-do/domains/cybersecurity-iot-blockchain',
     number: '02',
   },
   {
@@ -35,7 +35,7 @@ const domains = [
     accent: '#8B5CF6',
     accentLight: '#F5F3FF',
     accentDark: '#3B1E6D',
-    href: '/what-we-do/domains',
+    href: '/what-we-do/domains/smart-systems-healthcare-sustainability',
     number: '03',
   },
   {
@@ -46,7 +46,7 @@ const domains = [
     accent: '#84CC16',
     accentLight: '#F7FEE7',
     accentDark: '#1a3302',
-    href: '/what-we-do/domains',
+    href: '/what-we-do/domains/agriculture-smart-farming',
     number: '04',
   },
 ];
