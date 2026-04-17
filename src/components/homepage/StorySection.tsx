@@ -188,7 +188,7 @@ export default function StorySection() {
       <section className="bg-white dark:bg-[#0C0C0A] overflow-hidden text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid sm:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 items-center">
 
             {/* Left: text */}
             <motion.div
