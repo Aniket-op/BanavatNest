@@ -53,7 +53,7 @@ const domains = [
 
 export default function CoreDomainsSection() {
   return (
-    <section className="bg-white dark:bg-[#0C0C0A]">
+    <section className="py-24 bg-zinc-50 dark:bg-[#09090b]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ── Header ── */}
@@ -96,24 +96,24 @@ export default function CoreDomainsSection() {
               >
                 <Link href={domain.href} className="block h-full">
                   <div
-                    className="relative h-full rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 p-8 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+                    className="relative bg-zinc-150 h-full rounded-[2.5rem] border border-zinc-200/60 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 p-8 overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
                   >
                     {/* Number watermark */}
-                    <span className="absolute top-5 right-6 text-[4rem] font-black leading-none text-zinc-100 dark:text-zinc-800 select-none transition-opacity duration-500 group-hover:opacity-0">
+                    <span className="absolute top-5 right-6 text-[4rem] font-black leading-none text-zinc-150 dark:text-zinc-600 select-none transition-opacity duration-500 group-hover:opacity-0">
                       {domain.number}
                     </span>
 
                     {/* Hover subtle glow */}
                     <div
-                      className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none dark:hidden"
+                      className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none dark:hidden"
                       style={{
-                        background: `radial-gradient(circle at top right, ${domain.accent}1A, transparent 70%)`
+                        background: `radial-gradient(circle at top right, ${domain.accent}33, transparent 70%)`
                       }}
                     />
                     <div
                       className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
                       style={{
-                        background: `radial-gradient(circle at top right, ${domain.accent}26, transparent 70%)`
+                        background: `radial-gradient(circle at top right, ${domain.accent}40, transparent 70%)`
                       }}
                     />
 
