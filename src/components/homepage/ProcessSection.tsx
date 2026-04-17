@@ -128,24 +128,6 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        {/* ── Bottom CTA strip ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
-        >
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
-            Ready to start your collaboration journey?
-          </p>
-          <a
-            href="/contact"
-            className="text-sm font-black text-[#84CC16] hover:underline underline-offset-4 transition-all"
-          >
-            Contact us →
-          </a>
-        </motion.div>
       </div>
     </section>
   );
