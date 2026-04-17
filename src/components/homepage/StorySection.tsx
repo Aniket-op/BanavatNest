@@ -185,10 +185,10 @@ export default function StorySection() {
       {/* ══════════════════════════════════════════
           SECTION 2 — OUR USP (Why Us)
       ══════════════════════════════════════════ */}
-      <section className="py-24 bg-white dark:bg-[#0C0C0A] overflow-hidden">
+      <section className="bg-white dark:bg-[#0C0C0A] overflow-hidden text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-8 items-center">
 
             {/* Left: text */}
             <motion.div
@@ -203,7 +203,7 @@ export default function StorySection() {
                 It's not outsourcing<br />
                 <span className="text-[#84CC16]">It's co-creation</span>
               </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-8 max-w-md">
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed text-center">
                 BanavatNest is a <strong className="text-zinc-900 dark:text-zinc-100">research-led innovation ecosystem</strong> — not an agency, not a lab, not a vendor. We co-invest in solving problems alongside academia and industry using a structured, milestone-based framework.
               </p>
             </motion.div>
