@@ -14,7 +14,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full max-w-7xl mx-auto overflow-hidden bg-[#FAFAF7] dark:bg-[#0C0C0A] flex flex-col" style={{ minHeight: '100dvh' }}
+      className="relative w-full max-w-7xl mx-auto overflow-hidden bg-[#FAFAF7] dark:bg-[#0C0C0A] flex flex-col" style={{ minHeight: '30vh' }}
     >
       {/* ────────────────────────────────────────────
           BACKGROUND — dot grid overlay
@@ -36,7 +36,7 @@ export default function HeroSection() {
       {/* ────────────────────────────────────────────
           MAIN CONTENT GRID
       ──────────────────────────────────────────── */}
-      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 max-w-none" style={{ minHeight: 'calc(100dvh - 11rem)' }}>
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 max-w-none py-25">
 
         {/* ── LEFT: TEXT ── */}
         <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 pt-12 pb-16 lg:py-0">
