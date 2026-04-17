@@ -36,17 +36,17 @@ export default function HeroSection() {
       {/* ────────────────────────────────────────────
           MAIN CONTENT GRID
       ──────────────────────────────────────────── */}
-      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 max-w-none py-25">
+      <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-2 max-w-none">
 
         {/* ── LEFT: TEXT ── */}
-        <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 pt-12 pb-16 lg:py-0">
+        <div className="flex flex-col text-center px-6 sm:px-10 lg:px-16 pt-12 pb-16 lg:py-0">
 
           {/* Tagline chip */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.45, delay: 0.2 }}
-            className="inline-flex self-start items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 mb-10 shadow-sm"
+            className="inline-flex self-center sm:self-start items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 mb-10 shadow-sm"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] animate-pulse" />
             <span className="text-[9px] font-black text-zinc-500 dark:text-zinc-400 uppercase tracking-[0.22em]">
@@ -132,7 +132,7 @@ export default function HeroSection() {
         </div>
 
         {/* ── RIGHT: ILLUSTRATION ── */}
-        <div className="absolute lg:relative right-0 sm:right-4 top-[15%] sm:top-[20%] lg:top-auto w-[55%] sm:w-[45%] lg:w-full flex items-start lg:items-center justify-center overflow-visible pb-16 lg:pb-0 z-0 lg:z-10">
+        <div className="relative w-full flex items-center justify-center overflow-visible pb-16 px-6 sm:px-10 lg:px-0 lg:pb-0 z-10 mt-12 lg:mt-0">
           <motion.div
             style={{ y: imgY }}
             initial={{ opacity: 0, scale: 0.96 }}
