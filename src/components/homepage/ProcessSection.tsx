@@ -63,7 +63,7 @@ export default function ProcessSection() {
         {/* ── Step cards w/ connector line ── */}
         <div className="relative">
           {/* Horizontal line desktop */}
-          <div className="hidden lg:block absolute top-[4.5rem] left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent pointer-events-none z-0" />
+          <div className="lg:block absolute top-[4.5rem] left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent pointer-events-none z-0" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
             {steps.map((step, idx) => {
@@ -86,9 +86,17 @@ export default function ProcessSection() {
                     </div>
                   )}
 
-                  <div className={`relative rounded-[1.75rem] ${step.bg} border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700 p-7 h-full transition-all duration-400 hover:shadow-xl hover:-translate-y-1.5`}>
+                  <div className={`relative rounded-[1.75rem] ${step.bg} border border-transparent hover:border-[#84CC16]/30 p-7 h-full transition-all duration-400 hover:shadow-2xl hover:-translate-y-1.5 overflow-hidden`}>
+                    {/* Dark mode glow */}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
+                      style={{
+                        background: `radial-gradient(circle at top right, ${step.color}55, transparent 70%)`
+                      }}
+                    />
+
                     {/* Step number (top) */}
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="relative z-10 flex items-center justify-between mb-6">
                       {/* Icon */}
                       <div
                         className="w-[3.25rem] h-[3.25rem] rounded-2xl flex items-center justify-center bg-white dark:bg-zinc-900 shadow-sm transition-transform duration-300 group-hover:scale-110"
@@ -96,15 +104,15 @@ export default function ProcessSection() {
                         <Icon className="w-[1.1rem] h-[1.1rem]" style={{ color: step.color }} />
                       </div>
                       {/* Number badge */}
-                      <span className="text-[2.5rem] font-black leading-none tracking-tighter text-zinc-100 dark:text-zinc-800 select-none">
+                      <span className="text-[2.5rem] font-black leading-none tracking-tighter text-zinc-900/10 dark:text-zinc-100/10 select-none">
                         {step.number}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-black text-zinc-900 dark:text-zinc-100 tracking-tight mb-3">
+                    <h3 className="relative z-10 text-base font-black text-zinc-900 dark:text-white tracking-tight mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-[1.7]">
+                    <p className="relative z-10 text-sm text-zinc-600 dark:text-zinc-300 font-medium leading-[1.7]">
                       {step.desc}
                     </p>
 
