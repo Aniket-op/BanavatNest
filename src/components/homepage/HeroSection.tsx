@@ -17,9 +17,8 @@ export default function HeroSection() {
       className="relative w-full max-w-7xl mx-auto overflow-hidden bg-[#FAFAF7] dark:bg-[#0C0C0A] flex flex-col" style={{ minHeight: '100dvh' }}
     >
       {/* ────────────────────────────────────────────
-          BACKGROUND — warm right panel + dot grid
+          BACKGROUND — dot grid overlay
       ──────────────────────────────────────────── */}
-      <div className="absolute inset-y-0 right-0 w-1/2 bg-[#F2EDE3] dark:bg-[#131109] hidden lg:block pointer-events-none" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -34,29 +33,6 @@ export default function HeroSection() {
         transition={{ duration: 8, repeat: Infinity }}
         className="hidden dark:block absolute top-[15%] right-[22%] w-[560px] h-[560px] rounded-full bg-[#84CC16]/10 blur-[160px] pointer-events-none"
       />
-
-      {/* ────────────────────────────────────────────
-          TOP LABEL ROW
-      ──────────────────────────────────────────── */}
-      <motion.div
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="relative z-20 flex items-center justify-between px-6 sm:px-10 lg:px-16 pt-10 pb-0"
-      >
-        <div className="flex items-center gap-2.5">
-          <span className="w-5 h-px bg-[#84CC16]" />
-          <span className="text-[9px] font-black text-[#84CC16] uppercase tracking-[0.28em]">
-            Research-Led Innovation · Est. 2024
-          </span>
-        </div>
-        <div className="hidden sm:flex items-center gap-6 text-[9px] font-black uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-600">
-          <span>Academia</span>
-          <span className="w-8 h-px bg-zinc-300 dark:bg-zinc-700" />
-          <span>Industry</span>
-        </div>
-      </motion.div>
-
       {/* ────────────────────────────────────────────
           MAIN CONTENT GRID
       ──────────────────────────────────────────── */}
@@ -156,20 +132,20 @@ export default function HeroSection() {
         </div>
 
         {/* ── RIGHT: ILLUSTRATION ── */}
-        <div className="relative hidden lg:flex items-center justify-center overflow-visible">
+        <div className="absolute lg:relative right-0 sm:right-4 top-[15%] sm:top-[20%] lg:top-auto w-[55%] sm:w-[45%] lg:w-full flex items-start lg:items-center justify-center overflow-visible pb-16 lg:pb-0 z-0 lg:z-10">
           <motion.div
             style={{ y: imgY }}
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[640px] xl:max-w-[700px] mx-auto px-8"
+            className="relative w-full max-w-[640px] xl:max-w-[700px] mx-auto px-2 lg:px-8 mt-4 lg:mt-0"
           >
             {/* Floating pills */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.4 }}
-              className="absolute -top-4 left-12 z-20 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl px-4 py-2.5 shadow-lg"
+              className="hidden lg:block absolute -top-4 left-4 sm:left-12 z-20 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl px-4 py-2.5 shadow-lg"
             >
               <p className="text-[8px] font-black uppercase tracking-[0.15em] text-zinc-400 mb-0.5">Side A</p>
               <p className="text-sm font-black text-zinc-900 dark:text-zinc-100 leading-none">Academia</p>
@@ -179,15 +155,15 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.4 }}
-              className="absolute -top-4 right-12 z-20 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl px-4 py-2.5 shadow-lg"
+              className="hidden lg:block absolute -top-4 right-4 sm:right-12 z-20 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-xl px-4 py-2.5 shadow-lg"
             >
               <p className="text-[8px] font-black uppercase tracking-[0.15em] text-zinc-400 mb-0.5">Side B</p>
               <p className="text-sm font-black text-zinc-900 dark:text-zinc-100 leading-none">Industry</p>
             </motion.div>
 
             {/* Illustration with edge fades */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#F2EDE3] dark:from-[#131109] to-transparent z-10 pointer-events-none" />
+            <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl">
+              <div className="absolute bottom-0 inset-x-0 h-20 pointer-events-none" />
               <Image
                 src="/images/HomePageImage.png"
                 alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
@@ -203,7 +179,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.4 }}
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 bg-[#84CC16] text-zinc-900 px-5 py-2 rounded-full shadow-lg z-20 whitespace-nowrap"
+              className="hidden lg:inline-flex absolute -bottom-3 left-1/2 -translate-x-1/2 items-center gap-2 bg-[#84CC16] text-zinc-900 px-5 py-2 rounded-full shadow-lg z-20 whitespace-nowrap"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-zinc-900/30" />
               <span className="text-[9px] font-black uppercase tracking-[0.2em]">The BanavatNest Bridge</span>
