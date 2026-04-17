@@ -100,7 +100,7 @@ export default function StorySection() {
             <p className="text-xs font-bold text-[#84CC16] uppercase tracking-widest mb-4">— The Problem We Solve</p>
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-5">
               There is a <span className="relative inline-block">
-                <span className="text-zinc-700 dark:text-zinc-700">gap</span>
+                <span className="text-zinc-600 dark:text-zinc-500">gap</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -188,7 +188,7 @@ export default function StorySection() {
       <section className="py-24 bg-white dark:bg-[#0C0C0A] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
             {/* Left: text */}
             <motion.div
@@ -199,19 +199,13 @@ export default function StorySection() {
             >
               <p className="text-xs font-bold text-[#84CC16] uppercase tracking-widest mb-5">— Why BanavatNest</p>
               <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6">
-                It's not consulting.<br />
-                It's not outsourcing.<br />
-                <span className="text-[#84CC16]">It's co-creation.</span>
+                It's not consulting<br />
+                It's not outsourcing<br />
+                <span className="text-[#84CC16]">It's co-creation</span>
               </h2>
               <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-8 max-w-md">
                 BanavatNest is a <strong className="text-zinc-900 dark:text-zinc-100">research-led innovation ecosystem</strong> — not an agency, not a lab, not a vendor. We co-invest in solving problems alongside academia and industry using a structured, milestone-based framework.
               </p>
-              <div className="flex items-start gap-4 p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
-                <Building2 className="w-6 h-6 text-[#84CC16] flex-shrink-0 mt-0.5" />
-                <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                  <strong className="text-zinc-900 dark:text-zinc-100">Raising our Seed Round</strong> — to scale our collaboration infrastructure and onboard 20+ new research partners in 2025.
-                </p>
-              </div>
             </motion.div>
 
             {/* Right: USP list */}

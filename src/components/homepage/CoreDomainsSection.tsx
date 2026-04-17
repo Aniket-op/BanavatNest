@@ -53,7 +53,7 @@ const domains = [
 
 export default function CoreDomainsSection() {
   return (
-    <section className="py-28 bg-white dark:bg-[#0C0C0A]">
+    <section className="bg-white dark:bg-[#0C0C0A]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ── Header ── */}
@@ -96,29 +96,29 @@ export default function CoreDomainsSection() {
               >
                 <Link href={domain.href} className="block h-full">
                   <div
-                    className="relative h-full rounded-[1.75rem] border border-zinc-100 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/40 p-7 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-transparent"
-                    style={{
-                      // @ts-ignore
-                      '--hover-bg': domain.accentLight,
-                    }}
+                    className="relative h-full rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 p-8 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
                   >
                     {/* Number watermark */}
                     <span className="absolute top-5 right-6 text-[4rem] font-black leading-none text-zinc-100 dark:text-zinc-800 select-none transition-opacity duration-500 group-hover:opacity-0">
                       {domain.number}
                     </span>
 
-                    {/* Hover color fill */}
+                    {/* Hover subtle glow */}
                     <div
-                      className="absolute inset-0 rounded-[1.75rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ backgroundColor: domain.accentLight }}
+                      className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none dark:hidden"
+                      style={{
+                        background: `radial-gradient(circle at top right, ${domain.accent}1A, transparent 70%)`
+                      }}
                     />
                     <div
-                      className="absolute inset-0 rounded-[1.75rem] opacity-0 dark:group-hover:opacity-100 transition-opacity duration-500"
-                      style={{ backgroundColor: `${domain.accent}12` }}
+                      className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
+                      style={{
+                        background: `radial-gradient(circle at top right, ${domain.accent}26, transparent 70%)`
+                      }}
                     />
 
                     {/* Icon */}
-                    <div className="relative z-10 w-11 h-11 rounded-xl mb-6 flex items-center justify-center bg-white dark:bg-zinc-800 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                    <div className="relative z-10 w-12 h-12 rounded-2xl mb-6 flex items-center justify-center bg-zinc-50 dark:bg-zinc-800 shadow-sm border border-zinc-100 dark:border-zinc-700/50 group-hover:scale-110 transition-transform duration-500">
                       <Icon className="w-5 h-5" style={{ color: domain.accent }} />
                     </div>
 
