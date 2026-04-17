@@ -100,7 +100,7 @@ export default function StorySection() {
             <p className="text-xs font-bold text-[#84CC16] uppercase tracking-widest mb-4">— The Problem We Solve</p>
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-5">
               There is a <span className="relative inline-block">
-                <span className="text-zinc-300 dark:text-zinc-700">gap</span>
+                <span className="text-zinc-700 dark:text-zinc-700">gap</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
