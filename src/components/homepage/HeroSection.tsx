@@ -9,15 +9,19 @@ export default function HeroSection() {
 
   return (
     <>
-      <section ref={ref} className="mt-10 relative shadow-2xl dark:shadow-white/20 mx-auto rounded-4xl max-w-7xl h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-full">
-        {/* BACKGROUND IMAGE */}
-        <Image
-          src="/images/HomePageImage.png"
-          alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
-          fill
-          className="object-cover object-top z-0"
-          priority
-        />
+      <section ref={ref} className="mt-10 relative shadow-2xl dark:shadow-white/60 mx-auto rounded-4xl max-w-7xl h-[35vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-full bg-zinc-50 dark:bg-zinc-900/50">
+        {/* BACKGROUND IMAGE CONTAINER */}
+        <div className="absolute inset-0">
+          <div className="relative w-full h-full rounded-2xl sm:rounded-none shadow-xl sm:shadow-none overflow-hidden">
+            <Image
+              src="/images/HomePageImage.png"
+              alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
+              fill
+              className="object-cover object-center sm:object-top"
+              priority
+            />
+          </div>
+        </div>
         <motion.div
           animate={{ scale: [1, 1.08, 1], opacity: [0.07, 0.14, 0.07] }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -29,10 +33,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.4 }}
-          className="absolute top-8 lg:top-10 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 bg-[#84CC16] hover:bg-[#95E01A] transition-colors text-zinc-900 px-6 py-2.5 rounded-full shadow-2xl shadow-[#84CC16]/20 z-20 whitespace-nowrap cursor-default"
+          className="absolute top-6 sm:top-8 lg:top-10 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 bg-[#84CC16] hover:bg-[#95E01A] transition-colors text-zinc-900 px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full shadow-lg sm:shadow-2xl shadow-[#84CC16]/20 z-20 whitespace-nowrap cursor-default"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-zinc-900/50 animate-pulse" />
-          <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em]">Build with Purpose Nurture to Impact</span>
+          <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-900/50 animate-pulse" />
+          <span className="text-[8px] sm:text-[10px] md:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.2em]">Build with Purpose Nurture to Impact</span>
         </motion.div>
       </section>
 

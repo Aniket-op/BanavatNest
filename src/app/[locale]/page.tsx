@@ -37,16 +37,20 @@ const Home = () => {
   ];
 
   return (
-    <div className="relative pt-20">
-      <FluidCursor />
+    <>
+      <FadeInSection>
+        <div className="relative pt-20">
+          <FluidCursor />
 
-      <div className="w-full relative z-30 mb-2">
-        <InfiniteUpdateBar updates={updates} />
-      </div>
+          <div className="w-full relative z-30 mb-2">
+            <InfiniteUpdateBar updates={updates} />
+          </div>
 
-      {/* 1. Hero — Nurturing. Building. Impact. */}
-      {/* Excluded from wrapper to allow its custom immediate load animations */}
-      <HeroSection />
+          {/* 1. Hero — Nurturing. Building. Impact. */}
+          {/* Excluded from wrapper to allow its custom immediate load animations */}
+          <HeroSection />
+        </div>
+      </FadeInSection>
 
       <FadeInSection>
         {/* 2. Story — The Gap + Why BanavatNest (USP) */}
@@ -96,7 +100,7 @@ const Home = () => {
           </a>
         </motion.div>
       </FadeInSection>
-    </div>
+    </>
   );
 };
 
