@@ -6,7 +6,7 @@ import HeroSection from '@/components/homepage/HeroSection';
 import WhatWeDo from '@/components/homepage/WhatWeDo';
 import CoreDomainsSection from '@/components/homepage/CoreDomainsSection';
 import CaseStudiesSection from '@/components/homepage/CaseStudiesSection';
-import ProcessSection from '@/components/homepage/ProcessSection';
+import WhatWeServe from '@/components/homepage/WhatWeServe';
 import TestimonialsSection from '@/components/homepage/TestimonialsSection';
 import FinalCTASection from '@/components/homepage/FinalCTASection';
 import InfiniteUpdateBar from '@/components/InfiniteUpdateBar';
@@ -56,7 +56,7 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-        <ProcessSection />
+        <WhatWeServe />
       </FadeInSection>
 
       <FadeInSection>

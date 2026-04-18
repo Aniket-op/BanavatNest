@@ -1,0 +1,334 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// ── Premium SVG Illustrations with Animations ──
+
+const StudentIllustration = ({ color }: { color: string }) => (
+  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+    <defs>
+      <linearGradient id="grad-student" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+        <stop offset="100%" stopColor={color} stopOpacity="0.05" />
+      </linearGradient>
+      <filter id="glow-student-orb">
+        <feGaussianBlur stdDeviation="2" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+    </defs>
+
+    {/* Backdrop Glassy Circle */}
+    <circle cx="50" cy="50" r="35" fill="url(#grad-student)" />
+    
+    {/* Orbital Path with Moving Dot */}
+    <circle cx="50" cy="50" r="42" stroke={color} strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3" />
+    <motion.circle 
+      cx="50" cy="8" r="3" fill={color} filter="url(#glow-student-orb)"
+      animate={{ 
+        cx: [50, 92, 50, 8, 50],
+        cy: [8, 50, 92, 50, 8]
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Laptop Base (Glassmorphic) */}
+    <rect x="25" y="45" width="50" height="32" rx="4" fill="white" fillOpacity="0.05" stroke={color} strokeWidth="1.5" className="backdrop-blur-sm" />
+    <rect x="30" y="50" width="40" height="22" rx="2" fill="white" className="dark:fill-zinc-900" opacity="0.8" />
+    <path d="M22 77H78" stroke={color} strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+    
+    {/* Graduation Cap (Animated Floating) */}
+    <motion.g
+      animate={{ y: [0, -5, 0] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <path d="M35 40L50 32L65 40L50 48L35 40Z" fill={color} />
+      <path d="M42 44V50C42 50 45 52 50 52C55 52 58 50 58 50V44" stroke={color} strokeWidth="2" strokeLinecap="round" />
+      <path d="M65 40V48" stroke={color} strokeWidth="1" strokeLinecap="round" />
+    </motion.g>
+  </svg>
+);
+
+const FacultyIllustration = ({ color }: { color: string }) => (
+  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+    <defs>
+      <linearGradient id="grad-faculty" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+        <stop offset="100%" stopColor={color} stopOpacity="0.05" />
+      </linearGradient>
+    </defs>
+
+    {/* Backdrop Glassy Circle */}
+    <circle cx="45" cy="45" r="35" fill="url(#grad-faculty)" />
+    
+    {/* Book Pages Layered */}
+    <rect x="20" y="30" width="30" height="40" rx="3" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" strokeOpacity="0.6" />
+    <rect x="50" y="30" width="30" height="40" rx="3" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" strokeOpacity="0.6" />
+    <path d="M25 40H40M25 48H45M25 56H40" stroke={color} strokeWidth="1" strokeLinecap="round" opacity="0.3" />
+    
+    {/* Rotating Gear */}
+    <motion.g
+      animate={{ rotate: 360 }}
+      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+      style={{ originX: "65px", originY: "60px" }}
+    >
+      <circle cx="65" cy="60" r="12" fill={color} fillOpacity="0.2" stroke={color} strokeWidth="1.5" />
+      <circle cx="65" cy="60" r="4" fill="white" className="dark:fill-background" stroke={color} strokeWidth="1.5" />
+      {[0, 45, 90, 135, 180, 225, 270, 315].map(angle => (
+        <path key={angle} d={`M65 45V48`} stroke={color} strokeWidth="2.5" strokeLinecap="round" transform={`rotate(${angle} 65 60)`} />
+      ))}
+    </motion.g>
+
+    {/* Network Nodes (Pulsing) */}
+    <g>
+      <motion.circle cx="70" cy="25" r="3" fill={color} animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }} />
+      <motion.circle cx="85" cy="40" r="3" fill={color} animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+      <path d="M70 25L85 40" stroke={color} strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+    </g>
+  </svg>
+);
+
+const IndustryIllustration = ({ color }: { color: string }) => (
+  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+    <defs>
+      <linearGradient id="grad-industry" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+        <stop offset="100%" stopColor={color} stopOpacity="0.05" />
+      </linearGradient>
+    </defs>
+
+    {/* Backdrop Glassy Circle */}
+    <circle cx="55" cy="45" r="35" fill="url(#grad-industry)" />
+    
+    {/* Factory Silhouette (Tech-styled) */}
+    <path d="M20 65V35L30 45V35L40 45V35L60 45V65H20Z" fill="white" className="dark:fill-zinc-900" fillOpacity="0.8" stroke={color} strokeWidth="1.5" />
+    <rect x="22" y="30" width="10" height="5" fill={color} opacity="0.4" />
+    <motion.path 
+      d="M27 30V20" stroke={color} strokeWidth="2" strokeLinecap="round" 
+      animate={{ strokeDashoffset: [0, -10] }} 
+      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+      strokeDasharray="4 4"
+    />
+
+    {/* Circuit Paths with Animating Dots */}
+    <g>
+      <path d="M60 45H85" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
+      <motion.circle cx="60" cy="45" r="2" fill={color} animate={{ cx: [60, 85] }} transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
+      <circle cx="85" cy="45" r="3" stroke={color} strokeWidth="1" />
+
+      <path d="M60 55H75" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
+      <motion.circle cx="60" cy="55" r="2" fill={color} animate={{ cx: [60, 75] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 0.5 }} />
+      <circle cx="75" cy="55" r="3" stroke={color} strokeWidth="1" />
+
+      <path d="M60 35H80" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
+      <motion.circle cx="60" cy="35" r="2" fill={color} animate={{ cx: [60, 80] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 0.2 }} />
+      <circle cx="80" cy="35" r="3" stroke={color} strokeWidth="1" />
+    </g>
+
+    {/* Technical Grid Overlay */}
+    <path d="M45 25H65M45 35H65M45 45H65" stroke={color} strokeWidth="0.5" opacity="0.2" />
+    <path d="M50 20V50M60 20V50" stroke={color} strokeWidth="0.5" opacity="0.2" />
+  </svg>
+);
+
+// ── Content Data ──
+
+const serveData = [
+  {
+    cardboardName: "Students",
+    emoji: "🎓",
+    illustration: StudentIllustration,
+    color: '#84CC16',
+    bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
+    content: [
+      {
+        heading: "Hands-on Projects",
+        desc: "Building real-world prototypes and earning practical engineering experience."
+      },
+      {
+        heading: "Skill Development",
+        desc: "Deep dives into AI, IoT, and emerging technologies through guided workshops."
+      },
+      {
+        heading: "Industry Exposure",
+        desc: "Solving live problems from top companies to become career-ready."
+      },
+      {
+        heading: "Mentorship",
+        desc: "Expert guidance for research, prestigious internships, and startup ventures."
+      }
+    ]
+  },
+  {
+    cardboardName: "Faculty",
+    emoji: "👩‍🏫",
+    illustration: FacultyIllustration,
+    color: '#3B82F6',
+    bg: 'bg-[#EFF6FF] dark:bg-[#0f1e3d]',
+    content: [
+      {
+        heading: "Research Prototypes",
+        desc: "Converting academic research into functional, industry-grade prototypes."
+      },
+      {
+        heading: "Project Support",
+        desc: "Assistance with funded project proposals and strategic grant applications."
+      },
+      {
+        heading: "Technology Transfer",
+        desc: "Direct industry collaboration and commercialization of intellectual capital."
+      },
+      {
+        heading: "Deployment Support",
+        desc: "Data-driven validation and real-world deployment of academic solutions."
+      }
+    ]
+  },
+  {
+    cardboardName: "Industry",
+    emoji: "🏭",
+    illustration: IndustryIllustration,
+    color: '#8B5CF6',
+    bg: 'bg-[#F5F3FF] dark:bg-[#1e1040]',
+    content: [
+      {
+        heading: "Customized Solutions",
+        desc: "Tailored engineering to solve your most challenging business problems."
+      },
+      {
+        heading: "Core Tech R&D",
+        desc: "Advanced development in AI, IoT, and high-security system architectures."
+      },
+      {
+        heading: "Rapid Prototyping",
+        desc: "Moving from initial concept to pilot deployment with extreme speed."
+      },
+      {
+        heading: "Scalable Systems",
+        desc: "Production-ready, battle-tested solutions designed for market expansion."
+      }
+    ]
+  }
+];
+
+export default function WhatWeServe() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 4);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section id="what-we-serve" className="py-24 bg-white dark:bg-[#0C0C0A] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+        {/* ── Header ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <p className="text-[10px] font-black text-[#84CC16] uppercase tracking-[0.25em] mb-4">— Ecosystem Partners</p>
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1] mb-5">
+            What We <span className="text-[#84CC16]">Serve</span>
+          </h2>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium max-w-lg mx-auto leading-relaxed">
+            A comprehensive support system designed to bridge the gap between academic brilliance and industrial excellence.
+          </p>
+        </motion.div>
+
+        {/* ── Served Cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          {serveData.map((card, idx) => {
+            const Illustration = card.illustration;
+            const currentItem = card.content[activeIndex];
+
+            return (
+              <motion.div
+                key={card.cardboardName}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: idx * 0.1 }}
+                className="group relative h-[460px]"
+              >
+                <div className={`relative rounded-[2.5rem] ${card.bg} border border-transparent hover:border-[#84CC16]/20 p-10 h-full transition-all duration-500 hover:shadow-3xl hover:-translate-y-2 overflow-hidden flex flex-col items-center text-center backdrop-blur-sm`}>
+                  
+                  {/* Dark mode glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
+                    style={{
+                      background: `radial-gradient(circle at top, ${card.color}22, transparent 70%)`
+                    }}
+                  />
+
+                  {/* Header: Label with Emoji */}
+                  <div className="relative z-10 flex flex-col items-center mb-6">
+                    <div className="flex items-center gap-2 mb-2">
+                       <span className="text-[1.5rem]">{card.emoji}</span>
+                       <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900/40 dark:text-zinc-100/40">
+                        {card.cardboardName}
+                      </span>
+                    </div>
+                    
+                    {/* Illustration Container */}
+                    <div className="w-28 h-28 mb-4 transition-transform duration-700 group-hover:scale-105">
+                      <Illustration color={card.color} />
+                    </div>
+                  </div>
+
+                  {/* Content with Animation */}
+                  <div className="relative z-10 flex-grow w-full">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${card.cardboardName}-${activeIndex}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.5, ease: "circOut" }}
+                      >
+                        <h3 className="text-xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[56px] flex items-center justify-center">
+                          {currentItem.heading}
+                        </h3>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
+                          {currentItem.desc}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Bottom Progress Indicator Dots */}
+                  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+                    {[0, 1, 2, 3].map((dot) => (
+                      <motion.div
+                        key={dot}
+                        className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
+                        animate={{ 
+                          width: dot === activeIndex ? 24 : 6,
+                          backgroundColor: dot === activeIndex ? card.color : undefined
+                        }}
+                        transition={{ duration: 0.4 }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Bottom accent bar animate on hover */}
+                  <div
+                    className="absolute bottom-0 left-12 right-12 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center"
+                    style={{ backgroundColor: card.color }}
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
