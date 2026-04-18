@@ -4,11 +4,8 @@ import { motion } from 'framer-motion';
 import FluidCursor from '@/components/FluidCursor';
 import HeroSection from '@/components/homepage/HeroSection';
 import WhatWeDo from '@/components/homepage/WhatWeDo';
-import CoreDomainsSection from '@/components/homepage/CoreDomainsSection';
-import CaseStudiesSection from '@/components/homepage/CaseStudiesSection';
 import WhatWeServe from '@/components/homepage/WhatWeServe';
 import TestimonialsSection from '@/components/homepage/TestimonialsSection';
-import FinalCTASection from '@/components/homepage/FinalCTASection';
 import InfiniteUpdateBar from '@/components/InfiniteUpdateBar';
 import { useTranslations } from 'next-intl';
 
@@ -60,18 +57,10 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-        {/* 5. Case Studies — Proof of impact */}
-        <CaseStudiesSection />
-      </FadeInSection>
-
-      <FadeInSection>
-        {/* 6. Testimonials — Trust signals */}
         <TestimonialsSection />
       </FadeInSection>
 
       <FadeInSection>
-        {/* 7. Final CTA — Ready to build with Purpose?
-        <FinalCTASection /> */}
 
         {/* ── Bottom CTA strip ── */}
         <motion.div
