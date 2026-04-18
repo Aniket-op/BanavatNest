@@ -76,34 +76,45 @@ export default function WhatWeDo() {
   ];
 
   const [activeUspIndex, setActiveUspIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [totalRotation, setTotalRotation] = useState(0);
   const [isManual, setIsManual] = useState(false);
 
   useEffect(() => {
     if (isManual) return;
     const interval = setInterval(() => {
-      setDirection(1);
+      setTotalRotation((prev) => prev - 90);
       setActiveUspIndex((prev) => (prev + 1) % usps.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [isManual]);
 
   const handleNext = () => {
-    setDirection(1);
+    setTotalRotation((prev) => prev - 90);
     setActiveUspIndex((prev) => (prev + 1) % usps.length);
     setIsManual(true);
     setTimeout(() => setIsManual(false), 8000);
   };
 
   const handlePrev = () => {
-    setDirection(-1);
+    setTotalRotation((prev) => prev + 90);
     setActiveUspIndex((prev) => (prev - 1 + usps.length) % usps.length);
     setIsManual(true);
     setTimeout(() => setIsManual(false), 8000);
   };
 
   const goToSlide = (idx: number) => {
-    setDirection(idx > activeUspIndex ? 1 : -1);
+    // Determine shortest path for rotation
+    const currentCycle = Math.round(totalRotation / 360);
+    const targetRotation = currentCycle * 360 - idx * 90;
+
+    // Adjust if target is too far (ensure it doesn't spin wildly)
+    let finalRotation = targetRotation;
+    if (Math.abs(finalRotation - totalRotation) > 180) {
+      if (finalRotation > totalRotation) finalRotation -= 360;
+      else finalRotation += 360;
+    }
+
+    setTotalRotation(finalRotation);
     setActiveUspIndex(idx);
     setIsManual(true);
     setTimeout(() => setIsManual(false), 8000);
@@ -123,10 +134,10 @@ export default function WhatWeDo() {
         >
         </motion.div>
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center lg:items-start min-h-[600px]">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[0.6fr_0.4fr] gap-12 items-center lg:items-start min-h-[600px]">
 
           {/* Glowing Division Line */}
-          <div className="bg-[#84CC16] lg:block hidden absolute left-1/2 top-[10%] bottom-[10%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#84CC16] to-transparent opacity-80 shadow-[0_0_15px_rgba(132,204,22,0.8)] z-0" />
+          <div className="bg-[#84CC16] lg:block hidden absolute left-[60%] top-[20%] bottom-[10%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#84CC16] to-transparent opacity-80 shadow-[0_0_15px_rgba(132,204,22,0.8)] z-0" />
 
           {/* Left Division: Our Domains */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pr-12 gap-10">
@@ -138,45 +149,65 @@ export default function WhatWeDo() {
             </div>
           </div>
 
-          {/* Right Division: What We Do (Vertical Carousel) */}
+          {/* Right Division: What We Do (Vertical Unified Cube) */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pl-12">
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-5">
               What We <span className="text-[#84CC16]">Do</span>
             </h2>
-            <div className="relative w-full h-[520px] flex items-center justify-center">
 
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={activeUspIndex}
-                  custom={direction}
-                  initial={{ y: direction > 0 ? 60 : -60, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: direction > 0 ? -60 : 60, opacity: 0 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 100,
-                    damping: 20,
-                    opacity: { duration: 0.6 }
-                  }}
-                  className="absolute w-full max-w-lg bg-white dark:bg-zinc-900/60 p-10 md:p-12 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-2xl backdrop-blur-sm"
-                >
+            <div className="relative w-full h-[520px] flex items-center justify-center pt-8" style={{ perspective: '2000px' }}>
+
+              <motion.div
+                animate={{ rotateX: totalRotation }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 60,
+                  damping: 20,
+                  mass: 1.2
+                }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative'
+                }}
+              >
+                {usps.map((usp, index) => (
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white shadow-lg mb-8"
-                    style={{ backgroundColor: usps[activeUspIndex].color }}
+                    key={usp.number}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transform: `rotateX(${index * 90}deg) translateZ(260px)`,
+                      backfaceVisibility: 'hidden',
+                      pointerEvents: index === activeUspIndex ? 'auto' : 'none',
+                      opacity: Math.abs(((totalRotation / -90) % 4 + 4) % 4 - index) < 0.5 ? 1 : 0.4,
+                      transition: 'opacity 0.5s ease'
+                    }}
                   >
-                    {usps[activeUspIndex].number}
+                    <div className="w-full max-w-lg bg-white dark:bg-zinc-900/60 p-10 md:p-12 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-2xl backdrop-blur-sm">
+                      <div
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white shadow-lg mb-8"
+                        style={{ backgroundColor: usp.color }}
+                      >
+                        {usp.number}
+                      </div>
+                      <h4 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 leading-tight tracking-tight">
+                        {usp.title}
+                      </h4>
+                      <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                        {usp.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 leading-tight tracking-tight">
-                    {usps[activeUspIndex].title}
-                  </h4>
-                  <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                    {usps[activeUspIndex].desc}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+                ))}
+              </motion.div>
 
               {/* Vertical Navigation Controls */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-30 hidden sm:flex pr-4">
+              <div className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-30 hidden sm:flex">
                 <button
                   onClick={handlePrev}
                   className="flex w-8 h-8 rounded-full items-center justify-center bg-white/50 hover:bg-white dark:bg-zinc-800/50 dark:hover:bg-zinc-700 shadow border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110"
@@ -217,3 +248,4 @@ export default function WhatWeDo() {
     </section>
   );
 }
+

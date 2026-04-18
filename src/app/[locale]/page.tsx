@@ -52,17 +52,10 @@ const Home = () => {
       </FadeInSection>
 
       <FadeInSection>
-        {/* 2. Story — The Gap + Why BanavatNest (USP) */}
         <WhatWeDo />
       </FadeInSection>
 
       <FadeInSection>
-        {/* 3. Core Domains — What we research */}
-        <CoreDomainsSection />
-      </FadeInSection>
-
-      <FadeInSection>
-        {/* 4. Process — How we work */}
         <ProcessSection />
       </FadeInSection>
 
