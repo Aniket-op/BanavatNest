@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 interface DomainItem {
     title: string;
@@ -11,6 +12,7 @@ interface DomainItem {
     accent: string;
     iconGradient: string;
     url?: string;
+    href?: string;
 }
 
 interface DomainCarouselProps {
@@ -18,9 +20,9 @@ interface DomainCarouselProps {
 }
 
 const DomainCard: React.FC<{ item: DomainItem }> = ({ item }) => {
-    return (
+    const CardContent = (
         <div
-            className="relative w-full max-w-[600px] h-[60vh] max-h-[650px] min-h-[480px] rounded-[2.5rem] overflow-hidden group shadow-xl mx-auto"
+            className="relative w-full max-w-[600px] h-[60vh] max-h-[650px] min-h-[480px] rounded-[2.5rem] overflow-hidden group shadow-xl mx-auto cursor-pointer"
         >
             {/* Background Image */}
             <div
@@ -58,6 +60,16 @@ const DomainCard: React.FC<{ item: DomainItem }> = ({ item }) => {
             </div>
         </div>
     );
+
+    if (item.href) {
+        return (
+            <Link href={item.href} className="w-full">
+                {CardContent}
+            </Link>
+        );
+    }
+
+    return CardContent;
 };
 
 const DomainCarousel: React.FC<DomainCarouselProps> = ({ items }) => {
@@ -67,7 +79,7 @@ const DomainCarousel: React.FC<DomainCarouselProps> = ({ items }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 5000);
+        }, 3000);
         return () => clearInterval(interval);
     }, [activeIndex]);
 
@@ -118,9 +130,9 @@ const DomainCarousel: React.FC<DomainCarouselProps> = ({ items }) => {
                         animate="center"
                         exit="exit"
                         transition={{
-                            x: { type: "spring", stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.3 },
-                            scale: { duration: 0.3 }
+                            x: { type: "spring", stiffness: 100, damping: 20 },
+                            opacity: { duration: 0.6 },
+                            scale: { duration: 0.6 }
                         }}
                         className="absolute w-full flex justify-center"
                     >

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import FluidCursor from '@/components/FluidCursor';
 import HeroSection from '@/components/homepage/HeroSection';
-import StorySection from '@/components/homepage/StorySection';
+import WhatWeDo from '@/components/homepage/WhatWeDo';
 import CoreDomainsSection from '@/components/homepage/CoreDomainsSection';
 import CaseStudiesSection from '@/components/homepage/CaseStudiesSection';
 import ProcessSection from '@/components/homepage/ProcessSection';
@@ -47,14 +47,13 @@ const Home = () => {
           </div>
 
           {/* 1. Hero — Nurturing. Building. Impact. */}
-          {/* Excluded from wrapper to allow its custom immediate load animations */}
           <HeroSection />
         </div>
       </FadeInSection>
 
       <FadeInSection>
         {/* 2. Story — The Gap + Why BanavatNest (USP) */}
-        <StorySection />
+        <WhatWeDo />
       </FadeInSection>
 
       <FadeInSection>
