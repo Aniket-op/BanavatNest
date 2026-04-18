@@ -9,6 +9,8 @@ import CaseStudiesSection from '@/components/homepage/CaseStudiesSection';
 import ProcessSection from '@/components/homepage/ProcessSection';
 import TestimonialsSection from '@/components/homepage/TestimonialsSection';
 import FinalCTASection from '@/components/homepage/FinalCTASection';
+import InfiniteUpdateBar from '@/components/InfiniteUpdateBar';
+import { useTranslations } from 'next-intl';
 
 const FadeInSection = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -22,9 +24,25 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Home = () => {
+  const t = useTranslations('home');
+  const updates = [
+    {
+      title: t('updateTitle'),
+      route: "/",
+    },
+    {
+      title: t('updateTitle'),
+      route: "/",
+    }
+  ];
+
   return (
     <div className="relative pt-20">
       <FluidCursor />
+
+      <div className="w-full relative z-30 mb-2">
+        <InfiniteUpdateBar updates={updates} />
+      </div>
 
       {/* 1. Hero — Nurturing. Building. Impact. */}
       {/* Excluded from wrapper to allow its custom immediate load animations */}
@@ -45,10 +63,10 @@ const Home = () => {
         <ProcessSection />
       </FadeInSection>
 
-      {/* <FadeInSection> */}
-      {/* 5. Case Studies — Proof of impact */}
-      {/* <CaseStudiesSection /> */}
-      {/* </FadeInSection> */}
+      <FadeInSection>
+        {/* 5. Case Studies — Proof of impact */}
+        <CaseStudiesSection />
+      </FadeInSection>
 
       <FadeInSection>
         {/* 6. Testimonials — Trust signals */}
