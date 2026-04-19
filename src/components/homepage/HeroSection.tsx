@@ -9,15 +9,14 @@ export default function HeroSection() {
 
   return (
     <>
-      <section ref={ref} className="mt-10 relative shadow-2xl dark:shadow-white/60 mx-auto rounded-4xl max-w-7xl h-[35vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-full bg-zinc-50 dark:bg-zinc-900/50">
-        {/* BACKGROUND IMAGE CONTAINER */}
+      <section ref={ref} className="mt-10 relative shadow-2xl dark:shadow-white/60 mx-auto rounded-4xl max-w-7xl aspect-video min-h-[300px] sm:min-h-[400px] overflow-hidden w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-full bg-zinc-50 dark:bg-zinc-900/50">
         <div className="absolute inset-0">
           <div className="relative w-full h-full rounded-2xl sm:rounded-none shadow-xl sm:shadow-none overflow-hidden">
             <Image
               src="/images/HomePageImage.png"
               alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
               fill
-              className="object-cover object-center sm:object-top"
+              className="object-cover object-center"
               priority
             />
           </div>
