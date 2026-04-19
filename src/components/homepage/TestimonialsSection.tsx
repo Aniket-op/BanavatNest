@@ -1,10 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Star, Quote, Award, Building2, User2, Laptop, FlaskConical } from 'lucide-react';
+import ProjectCarousel from './ProjectCarousel';
 
 const testimonials = [
   {
-    quote: "BanavatNest gave us exactly what we couldn't find elsewhere — a structured bridge between our theoretical work and a live industrial deployment. The collaborative process was transparent, rigorous, and genuinely impactful.",
+    quote: "BanavatNest gave us exactly what we couldn't find elsewhere — a structured bridge between our theoretical work and a live industrial deployment.",
     name: 'Dr. Priya Mehta',
     role: 'Academic Researcher',
     dept: 'Dept. of Computer Science, IIT Patna',
@@ -15,7 +18,7 @@ const testimonials = [
     stars: 5,
   },
   {
-    quote: "Working with BanavatNest brought academic depth to our robotics division. Their research team identified blind spots we'd overlooked for years. The prototype delivered exceeded our technical expectations significantly.",
+    quote: "Working with BanavatNest brought academic depth to our robotics division. The prototype delivered exceeded our technical expectations significantly.",
     name: 'Rajiv Anand',
     role: 'Director of Innovation',
     dept: 'AutoTech Systems Pvt. Ltd.',
@@ -25,94 +28,243 @@ const testimonials = [
     accentLeft: '#3B82F6',
     stars: 5,
   },
+  {
+    quote: "The collaboration model is truly unique. It allowed our students to work on real-world industrial problems while maintaining academic rigor.",
+    name: 'Prof. Alok Singh',
+    role: 'Dean of R&D',
+    dept: 'NIT Jamshedpur',
+    initial: 'AS',
+    tag: 'Academia',
+    tagColor: '#84CC16',
+    accentLeft: '#84CC16',
+    stars: 5,
+  },
+];
+
+const associates = [
+  {
+    name: 'IIT Patna',
+    tag: 'Academic Partner',
+    initial: 'IP',
+    stars: 5,
+    quote: 'Innovation hub for research excellence.',
+    icon: <Building2 className="w-5 h-5" />,
+    color: '#84CC16'
+  },
+  {
+    name: 'AutoTech',
+    tag: 'Industry Leader',
+    initial: 'AT',
+    stars: 5,
+    quote: 'Superior prototype development and testing.',
+    icon: <Laptop className="w-5 h-5" />,
+    color: '#3B82F6'
+  },
+  {
+    name: 'Dr. S. Sharma',
+    tag: 'Research Fellow',
+    initial: 'SS',
+    stars: 5,
+    quote: 'Rigor meets real-world application.',
+    icon: <FlaskConical className="w-5 h-5" />,
+    color: '#F59E0B'
+  },
+  {
+    name: 'BuildNext',
+    tag: 'Tech Partner',
+    initial: 'BN',
+    stars: 5,
+    quote: 'Accelerating the future of building.',
+    icon: <Award className="w-5 h-5" />,
+    color: '#EC4899'
+  },
+];
+
+const projects = [
+  {
+    title: "AI-Driven Prediction",
+    desc: "A machine learning pipeline developed to help farmers predict harvest outcomes with 85% accuracy.",
+    icon: <FlaskConical className="w-6 h-6" />,
+    accent: "from-[#84CC16] to-[#4D7C0F]",
+    iconGradient: "bg-gradient-to-br from-green-400 to-green-700",
+    url: "/images/homepage/agriculture.jpg",
+    href: "/projects/agriculture"
+  },
+  {
+    title: "EcoSmart Grid",
+    desc: "Smart energy management system using IoT to optimize power distribution in residential complexes.",
+    icon: <Laptop className="w-6 h-6" />,
+    accent: "from-[#3B82F6] to-[#1D4ED8]",
+    iconGradient: "bg-gradient-to-br from-blue-400 to-blue-700",
+    url: "/images/homepage/smart.jpg",
+    href: "/projects/smart-grid"
+  },
+  {
+    title: "MedLink Telemedicine",
+    desc: "Bridging the gap between rural patients and urban specialists through a secure consultation hub.",
+    icon: <Award className="w-6 h-6" />,
+    accent: "from-[#EC4899] to-[#BE185D]",
+    iconGradient: "bg-gradient-to-br from-pink-400 to-pink-700",
+    url: "/images/homepage/smartHeath.png",
+    href: "/projects/medlink"
+  }
 ];
 
 const StarRow = ({ count }: { count: number }) => (
   <div className="flex gap-0.5">
     {Array.from({ length: count }).map((_, i) => (
-      <svg key={i} className="w-3.5 h-3.5 text-[#84CC16]" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-      </svg>
+      <Star key={i} className="w-3 h-3 text-[#84CC16] fill-[#84CC16]" />
     ))}
   </div>
 );
 
+const InfiniteVerticalCarousel = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="h-[280px] overflow-hidden relative">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <div className="bg-white dark:bg-zinc-900/50 rounded-3xl p-8 border border-zinc-100 dark:border-zinc-800 h-full flex flex-col justify-between">
+            <div>
+              <Quote className="w-8 h-8 text-[#84CC16]/20 mb-4" />
+              <p className="text-lg text-zinc-700 dark:text-zinc-300 font-medium leading-relaxed italic">
+                "{testimonials[index].quote}"
+              </p>
+            </div>
+            <div className="flex items-center gap-4 mt-6">
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black text-white"
+                style={{ backgroundColor: testimonials[index].tagColor }}
+              >
+                {testimonials[index].initial}
+              </div>
+              <div>
+                <p className="text-sm font-black text-zinc-900 dark:text-zinc-100">{testimonials[index].name}</p>
+                <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">{testimonials[index].role}</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const AssociatesMarquee = () => {
+  return (
+    <div className="mt-12">
+      <h3 className="text-sm font-black text-zinc-400 dark:text-zinc-600 uppercase tracking-[0.3em] mb-6 pl-2">
+        Associates
+      </h3>
+      <div className="relative overflow-hidden flex whitespace-nowrap group">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="flex gap-4 pr-4"
+        >
+          {[...associates, ...associates].map((a, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 w-64 h-32 bg-white dark:bg-zinc-900/40 rounded-2xl border border-zinc-100 dark:border-zinc-800/50 p-4 flex flex-col justify-between hover:border-[#84CC16]/30 transition-colors"
+            >
+              <div className="flex justify-between items-start">
+                <div className="flex gap-3">
+                  <div className="p-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100">
+                    {a.icon}
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-zinc-900 dark:text-zinc-100">{a.name}</p>
+                    <p className="text-[10px] font-bold text-[#84CC16] tracking-tight">{a.tag}</p>
+                  </div>
+                </div>
+                <StarRow count={a.stars} />
+              </div>
+              <p className="text-[10px] text-zinc-500 dark:text-zinc-400 italic line-clamp-2 leading-relaxed">
+                "{a.quote}"
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 export default function TestimonialsSection() {
   return (
-    <section className="py-28 bg-[#FAFAF7] dark:bg-[#0C0C0A]">
+    <section className="bg-[#FAFAF7] dark:bg-[#0C0C0A] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
-        {/* ── Header ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <p className="text-[10px] font-black text-[#84CC16] uppercase tracking-[0.25em] mb-4">— From Our Network</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[0.9]">
-            Voices of <span className="text-[#84CC16]">Trust</span>
-          </h2>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start py-24 min-h-[800px]">
+          {/* Left Side: Testimonials & Associates */}
+          <div className="flex flex-col h-full justify-between">
+            <div className="space-y-12">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-none mb-2">
+                  Testimonials
+                </h2>
+                <div className="h-1 w-20 bg-[#84CC16] rounded-full mt-4" />
+              </motion.div>
 
-        {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {testimonials.map((t, idx) => (
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#84CC16]/20 to-blue-500/20 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative">
+                  <InfiniteVerticalCarousel />
+                </div>
+              </div>
+            </div>
+
+            <AssociatesMarquee />
+          </div>
+
+          {/* Right Side: Featured Projects */}
+          <div className="relative h-full flex flex-col">
             <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: idx * 0.12 }}
-              className="relative bg-white dark:bg-zinc-900/50 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 p-8 md:p-10 overflow-hidden hover:shadow-2xl transition-all duration-400 hover:-translate-y-1 group"
+              className="mb-12 lg:text-right"
             >
-              {/* Left accent bar */}
-              <div
-                className="absolute left-0 top-8 bottom-8 w-1 rounded-r-full transition-all duration-300 group-hover:top-4 group-hover:bottom-4"
-                style={{ backgroundColor: t.accentLeft }}
-              />
-
-              {/* Tag + stars */}
-              <div className="flex items-center justify-between mb-6">
-                <span
-                  className="text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full text-white"
-                  style={{ backgroundColor: t.tagColor }}
-                >
-                  {t.tag}
-                </span>
-                <StarRow count={t.stars} />
-              </div>
-
-              {/* Quote */}
-              <p className="text-base text-zinc-600 dark:text-zinc-300 font-medium leading-[1.8] mb-8 italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                {/* Avatar */}
-                <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center text-sm font-black text-white shrink-0"
-                  style={{ backgroundColor: t.tagColor }}
-                >
-                  {t.initial}
-                </div>
-                <div>
-                  <p className="text-sm font-black text-zinc-900 dark:text-zinc-100 tracking-tight">{t.name}</p>
-                  <p className="text-xs font-bold text-zinc-400 dark:text-zinc-500 mt-0.5">{t.role}</p>
-                  <p className="text-[10px] font-medium text-zinc-400 dark:text-zinc-600 mt-0.5">{t.dept}</p>
-                </div>
-              </div>
-
-              {/* Decorative quote mark */}
-              <div className="absolute bottom-5 right-7 text-[6rem] font-black text-zinc-100 dark:text-zinc-800 leading-none select-none pointer-events-none">
-                &rdquo;
-              </div>
+              <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-none">
+                Featured <span className="text-[#84CC16]">Projects</span>
+              </h2>
+              <div className="h-1 w-20 bg-[#84CC16] rounded-full mt-4 ml-auto" />
             </motion.div>
-          ))}
+
+            <div className="relative group flex-grow">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-[#84CC16]/10 rounded-[3.5rem] blur-xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+              <div className="relative h-full bg-zinc-100/50 dark:bg-zinc-900/30 rounded-[3rem] p-4 lg:p-6 border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm overflow-hidden">
+                <ProjectCarousel items={projects} />
+              </div>
+            </div>
+
+            {/* Decorative element */}
+            <div className="absolute -z-10 -top-20 -right-20 w-80 h-80 bg-[#84CC16]/10 blur-[120px] rounded-full animate-pulse" />
+            <div className="absolute -z-10 -bottom-20 -left-20 w-80 h-80 bg-blue-500/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
