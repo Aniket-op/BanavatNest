@@ -218,7 +218,7 @@ export default function WhatWeDo() {
               </motion.div>
 
               {/* Vertical Navigation Controls */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">
+              <div className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">
                 <button
                   onClick={handlePrev}
                   className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#84CC16]"
@@ -252,34 +252,51 @@ export default function WhatWeDo() {
             </div>
 
             {/* How We Work Section */}
-            <div className="mt-6 relative">
-              <h3 className="text-lg md:text-xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 text-center lg:text-left">
+            <div className="mt-12 relative w-full flex flex-col items-center lg:items-start">
+              <h3 className="text-lg md:text-xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-8 text-center lg:text-left">
                 How We <span className="text-[#84CC16]">Work</span>
               </h3>
-              
-              <div className="relative space-y-3">
-                {/* Vertical Line */}
-                <div className="absolute left-[13px] top-2 bottom-2 w-px bg-gradient-to-b from-[#84CC16] via-zinc-200 dark:via-zinc-800 to-transparent hidden sm:block" />
-
-                {workSteps.map((step, idx) => (
-                  <div key={idx} className="flex flex-col items-start relative pl-0 sm:pl-8 group">
-                    {/* Node Circle */}
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800 hidden sm:flex items-center justify-center z-10 shadow-sm transition-all group-hover:border-[#84CC16] group-hover:scale-110">
-                       <span className="text-[9px] font-bold text-zinc-500 group-hover:text-[#84CC16]">{idx + 1}</span>
-                    </div>
-
-                    <div className="relative w-full">
-                      <div className="bg-white/50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800/60 rounded-xl px-3 py-2 flex items-center gap-3 shadow-sm backdrop-blur-md transition-all hover:shadow-lg hover:border-[#84CC16]/30 hover:bg-white dark:hover:bg-zinc-900">
-                        <div className="text-xl flex-shrink-0 bg-white dark:bg-zinc-800 w-8 h-8 rounded-lg flex items-center justify-center shadow-inner">{step.emoji}</div>
-                        <div className="text-[10px] font-black text-zinc-900 dark:text-zinc-100 tracking-widest uppercase">{step.title}</div>
-                      </div>
-                    </div>
+              <div className="pl-20 grid grid-cols-2 gap-x-2 gap-y-6 relative w-full max-w-[290px] mx-auto lg:mx-0">
+                {/* Idea (1) */}
+                <div className="relative group flex flex-col">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                    <div className="text-xl">{workSteps[0].emoji}</div>
+                    <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[0].title}</div>
                   </div>
-                ))}
+                  {/* Arrow Right */}
+                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 text-[#84CC16]/60 text-base hidden sm:block">→</div>
+                </div>
+
+                {/* Design (2) */}
+                <div className="relative group flex flex-col">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                    <div className="text-xl">{workSteps[1].emoji}</div>
+                    <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[1].title}</div>
+                  </div>
+                  {/* Arrow Down */}
+                  <div className="absolute left-1/2 -translate-x-1/2 -bottom-5 text-[#84CC16]/60 text-base hidden sm:block">↓</div>
+                </div>
+
+                {/* Deployment (4) - Bottom Left */}
+                <div className="relative group flex flex-col order-last sm:order-none">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                    <div className="text-xl">{workSteps[3].emoji}</div>
+                    <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[3].title}</div>
+                  </div>
+                </div>
+
+                {/* Prototype (3) - Bottom Right */}
+                <div className="relative group flex flex-col">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                    <div className="text-xl">{workSteps[2].emoji}</div>
+                    <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[2].title}</div>
+                  </div>
+                  {/* Arrow Left */}
+                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 text-[#84CC16]/60 text-base hidden sm:block">←</div>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
