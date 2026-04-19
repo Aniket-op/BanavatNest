@@ -20,12 +20,12 @@ const StudentIllustration = ({ color }: { color: string }) => (
 
     {/* Backdrop Glassy Circle */}
     <circle cx="50" cy="50" r="35" fill="url(#grad-student)" />
-    
+
     {/* Orbital Path with Moving Dot */}
     <circle cx="50" cy="50" r="42" stroke={color} strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3" />
-    <motion.circle 
+    <motion.circle
       cx="50" cy="8" r="3" fill={color} filter="url(#glow-student-orb)"
-      animate={{ 
+      animate={{
         cx: [50, 92, 50, 8, 50],
         cy: [8, 50, 92, 50, 8]
       }}
@@ -36,7 +36,7 @@ const StudentIllustration = ({ color }: { color: string }) => (
     <rect x="25" y="45" width="50" height="32" rx="4" fill="white" fillOpacity="0.05" stroke={color} strokeWidth="1.5" className="backdrop-blur-sm" />
     <rect x="30" y="50" width="40" height="22" rx="2" fill="white" className="dark:fill-zinc-900" opacity="0.8" />
     <path d="M22 77H78" stroke={color} strokeWidth="4" strokeLinecap="round" opacity="0.8" />
-    
+
     {/* Graduation Cap (Animated Floating) */}
     <motion.g
       animate={{ y: [0, -5, 0] }}
@@ -60,12 +60,12 @@ const FacultyIllustration = ({ color }: { color: string }) => (
 
     {/* Backdrop Glassy Circle */}
     <circle cx="45" cy="45" r="35" fill="url(#grad-faculty)" />
-    
+
     {/* Book Pages Layered */}
     <rect x="20" y="30" width="30" height="40" rx="3" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" strokeOpacity="0.6" />
     <rect x="50" y="30" width="30" height="40" rx="3" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" strokeOpacity="0.6" />
     <path d="M25 40H40M25 48H45M25 56H40" stroke={color} strokeWidth="1" strokeLinecap="round" opacity="0.3" />
-    
+
     {/* Rotating Gear */}
     <motion.g
       animate={{ rotate: 360 }}
@@ -99,13 +99,13 @@ const IndustryIllustration = ({ color }: { color: string }) => (
 
     {/* Backdrop Glassy Circle */}
     <circle cx="55" cy="45" r="35" fill="url(#grad-industry)" />
-    
+
     {/* Factory Silhouette (Tech-styled) */}
     <path d="M20 65V35L30 45V35L40 45V35L60 45V65H20Z" fill="white" className="dark:fill-zinc-900" fillOpacity="0.8" stroke={color} strokeWidth="1.5" />
     <rect x="22" y="30" width="10" height="5" fill={color} opacity="0.4" />
-    <motion.path 
-      d="M27 30V20" stroke={color} strokeWidth="2" strokeLinecap="round" 
-      animate={{ strokeDashoffset: [0, -10] }} 
+    <motion.path
+      d="M27 30V20" stroke={color} strokeWidth="2" strokeLinecap="round"
+      animate={{ strokeDashoffset: [0, -10] }}
       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
       strokeDasharray="4 4"
     />
@@ -222,7 +222,7 @@ export default function WhatWeServe() {
   }, []);
 
   return (
-    <section id="what-we-serve" className="py-24 bg-white dark:bg-[#0C0C0A] overflow-hidden">
+    <section id="what-we-serve" className="py-12 bg-white dark:bg-[#0C0C0A] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* ── Header ── */}
@@ -233,12 +233,11 @@ export default function WhatWeServe() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-[10px] font-black text-[#84CC16] uppercase tracking-[0.25em] mb-4">— Ecosystem Partners</p>
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1] mb-5">
             What We <span className="text-[#84CC16]">Serve</span>
           </h2>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium max-w-lg mx-auto leading-relaxed">
-            A comprehensive support system designed to bridge the gap between academic brilliance and industrial excellence.
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
+            Empowering ideas at every stage — from concept to deployment and real-world impact.
           </p>
         </motion.div>
 
@@ -257,8 +256,21 @@ export default function WhatWeServe() {
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 className="group relative h-[460px]"
               >
-                <div className={`relative rounded-[2.5rem] ${card.bg} border border-transparent hover:border-[#84CC16]/20 p-10 h-full transition-all duration-500 hover:shadow-3xl hover:-translate-y-2 overflow-hidden flex flex-col items-center text-center backdrop-blur-sm`}>
-                  
+                <motion.div
+                  whileHover={{
+                    boxShadow: `0 40px 80px -16px ${card.color}50`,
+                    y: -12,
+                    borderColor: `${card.color}100`
+                  }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  style={{
+                    borderTopColor: card.color,
+                    boxShadow: `0 20px 40px -12px ${card.color}30`,
+                    borderColor: `${card.color}90`
+                  }}
+                  className={`relative rounded-[2.5rem] ${card.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm`}
+                >
+
                   {/* Dark mode glow */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
@@ -270,14 +282,14 @@ export default function WhatWeServe() {
                   {/* Header: Label with Emoji */}
                   <div className="relative z-10 flex flex-col items-center mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                       <span className="text-[1.5rem]">{card.emoji}</span>
-                       <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-900/40 dark:text-zinc-100/40">
+                      <span className="text-[2rem]">{card.emoji}</span>
+                      <span className="text-[15 px] font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
                         {card.cardboardName}
                       </span>
                     </div>
-                    
+
                     {/* Illustration Container */}
-                    <div className="w-28 h-28 mb-4 transition-transform duration-700 group-hover:scale-105">
+                    <div className="w-35 h-35 mb-4 transition-transform duration-700 group-hover:scale-105">
                       <Illustration color={card.color} />
                     </div>
                   </div>
@@ -308,7 +320,7 @@ export default function WhatWeServe() {
                       <motion.div
                         key={dot}
                         className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
-                        animate={{ 
+                        animate={{
                           width: dot === activeIndex ? 24 : 6,
                           backgroundColor: dot === activeIndex ? card.color : undefined
                         }}
@@ -322,7 +334,7 @@ export default function WhatWeServe() {
                     className="absolute bottom-0 left-12 right-12 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center"
                     style={{ backgroundColor: card.color }}
                   />
-                </div>
+                </motion.div>
               </motion.div>
             );
           })}
