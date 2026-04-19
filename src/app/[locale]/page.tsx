@@ -56,9 +56,9 @@ const Home = () => {
         <WhatWeServe />
       </FadeInSection>
 
-      <FadeInSection>
+      {/* <FadeInSection>
         <TestimonialsSection />
-      </FadeInSection>
+      </FadeInSection> */}
 
       <FadeInSection>
 
@@ -68,7 +68,7 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="pb-16 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
+          className=" flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
         >
           <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
             Ready to start your collaboration journey?
