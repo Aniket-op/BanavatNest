@@ -139,7 +139,7 @@ export default function WhatWeDo() {
   };
 
   return (
-    <section className="py-24 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
+    <section className="py-32 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -152,7 +152,7 @@ export default function WhatWeDo() {
         >
         </motion.div>
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-start">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-stretch">
 
           {/* Left Division: Our Domains */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pr-8">
@@ -170,7 +170,7 @@ export default function WhatWeDo() {
               What We <span className="text-[#84CC16]">Do</span>
             </h2>
 
-            <div className="relative w-full h-[320px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
+            <div className="relative w-full h-[650px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
               <motion.div
                 animate={{ rotateX: totalRotation }}
                 transition={{
@@ -183,7 +183,8 @@ export default function WhatWeDo() {
                   transformStyle: 'preserve-3d',
                   width: '100%',
                   height: '100%',
-                  position: 'relative'
+                  position: 'relative',
+                  willChange: 'transform'
                 }}
               >
                 {usps.map((usp, index) => (
@@ -195,14 +196,14 @@ export default function WhatWeDo() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      transform: `rotateX(${index * rotationStep}deg) translateZ(140px)`,
+                      transform: `rotateX(${index * rotationStep}deg) translateZ(260px)`,
                       backfaceVisibility: 'hidden',
                       pointerEvents: index === activeUspIndex ? 'auto' : 'none',
                       opacity: Math.abs(((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length - index) < 0.5 ? 1 : 0.2,
                       transition: 'opacity 0.4s ease, transform 0.4s ease'
                     }}
                   >
-                    <div className="w-full max-w-[220px] bg-white dark:bg-zinc-900/60 p-4 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg backdrop-blur-md flex flex-col items-center text-center group">
+                    <div className="w-full max-w-[220px] bg-white dark:bg-zinc-950 p-4 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg flex flex-col items-center text-center group antialiased">
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-md mb-3 transform transition-transform group-hover:scale-110"
                         style={{ backgroundColor: usp.color }}
@@ -252,32 +253,28 @@ export default function WhatWeDo() {
             </div>
 
             {/* How We Work Section */}
+            {/* 
             <div className="mt-12 relative w-full flex flex-col items-center lg:items-start">
               <h3 className="text-lg md:text-xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-8 text-center lg:text-left">
                 How We <span className="text-[#84CC16]">Work</span>
               </h3>
               <div className="pl-20 grid grid-cols-2 gap-x-2 gap-y-6 relative w-full max-w-[290px] mx-auto lg:mx-0">
-                {/* Idea (1) */}
                 <div className="relative group flex flex-col">
                   <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[0].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[0].title}</div>
                   </div>
-                  {/* Arrow Right */}
                   <div className="absolute -right-2 top-1/2 -translate-y-1/2 text-[#84CC16]/60 text-base hidden sm:block">→</div>
                 </div>
 
-                {/* Design (2) */}
                 <div className="relative group flex flex-col">
                   <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[1].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[1].title}</div>
                   </div>
-                  {/* Arrow Down */}
                   <div className="absolute left-1/2 -translate-x-1/2 -bottom-5 text-[#84CC16]/60 text-base hidden sm:block">↓</div>
                 </div>
 
-                {/* Deployment (4) - Bottom Left */}
                 <div className="relative group flex flex-col order-last sm:order-none">
                   <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[3].emoji}</div>
@@ -285,17 +282,16 @@ export default function WhatWeDo() {
                   </div>
                 </div>
 
-                {/* Prototype (3) - Bottom Right */}
                 <div className="relative group flex flex-col">
                   <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[2].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[2].title}</div>
                   </div>
-                  {/* Arrow Left */}
                   <div className="absolute -left-2 top-1/2 -translate-y-1/2 text-[#84CC16]/60 text-base hidden sm:block">←</div>
                 </div>
               </div>
             </div>
+            */}
           </div>
         </div>
       </div>
