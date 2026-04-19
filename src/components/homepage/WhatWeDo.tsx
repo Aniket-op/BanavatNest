@@ -134,7 +134,7 @@ export default function WhatWeDo() {
         >
         </motion.div>
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-[0.6fr_0.4fr] gap-12 items-center lg:items-start min-h-[600px]">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-center lg:items-start min-h-[600px]">
 
           {/* Glowing Division Line */}
           <div className="bg-[#84CC16] lg:block hidden absolute left-[60%] top-[20%] bottom-[10%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#84CC16] to-transparent opacity-80 shadow-[0_0_15px_rgba(132,204,22,0.8)] z-0" />
@@ -142,7 +142,7 @@ export default function WhatWeDo() {
           {/* Left Division: Our Domains */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pr-12 gap-10">
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-5">
-              Our <span className="text-[#84CC16]">Domain</span>
+              Our Core <span className="text-[#84CC16]">Domains</span>
             </h2>
             <div className="-mx-4 sm:mx-0 flex-1 flex items-center">
               <DomainCarousel items={domains} />
