@@ -236,7 +236,7 @@ export default function WhatWeServe() {
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1] mb-5">
             What We <span className="text-[#84CC16]">Serve</span>
           </h2>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
             Empowering ideas at every stage — from concept to deployment and real-world impact.
           </p>
         </motion.div>
@@ -254,7 +254,7 @@ export default function WhatWeServe() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
-                className="group relative h-[460px]"
+                className="group relative h-[500px]"
               >
                 <motion.div
                   whileHover={{
@@ -282,8 +282,8 @@ export default function WhatWeServe() {
                   {/* Header: Label with Emoji */}
                   <div className="relative z-10 flex flex-col items-center mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[2rem]">{card.emoji}</span>
-                      <span className="text-[15 px] font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
+                      <span className="text-[2.2rem]">{card.emoji}</span>
+                      <span className="text-base font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
                         {card.cardboardName}
                       </span>
                     </div>
@@ -304,10 +304,10 @@ export default function WhatWeServe() {
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5, ease: "circOut" }}
                       >
-                        <h3 className="text-xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[56px] flex items-center justify-center">
+                        <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[64px] flex items-center justify-center">
                           {currentItem.heading}
                         </h3>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
+                        <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
                           {currentItem.desc}
                         </p>
                       </motion.div>

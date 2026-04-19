@@ -28,15 +28,15 @@ export default function HeroSection() {
         />
 
         {/* PILL - positioned inside bounds so it isn't cut off by overflow */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.4 }}
-          className="absolute top-6 sm:top-8 lg:top-10 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 bg-[#84CC16] hover:bg-[#95E01A] transition-colors text-zinc-900 px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full shadow-lg sm:shadow-2xl shadow-[#84CC16]/20 z-20 whitespace-nowrap cursor-default"
+          className="absolute top-6 sm:top-1/2 lg:top-2/3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 bg-[#84CC16] hover:bg-[#95E01A] transition-colors text-zinc-900 px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full shadow-lg sm:shadow-2xl shadow-[#84CC16]/20 z-20 whitespace-nowrap cursor-default"
         >
           <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-900/50 animate-pulse" />
           <span className="text-[8px] sm:text-[10px] md:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.2em]">Build with Purpose Nurture to Impact</span>
-        </motion.div>
+        </motion.div> */}
       </section>
 
       <motion.div

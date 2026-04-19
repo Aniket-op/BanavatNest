@@ -139,7 +139,7 @@ export default function WhatWeDo() {
   };
 
   return (
-    <section className="py-32 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
+    <section className="py-12 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
