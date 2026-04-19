@@ -219,12 +219,12 @@ const serveData = [
 export default function WhatWeServe() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 4);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setActiveIndex((prev) => (prev + 1) % 4);
+  //   }, 4500);
+  //   return () => clearInterval(timer);
+  // }, []);
 
   return (
     <section id="what-we-serve" className="py-12 bg-white dark:bg-[#0C0C0A] overflow-hidden">
