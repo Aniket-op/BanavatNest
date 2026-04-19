@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link as LinkIcon, ArrowRight, GraduationCap, Factory, Rocket } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import PageWrapper from '@/components/PageWrapper';
 import Image from 'next/image';
 import collaboration_logo from "@/../public/images/collabaration_logo.png";
@@ -26,6 +27,7 @@ export default function CollaborationPage() {
             icon: GraduationCap,
             color: '#84CC16',
             bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
+            href: '/bridge/opportunities'
         },
         {
             key: 'industry',
@@ -33,6 +35,7 @@ export default function CollaborationPage() {
             icon: Factory,
             color: '#8B5CF6',
             bg: 'bg-[#F5F3FF] dark:bg-[#1e1040]',
+            href: '/bridge/partnerships'
         },
         {
             key: 'startup',
@@ -40,6 +43,7 @@ export default function CollaborationPage() {
             icon: Rocket,
             color: '#3B82F6',
             bg: 'bg-[#EFF6FF] dark:bg-[#0f1e3d]',
+            href: '/bridge/faculty'
         }
     ];
 
@@ -101,20 +105,21 @@ export default function CollaborationPage() {
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                                     className="group relative h-[500px]"
                                 >
-                                    <motion.div
-                                        whileHover={{
-                                            boxShadow: `0 40px 80px -16px ${track.color}40`,
-                                            y: -8,
-                                            borderColor: `${track.color}80`
-                                        }}
-                                        transition={{ duration: 0.4, ease: "easeOut" }}
-                                        style={{
-                                            borderTopColor: track.color,
-                                            boxShadow: `0 20px 40px -12px ${track.color}20`,
-                                            borderColor: `${track.color}40`
-                                        }}
-                                        className={`relative rounded-[2.5rem] ${track.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
-                                    >
+                                    <Link href={track.href} className="block h-full cursor-pointer">
+                                        <motion.div
+                                            whileHover={{
+                                                boxShadow: `0 40px 80px -16px ${track.color}40`,
+                                                y: -8,
+                                                borderColor: `${track.color}80`
+                                            }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
+                                            style={{
+                                                borderTopColor: track.color,
+                                                boxShadow: `0 20px 40px -12px ${track.color}20`,
+                                                borderColor: `${track.color}40`
+                                            }}
+                                            className={`relative rounded-[2.5rem] ${track.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
+                                        >
                                         {/* Background Glow */}
                                         <div
                                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
@@ -173,7 +178,8 @@ export default function CollaborationPage() {
                                             ))}
                                         </div>
                                     </motion.div>
-                                </motion.div>
+                                </Link>
+                            </motion.div>
                             );
                         })}
                     </div>
