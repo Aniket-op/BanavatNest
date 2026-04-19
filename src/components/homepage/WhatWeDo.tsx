@@ -8,29 +8,47 @@ import DomainCarousel from '@/components/DomainCarousel';
 
 const usps = [
   {
-    number: '01',
-    title: 'We translate research into products',
-    desc: 'Not just consulting — we take academic breakthroughs from whiteboard to working prototype to real deployment.',
-    color: '#84CC16',
+    emoji: '🚀',
+    title: 'Prototype Development',
+    color: '#F59E0B',
   },
   {
-    number: '02',
-    title: 'Structured collaboration framework',
-    desc: 'A defined 4-stage process with milestone tracking, joint supervision, and IP clarity — not ad-hoc engagements.',
+    emoji: '🔗',
+    title: 'Academia ↔ Industry Bridge',
     color: '#3B82F6',
   },
   {
-    number: '03',
-    title: 'Four high-impact domains',
-    desc: 'AI/ML, Cybersecurity, Smart Systems, and Agriculture — domains chosen for scalability and industry demand.',
+    emoji: '🧠',
+    title: 'AI & Intelligent Systems',
     color: '#8B5CF6',
   },
   {
-    number: '04',
-    title: 'Proven by deployment, not just papers',
-    desc: 'Our success metric isn\'t citations — it\'s live systems, technology transfers, and industry adoption.',
+    emoji: '⚙️',
+    title: 'Scalable Solutions',
     color: '#10B981',
   },
+  {
+    emoji: '🎯',
+    title: 'Customized Problem Solving',
+    color: '#EF4444',
+  },
+  {
+    emoji: '🏥',
+    title: 'Smart Healthcare Systems',
+    color: '#EC4899',
+  },
+  {
+    emoji: '🌾',
+    title: 'Precision Agriculture',
+    color: '#84CC16',
+  },
+];
+
+const workSteps = [
+  { title: 'Idea', emoji: '💡', color: '#84CC16' },
+  { title: 'Design', emoji: '🎨', color: '#3B82F6' },
+  { title: 'Prototype', emoji: '🛠️', color: '#F59E0B' },
+  { title: 'Deployment', emoji: '🚀', color: '#10B981' },
 ];
 
 export default function WhatWeDo() {
@@ -79,35 +97,35 @@ export default function WhatWeDo() {
   const [totalRotation, setTotalRotation] = useState(0);
   const [isManual, setIsManual] = useState(false);
 
+  const rotationStep = 360 / usps.length;
+
   useEffect(() => {
     if (isManual) return;
     const interval = setInterval(() => {
-      setTotalRotation((prev) => prev - 90);
+      setTotalRotation((prev) => prev - rotationStep);
       setActiveUspIndex((prev) => (prev + 1) % usps.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [isManual]);
+  }, [isManual, rotationStep]);
 
   const handleNext = () => {
-    setTotalRotation((prev) => prev - 90);
+    setTotalRotation((prev) => prev - rotationStep);
     setActiveUspIndex((prev) => (prev + 1) % usps.length);
     setIsManual(true);
     setTimeout(() => setIsManual(false), 8000);
   };
 
   const handlePrev = () => {
-    setTotalRotation((prev) => prev + 90);
+    setTotalRotation((prev) => prev + rotationStep);
     setActiveUspIndex((prev) => (prev - 1 + usps.length) % usps.length);
     setIsManual(true);
     setTimeout(() => setIsManual(false), 8000);
   };
 
   const goToSlide = (idx: number) => {
-    // Determine shortest path for rotation
     const currentCycle = Math.round(totalRotation / 360);
-    const targetRotation = currentCycle * 360 - idx * 90;
+    const targetRotation = currentCycle * 360 - idx * rotationStep;
 
-    // Adjust if target is too far (ensure it doesn't spin wildly)
     let finalRotation = targetRotation;
     if (Math.abs(finalRotation - totalRotation) > 180) {
       if (finalRotation > totalRotation) finalRotation -= 360;
@@ -134,29 +152,25 @@ export default function WhatWeDo() {
         >
         </motion.div>
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-center lg:items-start min-h-[600px]">
-
-          {/* Glowing Division Line */}
-          <div className="bg-[#84CC16] lg:block hidden absolute left-[60%] top-[20%] bottom-[10%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#84CC16] to-transparent opacity-80 shadow-[0_0_15px_rgba(132,204,22,0.8)] z-0" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-start">
 
           {/* Left Division: Our Domains */}
-          <div className="flex flex-col h-full w-full relative z-10 lg:pr-12 gap-10">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-5">
+          <div className="flex flex-col h-full w-full relative z-10 lg:pr-8">
+            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
               Our Core <span className="text-[#84CC16]">Domains</span>
             </h2>
-            <div className="-mx-4 sm:mx-0 flex-1 flex items-center">
+            <div className="-mx-4 sm:mx-0">
               <DomainCarousel items={domains} />
             </div>
           </div>
 
-          {/* Right Division: What We Do (Vertical Unified Cube) */}
-          <div className="flex flex-col h-full w-full relative z-10 lg:pl-12">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-5">
+          {/* Right Division: What We Do & How We Work */}
+          <div className="flex flex-col w-full relative z-10 lg:pl-10 border-l border-zinc-200 dark:border-zinc-800/50">
+            <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4 text-center lg:text-left">
               What We <span className="text-[#84CC16]">Do</span>
             </h2>
 
-            <div className="relative w-full h-[520px] flex items-center justify-center pt-8" style={{ perspective: '2000px' }}>
-
+            <div className="relative w-full h-[320px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
               <motion.div
                 animate={{ rotateX: totalRotation }}
                 transition={{
@@ -174,58 +188,54 @@ export default function WhatWeDo() {
               >
                 {usps.map((usp, index) => (
                   <div
-                    key={usp.number}
+                    key={index}
                     style={{
                       position: 'absolute',
                       inset: 0,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      transform: `rotateX(${index * 90}deg) translateZ(260px)`,
+                      transform: `rotateX(${index * rotationStep}deg) translateZ(140px)`,
                       backfaceVisibility: 'hidden',
                       pointerEvents: index === activeUspIndex ? 'auto' : 'none',
-                      opacity: Math.abs(((totalRotation / -90) % 4 + 4) % 4 - index) < 0.5 ? 1 : 0.4,
-                      transition: 'opacity 0.5s ease'
+                      opacity: Math.abs(((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length - index) < 0.5 ? 1 : 0.2,
+                      transition: 'opacity 0.4s ease, transform 0.4s ease'
                     }}
                   >
-                    <div className="w-full max-w-lg bg-white dark:bg-zinc-900/60 p-10 md:p-12 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 shadow-2xl backdrop-blur-sm">
+                    <div className="w-full max-w-[220px] bg-white dark:bg-zinc-900/60 p-4 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg backdrop-blur-md flex flex-col items-center text-center group">
                       <div
-                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white shadow-lg mb-8"
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-md mb-3 transform transition-transform group-hover:scale-110"
                         style={{ backgroundColor: usp.color }}
                       >
-                        {usp.number}
+                        {usp.emoji}
                       </div>
-                      <h4 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 leading-tight tracking-tight">
+                      <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight">
                         {usp.title}
                       </h4>
-                      <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                        {usp.desc}
-                      </p>
                     </div>
                   </div>
                 ))}
               </motion.div>
 
               {/* Vertical Navigation Controls */}
-              <div className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-30 hidden sm:flex">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">
                 <button
                   onClick={handlePrev}
-                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white/50 hover:bg-white dark:bg-zinc-800/50 dark:hover:bg-zinc-700 shadow border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110"
+                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#84CC16]"
                   aria-label="Previous Text"
                 >
                   <ChevronUp className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                 </button>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
                   {usps.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => goToSlide(idx)}
-                      className={`w-2 rounded-full mx-auto transition-all duration-300 ${idx === activeUspIndex
-                        ? 'h-8'
-                        : 'h-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
+                      className={`w-1.5 rounded-full mx-auto transition-all duration-300 ${idx === activeUspIndex
+                        ? 'h-6 bg-[#84CC16]'
+                        : 'h-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400'
                         }`}
-                      style={{ backgroundColor: idx === activeUspIndex ? usps[idx].color : undefined }}
                       aria-label={`Go to USP ${idx + 1}`}
                     />
                   ))}
@@ -233,13 +243,40 @@ export default function WhatWeDo() {
 
                 <button
                   onClick={handleNext}
-                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white/50 hover:bg-white dark:bg-zinc-800/50 dark:hover:bg-zinc-700 shadow border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110"
+                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#84CC16]"
                   aria-label="Next Text"
                 >
                   <ChevronDown className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                 </button>
               </div>
+            </div>
 
+            {/* How We Work Section */}
+            <div className="mt-6 relative">
+              <h3 className="text-lg md:text-xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 text-center lg:text-left">
+                How We <span className="text-[#84CC16]">Work</span>
+              </h3>
+              
+              <div className="relative space-y-3">
+                {/* Vertical Line */}
+                <div className="absolute left-[13px] top-2 bottom-2 w-px bg-gradient-to-b from-[#84CC16] via-zinc-200 dark:via-zinc-800 to-transparent hidden sm:block" />
+
+                {workSteps.map((step, idx) => (
+                  <div key={idx} className="flex flex-col items-start relative pl-0 sm:pl-8 group">
+                    {/* Node Circle */}
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-800 hidden sm:flex items-center justify-center z-10 shadow-sm transition-all group-hover:border-[#84CC16] group-hover:scale-110">
+                       <span className="text-[9px] font-bold text-zinc-500 group-hover:text-[#84CC16]">{idx + 1}</span>
+                    </div>
+
+                    <div className="relative w-full">
+                      <div className="bg-white/50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800/60 rounded-xl px-3 py-2 flex items-center gap-3 shadow-sm backdrop-blur-md transition-all hover:shadow-lg hover:border-[#84CC16]/30 hover:bg-white dark:hover:bg-zinc-900">
+                        <div className="text-xl flex-shrink-0 bg-white dark:bg-zinc-800 w-8 h-8 rounded-lg flex items-center justify-center shadow-inner">{step.emoji}</div>
+                        <div className="text-[10px] font-black text-zinc-900 dark:text-zinc-100 tracking-widest uppercase">{step.title}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
