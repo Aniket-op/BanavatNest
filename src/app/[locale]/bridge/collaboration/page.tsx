@@ -177,6 +177,27 @@ export default function CollaborationPage() {
                             );
                         })}
                     </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="mt-24 p-8 md:p-12 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md max-w-5xl mx-auto shadow-2xl relative overflow-hidden"
+                    >
+                        {/* Decorative background glow */}
+                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#84CC16]/10 blur-[60px] rounded-full" />
+                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#84CC16]/5 blur-[60px] rounded-full" />
+
+                        <div className="relative z-10 space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                            <p className="border-l-4 border-[#84CC16] pl-6 py-2 italic text-zinc-900 dark:text-zinc-100">
+                                {t('bodyP1')}
+                            </p>
+                            <p className="border-l-4 border-zinc-200 dark:border-zinc-700 pl-6 py-2">
+                                {t('bodyP2')}
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </PageWrapper>
