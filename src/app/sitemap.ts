@@ -13,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { path: "/about/mission", changeFrequency: "weekly" as const, priority: 0.8 },
         { path: "/about/team", changeFrequency: "monthly" as const, priority: 0.7 },
         { path: "/about/board", changeFrequency: "monthly" as const, priority: 0.7 },
+        // Director Portfolios
+        { path: "/about/board/dr-sangita-roy", changeFrequency: "weekly" as const, priority: 0.9 },
+        { path: "/about/board/dr-sukhdev-singh", changeFrequency: "weekly" as const, priority: 0.9 },
         // What We Do - Focus Areas
         { path: "/what-we-do/focus", changeFrequency: "weekly" as const, priority: 0.9 },
         { path: "/what-we-do/focus/research-and-development", changeFrequency: "weekly" as const, priority: 0.8 },
