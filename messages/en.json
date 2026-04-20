@@ -55,7 +55,7 @@
         "ctaWhatWeDo": "What We Do",
         "ctaBridge": "Our Bridge",
         "updateTitle": "BanavatNest Official Website Goes Live",
-        "updateTitle2": "Site is under Development",
+        "updateTitle2": "BanavatNest welcomes participants of ROFT 2026 | 👉 Explore Event",
         "domainAiTitle": "AI & ML",
         "domainAiDesc": "Artificial Intelligence, Machine Learning & Data Science",
         "domainCyberTitle": "Cybersecurity",
@@ -63,7 +63,92 @@
         "domainSmartTitle": "Smart Systems",
         "domainSmartDesc": "Healthcare & Sustainability focus areas",
         "domainAgriTitle": "Agriculture",
-        "domainAgriDesc": "Smart Farming and Precision Agriculture"
+        "domainAgriDesc": "Smart Farming and Precision Agriculture",
+        "heroTagline": "BanavatNest Pvt. Ltd. — where research meets prototypes and prototypes move toward real-world impact",
+        "whatWeDo": {
+            "coreDomainsTitle": "Our Core",
+            "coreDomainsHighlight": "Domains",
+            "title": "What We",
+            "titleHighlight": "Do",
+            "usps": {
+                "prototype": "Prototype Development",
+                "bridge": "Academia ↔ Industry Bridge",
+                "ai": "AI & Intelligent Systems",
+                "scalable": "Scalable Solutions",
+                "custom": "Customized Problem Solving",
+                "health": "Smart Healthcare Systems",
+                "agri": "Precision Agriculture"
+            }
+        },
+        "whatWeServe": {
+            "title": "What We",
+            "titleHighlight": "Serve",
+            "description": "Empowering ideas at every stage — from concept to deployment and real-world impact.",
+            "exploreMore": "Explore More",
+            "students": {
+                "label": "Students",
+                "items": {
+                    "0": {
+                        "heading": "Hands-on Projects",
+                        "desc": "Building real-world prototypes and earning practical engineering experience."
+                    },
+                    "1": {
+                        "heading": "Skill Development",
+                        "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
+                    },
+                    "2": {
+                        "heading": "Industry Exposure",
+                        "desc": "Solving live problems from top companies to become career-ready."
+                    },
+                    "3": {
+                        "heading": "Mentorship",
+                        "desc": "Expert guidance for research, prestigious internships, and startup ventures."
+                    }
+                }
+            },
+            "faculty": {
+                "label": "Faculty",
+                "items": {
+                    "0": {
+                        "heading": "Research Prototypes",
+                        "desc": "Converting academic research into functional, industry-grade prototypes."
+                    },
+                    "1": {
+                        "heading": "Project Support",
+                        "desc": "Assistance with funded project proposals and strategic grant applications."
+                    },
+                    "2": {
+                        "heading": "Technology Transfer",
+                        "desc": "Direct industry collaboration and commercialization of intellectual capital."
+                    },
+                    "3": {
+                        "heading": "Deployment Support",
+                        "desc": "Data-driven validation and real-world deployment of academic solutions."
+                    }
+                }
+            },
+            "industry": {
+                "label": "Industry",
+                "items": {
+                    "0": {
+                        "heading": "Customized Solutions",
+                        "desc": "Tailored engineering to solve your most challenging business problems."
+                    },
+                    "1": {
+                        "heading": "Core Tech R&D",
+                        "desc": "Advanced development in AI, IoT, and high-security system architectures."
+                    },
+                    "2": {
+                        "heading": "Rapid Prototyping",
+                        "desc": "Moving from initial concept to pilot deployment with extreme speed."
+                    },
+                    "3": {
+                        "heading": "Scalable Systems",
+                        "desc": "Production-ready, battle-tested solutions designed for market expansion."
+                    }
+                }
+            }
+        }
     },
     "aboutName": {
         "title": "Our",
@@ -174,6 +259,72 @@
         "title": "Collaboration",
         "titleHighlight": "Model",
         "subtitle": "Connecting academic rigor with industrial relevance through a multi-layer engagement framework.",
+        "academic": {
+            "title": "Academic Collaboration",
+            "emoji": "🎓",
+            "items": [
+                {
+                    "heading": "Joint research & funded projects",
+                    "desc": "Collaborative investigation and development supported by external funding bodies."
+                },
+                {
+                    "heading": "Student innovation & projects",
+                    "desc": "Hands-on capstone projects and research-led innovation by students."
+                },
+                {
+                    "heading": "Prototype development",
+                    "desc": "Translating academic research into functional, industry-grade prototypes."
+                },
+                {
+                    "heading": "Internship & mentorship",
+                    "desc": "Structured programs for student growth and expert professional guidance."
+                }
+            ]
+        },
+        "industry": {
+            "title": "Industry Collaboration",
+            "emoji": "🏭",
+            "items": [
+                {
+                    "heading": "Solution development",
+                    "desc": "Problem-driven engineering to address core industrial challenges."
+                },
+                {
+                    "heading": "System integration",
+                    "desc": "Advanced implementation of AI, IoT, and secure computing architectures."
+                },
+                {
+                    "heading": "Rapid prototyping",
+                    "desc": "Moving from initial concept to pilot deployment with agility and speed."
+                },
+                {
+                    "heading": "Technology partnerships",
+                    "desc": "Long-term relationships for continuous innovation and tech adoption."
+                }
+            ]
+        },
+        "startup": {
+            "title": "Startup / Innovator Collaboration",
+            "emoji": "🚀",
+            "items": [
+                {
+                    "heading": "Idea validation & prototyping",
+                    "desc": "Validating core concepts through expert research and rapid builds."
+                },
+                {
+                    "heading": "Technical co-development",
+                    "desc": "Collaborative engineering support to build and refine core technology."
+                },
+                {
+                    "heading": "MVP development",
+                    "desc": "Developing lean, functional products ready for initial market entry."
+                },
+                {
+                    "heading": "Scaling & deployment",
+                    "desc": "Strategic guidance for system expansion and real-world deployment."
+                }
+            ]
+        },
         "frameworkTitle": "The Framework",
         "item1": "Problem-driven approach: Industry challenges mapped to academic research.",
         "item2": "Joint Supervision: Collaboration enabled through faculty and industry mentoring.",

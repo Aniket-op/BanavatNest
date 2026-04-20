@@ -30,13 +30,17 @@ export default function BoardPage() {
                         {/* Dr. Sukhdev Singh Card */}
                         <motion.div
                             whileHover={{ y: -10 }}
-                            className="bg-white dark:bg-zinc-900/50 rounded-[4rem] p-12 border border-zinc-100 dark:border-zinc-800 relative text-left transition-all duration-300 shadow-xl hover:shadow-2xl dark:hover:shadow-[0_0_40px_rgba(132,204,22,0.15)] dark:hover:border-lime-500/30"
+                            className="bg-white dark:bg-zinc-900/50 rounded-[4rem] p-10 md:p-12 border border-zinc-100 dark:border-zinc-800 relative text-left transition-all duration-300 shadow-xl hover:shadow-2xl dark:hover:shadow-[0_0_40px_rgba(132,204,22,0.15)] dark:hover:border-lime-500/30"
                         >
-                            <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-lg mb-8 border-4 border-white dark:border-zinc-800 mx-auto md:mx-0">
-                                <img src="/images/Director/Sukhdev.jpeg" alt={t('sukhdevName')} className="w-full h-full object-cover object-top" />
+                            <div className="flex flex-col md:flex-row items-center md:items-center gap-8 mb-10 text-center md:text-left">
+                                <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-lg border-4 border-white dark:border-zinc-800 shrink-0">
+                                    <img src="/images/Director/Sukhdev.jpeg" alt={t('sukhdevName')} className="w-full h-full object-cover object-top" />
+                                </div>
+                                <div className="flex-grow">
+                                    <h3 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-2">{t('sukhdevName')}</h3>
+                                    <p className="text-[#84CC16] font-bold text-lg md:text-xl uppercase tracking-widest leading-tight">{t('sukhdevRole')}</p>
+                                </div>
                             </div>
-                            <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-2">{t('sukhdevName')}</h3>
-                            <p className="text-[#84CC16] font-bold text-lg mb-8 uppercase tracking-widest">{t('sukhdevRole')}</p>
                             <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">
                                 {t('sukhdevBio')}
                             </p>
@@ -57,13 +61,17 @@ export default function BoardPage() {
                         {/* Dr. Sangita Roy Card */}
                         <motion.div
                             whileHover={{ y: -10 }}
-                            className="bg-white dark:bg-zinc-900/50 rounded-[4rem] p-12 border border-zinc-100 dark:border-zinc-800 relative text-left transition-all duration-300 shadow-xl hover:shadow-2xl dark:hover:shadow-[0_0_40px_rgba(132,204,22,0.15)] dark:hover:border-lime-500/30 overflow-hidden"
+                            className="bg-white dark:bg-zinc-900/50 rounded-[4rem] p-10 md:p-12 border border-zinc-100 dark:border-zinc-800 relative text-left transition-all duration-300 shadow-xl hover:shadow-2xl dark:hover:shadow-[0_0_40px_rgba(132,204,22,0.15)] dark:hover:border-lime-500/30 overflow-hidden"
                         >
-                            <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-lg mb-8 border-4 border-white dark:border-zinc-800 mx-auto md:mx-0">
-                                <img src="/images/Director/Sangita.jpeg" alt={t('sangitaName')} className="w-full h-full object-cover object-top" />
+                            <div className="flex flex-col md:flex-row items-center md:items-center gap-8 mb-10 text-center md:text-left">
+                                <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-lg border-4 border-white dark:border-zinc-800 shrink-0">
+                                    <img src="/images/Director/Sangita.jpeg" alt={t('sangitaName')} className="w-full h-full object-cover object-top" />
+                                </div>
+                                <div className="flex-grow">
+                                    <h3 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-2">{t('sangitaName')}</h3>
+                                    <p className="text-[#84CC16] font-bold text-lg md:text-xl uppercase tracking-widest leading-tight">{t('sangitaRole')}</p>
+                                </div>
                             </div>
-                            <h3 className="text-3xl font-black mb-2 text-zinc-900 dark:text-zinc-100">{t('sangitaName')}</h3>
-                            <p className="text-[#84CC16] font-bold text-lg mb-8 uppercase tracking-widest">{t('sangitaRole')}</p>
                             <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">
                                 {t('sangitaBio')}
                             </p>
