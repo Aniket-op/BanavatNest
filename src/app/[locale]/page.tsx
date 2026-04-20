@@ -28,8 +28,8 @@ const Home = () => {
       route: "/",
     },
     {
-      title: t('updateTitle'),
-      route: "/",
+      title: t('updateTitle2'),
+      route: "https://sites.google.com/thapar.edu/roft2026",
     }
   ];
 
