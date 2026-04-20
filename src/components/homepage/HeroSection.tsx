@@ -4,7 +4,10 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
+import { useTranslations } from 'next-intl';
+
 export default function HeroSection() {
+  const t = useTranslations('home');
   const ref = useRef<HTMLElement>(null);
 
   return (
@@ -45,7 +48,7 @@ export default function HeroSection() {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="mt-6 md:mt-8 pb-4 text-center text-zinc-600 dark:text-zinc-400 max-w-5xl mx-auto px-4 text-sm md:text-base lg:text-lg font-medium tracking-wide"
       >
-        BanavatNest Pvt. Ltd. — where research meets prototypes and prototypes move toward real-world impact
+        {t('heroTagline')}
       </motion.div>
     </>
   );

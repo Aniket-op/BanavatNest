@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 
 // ── Premium SVG Illustrations with Animations ──
@@ -137,86 +138,33 @@ const IndustryIllustration = ({ color }: { color: string }) => (
 
 const serveData = [
   {
-    cardboardName: "Students",
+    key: "students",
     href: "/bridge/opportunities",
     emoji: "🎓",
     illustration: StudentIllustration,
     color: '#84CC16',
     bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
-    content: [
-      {
-        heading: "Hands-on Projects",
-        desc: "Building real-world prototypes and earning practical engineering experience."
-      },
-      {
-        heading: "Skill Development",
-        desc: "Deep dives into AI, IoT, and emerging technologies through guided workshops."
-      },
-      {
-        heading: "Industry Exposure",
-        desc: "Solving live problems from top companies to become career-ready."
-      },
-      {
-        heading: "Mentorship",
-        desc: "Expert guidance for research, prestigious internships, and startup ventures."
-      }
-    ]
   },
   {
-    cardboardName: "Faculty",
+    key: "faculty",
     href: "/bridge/faculty",
     emoji: "👩‍🏫",
     illustration: FacultyIllustration,
     color: '#3B82F6',
     bg: 'bg-[#EFF6FF] dark:bg-[#0f1e3d]',
-    content: [
-      {
-        heading: "Research Prototypes",
-        desc: "Converting academic research into functional, industry-grade prototypes."
-      },
-      {
-        heading: "Project Support",
-        desc: "Assistance with funded project proposals and strategic grant applications."
-      },
-      {
-        heading: "Technology Transfer",
-        desc: "Direct industry collaboration and commercialization of intellectual capital."
-      },
-      {
-        heading: "Deployment Support",
-        desc: "Data-driven validation and real-world deployment of academic solutions."
-      }
-    ]
   },
   {
-    cardboardName: "Industry",
+    key: "industry",
     href: "/bridge/partnerships",
     emoji: "🏭",
     illustration: IndustryIllustration,
     color: '#8B5CF6',
     bg: 'bg-[#F5F3FF] dark:bg-[#1e1040]',
-    content: [
-      {
-        heading: "Customized Solutions",
-        desc: "Tailored engineering to solve your most challenging business problems."
-      },
-      {
-        heading: "Core Tech R&D",
-        desc: "Advanced development in AI, IoT, and high-security system architectures."
-      },
-      {
-        heading: "Rapid Prototyping",
-        desc: "Moving from initial concept to pilot deployment with extreme speed."
-      },
-      {
-        heading: "Scalable Systems",
-        desc: "Production-ready, battle-tested solutions designed for market expansion."
-      }
-    ]
   }
 ];
 
 export default function WhatWeServe() {
+  const t = useTranslations('home');
   const [activeIndex, setActiveIndex] = useState(0);
 
   // useEffect(() => {
@@ -239,10 +187,10 @@ export default function WhatWeServe() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1] mb-5">
-            What We <span className="text-[#84CC16]">Serve</span>
+            {t('whatWeServe.title')} <span className="text-[#84CC16]">{t('whatWeServe.titleHighlight')}</span>
           </h2>
           <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
-            Empowering ideas at every stage — from concept to deployment and real-world impact.
+            {t('whatWeServe.description')}
           </p>
         </motion.div>
 
@@ -250,11 +198,10 @@ export default function WhatWeServe() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           {serveData.map((card, idx) => {
             const Illustration = card.illustration;
-            const currentItem = card.content[activeIndex];
 
             return (
               <motion.div
-                key={card.cardboardName}
+                key={card.key}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -290,7 +237,7 @@ export default function WhatWeServe() {
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-[2.2rem]">{card.emoji}</span>
                         <span className="text-base font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
-                          {card.cardboardName}
+                          {t(`whatWeServe.${card.key}.label`)}
                         </span>
                       </div>
 
@@ -310,17 +257,17 @@ export default function WhatWeServe() {
                     <div className="relative z-10 flex-grow w-full">
                       <AnimatePresence mode="wait">
                         <motion.div
-                          key={`${card.cardboardName}-${activeIndex}`}
+                          key={`${card.key}-${activeIndex}`}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.5, ease: "circOut" }}
                         >
                           <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[64px] flex items-center justify-center">
-                            {currentItem.heading}
+                            {t(`whatWeServe.${card.key}.items.${activeIndex}.heading`)}
                           </h3>
                           <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
-                            {currentItem.desc}
+                            {t(`whatWeServe.${card.key}.items.${activeIndex}.desc`)}
                           </p>
                         </motion.div>
                       </AnimatePresence>
@@ -329,7 +276,7 @@ export default function WhatWeServe() {
                     {/* Explore More CTA */}
                     <div className="relative z-10 mt-8 mb-6 flex items-center justify-center gap-3 group/cta">
                       <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/50 dark:text-zinc-100/40 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
-                        Explore More
+                        {t('whatWeServe.exploreMore')}
                       </span>
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center transition-all group-hover/cta:translate-x-1"

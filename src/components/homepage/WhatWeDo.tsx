@@ -9,37 +9,37 @@ import DomainCarousel from '@/components/DomainCarousel';
 const usps = [
   {
     emoji: '🚀',
-    title: 'Prototype Development',
+    titleKey: 'prototype',
     color: '#F59E0B',
   },
   {
     emoji: '🔗',
-    title: 'Academia ↔ Industry Bridge',
+    titleKey: 'bridge',
     color: '#3B82F6',
   },
   {
     emoji: '🧠',
-    title: 'AI & Intelligent Systems',
+    titleKey: 'ai',
     color: '#8B5CF6',
   },
   {
     emoji: '⚙️',
-    title: 'Scalable Solutions',
+    titleKey: 'scalable',
     color: '#10B981',
   },
   {
     emoji: '🎯',
-    title: 'Customized Problem Solving',
+    titleKey: 'custom',
     color: '#EF4444',
   },
   {
     emoji: '🏥',
-    title: 'Smart Healthcare Systems',
+    titleKey: 'health',
     color: '#EC4899',
   },
   {
     emoji: '🌾',
-    title: 'Precision Agriculture',
+    titleKey: 'agri',
     color: '#84CC16',
   },
 ];
@@ -157,7 +157,7 @@ export default function WhatWeDo() {
           {/* Left Division: Our Domains */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pr-8">
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
-              Our Core <span className="text-[#84CC16]">Domains</span>
+              {t('whatWeDo.coreDomainsTitle')} <span className="text-[#84CC16]">{t('whatWeDo.coreDomainsHighlight')}</span>
             </h2>
             <div className="-mx-4 sm:mx-0">
               <DomainCarousel items={domains} />
@@ -167,7 +167,7 @@ export default function WhatWeDo() {
           {/* Right Division: What We Do & How We Work */}
           <div className="flex flex-col w-full relative z-10 lg:pl-10 border-l border-zinc-200 dark:border-zinc-800/50">
             <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4 text-center lg:text-left">
-              What We <span className="text-[#84CC16]">Do</span>
+              {t('whatWeDo.title')} <span className="text-[#84CC16]">{t('whatWeDo.titleHighlight')}</span>
             </h2>
 
             <div className="relative w-full h-[650px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
@@ -211,7 +211,7 @@ export default function WhatWeDo() {
                         {usp.emoji}
                       </div>
                       <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight">
-                        {usp.title}
+                        {t(`whatWeDo.usps.${usp.titleKey}`)}
                       </h4>
                     </div>
                   </div>

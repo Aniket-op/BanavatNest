@@ -63,7 +63,92 @@
         "domainSmartTitle": "Smart Systems",
         "domainSmartDesc": "Healthcare & Sustainability focus areas",
         "domainAgriTitle": "Agriculture",
-        "domainAgriDesc": "Smart Farming and Precision Agriculture"
+        "domainAgriDesc": "Smart Farming and Precision Agriculture",
+        "heroTagline": "BanavatNest Pvt. Ltd. — where research meets prototypes and prototypes move toward real-world impact",
+        "whatWeDo": {
+            "coreDomainsTitle": "Our Core",
+            "coreDomainsHighlight": "Domains",
+            "title": "What We",
+            "titleHighlight": "Do",
+            "usps": {
+                "prototype": "Prototype Development",
+                "bridge": "Academia ↔ Industry Bridge",
+                "ai": "AI & Intelligent Systems",
+                "scalable": "Scalable Solutions",
+                "custom": "Customized Problem Solving",
+                "health": "Smart Healthcare Systems",
+                "agri": "Precision Agriculture"
+            }
+        },
+        "whatWeServe": {
+            "title": "What We",
+            "titleHighlight": "Serve",
+            "description": "Empowering ideas at every stage — from concept to deployment and real-world impact.",
+            "exploreMore": "Explore More",
+            "students": {
+                "label": "Students",
+                "items": {
+                    "0": {
+                        "heading": "Hands-on Projects",
+                        "desc": "Building real-world prototypes and earning practical engineering experience."
+                    },
+                    "1": {
+                        "heading": "Skill Development",
+                        "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
+                    },
+                    "2": {
+                        "heading": "Industry Exposure",
+                        "desc": "Solving live problems from top companies to become career-ready."
+                    },
+                    "3": {
+                        "heading": "Mentorship",
+                        "desc": "Expert guidance for research, prestigious internships, and startup ventures."
+                    }
+                }
+            },
+            "faculty": {
+                "label": "Faculty",
+                "items": {
+                    "0": {
+                        "heading": "Research Prototypes",
+                        "desc": "Converting academic research into functional, industry-grade prototypes."
+                    },
+                    "1": {
+                        "heading": "Project Support",
+                        "desc": "Assistance with funded project proposals and strategic grant applications."
+                    },
+                    "2": {
+                        "heading": "Technology Transfer",
+                        "desc": "Direct industry collaboration and commercialization of intellectual capital."
+                    },
+                    "3": {
+                        "heading": "Deployment Support",
+                        "desc": "Data-driven validation and real-world deployment of academic solutions."
+                    }
+                }
+            },
+            "industry": {
+                "label": "Industry",
+                "items": {
+                    "0": {
+                        "heading": "Customized Solutions",
+                        "desc": "Tailored engineering to solve your most challenging business problems."
+                    },
+                    "1": {
+                        "heading": "Core Tech R&D",
+                        "desc": "Advanced development in AI, IoT, and high-security system architectures."
+                    },
+                    "2": {
+                        "heading": "Rapid Prototyping",
+                        "desc": "Moving from initial concept to pilot deployment with extreme speed."
+                    },
+                    "3": {
+                        "heading": "Scalable Systems",
+                        "desc": "Production-ready, battle-tested solutions designed for market expansion."
+                    }
+                }
+            }
+        }
     },
     "aboutName": {
         "title": "Our",
