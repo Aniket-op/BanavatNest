@@ -1,8 +1,12 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { GraduationCap, BookOpen, Rocket, ArrowRight, FileText, Share2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+    GraduationCap, BookOpen, Rocket, ArrowRight, FileText, Share2,
+    Lightbulb, Settings, Brain, HandshakeIcon, Award,
+    Clock, Globe, Sparkles, Users, CheckCircle, ChevronRight
+} from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
@@ -29,12 +33,16 @@ const TechnicalBadge = ({ text, color, delay }: { text: string, color: string, d
             top: `${Math.random() * 60 + 20}%`
         }}
     >
-        <div className="px-3 py-1 rounded-xl bg-zinc-900/40 backdrop-blur-md border border-zinc-100/10 shadow-xl flex items-center gap-2 transition-colors">
+        <motion.div
+            whileHover={{ scale: 1.15, boxShadow: `0 15px 30px -5px ${color}80` }}
+            transition={{ duration: 0.2 }}
+            className="px-3 py-1 rounded-xl bg-white/90 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-zinc-100/20 shadow-lg flex items-center gap-2 transition-colors cursor-pointer"
+        >
             <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
-            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-100/60 transition-colors">
+            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-700 dark:text-zinc-100/80 transition-colors">
                 {text}
             </span>
-        </div>
+        </motion.div>
     </motion.div>
 );
 
@@ -61,8 +69,9 @@ const UGIllustration = () => (
                 y: [0, -10, 0],
                 rotateY: [0, 10, 0]
             }}
+            whileHover={{ scale: 1.1, rotateY: 180, boxShadow: "0 0 60px rgba(59,130,246,0.4)" }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10 w-24 h-24 rounded-3xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 shadow-[0_0_50px_rgba(59,130,246,0.15)]"
+            className="relative z-10 w-24 h-24 rounded-3xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 shadow-[0_0_50px_rgba(59,130,246,0.15)] cursor-pointer"
         >
             <GraduationCap className="w-12 h-12 text-blue-400" />
         </motion.div>
@@ -98,8 +107,9 @@ const PGIllustration = () => (
                     "0 0 20px rgba(168,85,247,0.1)"
                 ]
             }}
+            whileHover={{ scale: 1.15, rotateZ: 10, boxShadow: "0 0 60px rgba(168,85,247,0.5)" }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10 w-24 h-24 rounded-3xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20"
+            className="relative z-10 w-24 h-24 rounded-3xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 cursor-pointer"
         >
             <BookOpen className="w-12 h-12 text-purple-400" />
         </motion.div>
@@ -147,7 +157,7 @@ const PhDIllustration = () => (
                 rotateZ: [-2, 2, -2]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10 w-24 h-24 rounded-3xl bg-[#84CC16]/10 flex items-center justify-center border border-[#84CC16]/20 shadow-[0_0_50px_rgba(132,204,22,0.2)]"
+            className="relative z-10 w-24 h-24 rounded-3xl bg-[#84CC16]/10 flex items-center justify-center border border-[#84CC16]/20 shadow-[0_0_50px_rgba(132,204,22,0.2)] cursor-pointer"
         >
             <Rocket className="w-12 h-12 text-[#84CC16]" />
 
@@ -209,15 +219,23 @@ const GrowthCard = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay }}
-        className="group relative h-full"
+        className="h-full"
     >
-        <div className={`
-            relative h-full p-10 rounded-[2.5rem] bg-white dark:bg-zinc-900/40 
-            border-2 border-zinc-100 dark:border-zinc-800/80
-            hover:shadow-2xl transition-all duration-500 overflow-hidden
-            flex flex-col items-center text-center
-            group-hover:translate-y-[-8px]
-        `}
+        <motion.div
+            whileHover={{
+                y: -12,
+                scale: 1.01,
+                boxShadow: `0 35px 70px -15px ${color}40, 0 20px 40px -10px rgba(0,0,0,0.1)`
+            }}
+            className={`
+                group relative h-full p-10 rounded-[2.5rem] bg-white dark:bg-zinc-900/40 
+                border-2 border-zinc-100 dark:border-zinc-800/80
+                transition-all duration-500 overflow-hidden
+                flex flex-col items-center text-center cursor-pointer
+            `}
+            style={{
+                boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)"
+            }}
         >
             {/* Hover Gradient Backdrop */}
             <div
@@ -236,17 +254,17 @@ const GrowthCard = ({
             <Illustration />
 
             <div className="relative z-10 flex-grow">
-                <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight">
+                <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight transition-colors group-hover:text-zinc-800 dark:group-hover:text-white">
                     {title}
                 </h3>
-                <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-10">
+                <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-10 transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
                     {desc}
                 </p>
             </div>
 
             <Link href={href} className="relative z-10 w-full">
                 <motion.div
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                     className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-5 w-full rounded-full bg-[#5D3A1A] hover:bg-[#4B2C13] dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-black shadow-xl overflow-hidden transition-all duration-300"
                     style={{
@@ -263,7 +281,7 @@ const GrowthCard = ({
                     />
                 </motion.div>
             </Link>
-        </div>
+        </motion.div>
     </motion.div>
 );
 
@@ -286,6 +304,392 @@ const GrowthPathProfile = ({ name, role, delay }: { name: string, role: string, 
     </motion.div>
 );
 
+// ─────────────────────────────────────────────────────────────
+// ── Section 1: What Students Get ──
+// ─────────────────────────────────────────────────────────────
+
+const studentBenefits = [
+    {
+        icon: Lightbulb,
+        emoji: '💡',
+        title: 'Hands-on Project Experience',
+        desc: 'Work on real industry and research problems that create measurable impact.',
+        color: '#F59E0B',
+        glow: 'rgba(245,158,11,0.25)',
+    },
+    {
+        icon: Settings,
+        emoji: '⚙️',
+        title: 'Prototype Development Exposure',
+        desc: 'Take your idea from concept → design → fully working model.',
+        color: '#3B82F6',
+        glow: 'rgba(59,130,246,0.25)',
+    },
+    {
+        icon: Brain,
+        emoji: '🧠',
+        title: 'Multidomain Learning',
+        desc: 'Explore AI, Cybersecurity, IoT, Blockchain, and Smart Systems.',
+        color: '#A855F7',
+        glow: 'rgba(168,85,247,0.25)',
+    },
+    {
+        icon: Users,
+        emoji: '🤝',
+        title: 'Mentorship from Experts',
+        desc: 'Guidance from leading figures across academia and industry.',
+        color: '#84CC16',
+        glow: 'rgba(132,204,22,0.25)',
+    },
+    {
+        icon: Award,
+        emoji: '📜',
+        title: 'Certification & Recognition',
+        desc: 'Earn certificates, showcase projects, and receive recommendation letters.',
+        color: '#EC4899',
+        glow: 'rgba(236,72,153,0.25)',
+    },
+];
+
+const WhatStudentsGetSection = () => (
+    <section className="relative py-28 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-20"
+            >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#84CC16]/10 border border-[#84CC16]/20 text-[#84CC16] text-sm font-bold mb-6 tracking-widest uppercase">
+                    <Sparkles className="w-4 h-4" />
+                    Student Benefits
+                </div>
+                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                    What Students <span className="text-[#84CC16]">Get</span>
+                </h2>
+                <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
+                    More than an internship — a launchpad for your future career and research journey.
+                </p>
+            </motion.div>
+
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {studentBenefits.map((benefit, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                        whileHover={{
+                            y: -8,
+                            boxShadow: `0 30px 60px -15px ${benefit.glow}`
+                        }}
+                        className={`group relative p-8 rounded-3xl bg-white dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500 ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                        style={{ boxShadow: '0 4px 20px -5px rgba(0,0,0,0.06)' }}
+                    >
+                        {/* Hover gradient */}
+                        <div
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                            style={{ background: `radial-gradient(circle at top left, ${benefit.glow}, transparent 60%)` }}
+                        />
+                        {/* Icon */}
+                        <motion.div
+                            whileHover={{ scale: 1.15, rotate: 5 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-2xl"
+                            style={{
+                                backgroundColor: `${benefit.color}15`,
+                                border: `1.5px solid ${benefit.color}30`,
+                                boxShadow: `0 8px 20px -5px ${benefit.glow}`
+                            }}
+                        >
+                            <span>{benefit.emoji}</span>
+                        </motion.div>
+
+                        <h3 className="relative z-10 text-xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight group-hover:text-zinc-800 dark:group-hover:text-white transition-colors">
+                            {benefit.title}
+                        </h3>
+                        <p className="relative z-10 text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+                            {benefit.desc}
+                        </p>
+
+                        {/* Bottom accent line */}
+                        <div
+                            className="absolute bottom-0 left-0 h-[3px] w-0 group-hover:w-full transition-all duration-500 rounded-b-3xl"
+                            style={{ backgroundColor: benefit.color }}
+                        />
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    </section>
+);
+
+// ─────────────────────────────────────────────────────────────
+// ── Section 2: Types of Opportunities ──
+// ─────────────────────────────────────────────────────────────
+
+const opportunityTypes = [
+    {
+        icon: '🎓',
+        title: 'Internships',
+        color: '#3B82F6',
+        glow: 'rgba(59,130,246,0.2)',
+        borderColor: 'rgba(59,130,246,0.3)',
+        items: [
+            { icon: Clock, text: 'Short-term & Long-term durations' },
+            { icon: BookOpen, text: 'Research + Industry-based tracks' },
+            { icon: Globe, text: 'Hybrid / Remote options available' },
+        ],
+    },
+    {
+        icon: '🚀',
+        title: 'Innovation & Startup Support',
+        color: '#84CC16',
+        glow: 'rgba(132,204,22,0.2)',
+        borderColor: 'rgba(132,204,22,0.3)',
+        items: [
+            { icon: Sparkles, text: 'Work on ongoing BanavatNest projects' },
+            { icon: Settings, text: 'Convert your idea into a prototype' },
+            { icon: ChevronRight, text: 'Guidance for funding & incubation' },
+        ],
+    },
+];
+
+const TypesOfOpportunitiesSection = () => (
+    <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950/50" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[#84CC16]/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-20"
+            >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-6 tracking-widest uppercase">
+                    <FileText className="w-4 h-4" />
+                    Opportunity Tracks
+                </div>
+                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                    Types of <span className="text-blue-400">Opportunities</span>
+                </h2>
+                <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
+                    Choose the path that matches your goals and ambitions.
+                </p>
+            </motion.div>
+
+            {/* Two column layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {opportunityTypes.map((type, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: i === 0 ? -40 : 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.15 }}
+                        whileHover={{
+                            y: -8,
+                            boxShadow: `0 40px 80px -20px ${type.glow}`
+                        }}
+                        className="group relative p-10 rounded-[2rem] bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500"
+                        style={{ boxShadow: '0 8px 30px -10px rgba(0,0,0,0.07)' }}
+                    >
+                        {/* Glow bg */}
+                        <div
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                            style={{ background: `radial-gradient(ellipse at top left, ${type.glow}, transparent 65%)` }}
+                        />
+
+                        {/* Header */}
+                        <div className="relative z-10 flex items-center gap-4 mb-10">
+                            <motion.div
+                                whileHover={{ scale: 1.1, rotate: -5 }}
+                                transition={{ duration: 0.3 }}
+                                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
+                                style={{
+                                    backgroundColor: `${type.color}15`,
+                                    border: `2px solid ${type.borderColor}`,
+                                    boxShadow: `0 10px 30px -10px ${type.glow}`
+                                }}
+                            >
+                                {type.icon}
+                            </motion.div>
+                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">{type.title}</h3>
+                        </div>
+
+                        {/* Items */}
+                        <div className="relative z-10 flex flex-col gap-5">
+                            {type.items.map((item, j) => (
+                                <motion.div
+                                    key={j}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.2 + j * 0.08 }}
+                                    className="flex items-center gap-4"
+                                >
+                                    <div
+                                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                                        style={{
+                                            backgroundColor: `${type.color}15`,
+                                            border: `1px solid ${type.borderColor}`,
+                                        }}
+                                    >
+                                        <item.icon className="w-4 h-4" style={{ color: type.color }} />
+                                    </div>
+                                    <span className="text-zinc-600 dark:text-zinc-300 font-medium leading-snug group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors">
+                                        {item.text}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Bottom accent */}
+                        <div
+                            className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-b-[2rem]"
+                            style={{ backgroundColor: type.color }}
+                        />
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    </section>
+);
+
+// ─────────────────────────────────────────────────────────────
+// ── Section 3: Who Can Apply + Selection Process ──
+// ─────────────────────────────────────────────────────────────
+
+const eligibilityCriteria = [
+    { icon: GraduationCap, text: 'Undergraduate & Postgraduate Students', color: '#3B82F6' },
+    { icon: BookOpen, text: 'Engineering / Science / Mathematics backgrounds', color: '#A855F7' },
+    { icon: Sparkles, text: 'Passionate learners — skills matter more than marks', color: '#84CC16' },
+];
+
+const selectionSteps = [
+    { step: '01', label: 'Apply Online', desc: 'Fill out the application form with your interests.' },
+    { step: '02', label: 'Idea & Interest Evaluation', desc: 'We review your ideas and areas of interest.' },
+    { step: '03', label: 'Interaction & Discussion', desc: 'A friendly conversation about your goals.' },
+    { step: '04', label: 'Selection', desc: 'Selected candidates are notified and onboarded.' },
+];
+
+const WhoCanApplySection = () => (
+    <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#84CC16]/4 blur-[150px] rounded-full pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-20"
+            >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#84CC16]/10 border border-[#84CC16]/20 text-[#84CC16] text-sm font-bold mb-6 tracking-widest uppercase">
+                    <Users className="w-4 h-4" />
+                    Eligibility & Process
+                </div>
+                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                    Who Can <span className="text-[#84CC16]">Apply?</span>
+                </h2>
+                <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
+                    Our process is simple, transparent, and designed to find passionate learners — not just high scorers.
+                </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {/* Eligibility */}
+                <motion.div
+                    initial={{ opacity: 0, x: -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">Eligibility Criteria</h3>
+                    <div className="flex flex-col gap-5">
+                        {eligibilityCriteria.map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                whileHover={{ x: 6, boxShadow: `0 10px 30px -10px ${item.color}40` }}
+                                className="flex items-center gap-5 p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800 cursor-default transition-all duration-300"
+                            >
+                                <div
+                                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                                    style={{ backgroundColor: `${item.color}15`, border: `1.5px solid ${item.color}30` }}
+                                >
+                                    <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                                </div>
+                                <span className="text-zinc-700 dark:text-zinc-200 font-semibold leading-snug">{item.text}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Selection Process */}
+                <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                >
+                    <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
+                        Selection Process — <span className="text-[#84CC16]">Simple & Transparent</span>
+                    </h3>
+                    <div className="relative flex flex-col gap-0">
+                        {/* Connecting line */}
+                        <div className="absolute left-6 top-12 bottom-12 w-[2px] bg-gradient-to-b from-[#84CC16]/40 via-blue-500/20 to-transparent" />
+
+                        {selectionSteps.map((step, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + i * 0.12 }}
+                                whileHover={{ x: 6 }}
+                                className="relative flex items-start gap-6 pb-8 last:pb-0 cursor-default transition-transform duration-300"
+                            >
+                                {/* Step badge */}
+                                <motion.div
+                                    whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(132,204,22,0.4)' }}
+                                    transition={{ duration: 0.2 }}
+                                    className="relative z-10 w-12 h-12 rounded-full bg-[#84CC16] flex items-center justify-center text-xs font-black text-white flex-shrink-0 shadow-[0_0_20px_rgba(132,204,22,0.25)]"
+                                >
+                                    {step.step}
+                                </motion.div>
+                                <div className="pt-1">
+                                    <div className="text-lg font-black text-zinc-900 dark:text-zinc-100 mb-1 tracking-tight">{step.label}</div>
+                                    <div className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{step.desc}</div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+            </div>
+        </div>
+    </section>
+);
+
+
+
 export default function OpportunitiesPage() {
     const t = useTranslations('opportunities');
 
@@ -293,38 +697,61 @@ export default function OpportunitiesPage() {
         <PageWrapper>
             <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors pb-32">
 
-                {/* ── Header ── */}
-                <header className="relative pt-32 pb-24 border-b border-zinc-100 dark:border-zinc-800/50 bg-white/50 dark:bg-transparent overflow-hidden">
+                {/* ── Header Image ── */}
+                <header className="relative pt-24 pb-12 border-b border-zinc-100 dark:border-zinc-800/50 bg-white/50 dark:bg-transparent overflow-hidden">
                     {/* Background Accents */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#84CC16]/5 blur-[120px] rounded-full pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-[600px] h-[500px] bg-[#84CC16]/5 blur-[120px] rounded-full pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
 
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex justify-center">
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="max-w-4xl"
+                            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            whileHover={{
+                                y: -8, scale: 1.02,
+                                boxShadow: '0 40px 80px -15px rgba(0,0,0,0.2)'
+                            }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="w-full max-w-5xl rounded-3xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-10px_rgba(132,204,22,0.15)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_40px_80px_-15px_rgba(132,204,22,0.3)] border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 transition-shadow duration-500 cursor-pointer"
                         >
-                            <h1 className="text-6xl md:text-8xl font-black text-zinc-900 dark:text-zinc-100 mb-10 tracking-tighter leading-[0.9]">
-                                {t('title')} <br />
-                                <span className="relative inline-block mt-2">
-                                    <span className="relative z-10 text-[#84CC16] mix-blend-plus-lighter">{t('titleHighlight')}</span>
-                                    {/* Text Glow */}
-                                    <span className="absolute inset-0 blur-2xl opacity-40 text-[#84CC16] select-none" aria-hidden="true">
-                                        {t('titleHighlight')}
-                                    </span>
-                                </span>
-                            </h1>
-                            <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-2xl">
-                                {t('subtitle')}
-                            </p>
+                            <img
+                                src="/images/banavatNestTimes.jpeg"
+                                alt="Banavat Nest Times Opportunities"
+                                className="w-full h-auto object-cover"
+                            />
                         </motion.div>
                     </div>
                 </header>
 
-                {/* ── Content Grid ── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+                {/* ── Section 1: What Students Get ── */}
+                <WhatStudentsGetSection />
+
+                {/* ── Section 2: Types of Opportunities ── */}
+                <TypesOfOpportunitiesSection />
+
+                {/* ── Section 3: Who Can Apply ── */}
+                <WhoCanApplySection />
+
+                {/* ── Section 4: Opportunities by Level (Card Grid) ── */}
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="text-center mb-20"
+                    >
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-bold mb-6 tracking-widest uppercase">
+                            <GraduationCap className="w-4 h-4" />
+                            By Level
+                        </div>
+                        <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                            Opportunities by <span className="text-purple-400">Level</span>
+                        </h2>
+                        <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
+                            Tailored pathways for every stage of your academic journey.
+                        </p>
+                    </motion.div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                         <GrowthCard
                             title={t('ugTitle')}
@@ -356,39 +783,8 @@ export default function OpportunitiesPage() {
                     </div>
                 </section>
 
-                {/* ── Footer Stats / Growth Bar ── */}
-                {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
-                    <div className="flex flex-col items-center gap-12">
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            className="flex flex-col items-center gap-4"
-                        >
-                            <div className="w-12 h-1 bg-[#84CC16]" />
-                            <h4 className="text-xs font-black uppercase tracking-[0.4em] text-zinc-900/40 dark:text-zinc-100/30">
-                                Student Growth Pathway
-                            </h4>
-                        </motion.div>
-
-                        <div className="flex flex-wrap justify-center gap-6">
-                            <GrowthPathProfile name="Sarah D. (Postgrad)" role="Lead at [Company Name]" delay={0.4} />
-                            <GrowthPathProfile name="Aniket M. (UG)" role="Software Engineer at [Tech Corp]" delay={0.5} />
-                            <GrowthPathProfile name="Priya S. (PhD)" role="Research Lead at [R&D Lab]" delay={0.6} />
-                            <GrowthPathProfile name="John L. (PG)" role="Founder of [Innovation Startup]" delay={0.7} />
-                        </div>
-
-                        <div className="relative flex items-center justify-center mt-8">
-                             <motion.div 
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                                className="w-32 h-32 border border-zinc-200 dark:border-zinc-800 rounded-full opacity-50"
-                             />
-                             <div className="absolute w-20 h-20 bg-[#84CC16]/10 blur-xl rounded-full" />
-                             <Share2 className="absolute w-8 h-8 text-[#84CC16] opacity-60" />
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </PageWrapper>
     );
 }
+
