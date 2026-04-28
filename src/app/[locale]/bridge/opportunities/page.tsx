@@ -814,12 +814,12 @@ export default function OpportunitiesPage() {
                                 boxShadow: '0 40px 80px -15px rgba(0,0,0,0.2)'
                             }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="w-full max-w-5xl rounded-3xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-10px_rgba(132,204,22,0.15)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_40px_80px_-15px_rgba(132,204,22,0.3)] border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 transition-shadow duration-500 cursor-pointer"
+                            className="w-full max-w-5xl aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-10px_rgba(132,204,22,0.15)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_40px_80px_-15px_rgba(132,204,22,0.3)] border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 transition-shadow duration-500 cursor-pointer"
                         >
                             <img
                                 src="/images/banavatNestTimes.jpeg"
                                 alt="Banavat Nest Times Opportunities"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-full object-cover"
                             />
                         </motion.div>
                     </div>
