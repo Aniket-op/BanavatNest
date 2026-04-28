@@ -398,7 +398,13 @@ const WhatStudentsGetSection = () => {
     const benefit = studentBenefits[activeIndex];
 
     return (
-        <section className="relative py-24 overflow-hidden">
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="relative py-12 overflow-hidden"
+        >
             {/* Background */}
             <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none" />
@@ -450,7 +456,7 @@ const WhatStudentsGetSection = () => {
                                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[2rem]"
                                             style={{ background: `radial-gradient(circle at top left, ${benefit.glow}, transparent 70%)` }}
                                         />
-                                        
+
                                         {/* Content Wrapper */}
                                         <div className="relative z-10 flex flex-col items-start">
                                             {/* Icon */}
@@ -502,9 +508,8 @@ const WhatStudentsGetSection = () => {
                                             setDirection(i > activeIndex ? 1 : -1);
                                             setActiveIndex(i);
                                         }}
-                                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                                            i === activeIndex ? 'bg-[#84CC16] scale-125' : 'bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
-                                        }`}
+                                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-[#84CC16] scale-125' : 'bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
+                                            }`}
                                         aria-label={`Go to slide ${i + 1}`}
                                     />
                                 ))}
@@ -519,7 +524,7 @@ const WhatStudentsGetSection = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
@@ -555,7 +560,13 @@ const opportunityTypes = [
 ];
 
 const TypesOfOpportunitiesSection = () => (
-    <section className="relative py-28 overflow-hidden">
+    <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        className="relative py-12 overflow-hidden"
+    >
         <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950/50" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[#84CC16]/5 blur-[100px] rounded-full pointer-events-none" />
@@ -653,7 +664,7 @@ const TypesOfOpportunitiesSection = () => (
                 ))}
             </div>
         </div>
-    </section>
+    </motion.section>
 );
 
 // ─────────────────────────────────────────────────────────────
@@ -674,7 +685,13 @@ const selectionSteps = [
 ];
 
 const WhoCanApplySection = () => (
-    <section className="relative py-28 overflow-hidden">
+    <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        className="relative py-12 overflow-hidden"
+    >
         <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#84CC16]/4 blur-[150px] rounded-full pointer-events-none" />
 
@@ -770,7 +787,7 @@ const WhoCanApplySection = () => (
                 </motion.div>
             </div>
         </div>
-    </section>
+    </motion.section>
 );
 
 
@@ -780,7 +797,7 @@ export default function OpportunitiesPage() {
 
     return (
         <PageWrapper>
-            <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors pb-32">
+            <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
 
                 {/* ── Header Image ── */}
                 <header className="relative pt-24 pb-12 border-b border-zinc-100 dark:border-zinc-800/50 bg-white/50 dark:bg-transparent overflow-hidden">
@@ -818,7 +835,13 @@ export default function OpportunitiesPage() {
                 <WhoCanApplySection />
 
                 {/* ── Section 4: Opportunities by Level (Card Grid) ── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+                <motion.section
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+                >
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -862,7 +885,7 @@ export default function OpportunitiesPage() {
                             delay={0.3}
                         />
                     </div>
-                </section>
+                </motion.section>
 
             </div>
         </PageWrapper>
