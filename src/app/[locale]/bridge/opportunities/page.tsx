@@ -874,8 +874,8 @@ export default function OpportunitiesPage() {
                             desc={t('ugDesc')}
                             Illustration={UGIllustration}
                             color="#3B82F6"
-                            cta="Explore Projects"
-                            href="/bridge/opportunities#ug"
+                            cta="Apply Now"
+                            href="/contact"
                             delay={0.1}
                         />
                         <GrowthCard
@@ -883,8 +883,8 @@ export default function OpportunitiesPage() {
                             desc={t('pgDesc')}
                             Illustration={PGIllustration}
                             color="#8B5CF6"
-                            cta="View Lab Openings"
-                            href="/bridge/opportunities#pg"
+                            cta="Apply Now"
+                            href="/contact"
                             delay={0.2}
                         />
                         <GrowthCard
@@ -892,8 +892,8 @@ export default function OpportunitiesPage() {
                             desc={t('phdDesc')}
                             Illustration={PhDIllustration}
                             color="#84CC16"
-                            cta="Apply for Funding"
-                            href="/bridge/opportunities#phd"
+                            cta="Apply Now"
+                            href="/contact"
                             delay={0.3}
                         />
                     </div>
