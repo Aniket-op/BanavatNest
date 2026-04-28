@@ -13,38 +13,44 @@ import { Link } from '@/i18n/navigation';
 
 // ── Custom SVG Illustrations ──
 
-const TechnicalBadge = ({ text, color, delay }: { text: string, color: string, delay: number }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{
-            y: [0, -10, 0],
-            rotate: [0, 2, -2, 0]
-        }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{
-            duration: 5,
-            repeat: Infinity,
-            delay,
-            ease: "easeInOut"
-        }}
-        className="absolute z-0"
-        style={{
-            left: `${Math.random() * 60 + 20}%`,
-            top: `${Math.random() * 60 + 20}%`
-        }}
-    >
+const TechnicalBadge = ({ text, color, delay }: { text: string, color: string, delay: number }) => {
+    // Generate deterministic pseudo-random positions based on the delay prop to fix hydration errors
+    const pseudoRandomX = ((delay * 47) % 60) + 20;
+    const pseudoRandomY = ((delay * 61) % 60) + 20;
+
+    return (
         <motion.div
-            whileHover={{ scale: 1.15, boxShadow: `0 15px 30px -5px ${color}80` }}
-            transition={{ duration: 0.2 }}
-            className="px-3 py-1 rounded-xl bg-white/90 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-zinc-100/20 shadow-lg flex items-center gap-2 transition-colors cursor-pointer"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{
+                y: [0, -10, 0],
+                rotate: [0, 2, -2, 0]
+            }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+                duration: 5,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut"
+            }}
+            className="absolute z-0"
+            style={{
+                left: `${pseudoRandomX}%`,
+                top: `${pseudoRandomY}%`
+            }}
         >
-            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
-            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-700 dark:text-zinc-100/80 transition-colors">
-                {text}
-            </span>
+            <motion.div
+                whileHover={{ scale: 1.15, boxShadow: `0 15px 30px -5px ${color}80` }}
+                transition={{ duration: 0.2 }}
+                className="px-3 py-1 rounded-xl bg-white/90 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200 dark:border-zinc-100/20 shadow-lg flex items-center gap-2 transition-colors cursor-pointer"
+            >
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
+                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-700 dark:text-zinc-100/80 transition-colors">
+                    {text}
+                </span>
+            </motion.div>
         </motion.div>
-    </motion.div>
-);
+    );
+};
 
 const UGIllustration = () => (
     <div className="relative w-full h-48 flex items-center justify-center mb-6 overflow-visible">
@@ -171,26 +177,32 @@ const PhDIllustration = () => (
 
         {/* Dynamic Data Points */}
         <div className="absolute inset-0">
-            {Array.from({ length: 6 }).map((_, i) => (
-                <motion.div
-                    key={i}
-                    className="absolute w-1 h-3 bg-[#84CC16] rounded-full opacity-20"
-                    style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`
-                    }}
-                    animate={{
-                        y: [0, -100],
-                        opacity: [0, 0.3, 0]
-                    }}
-                    transition={{
-                        duration: 3 + Math.random() * 2,
-                        delay: Math.random() * 5,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
-                />
-            ))}
+            {Array.from({ length: 6 }).map((_, i) => {
+                const x = (i * 37) % 100;
+                const y = (i * 41) % 100;
+                const dur = 3 + ((i * 11) % 2);
+                const del = (i * 13) % 5;
+                return (
+                    <motion.div
+                        key={i}
+                        className="absolute w-1 h-3 bg-[#84CC16] rounded-full opacity-20"
+                        style={{
+                            left: `${x}%`,
+                            top: `${y}%`
+                        }}
+                        animate={{
+                            y: [0, -100],
+                            opacity: [0, 0.3, 0]
+                        }}
+                        transition={{
+                            duration: dur,
+                            delay: del,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    />
+                );
+            })}
         </div>
     </div>
 );
