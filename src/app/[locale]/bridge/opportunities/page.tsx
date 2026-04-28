@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     GraduationCap, BookOpen, Rocket, ArrowRight, FileText, Share2,
     Lightbulb, Settings, Brain, HandshakeIcon, Award,
-    Clock, Globe, Sparkles, Users, CheckCircle, ChevronRight
+    Clock, Globe, Sparkles, Users, CheckCircle, ChevronRight, ChevronLeft
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import PageWrapper from '@/components/PageWrapper';
@@ -351,86 +351,177 @@ const studentBenefits = [
     },
 ];
 
-const WhatStudentsGetSection = () => (
-    <section className="relative py-28 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none" />
+const WhatStudentsGetSection = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [direction, setDirection] = useState(1);
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="text-center mb-20"
-            >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#84CC16]/10 border border-[#84CC16]/20 text-[#84CC16] text-sm font-bold mb-6 tracking-widest uppercase">
-                    <Sparkles className="w-4 h-4" />
-                    Student Benefits
-                </div>
-                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
-                    What Students <span className="text-[#84CC16]">Get</span>
-                </h2>
-                <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
-                    More than an internship — a launchpad for your future career and research journey.
-                </p>
-            </motion.div>
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // "move left to right automatic" implies moving backwards through the array 
+            // so it enters from left (-x) and exits to right (+x)
+            setDirection(-1);
+            setActiveIndex((prev) => (prev - 1 + studentBenefits.length) % studentBenefits.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [activeIndex]);
 
-            {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {studentBenefits.map((benefit, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: i * 0.1 }}
-                        whileHover={{
-                            y: -8,
-                            boxShadow: `0 30px 60px -15px ${benefit.glow}`
-                        }}
-                        className={`group relative p-8 rounded-3xl bg-white dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500 ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-                        style={{ boxShadow: '0 4px 20px -5px rgba(0,0,0,0.06)' }}
-                    >
-                        {/* Hover gradient */}
-                        <div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                            style={{ background: `radial-gradient(circle at top left, ${benefit.glow}, transparent 60%)` }}
-                        />
-                        {/* Icon */}
+    const nextSlide = () => {
+        setDirection(1);
+        setActiveIndex((prev) => (prev + 1) % studentBenefits.length);
+    };
+
+    const prevSlide = () => {
+        setDirection(-1);
+        setActiveIndex((prev) => (prev - 1 + studentBenefits.length) % studentBenefits.length);
+    };
+
+    const variants = {
+        enter: (direction: number) => ({
+            x: direction > 0 ? 60 : -60,
+            opacity: 0,
+            scale: 0.95
+        }),
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+            scale: 1
+        },
+        exit: (direction: number) => ({
+            zIndex: 0,
+            x: direction < 0 ? 60 : -60,
+            opacity: 0,
+            scale: 0.95
+        })
+    };
+
+    const benefit = studentBenefits[activeIndex];
+
+    return (
+        <section className="relative py-24 overflow-hidden">
+            {/* Background */}
+            <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none" />
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    {/* Left Column - Heading */}
+                    <div className="flex flex-col justify-center">
                         <motion.div
-                            whileHover={{ scale: 1.15, rotate: 5 }}
-                            transition={{ duration: 0.3 }}
-                            className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-2xl"
-                            style={{
-                                backgroundColor: `${benefit.color}15`,
-                                border: `1.5px solid ${benefit.color}30`,
-                                boxShadow: `0 8px 20px -5px ${benefit.glow}`
-                            }}
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7 }}
+                            className="text-left"
                         >
-                            <span>{benefit.emoji}</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                                What Students <span className="text-[#84CC16] whitespace-nowrap">Get</span>
+                            </h2>
+                            <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-lg">
+                                More than an internship — a launchpad for your future career and research journey.
+                            </p>
                         </motion.div>
+                    </div>
 
-                        <h3 className="relative z-10 text-xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight group-hover:text-zinc-800 dark:group-hover:text-white transition-colors">
-                            {benefit.title}
-                        </h3>
-                        <p className="relative z-10 text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
-                            {benefit.desc}
-                        </p>
+                    {/* Right Column - Carousel */}
+                    <div className="relative w-full">
+                        <div className="relative w-full h-[320px] max-w-xl mx-auto">
+                            <AnimatePresence initial={false} custom={direction} mode="wait">
+                                <motion.div
+                                    key={activeIndex}
+                                    custom={direction}
+                                    variants={variants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{
+                                        x: { type: "spring", stiffness: 300, damping: 30 },
+                                        opacity: { duration: 0.3 },
+                                        scale: { duration: 0.3 }
+                                    }}
+                                    className="absolute inset-0 w-full"
+                                >
+                                    <div
+                                        className="group relative h-full flex flex-col justify-center p-8 md:p-12 rounded-[2rem] bg-white dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 cursor-pointer transition-all duration-500"
+                                        style={{ boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)' }}
+                                    >
+                                        {/* Hover gradient */}
+                                        <div
+                                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[2rem]"
+                                            style={{ background: `radial-gradient(circle at top left, ${benefit.glow}, transparent 70%)` }}
+                                        />
+                                        
+                                        {/* Content Wrapper */}
+                                        <div className="relative z-10 flex flex-col items-start">
+                                            {/* Icon */}
+                                            <motion.div
+                                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-3xl"
+                                                style={{
+                                                    backgroundColor: `${benefit.color}15`,
+                                                    border: `1.5px solid ${benefit.color}30`,
+                                                    boxShadow: `0 8px 20px -5px ${benefit.glow}`
+                                                }}
+                                            >
+                                                <span>{benefit.emoji}</span>
+                                            </motion.div>
 
-                        {/* Bottom accent line */}
-                        <div
-                            className="absolute bottom-0 left-0 h-[3px] w-0 group-hover:w-full transition-all duration-500 rounded-b-3xl"
-                            style={{ backgroundColor: benefit.color }}
-                        />
-                    </motion.div>
-                ))}
+                                            <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight group-hover:text-zinc-800 dark:group-hover:text-white transition-colors">
+                                                {benefit.title}
+                                            </h3>
+                                            <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+                                                {benefit.desc}
+                                            </p>
+                                        </div>
+
+                                        {/* Bottom accent line */}
+                                        <div
+                                            className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-b-[2rem]"
+                                            style={{ backgroundColor: benefit.color }}
+                                        />
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Carousel Controls */}
+                        <div className="flex items-center justify-center gap-6 mt-10">
+                            <button
+                                onClick={prevSlide}
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm hover:scale-105 hover:shadow-md transition-all text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <div className="flex gap-3">
+                                {studentBenefits.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => {
+                                            if (i === activeIndex) return;
+                                            setDirection(i > activeIndex ? 1 : -1);
+                                            setActiveIndex(i);
+                                        }}
+                                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                                            i === activeIndex ? 'bg-[#84CC16] scale-125' : 'bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
+                                        }`}
+                                        aria-label={`Go to slide ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                            <button
+                                onClick={nextSlide}
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm hover:scale-105 hover:shadow-md transition-all text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 // ─────────────────────────────────────────────────────────────
 // ── Section 2: Types of Opportunities ──
@@ -478,10 +569,7 @@ const TypesOfOpportunitiesSection = () => (
                 transition={{ duration: 0.7 }}
                 className="text-center mb-20"
             >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-6 tracking-widest uppercase">
-                    <FileText className="w-4 h-4" />
-                    Opportunity Tracks
-                </div>
+
                 <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
                     Types of <span className="text-blue-400">Opportunities</span>
                 </h2>
@@ -599,10 +687,7 @@ const WhoCanApplySection = () => (
                 transition={{ duration: 0.7 }}
                 className="text-center mb-20"
             >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#84CC16]/10 border border-[#84CC16]/20 text-[#84CC16] text-sm font-bold mb-6 tracking-widest uppercase">
-                    <Users className="w-4 h-4" />
-                    Eligibility & Process
-                </div>
+
                 <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
                     Who Can <span className="text-[#84CC16]">Apply?</span>
                 </h2>
@@ -741,10 +826,6 @@ export default function OpportunitiesPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-20"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-bold mb-6 tracking-widest uppercase">
-                            <GraduationCap className="w-4 h-4" />
-                            By Level
-                        </div>
                         <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
                             Opportunities by <span className="text-purple-400">Level</span>
                         </h2>
