@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
     GraduationCap, BookOpen, Rocket, ArrowRight, FileText, Share2,
     Lightbulb, Settings, Brain, HandshakeIcon, Award,
@@ -11,6 +11,52 @@ import { useTranslations } from 'next-intl';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+
+// ── 3D Card Wrapper ──
+
+const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
+    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
+    const glareX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
+    const glareY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
+    const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+        mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+        glareOpacity.set(0.18);
+    };
+    const handleMouseLeave = () => {
+        mouseX.set(0);
+        mouseY.set(0);
+        glareOpacity.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+            className={`relative ${className}`}
+        >
+            {children}
+            {/* Glare */}
+            <motion.div
+                className="absolute inset-0 pointer-events-none rounded-[2.5rem] overflow-hidden z-30"
+                style={{
+                    opacity: glareOpacity,
+                    background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
+                }}
+            />
+        </motion.div>
+    );
+};
 
 // ── Custom SVG Illustrations ──
 
@@ -233,68 +279,59 @@ const GrowthCard = ({
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay }}
         className="h-full"
+        style={{ perspective: '1200px' }}
     >
-        <motion.div
-            whileHover={{
-                y: -12,
-                scale: 1.01,
-                boxShadow: `0 35px 70px -15px ${color}40, 0 20px 40px -10px rgba(0,0,0,0.1)`
-            }}
-            className={`
-                group relative h-full p-10 rounded-[2.5rem] bg-white dark:bg-zinc-900/40 
-                border-2 border-zinc-100 dark:border-zinc-800/80
-                transition-all duration-500 overflow-hidden
-                flex flex-col items-center text-center cursor-pointer
-            `}
-            style={{
-                boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)"
-            }}
-        >
-            {/* Hover Gradient Backdrop */}
-            <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                style={{
-                    background: `radial-gradient(circle at top, ${color}15, transparent 70%)`
+        <Card3D className="h-full">
+            <motion.div
+                whileHover={{
+                    y: -12,
+                    scale: 1.01,
+                    boxShadow: `0 35px 70px -15px ${color}40, 0 20px 40px -10px rgba(0,0,0,0.1)`
                 }}
-            />
-
-            {/* Bottom Glow */}
-            <div
-                className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 h-48 blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
-                style={{ backgroundColor: color }}
-            />
-
-            <Illustration />
-
-            <div className="relative z-10 flex-grow">
-                <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight transition-colors group-hover:text-zinc-800 dark:group-hover:text-white">
-                    {title}
-                </h3>
-                <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-10 transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
-                    {desc}
-                </p>
-            </div>
-
-            <Link href={href} className="relative z-10 w-full">
-                <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-5 w-full rounded-full bg-[#5D3A1A] hover:bg-[#4B2C13] dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-black shadow-xl overflow-hidden transition-all duration-300"
-                    style={{
-                        boxShadow: `0 10px 30px -10px ${color}80`
-                    }}
-                >
-                    <span className="relative z-10">{cta}</span>
-                    <ArrowRight className="relative z-10 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-
-                    {/* Button internal glow */}
-                    <div
-                        className="absolute inset-0 opacity-0 group-hover/btn:opacity-20 transition-opacity"
-                        style={{ backgroundColor: color }}
-                    />
-                </motion.div>
-            </Link>
-        </motion.div>
+                className={`
+                    group relative h-full p-10 rounded-[2.5rem] bg-white dark:bg-zinc-900/40 
+                    border-2 border-zinc-100 dark:border-zinc-800/80
+                    transition-all duration-500 overflow-hidden
+                    flex flex-col items-center text-center cursor-pointer
+                `}
+                style={{ boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)" }}
+            >
+                {/* Hover Gradient Backdrop */}
+                <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{ background: `radial-gradient(circle at top, ${color}15, transparent 70%)` }}
+                />
+                {/* Bottom Glow */}
+                <div
+                    className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 h-48 blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
+                    style={{ backgroundColor: color }}
+                />
+                <Illustration />
+                <div className="relative z-10 flex-grow">
+                    <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight transition-colors group-hover:text-zinc-800 dark:group-hover:text-white">
+                        {title}
+                    </h3>
+                    <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-10 transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
+                        {desc}
+                    </p>
+                </div>
+                <Link href={href} className="relative z-10 w-full">
+                    <motion.div
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-5 w-full rounded-full bg-[#5D3A1A] hover:bg-[#4B2C13] dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-black shadow-xl overflow-hidden transition-all duration-300"
+                        style={{ boxShadow: `0 10px 30px -10px ${color}80` }}
+                    >
+                        <span className="relative z-10">{cta}</span>
+                        <ArrowRight className="relative z-10 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                        <div
+                            className="absolute inset-0 opacity-0 group-hover/btn:opacity-20 transition-opacity"
+                            style={{ backgroundColor: color }}
+                        />
+                    </motion.div>
+                </Link>
+            </motion.div>
+        </Card3D>
     </motion.div>
 );
 
@@ -460,6 +497,8 @@ const WhatStudentsGetSection = () => {
                                     }}
                                     className="absolute inset-0 w-full"
                                 >
+                                    <div style={{ perspective: '1200px' }} className="absolute inset-0 w-full">
+                                    <Card3D className="h-full">
                                     <div
                                         className="group relative h-full flex flex-col justify-center p-8 md:p-12 rounded-[2rem] bg-white dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 cursor-pointer transition-all duration-500"
                                         style={{ boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)' }}
@@ -469,10 +508,8 @@ const WhatStudentsGetSection = () => {
                                             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[2rem]"
                                             style={{ background: `radial-gradient(circle at top left, ${benefit.glow}, transparent 70%)` }}
                                         />
-
                                         {/* Content Wrapper */}
                                         <div className="relative z-10 flex flex-col items-start">
-                                            {/* Icon */}
                                             <motion.div
                                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                                 transition={{ duration: 0.3 }}
@@ -485,7 +522,6 @@ const WhatStudentsGetSection = () => {
                                             >
                                                 <span>{benefit.emoji}</span>
                                             </motion.div>
-
                                             <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight group-hover:text-zinc-800 dark:group-hover:text-white transition-colors">
                                                 {benefit.title}
                                             </h3>
@@ -493,12 +529,13 @@ const WhatStudentsGetSection = () => {
                                                 {benefit.desc}
                                             </p>
                                         </div>
-
                                         {/* Bottom accent line */}
                                         <div
                                             className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-b-[2rem]"
                                             style={{ backgroundColor: benefit.color }}
                                         />
+                                    </div>
+                                    </Card3D>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
@@ -611,6 +648,10 @@ const TypesOfOpportunitiesSection = () => (
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: i * 0.15 }}
+                        style={{ perspective: '1200px' }}
+                    >
+                    <Card3D>
+                        <motion.div
                         whileHover={{
                             y: -8,
                             boxShadow: `0 40px 80px -20px ${type.glow}`
@@ -673,6 +714,8 @@ const TypesOfOpportunitiesSection = () => (
                             className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-b-[2rem]"
                             style={{ backgroundColor: type.color }}
                         />
+                        </motion.div>
+                    </Card3D>
                     </motion.div>
                 ))}
             </div>
