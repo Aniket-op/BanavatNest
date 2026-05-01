@@ -188,7 +188,7 @@ export default function NewsEvents() {
                   </div>
 
                   {/* Headline */}
-                  <h3 className="text-xl md:text-2xl text-justify font-black text-zinc-900 dark:text-zinc-50 tracking-tight leading-snug mb-4">
+                  <h3 className="text-justify text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-50 tracking-tight leading-snug mb-4">
                     {item.headline}
                   </h3>
 

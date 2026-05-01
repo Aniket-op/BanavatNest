@@ -175,9 +175,8 @@ export default function WhatWeDo() {
                 animate={{ rotateX: totalRotation }}
                 transition={{
                   type: 'spring',
-                  stiffness: 60,
-                  damping: 20,
-                  mass: 1.2
+                  stiffness: 45,
+                  damping: 18,
                 }}
                 style={{
                   transformStyle: 'preserve-3d',
@@ -187,37 +186,77 @@ export default function WhatWeDo() {
                   willChange: 'transform'
                 }}
               >
-                {usps.map((usp, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      transform: `rotateX(${index * rotationStep}deg) translateZ(300px)`,
-                      backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden',
-                      pointerEvents: index === activeUspIndex ? 'auto' : 'none',
-                      opacity: Math.abs(((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length - index) < 0.5 ? 1 : 0,
-                      transition: 'opacity 0.35s ease'
-                    }}
-                  >
-                    <div className="w-full max-w-[240px] bg-white dark:bg-zinc-950 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale' }}>
+                {usps.map((usp, index) => {
+                  // Wrap-aware angular distance from the active face
+                  const pos = ((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length;
+                  const raw = Math.abs(pos - index);
+                  const dist = Math.min(raw, usps.length - raw);
+                  const isActive = dist < 0.5;
+                  const isAdjacent = dist >= 0.5 && dist < 1.5;
+                  const cardOpacity = isActive ? 1 : isAdjacent ? 0.5 : 0.1;
+                  const cardScale = isActive ? 1.08 : isAdjacent ? 0.92 : 0.85;
+                  const blur = isActive ? 0 : isAdjacent ? 2 : 4;
+
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transform: `rotateX(${index * rotationStep}deg) translateZ(220px)`,
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
+                        pointerEvents: isActive ? 'auto' : 'none',
+                        opacity: cardOpacity,
+                        transition: 'opacity 0.35s ease',
+                      }}
+                    >
                       <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-md mb-3 transform transition-transform group-hover:scale-110"
-                        style={{ backgroundColor: usp.color }}
+                        className="w-full max-w-[240px] bg-white dark:bg-zinc-950 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
+                        style={{
+                          WebkitFontSmoothing: 'antialiased',
+                          MozOsxFontSmoothing: 'grayscale',
+                          transform: `scale(${cardScale})`,
+                          filter: `blur(${blur}px)`,
+                          transition: 'all 0.4s ease',
+                        }}
                       >
-                        {usp.emoji}
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-md mb-3 transform transition-transform group-hover:scale-110"
+                          style={{ backgroundColor: usp.color }}
+                        >
+                          {usp.emoji}
+                        </div>
+                        <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
+                          {t(`whatWeDo.usps.${usp.titleKey}`)}
+                        </h4>
                       </div>
-                      <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
-                        {t(`whatWeDo.usps.${usp.titleKey}`)}
-                      </h4>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </motion.div>
+
+              {/* Top shadow mask — suggests card above */}
+              <div
+                className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10"
+                style={{
+                  background: 'linear-gradient(to bottom, var(--mask-bg, #f4f4f5) 0%, transparent 100%)'
+                }}
+              />
+              {/* Bottom shadow mask — suggests card below */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
+                style={{
+                  background: 'linear-gradient(to top, var(--mask-bg, #f4f4f5) 0%, transparent 100%)'
+                }}
+              />
+              <style>{`
+                :root { --mask-bg: #f4f4f5; }
+                .dark { --mask-bg: #09090b; }
+              `}</style>
 
               {/* Vertical Navigation Controls */}
               <div className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">

@@ -39,7 +39,6 @@ const Home = () => {
       <FadeInSection>
         <div className="relative pt-20">
           <FluidCursor />
-
           <div className="w-full relative z-30 mb-2">
             <InfiniteUpdateBar updates={updates} />
           </div>
