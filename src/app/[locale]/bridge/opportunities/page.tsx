@@ -10,6 +10,7 @@ import {
 import { useTranslations } from 'next-intl';
 import PageWrapper from '@/components/PageWrapper';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 // ── Custom SVG Illustrations ──
 
@@ -812,30 +813,17 @@ export default function OpportunitiesPage() {
             <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
 
                 {/* ── Header Image ── */}
-                <header className="relative pt-24 pb-12 border-b border-zinc-100 dark:border-zinc-800/50 bg-white/50 dark:bg-transparent overflow-hidden">
-                    {/* Background Accents */}
-                    <div className="absolute top-0 right-0 w-[600px] h-[500px] bg-[#84CC16]/5 blur-[120px] rounded-full pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
-
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex justify-center">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            whileHover={{
-                                y: -8, scale: 1.02,
-                                boxShadow: '0 40px 80px -15px rgba(0,0,0,0.2)'
-                            }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="w-full max-w-5xl aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-10px_rgba(132,204,22,0.15)] hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_40px_80px_-15px_rgba(132,204,22,0.3)] border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 transition-shadow duration-500 cursor-pointer"
-                        >
-                            <img
-                                src="/images/banavatNestTimes.jpeg"
-                                alt="Banavat Nest Times Opportunities"
-                                className="w-full h-full object-cover"
-                            />
-                        </motion.div>
-                    </div>
+                <header className="relative w-full pt-20 bg-zinc-50 dark:bg-zinc-900/50">
+                    <Image
+                        src="/images/banavatNestTimes.jpeg"
+                        alt="BanavatNest Times — Opportunities"
+                        width={1920}
+                        height={1080}
+                        className="w-full h-auto block"
+                        priority
+                    />
                 </header>
+
 
                 {/* ── Section 1: What Students Get ── */}
                 <WhatStudentsGetSection />
