@@ -9,6 +9,160 @@ import PageWrapper from '@/components/PageWrapper';
 import Image from 'next/image';
 import collaboration_logo from "@/../public/images/collabaration_logo.png";
 
+// ── Animated SVG Illustrations ─────────────────────────────────────────────
+
+const AcademicIllustration = ({ color }: { color: string }) => (
+  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+    <defs>
+      <linearGradient id="grad-acad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+        <stop offset="100%" stopColor={color} stopOpacity="0.05" />
+      </linearGradient>
+      <filter id="glow-acad">
+        <feGaussianBlur stdDeviation="2" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+    </defs>
+
+    <g transform="translate(0, -2)">
+      {/* Glassy backdrop */}
+      <circle cx="50" cy="50" r="36" fill={`url(#grad-acad)`} />
+
+      {/* Orbital ring */}
+      <circle cx="50" cy="50" r="44" stroke={color} strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3" />
+      <motion.circle
+        cx="50" cy="6" r="3" fill={color} filter="url(#glow-acad)"
+        animate={{ cx: [50, 94, 50, 6, 50], cy: [6, 50, 94, 50, 6] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* Stack of books */}
+      <rect x="28" y="55" width="28" height="6" rx="2" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.2" strokeOpacity="0.7" />
+      <rect x="30" y="48" width="24" height="6" rx="2" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.2" strokeOpacity="0.5" />
+      <rect x="32" y="41" width="20" height="6" rx="2" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.2" strokeOpacity="0.3" />
+
+      {/* Floating graduation cap */}
+      <motion.g
+        animate={{ y: [0, -5, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <path d="M35 35L50 27L65 35L50 43L35 35Z" fill={color} />
+        <path d="M43 39V46C43 46 46 48 50 48C54 48 57 46 57 46V39" stroke={color} strokeWidth="2" strokeLinecap="round" />
+        <path d="M65 35V42" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
+        <circle cx="65" cy="43" r="1.5" fill={color} />
+      </motion.g>
+
+      {/* Pulsing knowledge nodes */}
+      <motion.circle cx="22" cy="68" r="2.5" fill={color} animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }} />
+      <motion.circle cx="76" cy="65" r="2.5" fill={color} animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2.4, repeat: Infinity }} />
+      <path d="M22 68L76 65" stroke={color} strokeWidth="0.8" strokeDasharray="3 4" opacity="0.4" />
+    </g>
+  </svg>
+);
+
+const IndustryCollabIllustration = ({ color }: { color: string }) => (
+  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+    <defs>
+      <linearGradient id="grad-ind" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+        <stop offset="100%" stopColor={color} stopOpacity="0.05" />
+      </linearGradient>
+    </defs>
+
+    <g transform="translate(0, -6)">
+      {/* Glassy backdrop */}
+      <circle cx="48" cy="50" r="36" fill="url(#grad-ind)" />
+
+      {/* Factory silhouette */}
+      <path d="M18 68V38L28 48V38L38 48V38L55 48V68H18Z" fill="white" className="dark:fill-zinc-900" fillOpacity="0.85" stroke={color} strokeWidth="1.5" />
+      <rect x="20" y="33" width="10" height="5" fill={color} opacity="0.35" />
+      {/* Smokestack puffs */}
+      <motion.path d="M25 33V22" stroke={color} strokeWidth="2" strokeLinecap="round"
+        animate={{ strokeDashoffset: [0, -12] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+        strokeDasharray="4 4"
+      />
+
+      {/* Rotating gear */}
+      <motion.g
+        animate={{ rotate: 360 }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        style={{ originX: "73px", originY: "55px" }}
+      >
+        <circle cx="73" cy="55" r="13" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" />
+        <circle cx="73" cy="55" r="5" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" />
+        {[0, 45, 90, 135, 180, 225, 270, 315].map(angle => (
+          <path key={angle} d="M73 39V43" stroke={color} strokeWidth="2.5" strokeLinecap="round" transform={`rotate(${angle} 73 55)`} />
+        ))}
+      </motion.g>
+
+      {/* Circuit paths */}
+      <path d="M55 48H70" stroke={color} strokeWidth="1.2" strokeOpacity="0.4" />
+      <motion.circle cx="55" cy="48" r="2" fill={color} animate={{ cx: [55, 70] }} transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
+      <path d="M55 58H65" stroke={color} strokeWidth="1.2" strokeOpacity="0.4" />
+      <motion.circle cx="55" cy="58" r="2" fill={color} animate={{ cx: [55, 65] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 0.6 }} />
+    </g>
+  </svg>
+);
+
+const StartupIllustration = ({ color }: { color: string }) => (
+  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+    <defs>
+      <linearGradient id="grad-start" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+        <stop offset="100%" stopColor={color} stopOpacity="0.05" />
+      </linearGradient>
+      <filter id="glow-start">
+        <feGaussianBlur stdDeviation="2.5" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+    </defs>
+
+    <g transform="translate(0, 0)">
+      {/* Glassy backdrop */}
+      <circle cx="50" cy="50" r="36" fill="url(#grad-start)" />
+
+      {/* Launch trajectory arc */}
+      <path d="M25 80 Q50 30 78 18" stroke={color} strokeWidth="1" strokeDasharray="4 5" opacity="0.3" />
+
+      {/* Rocket — floats upward on arc */}
+      <motion.g
+        animate={{ x: [0, 14, 26], y: [0, -22, -38] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+      >
+        <path d="M38 72 L44 52 L50 46 L56 52 L62 72 L50 68 Z" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" />
+        <path d="M50 46 L50 34" stroke={color} strokeWidth="2" strokeLinecap="round" />
+        <ellipse cx="50" cy="34" rx="5" ry="7" fill={color} />
+        {/* Wings */}
+        <path d="M44 62 L38 70" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M56 62 L62 70" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+        {/* Exhaust flame */}
+        <motion.path d="M46 72 Q50 80 54 72" fill={color} fillOpacity="0.6"
+          animate={{ d: ["M46 72 Q50 80 54 72", "M46 72 Q50 85 54 72", "M46 72 Q50 80 54 72"] }}
+          transition={{ duration: 0.6, repeat: Infinity }}
+        />
+      </motion.g>
+
+      {/* Stars / nodes */}
+      {[[20, 25], [75, 30], [80, 70], [18, 68]].map(([cx, cy], i) => (
+        <motion.circle key={i} cx={cx} cy={cy} r="2" fill={color} filter="url(#glow-start)"
+          animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
+          transition={{ duration: 1.8 + i * 0.4, repeat: Infinity, delay: i * 0.3 }}
+        />
+      ))}
+      <path d="M20 25L75 30M75 30L80 70M20 25L18 68" stroke={color} strokeWidth="0.6" opacity="0.2" />
+    </g>
+  </svg>
+);
+
+// Illustration map keyed to collaboration track
+const ILLUSTRATIONS: Record<string, React.FC<{ color: string }>> = {
+  academic: AcademicIllustration,
+  industry: IndustryCollabIllustration,
+  startup: StartupIllustration,
+};
+
+
 export default function CollaborationPage() {
     const t = useTranslations('collaboration');
     const [activeIndex, setActiveIndex] = useState(0);
@@ -129,17 +283,17 @@ export default function CollaborationPage() {
                                         />
 
                                         {/* Header */}
-                                        <div className="relative z-10 flex flex-col items-center mb-8">
-                                            <div className="flex items-center gap-2 mb-4">
-                                                <span className="text-4xl">{track.emoji}</span>
-                                                <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/60 dark:text-zinc-100/40">
-                                                    {t(`${track.key}.title`)}
-                                                </span>
-                                            </div>
+                                        <div className="relative z-10 flex flex-col items-center mb-6 w-full">
+                                            <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/60 dark:text-zinc-100/40 mb-4 h-4">
+                                                {t(`${track.key}.title`)}
+                                            </span>
 
-                                            <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-lg"
-                                                style={{ backgroundColor: `${track.color}20`, color: track.color }}>
-                                                <Icon size={32} />
+                                            {/* Animated SVG illustration */}
+                                            <div className="w-[120px] h-[120px] mb-2 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center -mt-2">
+                                                {(() => {
+                                                    const Illus = ILLUSTRATIONS[track.key];
+                                                    return Illus ? <Illus color={track.color} /> : null;
+                                                })()}
                                             </div>
                                         </div>
 
