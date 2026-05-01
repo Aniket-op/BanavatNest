@@ -17,9 +17,9 @@ const NEWS_EVENTS = [
     headline: 'BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET',
     body: 'BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. Congratulations to the winners — Mr. Vikas Sharma (IITRAM) 🥇, Ms. Manisha (IGDTUW) 🥈, and Ms. Pooja (MM University) 🥉 — awarded cash prizes and certificates. Awards were presented by Prof. Ajit Kumar Verma and Founder Dr. Sukhdev Singh. #ROFT2026 #TIET #BanavatNest #Quiz',
     images: [
-      { src: '/images/new%26event/post1/1.jpeg', alt: 'ROFT 2026 Quiz Competition — Image 1' },
-      { src: '/images/new%26event/post1/2.jpeg', alt: 'ROFT 2026 Quiz Competition — Image 2' },
-      { src: '/images/new%26event/post1/3.jpeg', alt: 'ROFT 2026 Quiz Competition — Image 3' },
+      { src: '/images/new%26event/post1/1.jpeg', alt: 'Image 1' },
+      { src: '/images/new%26event/post1/2.jpeg', alt: 'Image 2' },
+      { src: '/images/new%26event/post1/3.jpeg', alt: 'Image 3' },
     ],
     linkedinUrl: 'https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g',
   },
