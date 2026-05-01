@@ -13,7 +13,7 @@ export default function HeroSection() {
     <>
       <section
         ref={ref}
-        className="mt-10 relative shadow-2xl dark:shadow-white/60 mx-auto rounded-4xl max-w-7xl aspect-video min-h-[300px] sm:min-h-[400px] overflow-hidden w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-full bg-zinc-50 dark:bg-zinc-900/50"
+        className="relative shadow-2xl dark:shadow-white/60 w-full h-[calc(100vh-80px)] min-h-[320px] max-h-[860px] overflow-hidden bg-zinc-50 dark:bg-zinc-900/50"
       >
         <div className="absolute inset-0">
           <Image

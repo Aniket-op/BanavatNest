@@ -1,0 +1,354 @@
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, ExternalLink, Calendar, Tag } from 'lucide-react';
+import Image from 'next/image';
+
+// ── LinkedIn Post Data ──
+// images: array of { src, alt } — multiple images will auto-cycle on the right panel
+// linkedinUrl: direct link to the LinkedIn post
+const NEWS_EVENTS = [
+  {
+    id: 1,
+    tag: 'Event',
+    tagColor: '#84CC16',
+    date: 'April 2026',
+    headline: 'BanavatNest welcomes participants of ROFT 2026',
+    body: 'We are thrilled to welcome researchers, innovators, and students to the Research & Open-source Forum on Technology (ROFT 2026). This collaborative platform bridges academia and industry through live problem-solving, prototype showcases, and mentorship sessions.',
+    images: [
+      { src: '/images/new%26event/post1/1.jpeg', alt: 'ROFT 2026 — Image 1' },
+      { src: '/images/new%26event/post1/2.jpeg', alt: 'ROFT 2026 — Image 2' },
+      { src: '/images/new%26event/post1/3.jpeg', alt: 'ROFT 2026 — Image 3' },
+    ],
+    linkedinUrl: 'https://sites.google.com/thapar.edu/roft2026',
+  },
+  {
+    id: 2,
+    tag: 'Milestone',
+    tagColor: '#3B82F6',
+    date: 'May 2026',
+    headline: 'BanavatNest Official Website Goes Live',
+    body: 'Our official platform is now live — connecting students, faculty, and industry partners through a unified research-innovation ecosystem. Explore our domains, collaboration models, and opportunities designed to transform curiosity into real-world impact.',
+    images: [
+      { src: '/images/homepage/Ai.jpg', alt: 'BanavatNest website launch' },
+    ],
+    linkedinUrl: 'https://www.linkedin.com/company/bavanatnest',
+  },
+  {
+    id: 3,
+    tag: 'Research',
+    tagColor: '#8B5CF6',
+    date: 'March 2026',
+    headline: 'Academia–Industry Bridge Programme Launched',
+    body: 'BanavatNest formally launches its Academia–Industry Bridge programme, enabling faculty and students to work on real industry challenges. Eight active problem statements span healthcare, agriculture, cybersecurity, and AI — each designed to deliver deployable prototypes.',
+    images: [
+      { src: '/images/homepage/cyberSecure.jpg', alt: 'Academia Industry Bridge' },
+    ],
+    linkedinUrl: 'https://www.linkedin.com/company/bavanatnest',
+  },
+];
+
+const SLIDE_DURATION = 5500; // ms — outer post carousel
+const IMAGE_CYCLE_DURATION = 2800; // ms — inner image cycle per post
+
+export default function NewsEvents() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
+
+  // Per-post inner image index
+  const [imgIndex, setImgIndex] = useState(0);
+  const [imgDir, setImgDir] = useState(1);
+
+  const total = NEWS_EVENTS.length;
+  const item = NEWS_EVENTS[activeIndex];
+  const imgTotal = item.images.length;
+  // Clamp to avoid out-of-bounds when activeIndex changes before imgIndex resets
+  const safeImgIndex = Math.min(imgIndex, imgTotal - 1);
+
+  // ── Outer carousel (post-level) ──
+  const goNext = useCallback(() => {
+    setDirection(1);
+    setActiveIndex((prev) => (prev + 1) % total);
+    setImgIndex(0);
+  }, [total]);
+
+  const goPrev = useCallback(() => {
+    setDirection(-1);
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+    setImgIndex(0);
+  }, [total]);
+
+  const goTo = (idx: number) => {
+    setDirection(idx > activeIndex ? 1 : -1);
+    setActiveIndex(idx);
+    setImgIndex(0);
+  };
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(goNext, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, [paused, goNext]);
+
+  // ── Inner image cycle (only when post has multiple images) ──
+  useEffect(() => {
+    if (imgTotal <= 1) return;
+    const timer = setInterval(() => {
+      setImgDir(1);
+      setImgIndex((prev) => (prev + 1) % imgTotal);
+    }, IMAGE_CYCLE_DURATION);
+    return () => clearInterval(timer);
+  }, [activeIndex, imgTotal]);
+
+  // Manual image nav
+  const imgNext = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setImgDir(1);
+    setImgIndex((prev) => (prev + 1) % imgTotal);
+  };
+  const imgPrev = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setImgDir(-1);
+    setImgIndex((prev) => (prev - 1 + imgTotal) % imgTotal);
+  };
+
+  const textVariants = {
+    enter: (d: number) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
+    center: { opacity: 1, x: 0 },
+    exit: (d: number) => ({ opacity: 0, x: d > 0 ? -40 : 40 }),
+  };
+
+  const imageVariants = {
+    enter: (d: number) => ({ opacity: 0, scale: 1.06, x: d > 0 ? 30 : -30 }),
+    center: { opacity: 1, scale: 1, x: 0 },
+    exit: (d: number) => ({ opacity: 0, scale: 0.96, x: d > 0 ? -30 : 30 }),
+  };
+
+  return (
+    <section
+      id="news-events"
+      className="py-16 bg-zinc-50 dark:bg-[#09090b] overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+        {/* ── Header ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex items-end justify-between mb-10 flex-wrap gap-4"
+        >
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#84CC16] mb-2">
+              Latest Updates
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1]">
+              News &amp; <span className="text-[#84CC16]">Events</span>
+            </h2>
+          </div>
+
+          {/* Slide counter */}
+          <span className="text-sm font-bold text-zinc-400 dark:text-zinc-500 tabular-nums">
+            {String(activeIndex + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+          </span>
+        </motion.div>
+
+        {/* ── Main Carousel Card ── */}
+        <div className="relative rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-white dark:bg-zinc-900/60 backdrop-blur-sm">
+
+          {/* Progress bar */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-zinc-100 dark:bg-zinc-800 z-20">
+            {!paused && (
+              <motion.div
+                key={`progress-${activeIndex}`}
+                className="h-full rounded-full"
+                style={{ backgroundColor: item.tagColor }}
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: SLIDE_DURATION / 1000, ease: 'linear' }}
+              />
+            )}
+          </div>
+
+          {/* Two-column layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[400px] md:min-h-[440px]">
+
+            {/* LEFT — Post Text */}
+            <div className="relative flex flex-col justify-between p-8 md:p-10 border-b md:border-b-0 md:border-r border-zinc-100 dark:border-zinc-800">
+              <AnimatePresence custom={direction} mode="wait">
+                <motion.div
+                  key={`text-${activeIndex}`}
+                  custom={direction}
+                  variants={textVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex flex-col h-full"
+                >
+                  {/* Tag + Date */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <span
+                      className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full"
+                      style={{
+                        backgroundColor: `${item.tagColor}18`,
+                        color: item.tagColor,
+                      }}
+                    >
+                      <Tag className="w-3 h-3" />
+                      {item.tag}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-xs font-semibold text-zinc-400 dark:text-zinc-500">
+                      <Calendar className="w-3 h-3" />
+                      {item.date}
+                    </span>
+                  </div>
+
+                  {/* Headline */}
+                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-50 tracking-tight leading-snug mb-4">
+                    {item.headline}
+                  </h3>
+
+                  {/* Body */}
+                  <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-medium leading-[1.7] flex-grow">
+                    {item.body}
+                  </p>
+
+                  {/* LinkedIn CTA */}
+                  <a
+                    href={item.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 inline-flex items-center gap-2 self-start group"
+                  >
+                    <span
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 group-hover:scale-105"
+                      style={{
+                        backgroundColor: item.tagColor,
+                        color: '#fff',
+                        boxShadow: `0 8px 24px -6px ${item.tagColor}60`,
+                      }}
+                    >
+                      View on LinkedIn
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </span>
+                  </a>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* RIGHT — Image(s) */}
+            <div className="relative overflow-hidden min-h-[260px] md:min-h-0 bg-zinc-100 dark:bg-zinc-800">
+
+              {/* Inner image carousel */}
+              <AnimatePresence custom={imgDir} mode="wait">
+                <motion.div
+                  key={`img-${activeIndex}-${safeImgIndex}`}
+                  custom={imgDir}
+                  variants={imageVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={item.images[safeImgIndex].src}
+                    alt={item.images[safeImgIndex].alt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/25" />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Image index dots (only when post has >1 image) */}
+              {imgTotal > 1 && (
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                  {item.images.map((_, i) => (
+                    <div
+                      key={i}
+                      className="h-1 rounded-full transition-all duration-300"
+                      style={{
+                        width: i === safeImgIndex ? 20 : 6,
+                        backgroundColor: i === safeImgIndex ? '#fff' : 'rgba(255,255,255,0.4)',
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Navigation arrows */}
+              <div className="absolute bottom-4 right-4 flex items-center gap-2 z-10">
+                {/* Image prev/next (shown only if multiple images) */}
+                {imgTotal > 1 && (
+                  <button
+                    onClick={imgPrev}
+                    aria-label="Previous image"
+                    className="w-8 h-8 rounded-full flex items-center justify-center bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-white/60 dark:border-zinc-700 shadow-md transition-all hover:scale-110"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
+                  </button>
+                )}
+                {imgTotal > 1 && (
+                  <button
+                    onClick={imgNext}
+                    aria-label="Next image"
+                    className="w-8 h-8 rounded-full flex items-center justify-center bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-white/60 dark:border-zinc-700 shadow-md transition-all hover:scale-110"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
+                  </button>
+                )}
+
+                {/* Divider */}
+                {imgTotal > 1 && <div className="w-px h-5 bg-white/30 mx-1" />}
+
+                {/* Post prev/next */}
+                <button
+                  onClick={(e) => { e.preventDefault(); goPrev(); }}
+                  aria-label="Previous post"
+                  className="w-8 h-8 rounded-full flex items-center justify-center bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-white/60 dark:border-zinc-700 shadow-md transition-all hover:scale-110 hover:bg-white"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
+                </button>
+                <button
+                  onClick={(e) => { e.preventDefault(); goNext(); }}
+                  aria-label="Next post"
+                  className="w-8 h-8 rounded-full flex items-center justify-center bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-white/60 dark:border-zinc-700 shadow-md transition-all hover:scale-110 hover:bg-white"
+                >
+                  <ChevronRight className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Post dot indicators ── */}
+        <div className="flex justify-center gap-2.5 mt-6">
+          {NEWS_EVENTS.map((post, idx) => (
+            <button
+              key={post.id}
+              onClick={() => goTo(idx)}
+              aria-label={`Go to post ${idx + 1}`}
+              className="h-1.5 rounded-full transition-all duration-300"
+              style={{
+                width: idx === activeIndex ? 28 : 8,
+                backgroundColor: idx === activeIndex ? item.tagColor : '#d4d4d8',
+              }}
+            />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
