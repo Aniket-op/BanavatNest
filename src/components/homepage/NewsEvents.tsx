@@ -15,7 +15,7 @@ const NEWS_EVENTS = [
     tagColor: '#84CC16',
     date: 'April 2026',
     headline: 'BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET',
-    body: 'BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. Congratulations to the winners — Mr. Vikas Sharma (IITRAM) 🥇, Ms. Manisha (IGDTUW) 🥈, and Ms. Pooja (MM University) 🥉 — awarded cash prizes and certificates. Awards were presented by Prof. Ajit Kumar Verma and Founder Dr. Sukhdev Singh. #ROFT2026 #TIET #BanavatNest #Quiz',
+    body: 'BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.',
     images: [
       { src: '/images/new%26event/post1/1.jpeg', alt: 'Image 1' },
       { src: '/images/new%26event/post1/2.jpeg', alt: 'Image 2' },
@@ -188,12 +188,12 @@ export default function NewsEvents() {
                   </div>
 
                   {/* Headline */}
-                  <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-50 tracking-tight leading-snug mb-4">
+                  <h3 className="text-xl md:text-2xl text-justify font-black text-zinc-900 dark:text-zinc-50 tracking-tight leading-snug mb-4">
                     {item.headline}
                   </h3>
 
                   {/* Body */}
-                  <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-medium leading-[1.7] flex-grow">
+                  <p className="text-sm text-justify md:text-base text-zinc-500 dark:text-zinc-400 font-medium leading-[1.7] flex-grow">
                     {item.body}
                   </p>
 
