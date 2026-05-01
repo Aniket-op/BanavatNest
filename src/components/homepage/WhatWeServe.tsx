@@ -165,14 +165,30 @@ const serveData = [
 
 export default function WhatWeServe() {
   const t = useTranslations('home');
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Per-card independent indices (each card cycles its own content)
+  const [cardIndices, setCardIndices] = useState([0, 0, 0]);
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setActiveIndex((prev) => (prev + 1) % 4);
-  //   }, 4500);
-  //   return () => clearInterval(timer);
-  // }, []);
+  useEffect(() => {
+    const timers = serveData.map((_, cardIdx) => {
+      // Stagger start so cards don't all flip at the same time
+      return setTimeout(() => {
+        const interval = setInterval(() => {
+          setCardIndices((prev) => {
+            const next = [...prev];
+            next[cardIdx] = (next[cardIdx] + 1) % 4;
+            return next;
+          });
+        }, 3500);
+        // Store interval id on the timeout callback scope so we can clear it
+        return interval;
+      }, cardIdx * 1200);
+    });
+
+    // Clean-up: clear all timeouts (intervals are inside timeouts so they clean up on unmount via the closure)
+    return () => {
+      timers.forEach((t) => clearTimeout(t));
+    };
+  }, []);
 
   return (
     <section id="what-we-serve" className="py-12 bg-white dark:bg-[#0C0C0A] overflow-hidden">
@@ -206,7 +222,7 @@ export default function WhatWeServe() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
-                className="group relative h-[550px]"
+                className="group relative h-[620px]"
               >
                 <Link href={card.href} className="block h-full">
                   <motion.div
@@ -243,7 +259,7 @@ export default function WhatWeServe() {
 
                       {/* Illustration Container */}
                       <motion.div
-                        key={activeIndex}
+                      key={`illustration-${card.key}`}
                         initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
                         animate={{ scale: 1, opacity: 1, rotate: 0 }}
                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -257,17 +273,17 @@ export default function WhatWeServe() {
                     <div className="relative z-10 flex-grow w-full">
                       <AnimatePresence mode="wait">
                         <motion.div
-                          key={`${card.key}-${activeIndex}`}
+                          key={`${card.key}-${cardIndices[idx]}`}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.5, ease: "circOut" }}
                         >
                           <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[64px] flex items-center justify-center">
-                            {t(`whatWeServe.${card.key}.items.${activeIndex}.heading`)}
+                            {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.heading`)}
                           </h3>
                           <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
-                            {t(`whatWeServe.${card.key}.items.${activeIndex}.desc`)}
+                            {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.desc`)}
                           </p>
                         </motion.div>
                       </AnimatePresence>
@@ -293,8 +309,8 @@ export default function WhatWeServe() {
                           key={dot}
                           className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
                           animate={{
-                            width: dot === activeIndex ? 24 : 6,
-                            backgroundColor: dot === activeIndex ? card.color : undefined
+                            width: dot === cardIndices[idx] ? 24 : 6,
+                            backgroundColor: dot === cardIndices[idx] ? card.color : undefined
                           }}
                           transition={{ duration: 0.4 }}
                         />

@@ -170,7 +170,7 @@ export default function WhatWeDo() {
               {t('whatWeDo.title')} <span className="text-[#84CC16]">{t('whatWeDo.titleHighlight')}</span>
             </h2>
 
-            <div className="relative w-full h-[650px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
+            <div className="relative w-full h-[760px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
               <motion.div
                 animate={{ rotateX: totalRotation }}
                 transition={{
@@ -196,21 +196,22 @@ export default function WhatWeDo() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      transform: `rotateX(${index * rotationStep}deg) translateZ(260px)`,
+                      transform: `rotateX(${index * rotationStep}deg) translateZ(300px)`,
                       backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
                       pointerEvents: index === activeUspIndex ? 'auto' : 'none',
-                      opacity: Math.abs(((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length - index) < 0.5 ? 1 : 0.2,
-                      transition: 'opacity 0.4s ease, transform 0.4s ease'
+                      opacity: Math.abs(((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length - index) < 0.5 ? 1 : 0,
+                      transition: 'opacity 0.35s ease'
                     }}
                   >
-                    <div className="w-full max-w-[220px] bg-white dark:bg-zinc-950 p-4 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg flex flex-col items-center text-center group antialiased">
+                    <div className="w-full max-w-[240px] bg-white dark:bg-zinc-950 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale' }}>
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-md mb-3 transform transition-transform group-hover:scale-110"
                         style={{ backgroundColor: usp.color }}
                       >
                         {usp.emoji}
                       </div>
-                      <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight">
+                      <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
                         {t(`whatWeDo.usps.${usp.titleKey}`)}
                       </h4>
                     </div>
