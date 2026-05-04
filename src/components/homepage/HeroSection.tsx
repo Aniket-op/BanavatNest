@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useTranslations } from 'next-intl';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
-  const t = useTranslations('home');
+  const t = useTranslations("home");
   const ref = useRef<HTMLElement>(null);
 
   return (
@@ -16,7 +16,7 @@ export default function HeroSection() {
         className="relative w-full bg-zinc-50 dark:bg-zinc-900/50"
       >
         <Image
-          src="/images/HomePageImage.png"
+          src="/images/HomePageImage.jpeg"
           alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
           width={1920}
           height={1080}
@@ -39,7 +39,7 @@ export default function HeroSection() {
         transition={{ delay: 0.5, duration: 0.5 }}
         className="mt-6 md:mt-8 pb-4 text-center text-zinc-600 dark:text-zinc-400 max-w-5xl mx-auto px-4 text-sm md:text-base lg:text-lg font-medium tracking-wide"
       >
-        {t('heroTagline')}
+        {t("heroTagline")}
       </motion.div>
     </>
   );

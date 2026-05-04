@@ -206,7 +206,7 @@ export default function WhatWeDo() {
                       }}
                     >
                       <div
-                        className="w-full max-w-[240px] bg-white dark:bg-zinc-950 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
+                        className="w-full max-w-[260px] bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
                         style={{
                           WebkitFontSmoothing: 'antialiased',
                           MozOsxFontSmoothing: 'grayscale',
@@ -216,12 +216,12 @@ export default function WhatWeDo() {
                         }}
                       >
                         <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shadow-md mb-3 transform transition-transform group-hover:scale-110"
+                          className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-md mb-4 transform transition-transform group-hover:scale-110"
                           style={{ backgroundColor: usp.color }}
                         >
                           {usp.emoji}
                         </div>
-                        <h4 className="text-sm md:text-base font-black text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
+                        <h4 className="text-base md:text-lg font-black text-zinc-900 dark:text-zinc-100 leading-snug tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
                           {t(`whatWeDo.usps.${usp.titleKey}`)}
                         </h4>
                       </div>
