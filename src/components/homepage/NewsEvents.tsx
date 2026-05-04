@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ExternalLink, Calendar, Tag } from 'lucide-react';
-import Image from 'next/image';
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Calendar,
+  Tag,
+} from "lucide-react";
+import Image from "next/image";
 
 // ── LinkedIn Post Data ──
 // images: array of { src, alt } — multiple images will auto-cycle on the right panel
@@ -11,17 +17,19 @@ import Image from 'next/image';
 const NEWS_EVENTS = [
   {
     id: 1,
-    tag: 'Event',
-    tagColor: '#84CC16',
-    date: 'April 2026',
-    headline: 'BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET',
-    body: 'BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.',
+    tag: "Event",
+    tagColor: "#84CC16",
+    date: "April 2026",
+    headline:
+      "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
+    body: "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
     images: [
-      { src: '/images/new%26event/post1/1.jpeg', alt: 'Image 1' },
-      { src: '/images/new%26event/post1/2.jpeg', alt: 'Image 2' },
-      { src: '/images/new%26event/post1/3.jpeg', alt: 'Image 3' },
+      { src: "/images/new%26event/post1/1.jpeg", alt: "Image 1" },
+      { src: "/images/new%26event/post1/2.jpeg", alt: "Image 2" },
+      { src: "/images/new%26event/post1/3.jpeg", alt: "Image 3" },
     ],
-    linkedinUrl: 'https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g',
+    linkedinUrl:
+      "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
   },
 ];
 
@@ -112,13 +120,12 @@ export default function NewsEvents() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-
         {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-end justify-between mb-10 flex-wrap gap-4"
         >
           <div>
@@ -132,13 +139,13 @@ export default function NewsEvents() {
 
           {/* Slide counter */}
           <span className="text-sm font-bold text-zinc-400 dark:text-zinc-500 tabular-nums">
-            {String(activeIndex + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+            {String(activeIndex + 1).padStart(2, "0")} /{" "}
+            {String(total).padStart(2, "0")}
           </span>
         </motion.div>
 
         {/* ── Main Carousel Card ── */}
         <div className="relative rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-white dark:bg-zinc-900/60 backdrop-blur-sm">
-
           {/* Progress bar */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-zinc-100 dark:bg-zinc-800 z-20">
             {!paused && (
@@ -146,16 +153,15 @@ export default function NewsEvents() {
                 key={`progress-${activeIndex}`}
                 className="h-full rounded-full"
                 style={{ backgroundColor: item.tagColor }}
-                initial={{ width: '0%' }}
-                animate={{ width: '100%' }}
-                transition={{ duration: SLIDE_DURATION / 1000, ease: 'linear' }}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
               />
             )}
           </div>
 
           {/* Two-column layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 min-h-[400px] md:min-h-[440px]">
-
             {/* LEFT — Post Text */}
             <div className="relative flex flex-col justify-between p-8 md:p-10 border-b md:border-b-0 md:border-r border-zinc-100 dark:border-zinc-800">
               <AnimatePresence custom={direction} mode="wait">
@@ -208,7 +214,7 @@ export default function NewsEvents() {
                       className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 group-hover:scale-105"
                       style={{
                         backgroundColor: item.tagColor,
-                        color: '#fff',
+                        color: "#fff",
                         boxShadow: `0 8px 24px -6px ${item.tagColor}60`,
                       }}
                     >
@@ -222,7 +228,6 @@ export default function NewsEvents() {
 
             {/* RIGHT — Image(s) */}
             <div className="relative overflow-hidden min-h-[260px] md:min-h-0 bg-zinc-100 dark:bg-zinc-800">
-
               {/* Inner image carousel */}
               <AnimatePresence custom={imgDir} mode="wait">
                 <motion.div
@@ -239,7 +244,7 @@ export default function NewsEvents() {
                     src={item.images[safeImgIndex].src}
                     alt={item.images[safeImgIndex].alt}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   {/* Subtle overlay */}
@@ -256,7 +261,8 @@ export default function NewsEvents() {
                       className="h-1 rounded-full transition-all duration-300"
                       style={{
                         width: i === safeImgIndex ? 20 : 6,
-                        backgroundColor: i === safeImgIndex ? '#fff' : 'rgba(255,255,255,0.4)',
+                        backgroundColor:
+                          i === safeImgIndex ? "#fff" : "rgba(255,255,255,0.4)",
                       }}
                     />
                   ))}
@@ -290,14 +296,20 @@ export default function NewsEvents() {
 
                 {/* Post prev/next */}
                 <button
-                  onClick={(e) => { e.preventDefault(); goPrev(); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goPrev();
+                  }}
                   aria-label="Previous post"
                   className="w-8 h-8 rounded-full flex items-center justify-center bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-white/60 dark:border-zinc-700 shadow-md transition-all hover:scale-110 hover:bg-white"
                 >
                   <ChevronLeft className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
                 </button>
                 <button
-                  onClick={(e) => { e.preventDefault(); goNext(); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goNext();
+                  }}
                   aria-label="Next post"
                   className="w-8 h-8 rounded-full flex items-center justify-center bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-white/60 dark:border-zinc-700 shadow-md transition-all hover:scale-110 hover:bg-white"
                 >
@@ -318,12 +330,12 @@ export default function NewsEvents() {
               className="h-1.5 rounded-full transition-all duration-300"
               style={{
                 width: idx === activeIndex ? 28 : 8,
-                backgroundColor: idx === activeIndex ? item.tagColor : '#d4d4d8',
+                backgroundColor:
+                  idx === activeIndex ? item.tagColor : "#d4d4d8",
               }}
             />
           ))}
         </div>
-
       </div>
     </section>
   );

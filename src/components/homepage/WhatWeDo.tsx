@@ -104,7 +104,7 @@ export default function WhatWeDo() {
     const interval = setInterval(() => {
       setTotalRotation((prev) => prev - rotationStep);
       setActiveUspIndex((prev) => (prev + 1) % usps.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isManual, rotationStep]);
 
@@ -142,16 +142,6 @@ export default function WhatWeDo() {
     <section className="py-12 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-        </motion.div>
-
         <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-stretch">
 
           {/* Left Division: Our Domains */}
@@ -166,17 +156,18 @@ export default function WhatWeDo() {
 
           {/* Right Division: What We Do & How We Work */}
           <div className="flex flex-col w-full relative z-10 lg:pl-10 border-l border-zinc-200 dark:border-zinc-800/50">
-            <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4 text-center lg:text-left">
+            <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
               {t('whatWeDo.title')} <span className="text-[#84CC16]">{t('whatWeDo.titleHighlight')}</span>
             </h2>
 
-            <div className="relative w-full h-[760px] flex items-center justify-center mb-6" style={{ perspective: '2000px' }}>
+            <div className="relative w-full h-[500px] flex items-center justify-center mt-10 mb-6" style={{ perspective: '2000px' }}>
               <motion.div
                 animate={{ rotateX: totalRotation }}
                 transition={{
                   type: 'spring',
-                  stiffness: 45,
-                  damping: 18,
+                  stiffness: 60,
+                  damping: 20,
+                  mass: 1,
                 }}
                 style={{
                   transformStyle: 'preserve-3d',
