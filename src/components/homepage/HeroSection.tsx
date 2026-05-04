@@ -13,17 +13,16 @@ export default function HeroSection() {
     <>
       <section
         ref={ref}
-        className="relative shadow-2xl dark:shadow-white/60 w-full h-[calc(100vh-80px)] min-h-[320px] max-h-[860px] overflow-hidden bg-zinc-50 dark:bg-zinc-900/50"
+        className="relative w-full bg-zinc-50 dark:bg-zinc-900/50"
       >
-        <div className="absolute inset-0">
-          <Image
-            src="/images/HomePageImage.png"
-            alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
+        <Image
+          src="/images/HomePageImage.png"
+          alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
+          width={1920}
+          height={1080}
+          className="w-full h-auto block"
+          priority
+        />
 
         {/* Glow Effect */}
         <motion.div
