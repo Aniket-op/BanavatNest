@@ -16,7 +16,7 @@ export default function HeroSection() {
         className="relative w-full bg-zinc-50 dark:bg-zinc-900/50"
       >
         <Image
-          src="/images/HomePageImage.jpeg"
+          src="/images/banavatnest_banner_1500x625.png"
           alt="Academia to Industry bridge — BanavatNest collaborative ecosystem"
           width={1920}
           height={1080}
@@ -37,7 +37,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
-        className="mt-6 md:mt-8 pb-4 text-center text-zinc-600 dark:text-zinc-400 max-w-5xl mx-auto px-4 text-sm md:text-base lg:text-lg font-medium tracking-wide"
+        className="mt-6 md:mt-8 pb-4 text-center text-zinc-600 dark:text-zinc-400 w-full mx-auto px-4 text-sm md:text-base lg:text-xl font-medium tracking-wide"
       >
         {t("heroTagline")}
       </motion.div>
