@@ -17,7 +17,7 @@ const ReadMoreContent: React.FC<ReadMoreContentProps> = ({
     summaryHeading,
     summaryContent,
     children,
-    accentColor = '#84CC16',
+    accentColor = '#3A9B9B',
     isFocusArea = false,
 }) => {
     const [expanded, setExpanded] = useState(false);

@@ -165,7 +165,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ items }) => {
                         key={idx}
                         type="button"
                         className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex
-                            ? 'bg-[#84CC16] w-6'
+                            ? 'bg-[#3A9B9B] w-6'
                             : 'bg-zinc-700 w-1.5 hover:bg-zinc-600'
                             }`}
                         aria-current={idx === activeIndex}

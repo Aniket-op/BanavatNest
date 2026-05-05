@@ -13,8 +13,8 @@ const testimonials = [
     dept: 'Dept. of Computer Science, IIT Patna',
     initial: 'PM',
     tag: 'Academia',
-    tagColor: '#84CC16',
-    accentLeft: '#84CC16',
+    tagColor: '#3A9B9B',
+    accentLeft: '#3A9B9B',
     stars: 5,
   },
   {
@@ -35,8 +35,8 @@ const testimonials = [
     dept: 'NIT Jamshedpur',
     initial: 'AS',
     tag: 'Academia',
-    tagColor: '#84CC16',
-    accentLeft: '#84CC16',
+    tagColor: '#3A9B9B',
+    accentLeft: '#3A9B9B',
     stars: 5,
   },
 ];
@@ -49,7 +49,7 @@ const associates = [
     stars: 5,
     quote: 'Innovation hub for research excellence.',
     icon: <Building2 className="w-5 h-5" />,
-    color: '#84CC16'
+    color: '#3A9B9B'
   },
   {
     name: 'AutoTech',
@@ -85,7 +85,7 @@ const projects = [
     title: "AI-Driven Prediction",
     desc: "A machine learning pipeline developed to help farmers predict harvest outcomes with 85% accuracy.",
     icon: <FlaskConical className="w-6 h-6" />,
-    accent: "from-[#84CC16] to-[#4D7C0F]",
+    accent: "from-[#3A9B9B] to-[#2a7676]",
     iconGradient: "bg-gradient-to-br from-green-400 to-green-700",
     url: "/images/homepage/agriculture.jpg",
     href: "/projects/agriculture"
@@ -113,7 +113,7 @@ const projects = [
 const StarRow = ({ count }: { count: number }) => (
   <div className="flex gap-0.5">
     {Array.from({ length: count }).map((_, i) => (
-      <Star key={i} className="w-3 h-3 text-[#84CC16] fill-[#84CC16]" />
+      <Star key={i} className="w-3 h-3 text-[#3A9B9B] fill-[#3A9B9B]" />
     ))}
   </div>
 );
@@ -141,7 +141,7 @@ const InfiniteVerticalCarousel = () => {
         >
           <div className="bg-white dark:bg-zinc-900/50 rounded-3xl p-8 border border-zinc-100 dark:border-zinc-800 h-full flex flex-col justify-between">
             <div>
-              <Quote className="w-8 h-8 text-[#84CC16]/20 mb-4" />
+              <Quote className="w-8 h-8 text-[#3A9B9B]/20 mb-4" />
               <p className="text-lg text-zinc-700 dark:text-zinc-300 font-medium leading-relaxed italic">
                 "{testimonials[index].quote}"
               </p>
@@ -180,7 +180,7 @@ const AssociatesMarquee = () => {
           {[...associates, ...associates].map((a, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-64 h-32 bg-white dark:bg-zinc-900/40 rounded-2xl border border-zinc-100 dark:border-zinc-800/50 p-4 flex flex-col justify-between hover:border-[#84CC16]/30 transition-colors"
+              className="flex-shrink-0 w-64 h-32 bg-white dark:bg-zinc-900/40 rounded-2xl border border-zinc-100 dark:border-zinc-800/50 p-4 flex flex-col justify-between hover:border-[#3A9B9B]/30 transition-colors"
             >
               <div className="flex justify-between items-start">
                 <div className="flex gap-3">
@@ -189,7 +189,7 @@ const AssociatesMarquee = () => {
                   </div>
                   <div>
                     <p className="text-xs font-black text-zinc-900 dark:text-zinc-100">{a.name}</p>
-                    <p className="text-[10px] font-bold text-[#84CC16] tracking-tight">{a.tag}</p>
+                    <p className="text-[10px] font-bold text-[#3A9B9B] tracking-tight">{a.tag}</p>
                   </div>
                 </div>
                 <StarRow count={a.stars} />
@@ -223,11 +223,11 @@ export default function TestimonialsSection() {
                 <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-none mb-2">
                   Testimonials
                 </h2>
-                <div className="h-1 w-20 bg-[#84CC16] rounded-full mt-4" />
+                <div className="h-1 w-20 bg-[#3A9B9B] rounded-full mt-4" />
               </motion.div>
 
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#84CC16]/20 to-blue-500/20 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#3A9B9B]/20 to-blue-500/20 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative">
                   <InfiniteVerticalCarousel />
                 </div>
@@ -246,20 +246,20 @@ export default function TestimonialsSection() {
               className="mb-12 lg:text-right"
             >
               <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-none">
-                Featured <span className="text-[#84CC16]">Projects</span>
+                Featured <span className="text-[#3A9B9B]">Projects</span>
               </h2>
-              <div className="h-1 w-20 bg-[#84CC16] rounded-full mt-4 ml-auto" />
+              <div className="h-1 w-20 bg-[#3A9B9B] rounded-full mt-4 ml-auto" />
             </motion.div>
 
             <div className="relative group flex-grow">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-[#84CC16]/10 rounded-[3.5rem] blur-xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-[#3A9B9B]/10 rounded-[3.5rem] blur-xl opacity-20 group-hover:opacity-30 transition duration-1000"></div>
               <div className="relative h-full bg-zinc-100/50 dark:bg-zinc-900/30 rounded-[3rem] p-4 lg:p-6 border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm overflow-hidden">
                 <ProjectCarousel items={projects} />
               </div>
             </div>
 
             {/* Decorative element */}
-            <div className="absolute -z-10 -top-20 -right-20 w-80 h-80 bg-[#84CC16]/10 blur-[120px] rounded-full animate-pulse" />
+            <div className="absolute -z-10 -top-20 -right-20 w-80 h-80 bg-[#3A9B9B]/10 blur-[120px] rounded-full animate-pulse" />
             <div className="absolute -z-10 -bottom-20 -left-20 w-80 h-80 bg-blue-500/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
         </div>

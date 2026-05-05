@@ -18,7 +18,7 @@ const NEWS_EVENTS = [
   {
     id: 1,
     tag: "Event",
-    tagColor: "#84CC16",
+    tagColor: "#3A9B9B",
     date: "April 2026",
     headline:
       "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
@@ -129,11 +129,11 @@ export default function NewsEvents() {
           className="flex items-end justify-between mb-10 flex-wrap gap-4"
         >
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#84CC16] mb-2">
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#3A9B9B] mb-2">
               Latest Updates
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1]">
-              News &amp; <span className="text-[#84CC16]">Events</span>
+              News &amp; <span className="text-[#3A9B9B]">Events</span>
             </h2>
           </div>
 

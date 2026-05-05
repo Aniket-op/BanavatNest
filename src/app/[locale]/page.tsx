@@ -78,7 +78,7 @@ const Home = () => {
           </p>
           <a
             href="/contact"
-            className="text-sm font-black text-[#84CC16] hover:underline underline-offset-4 transition-all"
+            className="text-sm font-black text-[#3A9B9B] hover:underline underline-offset-4 transition-all"
           >
             Contact us →
           </a>

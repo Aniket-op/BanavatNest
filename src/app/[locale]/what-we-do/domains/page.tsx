@@ -87,9 +87,9 @@ export default function DomainsPage() {
             title: t('aiTitle'),
             desc: t('aiDesc'),
             icon: <BrainCircuit className="w-6 h-6" />,
-            color: 'bg-[#84CC16]',
-            accent: 'text-[#84CC16]',
-            border: 'hover:border-[#84CC16]/50',
+            color: 'bg-[#3A9B9B]',
+            accent: 'text-[#3A9B9B]',
+            border: 'hover:border-[#3A9B9B]/50',
             images: ['/images/homepage/Ai.jpg'],
             href: '/what-we-do/domains/ai-ml-data-science'
         },
@@ -117,9 +117,9 @@ export default function DomainsPage() {
             title: t('agriTitle'),
             desc: t('agriDesc'),
             icon: <Tractor className="w-6 h-6" />,
-            color: 'bg-lime-500',
-            accent: 'text-lime-500',
-            border: 'hover:border-lime-500/50',
+            color: 'bg-teal-500',
+            accent: 'text-teal-500',
+            border: 'hover:border-teal-500/50',
             images: ['/images/homepage/Prototype-image.png'],
             href: '/what-we-do/domains/agriculture-smart-farming'
         }
@@ -133,7 +133,7 @@ export default function DomainsPage() {
                     {/* Header */}
                     <div className="text-left mb-16">
                         <h1 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
-                            {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                            {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                         </h1>
                         <p className="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-2xl">
                             {t('subtitle')}

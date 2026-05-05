@@ -101,7 +101,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                         key={idx}
                         onClick={() => goToSlide(idx)}
                         className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex
-                            ? 'bg-[#84CC16] w-8'
+                            ? 'bg-[#3A9B9B] w-8'
                             : 'bg-gray-300 dark:bg-zinc-700 w-1.5 hover:bg-gray-400'
                             }`}
                     />

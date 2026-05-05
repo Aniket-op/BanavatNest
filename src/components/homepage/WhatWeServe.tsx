@@ -142,7 +142,7 @@ const serveData = [
     href: "/bridge/opportunities",
     emoji: "🎓",
     illustration: StudentIllustration,
-    color: '#84CC16',
+    color: '#3A9B9B',
     bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
   },
   {
@@ -203,7 +203,7 @@ export default function WhatWeServe() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1] mb-5">
-            {t('whatWeServe.title')} <span className="text-[#84CC16]">{t('whatWeServe.titleHighlight')}</span>
+            {t('whatWeServe.title')} <span className="text-[#3A9B9B]">{t('whatWeServe.titleHighlight')}</span>
           </h2>
           <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
             {t('whatWeServe.description')}

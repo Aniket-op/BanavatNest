@@ -224,7 +224,7 @@ export default async function LocaleLayout({
                 />
             </head>
             <body
-                className={`${getFontClass()} antialiased min-h-screen flex flex-col selection:bg-[#84CC16]/20 selection:text-[#5D3A1A] dark:selection:text-zinc-100 transition-colors bg-zinc-50 dark:bg-[#09090b]`}
+                className={`${getFontClass()} antialiased min-h-screen flex flex-col selection:bg-[#3A9B9B]/20 selection:text-[#2D3561] dark:selection:text-zinc-100 transition-colors bg-zinc-50 dark:bg-[#09090b]`}
             >
                 <NextIntlClientProvider messages={messages}>
                     <Navbar />

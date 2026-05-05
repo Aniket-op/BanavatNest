@@ -165,7 +165,7 @@ const DomainCarousel: React.FC<DomainCarouselProps> = ({ items }) => {
                         key={idx}
                         type="button"
                         className={`h-2 rounded-full transition-all duration-300 ${idx === activeIndex
-                            ? 'bg-[#84CC16] w-8'
+                            ? 'bg-[#3A9B9B] w-8'
                             : 'bg-gray-300 dark:bg-zinc-700 w-2 hover:bg-gray-400 dark:hover:bg-zinc-600'
                             }`}
                         aria-current={idx === activeIndex}

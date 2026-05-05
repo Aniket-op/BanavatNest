@@ -16,10 +16,10 @@ const InfiniteUpdateBar: React.FC<InfiniteUpdateBarProps> = ({ updates }) => {
     const loopedUpdates = [...updates, ...updates, ...updates, ...updates];
 
     return (
-        <div className="w-full bg-[#84CC16]/10 border-b border-[#84CC16]/20 py-4 overflow-hidden flex items-center relative z-20">
+        <div className="w-full bg-[#3A9B9B]/10 border-b border-[#3A9B9B]/20 py-4 overflow-hidden flex items-center relative z-20">
             {/* Label Badge */}
             <div className="absolute left-0 z-10 flex items-center h-full pl-4 pr-8 bg-gradient-to-r from-zinc-50 via-zinc-50 to-transparent dark:from-[#09090b] dark:via-[#09090b]">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#84CC16] text-white uppercase tracking-wider shadow-sm">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#3A9B9B] text-white uppercase tracking-wider shadow-sm">
                     Latest Updates
                 </span>
             </div>
@@ -40,9 +40,9 @@ const InfiniteUpdateBar: React.FC<InfiniteUpdateBarProps> = ({ updates }) => {
                         <Link
                             key={idx}
                             href={update.route}
-                            className="mx-8 text-sm font-medium text-zinc-700 dark:text-zinc-300 flex items-center hover:text-[#84CC16] dark:hover:text-[#84CC16] transition-colors"
+                            className="mx-8 text-sm font-medium text-zinc-700 dark:text-zinc-300 flex items-center hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B] transition-colors"
                         >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] mr-3 inline-block animate-pulse"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3A9B9B] mr-3 inline-block animate-pulse"></span>
                             {update.title}
                         </Link>
                     ))}

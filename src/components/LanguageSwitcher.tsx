@@ -67,8 +67,8 @@ export default function LanguageSwitcher() {
                                 onClick={() => switchLocale(locale.code)}
                                 className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors
                   ${currentLocale === locale.code
-                                        ? 'bg-lime-50 dark:bg-lime-900/10 text-[#84CC16]'
-                                        : 'text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-900 hover:text-[#84CC16]'
+                                        ? 'bg-teal-50 dark:bg-teal-900/10 text-[#3A9B9B]'
+                                        : 'text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-900 hover:text-[#3A9B9B]'
                                     }`}
                             >
                                 <span className="flex items-center gap-3">
@@ -76,7 +76,7 @@ export default function LanguageSwitcher() {
                                     <span className="text-xs text-gray-400 dark:text-zinc-600">{locale.label}</span>
                                 </span>
                                 {currentLocale === locale.code && (
-                                    <Check className="w-4 h-4 text-[#84CC16]" />
+                                    <Check className="w-4 h-4 text-[#3A9B9B]" />
                                 )}
                             </button>
                         ))}

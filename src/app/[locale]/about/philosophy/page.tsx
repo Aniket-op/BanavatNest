@@ -39,7 +39,7 @@ export default function PhilosophyPage() {
                 <div className="max-w-7xl mx-auto px-6 mb-20">
                     <div className="max-w-4xl">
                         <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
-                            {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                            {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 leading-relaxed">
                             {t('subtitle')}
@@ -63,7 +63,7 @@ export default function PhilosophyPage() {
                                 className="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden"
                             >
                                 <div className="p-8 border-b border-zinc-200 dark:border-zinc-800">
-                                    <h3 className="text-sm font-bold uppercase tracking-widest text-[#84CC16]">
+                                    <h3 className="text-sm font-bold uppercase tracking-widest text-[#3A9B9B]">
                                         {t('banavatHeader')}
                                     </h3>
                                 </div>
@@ -73,8 +73,8 @@ export default function PhilosophyPage() {
                                         key={i}
                                         className="group flex items-start p-6 border-b border-zinc-100 dark:border-zinc-800 last:border-0 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition"
                                     >
-                                        <div className="w-12 h-12 rounded-xl bg-[#84CC16]/10 flex items-center justify-center mr-6">
-                                            <span className="text-xl font-black text-[#84CC16]">{v.letter}</span>
+                                        <div className="w-12 h-12 rounded-xl bg-[#3A9B9B]/10 flex items-center justify-center mr-6">
+                                            <span className="text-xl font-black text-[#3A9B9B]">{v.letter}</span>
                                         </div>
 
                                         <div>
@@ -98,7 +98,7 @@ export default function PhilosophyPage() {
                                 className="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden"
                             >
                                 <div className="p-8 border-b border-zinc-200 dark:border-zinc-800">
-                                    <h3 className="text-sm font-bold uppercase tracking-widest text-[#84CC16]">
+                                    <h3 className="text-sm font-bold uppercase tracking-widest text-[#3A9B9B]">
                                         {t('nestHeader')}
                                     </h3>
                                 </div>
@@ -108,8 +108,8 @@ export default function PhilosophyPage() {
                                         key={i}
                                         className="group flex items-start p-6 border-b border-zinc-100 dark:border-zinc-800 last:border-0 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition"
                                     >
-                                        <div className="w-12 h-12 rounded-xl bg-[#84CC16]/10 flex items-center justify-center mr-6">
-                                            <span className="text-xl font-black text-[#84CC16]">{v.letter}</span>
+                                        <div className="w-12 h-12 rounded-xl bg-[#3A9B9B]/10 flex items-center justify-center mr-6">
+                                            <span className="text-xl font-black text-[#3A9B9B]">{v.letter}</span>
                                         </div>
 
                                         <div>

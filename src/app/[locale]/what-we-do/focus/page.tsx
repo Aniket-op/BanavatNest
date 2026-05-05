@@ -97,9 +97,9 @@ export default function FocusAreasPage() {
             title: t('protoTitle'),
             desc: t('protoDesc'),
             icon: <Code2 className="w-6 h-6" />,
-            color: 'bg-[#84CC16]',
-            accent: 'text-[#84CC16]',
-            border: 'hover:border-[#84CC16]/50',
+            color: 'bg-[#3A9B9B]',
+            accent: 'text-[#3A9B9B]',
+            border: 'hover:border-[#3A9B9B]/50',
             images: ['/images/homepage/Prototype-image.png'],
             href: '/what-we-do/focus/product-prototyping'
         },
@@ -133,7 +133,7 @@ export default function FocusAreasPage() {
                     {/* Header */}
                     <div className="text-left mb-16">
                         <h1 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight">
-                            {t('title')}  <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                            {t('title')}  <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                         </h1>
                         <p className="text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-2xl">
                             {t('subtitle')}</p>

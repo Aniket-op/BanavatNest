@@ -3,8 +3,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-lime-400: #84CC16;
-  --color-lime-500: #65A30D;
+  --color-teal-400: #3A9B9B;
+  --color-teal-500: #2a7676;
   --font-sans: 'Inter', sans-serif;
 }
 
@@ -35,8 +35,8 @@ body {
 }
 
 ::selection {
-  background-color: #bef264;
-  color: #18181b;
+  background-color: #b2e8e8;
+  color: #2D3561;
 }
 
 ::-webkit-scrollbar {
@@ -69,6 +69,6 @@ body {
 }
 
 .dark .glow-hover:hover {
-  box-shadow: 0 0 40px rgba(132, 204, 22, 0.12);
-  border-color: rgba(132, 204, 22, 0.3);
+  box-shadow: 0 0 40px rgba(58, 155, 155, 0.12);
+  border-color: rgba(58, 155, 155, 0.3);
 }

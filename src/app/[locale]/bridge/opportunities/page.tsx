@@ -201,7 +201,7 @@ const PhDIllustration = () => (
         <motion.div
             animate={{ top: ['20%', '80%', '20%'] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#84CC16] to-transparent opacity-20 z-0"
+            className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3A9B9B] to-transparent opacity-20 z-0"
         />
 
         <motion.div
@@ -210,15 +210,15 @@ const PhDIllustration = () => (
                 rotateZ: [-2, 2, -2]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10 w-24 h-24 rounded-3xl bg-[#84CC16]/10 flex items-center justify-center border border-[#84CC16]/20 shadow-[0_0_50px_rgba(132,204,22,0.2)] cursor-pointer"
+            className="relative z-10 w-24 h-24 rounded-3xl bg-[#3A9B9B]/10 flex items-center justify-center border border-[#3A9B9B]/20 shadow-[0_0_50px_rgba(58,155,155,0.2)] cursor-pointer"
         >
-            <Rocket className="w-12 h-12 text-[#84CC16]" />
+            <Rocket className="w-12 h-12 text-[#3A9B9B]" />
 
             {/* Engine Glow */}
             <motion.div
                 animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
                 transition={{ duration: 0.5, repeat: Infinity }}
-                className="absolute -bottom-2 w-8 h-8 bg-[#84CC16] blur-xl rounded-full"
+                className="absolute -bottom-2 w-8 h-8 bg-[#3A9B9B] blur-xl rounded-full"
             />
         </motion.div>
 
@@ -232,7 +232,7 @@ const PhDIllustration = () => (
                 return (
                     <motion.div
                         key={i}
-                        className="absolute w-1 h-3 bg-[#84CC16] rounded-full opacity-20"
+                        className="absolute w-1 h-3 bg-[#3A9B9B] rounded-full opacity-20"
                         style={{
                             left: `${x}%`,
                             top: `${y}%`
@@ -319,7 +319,7 @@ const GrowthCard = ({
                     <motion.div
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
-                        className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-5 w-full rounded-full bg-[#5D3A1A] hover:bg-[#4B2C13] dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-black shadow-xl overflow-hidden transition-all duration-300"
+                        className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-5 w-full rounded-full bg-[#2D3561] hover:bg-[#1f2545] dark:bg-[#3A9B9B] dark:hover:bg-[#2a7676] text-white dark:text-white font-black shadow-xl overflow-hidden transition-all duration-300"
                         style={{ boxShadow: `0 10px 30px -10px ${color}80` }}
                     >
                         <span className="relative z-10">{cta}</span>
@@ -343,7 +343,7 @@ const GrowthPathProfile = ({ name, role, delay }: { name: string, role: string, 
         transition={{ delay }}
         className="flex items-center gap-3 px-5 py-3 rounded-full bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800"
     >
-        <div className="w-8 h-8 rounded-full bg-[#84CC16] flex items-center justify-center text-[10px] font-black text-white uppercase ring-4 ring-zinc-50 dark:ring-zinc-950">
+        <div className="w-8 h-8 rounded-full bg-[#3A9B9B] flex items-center justify-center text-[10px] font-black text-white uppercase ring-4 ring-zinc-50 dark:ring-zinc-950">
             {name.charAt(0)}
         </div>
         <div className="flex items-center gap-2 whitespace-nowrap">
@@ -388,8 +388,8 @@ const studentBenefits = [
         emoji: '🤝',
         title: 'Mentorship from Experts',
         desc: 'Guidance from leading figures across academia and industry.',
-        color: '#84CC16',
-        glow: 'rgba(132,204,22,0.25)',
+        color: '#3A9B9B',
+        glow: 'rgba(58,155,155,0.25)',
     },
     {
         icon: Award,
@@ -457,7 +457,7 @@ const WhatStudentsGetSection = () => {
         >
             {/* Background */}
             <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#84CC16]/5 blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#3A9B9B]/5 blur-[150px] rounded-full pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -471,7 +471,7 @@ const WhatStudentsGetSection = () => {
                             className="text-left"
                         >
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
-                                What Students <span className="text-[#84CC16] whitespace-nowrap">Get</span>
+                                What Students <span className="text-[#3A9B9B] whitespace-nowrap">Get</span>
                             </h2>
                             <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-lg">
                                 More than an internship — a launchpad for your future career and research journey.
@@ -558,7 +558,7 @@ const WhatStudentsGetSection = () => {
                                             setDirection(i > activeIndex ? 1 : -1);
                                             setActiveIndex(i);
                                         }}
-                                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-[#84CC16] scale-125' : 'bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
+                                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-[#3A9B9B] scale-125' : 'bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'
                                             }`}
                                         aria-label={`Go to slide ${i + 1}`}
                                     />
@@ -598,9 +598,9 @@ const opportunityTypes = [
     {
         icon: '🚀',
         title: 'Innovation & Startup Support',
-        color: '#84CC16',
-        glow: 'rgba(132,204,22,0.2)',
-        borderColor: 'rgba(132,204,22,0.3)',
+        color: '#3A9B9B',
+        glow: 'rgba(58,155,155,0.2)',
+        borderColor: 'rgba(58,155,155,0.3)',
         items: [
             { icon: Sparkles, text: 'Work on ongoing BanavatNest projects' },
             { icon: Settings, text: 'Convert your idea into a prototype' },
@@ -619,7 +619,7 @@ const TypesOfOpportunitiesSection = () => (
     >
         <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950/50" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[#84CC16]/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[#3A9B9B]/5 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
@@ -730,7 +730,7 @@ const TypesOfOpportunitiesSection = () => (
 const eligibilityCriteria = [
     { icon: GraduationCap, text: 'Undergraduate & Postgraduate Students', color: '#3B82F6' },
     { icon: BookOpen, text: 'Engineering / Science / Mathematics backgrounds', color: '#A855F7' },
-    { icon: Sparkles, text: 'Passionate learners — skills matter more than marks', color: '#84CC16' },
+    { icon: Sparkles, text: 'Passionate learners — skills matter more than marks', color: '#3A9B9B' },
 ];
 
 const selectionSteps = [
@@ -749,7 +749,7 @@ const WhoCanApplySection = () => (
         className="relative py-12 overflow-hidden"
     >
         <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#84CC16]/4 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#3A9B9B]/4 blur-[150px] rounded-full pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
@@ -762,7 +762,7 @@ const WhoCanApplySection = () => (
             >
 
                 <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
-                    Who Can <span className="text-[#84CC16]">Apply?</span>
+                    Who Can <span className="text-[#3A9B9B]">Apply?</span>
                 </h2>
                 <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
                     Our process is simple, transparent, and designed to find passionate learners — not just high scorers.
@@ -809,11 +809,11 @@ const WhoCanApplySection = () => (
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
                     <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
-                        Selection Process — <span className="text-[#84CC16]">Simple & Transparent</span>
+                        Selection Process — <span className="text-[#3A9B9B]">Simple & Transparent</span>
                     </h3>
                     <div className="relative flex flex-col gap-0">
                         {/* Connecting line */}
-                        <div className="absolute left-6 top-12 bottom-12 w-[2px] bg-gradient-to-b from-[#84CC16]/40 via-blue-500/20 to-transparent" />
+                        <div className="absolute left-6 top-12 bottom-12 w-[2px] bg-gradient-to-b from-[#3A9B9B]/40 via-blue-500/20 to-transparent" />
 
                         {selectionSteps.map((step, i) => (
                             <motion.div
@@ -827,9 +827,9 @@ const WhoCanApplySection = () => (
                             >
                                 {/* Step badge */}
                                 <motion.div
-                                    whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(132,204,22,0.4)' }}
+                                    whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(58,155,155,0.4)' }}
                                     transition={{ duration: 0.2 }}
-                                    className="relative z-10 w-12 h-12 rounded-full bg-[#84CC16] flex items-center justify-center text-xs font-black text-white flex-shrink-0 shadow-[0_0_20px_rgba(132,204,22,0.25)]"
+                                    className="relative z-10 w-12 h-12 rounded-full bg-[#3A9B9B] flex items-center justify-center text-xs font-black text-white flex-shrink-0 shadow-[0_0_20px_rgba(58,155,155,0.25)]"
                                 >
                                     {step.step}
                                 </motion.div>
@@ -922,7 +922,7 @@ export default function OpportunitiesPage() {
                             title={t('phdTitle')}
                             desc={t('phdDesc')}
                             Illustration={PhDIllustration}
-                            color="#84CC16"
+                            color="#3A9B9B"
                             cta="Apply Now"
                             href="/contact"
                             delay={0.3}

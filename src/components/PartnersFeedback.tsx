@@ -22,7 +22,7 @@ const PartnersFeedback = () => {
                             <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter mb-4">
                                 Our Clients
                             </h2>
-                            <div className="w-16 h-1 bg-[#84CC16] mb-6" />
+                            <div className="w-16 h-1 bg-[#3A9B9B] mb-6" />
                             <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
                                 We work with organizations that share our passion for innovation and impact.
                             </p>
@@ -32,9 +32,9 @@ const PartnersFeedback = () => {
                             {partners.map((partner, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex flex-col items-center justify-center p-8 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-[#84CC16] transition-colors duration-300 group"
+                                    className="flex flex-col items-center justify-center p-8 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-[#3A9B9B] transition-colors duration-300 group"
                                 >
-                                    <div className="text-zinc-400 dark:text-zinc-500 group-hover:text-[#84CC16] transition-colors mb-3">
+                                    <div className="text-zinc-400 dark:text-zinc-500 group-hover:text-[#3A9B9B] transition-colors mb-3">
                                         {partner.icon}
                                     </div>
                                     <span className="font-bold text-zinc-700 dark:text-zinc-300 text-sm text-center">{partner.name}</span>
@@ -56,7 +56,7 @@ const PartnersFeedback = () => {
                                 <input
                                     type="text"
                                     id="name"
-                                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#84CC16] transition-colors"
+                                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#3A9B9B] transition-colors"
                                     placeholder="Your Name"
                                 />
                             </div>
@@ -65,7 +65,7 @@ const PartnersFeedback = () => {
                                 <input
                                     type="email"
                                     id="email"
-                                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#84CC16] transition-colors"
+                                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#3A9B9B] transition-colors"
                                     placeholder="your@email.com"
                                 />
                             </div>
@@ -74,7 +74,7 @@ const PartnersFeedback = () => {
                                 <input
                                     type="text"
                                     id="subject"
-                                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#84CC16] transition-colors"
+                                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#3A9B9B] transition-colors"
                                     placeholder="your subject"
                                 />
                             </div>
@@ -83,14 +83,14 @@ const PartnersFeedback = () => {
                                 <textarea
                                     id="message"
                                     rows={4}
-                                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#84CC16] transition-colors resize-none"
+                                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none dark:text-white focus:border-[#3A9B9B] transition-colors resize-none"
                                     placeholder="Your thoughts..."
                                 ></textarea>
                             </div>
 
                             <button
                                 type="button"
-                                className="w-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                                className="w-full bg-[#3A9B9B] hover:bg-[#2a7676] text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
                             >
                                 Submit
                                 <Send className="w-4 h-4" />

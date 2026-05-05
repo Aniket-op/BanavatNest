@@ -81,7 +81,7 @@ const Navbar = () => {
                                 {link.subItems ? (
                                     <button
                                         className={`text-sm font-bold transition-all flex items-center gap-1 py-1 ${pathname.startsWith(link.path)
-                                            ? 'text-[#84CC16]'
+                                            ? 'text-[#3A9B9B]'
                                             : 'text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100'
                                             }`}
                                     >
@@ -92,7 +92,7 @@ const Navbar = () => {
                                     <Link
                                         href={link.path}
                                         className={`text-sm font-bold transition-all relative py-1 ${pathname === link.path
-                                            ? 'text-[#84CC16]'
+                                            ? 'text-[#3A9B9B]'
                                             : 'text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100'
                                             }`}
                                     >
@@ -100,7 +100,7 @@ const Navbar = () => {
                                         {pathname === link.path && (
                                             <motion.div
                                                 layoutId="navUnderline"
-                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#84CC16] rounded-full"
+                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3A9B9B] rounded-full"
                                             />
                                         )}
                                     </Link>
@@ -121,7 +121,7 @@ const Navbar = () => {
                                                     <Link
                                                         key={subItem.path}
                                                         href={subItem.path}
-                                                        className="block px-4 py-3 text-sm text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-900 hover:text-[#84CC16] dark:hover:text-[#84CC16] font-medium transition-colors"
+                                                        className="block px-4 py-3 text-sm text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-900 hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B] font-medium transition-colors"
                                                     >
                                                         {subItem.name}
                                                     </Link>
@@ -138,7 +138,7 @@ const Navbar = () => {
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link
                                     href="/contact"
-                                    className="bg-[#5D3A1A] dark:bg-zinc-100 text-white dark:text-zinc-900 px-7 py-2.5 rounded-full text-sm font-bold flex items-center hover:bg-[#4B2C13] dark:hover:bg-zinc-200 transition-all shadow-lg hover:shadow-[#84CC16]/20"
+                                    className="bg-[#2D3561] dark:bg-[#3A9B9B] text-white dark:text-white px-7 py-2.5 rounded-full text-sm font-bold flex items-center hover:bg-[#1f2545] dark:hover:bg-[#2a7676] transition-all shadow-lg hover:shadow-[#3A9B9B]/20"
                                 >
                                     {t('contact')} <ArrowUpRight className="ml-2 w-4 h-4" />
                                 </Link>
@@ -182,7 +182,7 @@ const Navbar = () => {
                                                     key={subItem.path}
                                                     href={subItem.path}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="block text-sm font-medium text-gray-600 dark:text-zinc-400 hover:text-[#84CC16] py-1"
+                                                    className="block text-sm font-medium text-gray-600 dark:text-zinc-400 hover:text-[#3A9B9B] py-1"
                                                 >
                                                     {subItem.name}
                                                 </Link>
@@ -193,7 +193,7 @@ const Navbar = () => {
                                     <Link
                                         href={link.path}
                                         onClick={() => setIsOpen(false)}
-                                        className="block text-lg font-bold text-gray-900 dark:text-zinc-100 hover:text-[#84CC16] py-2 border-b border-gray-50 dark:border-zinc-800 last:border-0"
+                                        className="block text-lg font-bold text-gray-900 dark:text-zinc-100 hover:text-[#3A9B9B] py-2 border-b border-gray-50 dark:border-zinc-800 last:border-0"
                                     >
                                         {link.name}
                                     </Link>
@@ -203,7 +203,7 @@ const Navbar = () => {
                         <Link
                             href="/contact"
                             onClick={() => setIsOpen(false)}
-                            className="block w-full text-center bg-[#5D3A1A] dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-4 rounded-xl font-bold shadow-lg mt-4"
+                            className="block w-full text-center bg-[#2D3561] dark:bg-[#3A9B9B] text-white dark:text-white px-6 py-4 rounded-xl font-bold shadow-lg mt-4"
                         >
                             {t('contact')}
                         </Link>

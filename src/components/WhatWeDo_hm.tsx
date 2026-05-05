@@ -17,10 +17,10 @@ const CardGridBg = () => (
 
 const DiscoverCardIcon = () => (
     <svg viewBox="0 0 200 120" className="w-full h-full drop-shadow-xl" fill="none">
-        <path d="M 40 60 L 60 40 L 90 40 L 110 50" stroke="#84CC16" strokeWidth="1.5" strokeDasharray="3 3" />
-        <path d="M 40 60 L 60 80 L 80 80 L 100 65" stroke="#84CC16" strokeWidth="1.5" strokeDasharray="3 3" />
-        <circle cx="30" cy="60" r="12" fill="#84CC16" fillOpacity="0.1" stroke="#84CC16" strokeWidth="1" />
-        <circle cx="30" cy="60" r="4" fill="#84CC16" />
+        <path d="M 40 60 L 60 40 L 90 40 L 110 50" stroke="#3A9B9B" strokeWidth="1.5" strokeDasharray="3 3" />
+        <path d="M 40 60 L 60 80 L 80 80 L 100 65" stroke="#3A9B9B" strokeWidth="1.5" strokeDasharray="3 3" />
+        <circle cx="30" cy="60" r="12" fill="#3A9B9B" fillOpacity="0.1" stroke="#3A9B9B" strokeWidth="1" />
+        <circle cx="30" cy="60" r="4" fill="#3A9B9B" />
         <circle cx="60" cy="40" r="3" fill="#06b6d4" />
         <circle cx="90" cy="40" r="4" fill="#06b6d4" />
         <circle cx="60" cy="80" r="4" fill="#06b6d4" />
@@ -68,9 +68,9 @@ const BuildCardIcon = () => (
         <rect x="25" y="58" width="20" height="4" rx="2" fill="#f59e0b" opacity="0.3" />
         <rect x="25" y="68" width="35" height="4" rx="2" fill="#f59e0b" opacity="0.6" />
 
-        <rect x="145" y="48" width="25" height="4" rx="2" fill="#84CC16" opacity="0.6" />
-        <rect x="145" y="58" width="35" height="4" rx="2" fill="#84CC16" opacity="0.3" />
-        <rect x="145" y="68" width="15" height="4" rx="2" fill="#84CC16" opacity="0.6" />
+        <rect x="145" y="48" width="25" height="4" rx="2" fill="#3A9B9B" opacity="0.6" />
+        <rect x="145" y="58" width="35" height="4" rx="2" fill="#3A9B9B" opacity="0.3" />
+        <rect x="145" y="68" width="15" height="4" rx="2" fill="#3A9B9B" opacity="0.6" />
     </svg>
 );
 
@@ -84,21 +84,21 @@ const LaunchCardIcon = () => (
         <circle cx="50" cy="60" r="2" fill="#10b981" />
         <circle cx="50" cy="75" r="2" fill="#10b981" />
 
-        <path d="M 76 60 L 96 60 L 96 35 L 115 35" stroke="#84CC16" strokeWidth="1.5" fill="none" strokeDasharray="2 2" />
-        <path d="M 76 60 L 115 60" stroke="#84CC16" strokeWidth="1.5" fill="none" strokeDasharray="2 2" />
-        <path d="M 76 60 L 96 60 L 96 85 L 115 85" stroke="#84CC16" strokeWidth="1.5" fill="none" strokeDasharray="2 2" />
+        <path d="M 76 60 L 96 60 L 96 35 L 115 35" stroke="#3A9B9B" strokeWidth="1.5" fill="none" strokeDasharray="2 2" />
+        <path d="M 76 60 L 115 60" stroke="#3A9B9B" strokeWidth="1.5" fill="none" strokeDasharray="2 2" />
+        <path d="M 76 60 L 96 60 L 96 85 L 115 85" stroke="#3A9B9B" strokeWidth="1.5" fill="none" strokeDasharray="2 2" />
 
-        <rect x="115" y="25" width="45" height="20" rx="4" stroke="#84CC16" strokeWidth="1.5" fill="#84CC16" fillOpacity="0.1" />
-        <circle cx="125" cy="35" r="3" fill="#84CC16" />
-        <rect x="135" y="32" width="18" height="6" rx="2" fill="#84CC16" fillOpacity="0.3" />
+        <rect x="115" y="25" width="45" height="20" rx="4" stroke="#3A9B9B" strokeWidth="1.5" fill="#3A9B9B" fillOpacity="0.1" />
+        <circle cx="125" cy="35" r="3" fill="#3A9B9B" />
+        <rect x="135" y="32" width="18" height="6" rx="2" fill="#3A9B9B" fillOpacity="0.3" />
 
-        <rect x="115" y="50" width="45" height="20" rx="4" stroke="#84CC16" strokeWidth="1.5" fill="#84CC16" fillOpacity="0.1" />
-        <circle cx="125" cy="60" r="3" fill="#84CC16" />
-        <rect x="135" y="57" width="18" height="6" rx="2" fill="#84CC16" fillOpacity="0.3" />
+        <rect x="115" y="50" width="45" height="20" rx="4" stroke="#3A9B9B" strokeWidth="1.5" fill="#3A9B9B" fillOpacity="0.1" />
+        <circle cx="125" cy="60" r="3" fill="#3A9B9B" />
+        <rect x="135" y="57" width="18" height="6" rx="2" fill="#3A9B9B" fillOpacity="0.3" />
 
-        <rect x="115" y="75" width="45" height="20" rx="4" stroke="#84CC16" strokeWidth="1.5" fill="#84CC16" fillOpacity="0.1" />
-        <circle cx="125" cy="85" r="3" fill="#84CC16" />
-        <rect x="135" y="82" width="18" height="6" rx="2" fill="#84CC16" fillOpacity="0.3" />
+        <rect x="115" y="75" width="45" height="20" rx="4" stroke="#3A9B9B" strokeWidth="1.5" fill="#3A9B9B" fillOpacity="0.1" />
+        <circle cx="125" cy="85" r="3" fill="#3A9B9B" />
+        <rect x="135" y="82" width="18" height="6" rx="2" fill="#3A9B9B" fillOpacity="0.3" />
 
         <circle cx="180" cy="35" r="15" fill="#34d399" fillOpacity="0.08" />
         <circle cx="180" cy="60" r="22" fill="#34d399" fillOpacity="0.08" />
@@ -113,7 +113,7 @@ const stepsData = [
         id: '01',
         label: 'Research',
         desc: 'Deep exploration of ideas, problem discovery, and validation.',
-        glow: '#84CC16',
+        glow: '#3A9B9B',
         CardIcon: DiscoverCardIcon
     },
     {
@@ -148,7 +148,7 @@ export default function HowItWorks() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl lg:text-7xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6"
                     >
-                        What We <span className="bg-clip-text text-transparent bg-[#65A30D] "> Do?</span>
+                        What We <span className="bg-clip-text text-transparent bg-[#2a7676] "> Do?</span>
                     </motion.h2>
 
                     <motion.p

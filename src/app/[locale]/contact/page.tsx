@@ -17,7 +17,7 @@ export default function ContactPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="max-w-4xl">
                             <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tighter leading-tight">
-                                {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                                {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
                                 {t('subtitle')}
@@ -38,21 +38,21 @@ export default function ContactPage() {
                                 <h2 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-8">{t('directContact')}</h2>
                                 <div className="space-y-6">
                                     <div className="flex items-start">
-                                        <Mail className="w-6 h-6 mr-4 text-[#84CC16] mt-1" />
+                                        <Mail className="w-6 h-6 mr-4 text-[#3A9B9B] mt-1" />
                                         <div>
                                             <p className="font-bold text-zinc-900 dark:text-zinc-100 mb-1">{tc('email')}</p>
                                             <a
                                                 href="https://mail.google.com/mail/?view=cm&fs=1&to=info@banavatnest.com&su=Inquiry from Website&body=Hi BanavatNest Team,"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-zinc-500 dark:text-zinc-400 hover:text-[#84CC16] transition-colors"
+                                                className="text-zinc-500 dark:text-zinc-400 hover:text-[#3A9B9B] transition-colors"
                                             >
                                                 info@banavatnest.com
                                             </a>
                                         </div>
                                     </div>
                                     <div className="flex items-start">
-                                        <Phone className="w-6 h-6 mr-4 text-[#84CC16] mt-1" />
+                                        <Phone className="w-6 h-6 mr-4 text-[#3A9B9B] mt-1" />
                                         <div>
                                             <p className="font-bold text-zinc-900 dark:text-zinc-100 mb-1">{tc('phone')}</p>
                                             <p className="text-zinc-500 dark:text-zinc-400">+91 99340 44777</p>
@@ -74,17 +74,17 @@ export default function ContactPage() {
                             <form className="space-y-6">
                                 <div>
                                     <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-2">{t('nameLabel')}</label>
-                                    <input type="text" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#84CC16] dark:text-white transition-colors" placeholder={t('namePlaceholder')} />
+                                    <input type="text" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#3A9B9B] dark:text-white transition-colors" placeholder={t('namePlaceholder')} />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-2">{t('emailLabel')}</label>
-                                    <input type="email" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#84CC16] dark:text-white transition-colors" placeholder={t('emailPlaceholder')} />
+                                    <input type="email" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#3A9B9B] dark:text-white transition-colors" placeholder={t('emailPlaceholder')} />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-2">{t('messageLabel')}</label>
-                                    <textarea rows={5} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#84CC16] dark:text-white transition-colors resize-none" placeholder={t('messagePlaceholder')} />
+                                    <textarea rows={5} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#3A9B9B] dark:text-white transition-colors resize-none" placeholder={t('messagePlaceholder')} />
                                 </div>
-                                <button type="button" className="w-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                                <button type="button" className="w-full bg-[#3A9B9B] hover:bg-[#2a7676] text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
                                     {tc('submit')} <ArrowUpRight className="w-4 h-4" />
                                 </button>
                             </form>

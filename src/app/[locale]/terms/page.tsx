@@ -13,7 +13,7 @@ export default function TermsOfUsePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
             >
-                <h1 className="text-4xl font-extrabold text-[#5D3A1A] dark:text-zinc-100 mb-6">{t('title')}</h1>
+                <h1 className="text-4xl font-extrabold text-[#2D3561] dark:text-zinc-100 mb-6">{t('title')}</h1>
                 <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-zinc-300">
                     <p>{t('intro')}</p>
 

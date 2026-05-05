@@ -28,7 +28,7 @@ export default function HeroSection() {
         <motion.div
           animate={{ scale: [1, 1.08, 1], opacity: [0.07, 0.14, 0.07] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="hidden dark:block absolute z-10 top-[15%] right-[22%] w-[560px] h-[560px] rounded-full bg-[#84CC16]/10 blur-[160px] pointer-events-none"
+          className="hidden dark:block absolute z-10 top-[15%] right-[22%] w-[560px] h-[560px] rounded-full bg-[#3A9B9B]/10 blur-[160px] pointer-events-none"
         />
       </section>
 

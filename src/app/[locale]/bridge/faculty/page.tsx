@@ -15,7 +15,7 @@ export default function FacultyEngagementPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="max-w-3xl text-left">
                             <h1 className="text-6xl md:text-8xl font-extrabold text-zinc-900 dark:text-zinc-100 mb-8 leading-tight tracking-tighter">
-                                {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                                {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                             </h1>
                             <p className="text-xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
                                 {t('subtitle')}

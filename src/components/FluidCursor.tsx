@@ -59,9 +59,9 @@ const FluidCursor: React.FC = () => {
                 pos.x, pos.y, isDarkMode ? 600 : 450,
             );
 
-            gradient.addColorStop(0, `rgba(132, 204, 22, ${baseAlpha})`);
-            gradient.addColorStop(0.5, `rgba(132, 204, 22, ${baseAlpha * 0.2})`);
-            gradient.addColorStop(1, "rgba(132, 204, 22, 0)");
+            gradient.addColorStop(0, `rgba(58, 155, 155, ${baseAlpha})`);
+            gradient.addColorStop(0.5, `rgba(58, 155, 155, ${baseAlpha * 0.2})`);
+            gradient.addColorStop(1, "rgba(58, 155, 155, 0)");
 
             ctx.fillStyle = gradient;
             ctx.globalCompositeOperation = isDarkMode ? 'screen' : 'source-over';
@@ -74,9 +74,9 @@ const FluidCursor: React.FC = () => {
                 pos.x, pos.y, 0,
                 pos.x, pos.y, 120,
             );
-            coreGradient.addColorStop(0, `rgba(132, 204, 22, ${coreAlpha})`);
-            coreGradient.addColorStop(0.6, `rgba(132, 204, 22, ${coreAlpha * 0.1})`);
-            coreGradient.addColorStop(1, "rgba(132, 204, 22, 0)");
+            coreGradient.addColorStop(0, `rgba(58, 155, 155, ${coreAlpha})`);
+            coreGradient.addColorStop(0.6, `rgba(58, 155, 155, ${coreAlpha * 0.1})`);
+            coreGradient.addColorStop(1, "rgba(58, 155, 155, 0)");
 
             ctx.fillStyle = coreGradient;
             ctx.beginPath();

@@ -179,8 +179,8 @@ export default function CollaborationPage() {
             key: 'academic',
             emoji: '🎓',
             icon: GraduationCap,
-            color: '#84CC16',
-            bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
+            color: '#3A9B9B',
+            bg: 'bg-teal-50/50 dark:bg-zinc-800/20',
             href: '/bridge/opportunities'
         },
         {
@@ -214,7 +214,7 @@ export default function CollaborationPage() {
                                 className="flex flex-col text-left"
                             >
                                 <h1 className="text-6xl md:text-8xl font-black text-zinc-900 dark:text-zinc-100 mb-8 leading-tight tracking-tighter">
-                                    {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                                    {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                                 </h1>
                                 <p className="text-xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed max-w-xl">
                                     {t('subtitle')}
@@ -227,7 +227,7 @@ export default function CollaborationPage() {
                                 className="relative flex justify-center lg:justify-end"
                             >
                                 {/* Glow backdrop */}
-                                <div className="absolute inset-0 bg-[#84CC16]/10 blur-[100px] rounded-full" />
+                                <div className="absolute inset-0 bg-[#3A9B9B]/10 blur-[100px] rounded-full" />
                                 <Image
                                     src={collaboration_logo}
                                     alt="Collaboration"
@@ -346,11 +346,11 @@ export default function CollaborationPage() {
                         className="mt-24 p-8 md:p-12 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md max-w-5xl mx-auto shadow-2xl relative overflow-hidden"
                     >
                         {/* Decorative background glow */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#84CC16]/10 blur-[60px] rounded-full" />
-                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#84CC16]/5 blur-[60px] rounded-full" />
+                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#3A9B9B]/10 blur-[60px] rounded-full" />
+                        <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#3A9B9B]/5 blur-[60px] rounded-full" />
 
                         <div className="relative z-10 space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                            <p className="border-l-4 border-[#84CC16] pl-6 py-2 italic text-zinc-900 dark:text-zinc-100">
+                            <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 italic text-zinc-900 dark:text-zinc-100">
                                 {t('bodyP1')}
                             </p>
                             <p className="border-l-4 border-zinc-200 dark:border-zinc-700 pl-6 py-2">

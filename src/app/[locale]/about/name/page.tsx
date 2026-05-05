@@ -34,7 +34,7 @@ const OurName = () => {
                 <div className="max-w-7xl mx-auto px-6 mb-20">
                     <div className="max-w-4xl">
                         <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-6 tracking-tight leading-tight">
-                            {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                            {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
                             {t('subtitle')}
@@ -57,13 +57,13 @@ const OurName = () => {
                             <Quote className="absolute top-6 right-6 w-20 h-20 text-zinc-200 dark:text-zinc-800" />
 
                             <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-10 flex items-center">
-                                <span className="w-10 h-1 bg-[#84CC16] mr-4 rounded-full"></span>
+                                <span className="w-10 h-1 bg-[#3A9B9B] mr-4 rounded-full"></span>
                                 {t('meaningTitle')}
                             </h2>
 
                             <div className="space-y-10">
                                 <div>
-                                    <h3 className="text-[#84CC16] text-2xl font-bold mb-3">{t('banavatTitle')}</h3>
+                                    <h3 className="text-[#3A9B9B] text-2xl font-bold mb-3">{t('banavatTitle')}</h3>
                                     <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                                         {t('banavatDesc')}
                                     </p>
@@ -72,7 +72,7 @@ const OurName = () => {
                                 <div className="h-px bg-zinc-200 dark:bg-zinc-800"></div>
 
                                 <div>
-                                    <h3 className="text-[#84CC16] text-2xl font-bold mb-3">{t('nestTitle')}</h3>
+                                    <h3 className="text-[#3A9B9B] text-2xl font-bold mb-3">{t('nestTitle')}</h3>
                                     <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                                         {t('nestDesc')}
                                     </p>

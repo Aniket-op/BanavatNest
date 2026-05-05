@@ -23,7 +23,7 @@ export default function IndustryPartnershipsPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="max-w-3xl text-left">
                             <h1 className="text-5xl md:text-7xl font-extrabold text-zinc-900 dark:text-zinc-100 mb-8 leading-tight tracking-tighter">
-                                {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                                {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                             </h1>
                             <p className="text-xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
                                 {t('subtitle')}
@@ -39,13 +39,13 @@ export default function IndustryPartnershipsPage() {
                             className="bg-white dark:bg-zinc-900 p-12 rounded-[3rem] border border-gray-100 dark:border-zinc-800 shadow-xl"
                         >
                             <div className="w-20 h-20 bg-zinc-100 dark:bg-zinc-800 rounded-3xl flex items-center justify-center mb-8">
-                                <Building className="w-10 h-10 text-[#5D3A1A] dark:text-[#84CC16]" />
+                                <Building className="w-10 h-10 text-[#2D3561] dark:text-[#3A9B9B]" />
                             </div>
                             <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-6 uppercase tracking-tight">{t('frameworkTitle')}</h3>
                             <ul className="space-y-4">
                                 {pocSteps.map((step, i) => (
                                     <li key={i} className="flex items-center text-lg font-bold text-gray-600 dark:text-zinc-400">
-                                        <span className="w-8 h-8 rounded-full bg-[#84CC16]/20 text-[#84CC16] flex items-center justify-center mr-4 text-sm font-black">{i + 1}</span>
+                                        <span className="w-8 h-8 rounded-full bg-[#3A9B9B]/20 text-[#3A9B9B] flex items-center justify-center mr-4 text-sm font-black">{i + 1}</span>
                                         {step}
                                     </li>
                                 ))}
@@ -60,7 +60,7 @@ export default function IndustryPartnershipsPage() {
                                 <p>
                                     {t('bodyP1')}
                                 </p>
-                                <p className="text-[#84CC16] font-bold">
+                                <p className="text-[#3A9B9B] font-bold">
                                     {t('successNote')}
                                 </p>
                             </div>

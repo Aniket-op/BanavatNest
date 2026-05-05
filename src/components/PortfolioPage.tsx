@@ -202,9 +202,9 @@ function RichPublication({ pub, idx }: { pub: Exclude<Publication, { citation: s
     const isPatent = pub.type === 'patent-granted' || pub.type === 'patent-published';
 
     return (
-        <div className="bg-white dark:bg-zinc-900/50 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md dark:hover:border-lime-500/20 transition-all duration-200">
+        <div className="bg-white dark:bg-zinc-900/50 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-md dark:hover:border-teal-500/20 transition-all duration-200">
             <div className="flex items-start gap-3">
-                <span className="mt-0.5 shrink-0 text-xs font-black text-[#84CC16] bg-lime-50 dark:bg-lime-900/20 w-7 h-7 rounded-xl flex items-center justify-center">{idx + 1}</span>
+                <span className="mt-0.5 shrink-0 text-xs font-black text-[#3A9B9B] bg-teal-50 dark:bg-teal-900/20 w-7 h-7 rounded-xl flex items-center justify-center">{idx + 1}</span>
                 <div className="flex-1 min-w-0">
                     <p className="text-zinc-900 dark:text-zinc-100 font-bold text-sm leading-snug mb-1">{pub.title}</p>
 
@@ -233,7 +233,7 @@ function RichPublication({ pub, idx }: { pub: Exclude<Publication, { citation: s
                                 <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-zinc-50 dark:bg-zinc-800 text-zinc-500 text-xs font-medium">pp. {pub.pages}</span>
                             )}
                             {'year' in pub && pub.year && (
-                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-lime-50 dark:bg-lime-900/20 text-[#65A30D] dark:text-[#84CC16] text-xs font-bold">{pub.year}</span>
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-900/20 text-[#2a7676] dark:text-[#3A9B9B] text-xs font-bold">{pub.year}</span>
                             )}
                             {'impactFactor' in pub && pub.impactFactor && (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 text-xs font-semibold">
@@ -254,7 +254,7 @@ function RichPublication({ pub, idx }: { pub: Exclude<Publication, { citation: s
                                     <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-zinc-50 dark:bg-zinc-800 text-zinc-500 text-xs font-medium">{pub.location}</span>
                                 )}
                                 {'date' in pub && pub.date && (
-                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-lime-50 dark:bg-lime-900/20 text-[#65A30D] dark:text-[#84CC16] text-xs font-bold">{pub.date}</span>
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-900/20 text-[#2a7676] dark:text-[#3A9B9B] text-xs font-bold">{pub.date}</span>
                                 )}
                             </div>
                         </div>
@@ -267,7 +267,7 @@ function RichPublication({ pub, idx }: { pub: Exclude<Publication, { citation: s
                                 <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">{pub.publisher}</span>
                             )}
                             {'year' in pub && pub.year && (
-                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-lime-50 dark:bg-lime-900/20 text-[#65A30D] dark:text-[#84CC16] text-xs font-bold">{pub.year}</span>
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-900/20 text-[#2a7676] dark:text-[#3A9B9B] text-xs font-bold">{pub.year}</span>
                             )}
                         </div>
                     )}
@@ -290,7 +290,7 @@ function RichPublication({ pub, idx }: { pub: Exclude<Publication, { citation: s
                             href={pub.doi.startsWith('http') ? pub.doi : `https://doi.org/${pub.doi}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#84CC16] hover:text-[#65A30D] transition-colors"
+                            className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#3A9B9B] hover:text-[#2a7676] transition-colors"
                         >
                             DOI <ExternalLink className="w-2.5 h-2.5" />
                         </a>
@@ -382,10 +382,10 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div ref={navRef} className="flex items-center gap-6 overflow-x-auto no-scrollbar py-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                             {SECTION_IDS.map((id, idx) => (
-                                <button key={id} onClick={() => handleTabClick(id)} className={`relative whitespace-nowrap text-sm font-bold transition-colors py-1 ${activeSection === id ? 'text-[#84CC16]' : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'}`}>
+                                <button key={id} onClick={() => handleTabClick(id)} className={`relative whitespace-nowrap text-sm font-bold transition-colors py-1 ${activeSection === id ? 'text-[#3A9B9B]' : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'}`}>
                                     {SECTION_LABELS[idx]}
                                     {activeSection === id && (
-                                        <motion.div layoutId="activeSection" className="absolute -bottom-4 left-0 right-0 h-0.5 bg-[#84CC16] rounded-t-full" transition={{ type: 'spring', stiffness: 300, damping: 30 }} />
+                                        <motion.div layoutId="activeSection" className="absolute -bottom-4 left-0 right-0 h-0.5 bg-[#3A9B9B] rounded-t-full" transition={{ type: 'spring', stiffness: 300, damping: 30 }} />
                                     )}
                                 </button>
                             ))}
@@ -403,7 +403,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {/* ── Hero / Intro ── */}
                                 <div className="relative grid-bg pt-12">
                                     <div className="hidden dark:block">
-                                        <motion.div animate={{ scale: [1, 1.05, 1], opacity: [0.08, 0.12, 0.08] }} transition={{ duration: 6, repeat: Infinity }} className="absolute top-[15%] right-[5%] w-[35rem] h-[35rem] bg-[#84CC16]/10 blur-[130px] rounded-full pointer-events-none z-0" />
+                                        <motion.div animate={{ scale: [1, 1.05, 1], opacity: [0.08, 0.12, 0.08] }} transition={{ duration: 6, repeat: Infinity }} className="absolute top-[15%] right-[5%] w-[35rem] h-[35rem] bg-[#3A9B9B]/10 blur-[130px] rounded-full pointer-events-none z-0" />
                                     </div>
                                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
                                         {/* Photo + name */}
@@ -415,12 +415,12 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                 </div>
                                             )}
                                             <div className="text-center lg:text-left">
-                                                <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-lime-50 dark:bg-lime-900/10 border border-lime-100/50 dark:border-lime-500/20 shadow-sm mb-4">
-                                                    <span className="flex h-2 w-2 rounded-full bg-[#84CC16] animate-pulse"></span>
-                                                    <span className="text-[10px] font-black text-[#65A30D] dark:text-[#84CC16] uppercase tracking-[0.2em]">Board of Directors</span>
+                                                <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-teal-50 dark:bg-teal-900/10 border border-teal-100/50 dark:border-teal-500/20 shadow-sm mb-4">
+                                                    <span className="flex h-2 w-2 rounded-full bg-[#3A9B9B] animate-pulse"></span>
+                                                    <span className="text-[10px] font-black text-[#2a7676] dark:text-[#3A9B9B] uppercase tracking-[0.2em]">Board of Directors</span>
                                                 </div>
                                                 <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">{data.name}</h1>
-                                                <p className="text-xl font-bold text-[#84CC16] uppercase tracking-widest mt-2">{data.role}</p>
+                                                <p className="text-xl font-bold text-[#3A9B9B] uppercase tracking-widest mt-2">{data.role}</p>
                                             </div>
                                         </div>
 
@@ -445,7 +445,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
 
                                             <button
                                                 onClick={() => setBioExpanded(!bioExpanded)}
-                                                className="inline-flex items-center gap-2 text-sm font-bold text-[#84CC16] hover:text-[#65A30D] transition-colors"
+                                                className="inline-flex items-center gap-2 text-sm font-bold text-[#3A9B9B] hover:text-[#2a7676] transition-colors"
                                             >
                                                 {bioExpanded ? (
                                                     <><ChevronUp className="w-4 h-4" /> Show Less</>
@@ -462,7 +462,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {/* ── My Job ── */}
                                 <div>
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Briefcase className="w-6 h-6 text-[#84CC16]" /></div>
+                                        <div className="w-12 h-12 rounded-2xl bg-[#3A9B9B]/10 flex items-center justify-center"><Briefcase className="w-6 h-6 text-[#3A9B9B]" /></div>
                                         <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">My Job</h2>
                                     </div>
                                     <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium mb-10 text-justify">{data.job.summary}</p>
@@ -471,11 +471,11 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                         {data.job.positions.map((pos, idx) => {
                                             const period = getPositionPeriod(pos);
                                             return (
-                                                <div key={idx} className="bg-white dark:bg-zinc-900/50 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300 overflow-hidden">
+                                                <div key={idx} className="bg-white dark:bg-zinc-900/50 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-teal-500/30 transition-all duration-300 overflow-hidden">
                                                     <button onClick={() => setExpandedPosition(expandedPosition === idx ? null : idx)} className="w-full flex items-center justify-between p-6 md:p-8 text-left">
                                                         <div>
                                                             <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">{pos.title}</h3>
-                                                            <p className="text-[#84CC16] font-bold text-sm uppercase tracking-wider">{pos.organization}</p>
+                                                            <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-wider">{pos.organization}</p>
                                                             {pos.department && <p className="text-zinc-400 text-sm font-medium">{pos.department}</p>}
                                                             {period && <p className="text-zinc-500 text-sm font-medium mt-1">{period}</p>}
                                                             {pos.location && <p className="text-zinc-400 text-xs font-medium mt-0.5">{pos.location}</p>}
@@ -491,7 +491,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                                         <div className="grid sm:grid-cols-2 gap-3">
                                                                             {pos.highlights.map((h, hi) => (
                                                                                 <div key={hi} className="flex items-start gap-3 bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-2xl">
-                                                                                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#84CC16] shrink-0" />
+                                                                                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3A9B9B] shrink-0" />
                                                                                     <span className="text-zinc-700 dark:text-zinc-300 font-medium text-sm">{h}</span>
                                                                                 </div>
                                                                             ))}
@@ -512,11 +512,11 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {/* ── Contact ── */}
                                 <div>
                                     <div className="flex items-center gap-4 mb-10">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Mail className="w-6 h-6 text-[#84CC16]" /></div>
+                                        <div className="w-12 h-12 rounded-2xl bg-[#3A9B9B]/10 flex items-center justify-center"><Mail className="w-6 h-6 text-[#3A9B9B]" /></div>
                                         <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Contact</h2>
                                     </div>
 
-                                    <div className="bg-[#84CC16] rounded-[2.5rem] p-1 border border-[#65A30D]/20 shadow-xl relative overflow-hidden">
+                                    <div className="bg-[#3A9B9B] rounded-[2.5rem] p-1 border border-[#2a7676]/20 shadow-xl relative overflow-hidden">
                                         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
                                         <div className="bg-white dark:bg-zinc-900 rounded-[2.3rem] p-8 md:p-12 h-full relative z-10 grid md:grid-cols-2 gap-12 items-start">
                                             <div>
@@ -525,16 +525,16 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                 <div className="space-y-6">
                                                     {data.contact.email && (
                                                         <div className="flex items-start gap-4">
-                                                            <div className="mt-1 bg-lime-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#84CC16]"><Mail className="w-5 h-5" /></div>
+                                                            <div className="mt-1 bg-teal-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#3A9B9B]"><Mail className="w-5 h-5" /></div>
                                                             <div>
                                                                 <p className="text-sm font-bold text-zinc-500 mb-1 uppercase tracking-widest">Email</p>
-                                                                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}`} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-zinc-900 dark:text-zinc-100 hover:text-[#84CC16] transition-colors">{data.contact.email}</a>
+                                                                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}`} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-zinc-900 dark:text-zinc-100 hover:text-[#3A9B9B] transition-colors">{data.contact.email}</a>
                                                             </div>
                                                         </div>
                                                     )}
                                                     {data.contact.phone && data.contact.phone.length > 0 && (
                                                         <div className="flex items-start gap-4">
-                                                            <div className="mt-1 bg-lime-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#84CC16]"><Phone className="w-5 h-5" /></div>
+                                                            <div className="mt-1 bg-teal-50 dark:bg-zinc-800 p-2.5 rounded-xl text-[#3A9B9B]"><Phone className="w-5 h-5" /></div>
                                                             <div>
                                                                 <p className="text-sm font-bold text-zinc-500 mb-1 uppercase tracking-widest">Phone</p>
                                                                 <div className="space-y-1">{data.contact.phone.map((num, i) => <p key={i} className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{num}</p>)}</div>
@@ -553,7 +553,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                             return (
                                                                 <li key={i}>
                                                                     {href ? (
-                                                                        <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-[#84CC16] font-medium transition-colors">
+                                                                        <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-[#3A9B9B] font-medium transition-colors">
                                                                             <ExternalLink className="w-4 h-4" /> {getProfileName(p)}
                                                                         </a>
                                                                     ) : (
@@ -579,7 +579,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                             <motion.section key="research" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="py-8 space-y-12">
                                 <div>
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><Microscope className="w-6 h-6 text-[#84CC16]" /></div>
+                                        <div className="w-12 h-12 rounded-2xl bg-[#3A9B9B]/10 flex items-center justify-center"><Microscope className="w-6 h-6 text-[#3A9B9B]" /></div>
                                         <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Research</h2>
                                     </div>
                                     <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium text-justify">{data.research.summary}</p>
@@ -589,7 +589,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {data.research.publications.length > 0 && (
                                     <div>
                                         <div className="flex items-center gap-3 mb-6">
-                                            <FileText className="w-5 h-5 text-[#84CC16]" />
+                                            <FileText className="w-5 h-5 text-[#3A9B9B]" />
                                             <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Publications ({data.research.publications.length})</h3>
                                         </div>
 
@@ -609,8 +609,8 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                                 key={key}
                                                                 onClick={() => setActivePubTab(key)}
                                                                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border transition-all duration-200 ${activePubTab === key
-                                                                    ? 'bg-[#84CC16] text-white border-[#84CC16] shadow-sm'
-                                                                    : 'bg-white dark:bg-zinc-900 text-zinc-500 border-zinc-200 dark:border-zinc-700 hover:border-[#84CC16] hover:text-[#84CC16]'
+                                                                    ? 'bg-[#3A9B9B] text-white border-[#3A9B9B] shadow-sm'
+                                                                    : 'bg-white dark:bg-zinc-900 text-zinc-500 border-zinc-200 dark:border-zinc-700 hover:border-[#3A9B9B] hover:text-[#3A9B9B]'
                                                                     }`}
                                                             >
                                                                 <Icon className="w-3 h-3" />
@@ -636,7 +636,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                 {allRichPubsInTab.length > RICH_PUBS_INITIAL && (
                                                     <button
                                                         onClick={() => setShowAllRichPubs(!showAllRichPubs)}
-                                                        className="mt-4 text-[#84CC16] font-bold text-sm hover:text-[#65A30D] transition-colors flex items-center gap-1"
+                                                        className="mt-4 text-[#3A9B9B] font-bold text-sm hover:text-[#2a7676] transition-colors flex items-center gap-1"
                                                     >
                                                         {showAllRichPubs
                                                             ? <><ChevronUp className="w-4 h-4" /> Show Less</>
@@ -659,7 +659,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                     ))}
                                                 </div>
                                                 {data.research.publications.length > 5 && (
-                                                    <button onClick={() => setShowAllPubs(!showAllPubs)} className="mt-4 text-[#84CC16] font-bold text-sm hover:text-[#65A30D] transition-colors flex items-center gap-1">
+                                                    <button onClick={() => setShowAllPubs(!showAllPubs)} className="mt-4 text-[#3A9B9B] font-bold text-sm hover:text-[#2a7676] transition-colors flex items-center gap-1">
                                                         {showAllPubs ? <>Show Less <ChevronUp className="w-4 h-4" /></> : <>Show All {data.research.publications.length} Publications <ChevronDown className="w-4 h-4" /></>}
                                                     </button>
                                                 )}
@@ -672,12 +672,12 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {data.research.coAuthors.length > 0 && (
                                     <div>
                                         <div className="flex items-center gap-3 mb-6">
-                                            <Users className="w-5 h-5 text-[#84CC16]" />
+                                            <Users className="w-5 h-5 text-[#3A9B9B]" />
                                             <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Co-Authors</h3>
                                         </div>
                                         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                                             {data.research.coAuthors.map((ca, idx) => (
-                                                <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm group hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300">
+                                                <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm group hover:shadow-xl dark:hover:border-teal-500/30 transition-all duration-300">
                                                     <div className="flex items-center justify-between mb-2">
                                                         <h4 className="font-bold text-zinc-900 dark:text-zinc-100 text-sm">{ca.name}</h4>
                                                         {ca.count !== undefined && (
@@ -687,7 +687,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                     {ca.role && <p className="text-xs text-zinc-500 dark:text-zinc-500 font-medium mb-2">{ca.role}</p>}
                                                     {ca.affiliation && <p className="text-xs text-zinc-500 dark:text-zinc-500 font-medium mb-2">{ca.affiliation}</p>}
                                                     {ca.link && (
-                                                        <a href={ca.link} target="_blank" rel="noopener noreferrer" className="text-xs text-[#84CC16] hover:text-[#65A30D] font-bold flex items-center gap-1 transition-colors">
+                                                        <a href={ca.link} target="_blank" rel="noopener noreferrer" className="text-xs text-[#3A9B9B] hover:text-[#2a7676] font-bold flex items-center gap-1 transition-colors">
                                                             Profile <ExternalLink className="w-3 h-3" />
                                                         </a>
                                                     )}
@@ -701,13 +701,13 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {data.research.reviewerJournals.length > 0 && (
                                     <div>
                                         <div className="flex items-center gap-3 mb-6">
-                                            <BookOpen className="w-5 h-5 text-[#84CC16]" />
+                                            <BookOpen className="w-5 h-5 text-[#3A9B9B]" />
                                             <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Reviewer of Journals</h3>
                                         </div>
                                         <div className="bg-white dark:bg-zinc-900/50 rounded-[2.5rem] p-8 border border-zinc-100 dark:border-zinc-800 shadow-sm">
                                             <div className="grid sm:grid-cols-2 gap-3">
                                                 {data.research.reviewerJournals.map((j, idx) => (
-                                                    <a key={idx} href={j.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300 hover:text-[#84CC16] font-medium text-sm transition-colors p-2 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
+                                                    <a key={idx} href={j.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300 hover:text-[#3A9B9B] font-medium text-sm transition-colors p-2 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
                                                         <ExternalLink className="w-3.5 h-3.5 shrink-0 text-zinc-400" /> {j.name}
                                                     </a>
                                                 ))}
@@ -723,7 +723,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                             <motion.section key="education" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="py-8 space-y-12">
                                 <div>
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#84CC16]/10 flex items-center justify-center"><GraduationCap className="w-6 h-6 text-[#84CC16]" /></div>
+                                        <div className="w-12 h-12 rounded-2xl bg-[#3A9B9B]/10 flex items-center justify-center"><GraduationCap className="w-6 h-6 text-[#3A9B9B]" /></div>
                                         <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">Education</h2>
                                     </div>
                                     <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium text-justify">{data.education.summary}</p>
@@ -739,7 +739,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                             return (
                                                 <div key={idx} className="relative flex gap-6 md:gap-8 group">
                                                     <div className="relative mt-2">
-                                                        <div className="w-5 h-5 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-200 dark:border-zinc-700 z-10 relative group-hover:border-[#84CC16] transition-colors" />
+                                                        <div className="w-5 h-5 rounded-full bg-white dark:bg-zinc-900 border-4 border-zinc-200 dark:border-zinc-700 z-10 relative group-hover:border-[#3A9B9B] transition-colors" />
                                                     </div>
                                                     <div className="flex-1">
                                                         {edu.year && (
@@ -748,7 +748,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                             </div>
                                                         )}
                                                         <h3 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-1">{title}</h3>
-                                                        <p className="text-[#84CC16] font-bold text-sm md:text-base uppercase tracking-wider mb-4">{edu.institution}</p>
+                                                        <p className="text-[#3A9B9B] font-bold text-sm md:text-base uppercase tracking-wider mb-4">{edu.institution}</p>
                                                         {'location' in edu && edu.location && (
                                                             <p className="text-zinc-400 text-sm font-medium mb-3">{edu.location}</p>
                                                         )}
@@ -766,7 +766,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {data.education.awards.length > 0 && (
                                     <div>
                                         <div className="flex items-center gap-3 mb-6">
-                                            <Trophy className="w-5 h-5 text-[#84CC16]" />
+                                            <Trophy className="w-5 h-5 text-[#3A9B9B]" />
                                             <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100">Awards &amp; Honors</h3>
                                         </div>
 
@@ -786,9 +786,9 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                                 </p>
                                                                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                                                                     {honorAwards.map((aw, idx) => (
-                                                                        <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300">
-                                                                            <div className="w-8 h-8 rounded-xl bg-lime-50 dark:bg-lime-900/20 flex items-center justify-center mb-3">
-                                                                                <Star className="w-4 h-4 text-[#84CC16]" />
+                                                                        <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-teal-500/30 transition-all duration-300">
+                                                                            <div className="w-8 h-8 rounded-xl bg-teal-50 dark:bg-teal-900/20 flex items-center justify-center mb-3">
+                                                                                <Star className="w-4 h-4 text-[#3A9B9B]" />
                                                                             </div>
                                                                             <h4 className="font-bold text-zinc-900 dark:text-zinc-100 text-sm leading-snug">{aw.title}</h4>
                                                                             {aw.description && <p className="text-zinc-500 text-xs mt-2 font-medium">{aw.description}</p>}
@@ -804,7 +804,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                                 </p>
                                                                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                                                                     {extraAwards.map((aw, idx) => (
-                                                                        <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300">
+                                                                        <div key={idx} className="bg-white dark:bg-zinc-900/50 p-5 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-teal-500/30 transition-all duration-300">
                                                                             <div className="w-8 h-8 rounded-xl bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center mb-3">
                                                                                 <Trophy className="w-4 h-4 text-violet-500" />
                                                                             </div>
@@ -818,8 +818,8 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                         {otherAwards.length > 0 && (
                                                             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                                                                 {otherAwards.map((aw, idx) => (
-                                                                    <div key={idx} className="bg-white dark:bg-zinc-900/50 p-6 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all">
-                                                                        {aw.year && <span className="text-xs font-bold bg-lime-50 dark:bg-lime-900/20 text-[#65A30D] dark:text-[#84CC16] px-3 py-1 rounded-full">{aw.year}</span>}
+                                                                    <div key={idx} className="bg-white dark:bg-zinc-900/50 p-6 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-teal-500/30 transition-all">
+                                                                        {aw.year && <span className="text-xs font-bold bg-teal-50 dark:bg-teal-900/20 text-[#2a7676] dark:text-[#3A9B9B] px-3 py-1 rounded-full">{aw.year}</span>}
                                                                         <h4 className="font-bold text-zinc-900 dark:text-zinc-100 mt-3 mb-2">{aw.title}</h4>
                                                                         {aw.description && <p className="text-zinc-600 dark:text-zinc-400 text-sm font-medium leading-relaxed">{aw.description}</p>}
                                                                     </div>
@@ -833,8 +833,8 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                             /* Simple award mode (Sukhdev) */
                                             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                                                 {data.education.awards.map((aw, idx) => (
-                                                    <div key={idx} className="bg-white dark:bg-zinc-900/50 p-6 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-lime-500/30 transition-all duration-300">
-                                                        {aw.year && <span className="text-xs font-bold bg-lime-50 dark:bg-lime-900/20 text-[#65A30D] dark:text-[#84CC16] px-3 py-1 rounded-full">{aw.year}</span>}
+                                                    <div key={idx} className="bg-white dark:bg-zinc-900/50 p-6 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:border-teal-500/30 transition-all duration-300">
+                                                        {aw.year && <span className="text-xs font-bold bg-teal-50 dark:bg-teal-900/20 text-[#2a7676] dark:text-[#3A9B9B] px-3 py-1 rounded-full">{aw.year}</span>}
                                                         <h4 className="font-bold text-zinc-900 dark:text-zinc-100 mt-3 mb-2">{aw.title}</h4>
                                                         {aw.description && <p className="text-zinc-600 dark:text-zinc-400 text-sm font-medium leading-relaxed">{aw.description}</p>}
                                                     </div>
@@ -848,8 +848,8 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                 {data.education.phdThesis && (
                                     <div>
                                         <button onClick={() => setShowThesis(!showThesis)} className="flex items-center gap-3 mb-6 group">
-                                            <BookOpen className="w-5 h-5 text-[#84CC16]" />
-                                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-[#84CC16] transition-colors">PhD Thesis Details</h3>
+                                            <BookOpen className="w-5 h-5 text-[#3A9B9B]" />
+                                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 group-hover:text-[#3A9B9B] transition-colors">PhD Thesis Details</h3>
                                             {showThesis ? <ChevronUp className="w-5 h-5 text-zinc-400" /> : <ChevronDown className="w-5 h-5 text-zinc-400" />}
                                         </button>
                                         <AnimatePresence>
@@ -886,7 +886,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                                                                 <div className="grid sm:grid-cols-2 gap-2">
                                                                     {data.education.phdThesis.committee.map((c, i) => (
                                                                         <div key={i} className="flex items-center gap-2 text-sm">
-                                                                            <div className="w-1.5 h-1.5 rounded-full bg-[#84CC16] shrink-0" />
+                                                                            <div className="w-1.5 h-1.5 rounded-full bg-[#3A9B9B] shrink-0" />
                                                                             <span className="text-zinc-700 dark:text-zinc-300 font-medium">{c.name}</span>
                                                                             <span className="text-zinc-400 text-xs">({c.role})</span>
                                                                         </div>

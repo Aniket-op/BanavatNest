@@ -40,12 +40,12 @@ const usps = [
   {
     emoji: '🌾',
     titleKey: 'agri',
-    color: '#84CC16',
+    color: '#3A9B9B',
   },
 ];
 
 const workSteps = [
-  { title: 'Idea', emoji: '💡', color: '#84CC16' },
+  { title: 'Idea', emoji: '💡', color: '#3A9B9B' },
   { title: 'Design', emoji: '🎨', color: '#3B82F6' },
   { title: 'Prototype', emoji: '🛠️', color: '#F59E0B' },
   { title: 'Deployment', emoji: '🚀', color: '#10B981' },
@@ -60,7 +60,7 @@ export default function WhatWeDo() {
       url: '/images/homepage/Ai.jpg',
       desc: t('domainAiDesc'),
       icon: <Brain className="w-7 h-7" />,
-      accent: 'from-[#84CC16] to-cyan-500',
+      accent: 'from-[#3A9B9B] to-cyan-500',
       iconGradient: 'from-blue-500 to-cyan-400',
       href: '/what-we-do/domains/ai-ml-data-science',
     },
@@ -69,7 +69,7 @@ export default function WhatWeDo() {
       url: '/images/homepage/cyberSecure.jpg',
       desc: t('domainCyberDesc'),
       icon: <Shield className="w-7 h-7" />,
-      accent: 'from-emerald-500 to-[#84CC16]',
+      accent: 'from-emerald-500 to-[#3A9B9B]',
       iconGradient: 'from-green-500 to-emerald-400',
       href: '/what-we-do/domains/cybersecurity-iot-blockchain',
     },
@@ -87,8 +87,8 @@ export default function WhatWeDo() {
       url: '/images/homepage/Prototype-image.png',
       desc: t('domainAgriDesc'),
       icon: <Zap className="w-7 h-7" />,
-      accent: 'from-amber-500 to-[#84CC16]',
-      iconGradient: 'from-lime-500 to-yellow-600',
+      accent: 'from-amber-500 to-[#3A9B9B]',
+      iconGradient: 'from-teal-500 to-yellow-600',
       href: '/what-we-do/domains/agriculture-smart-farming',
     },
   ];
@@ -147,7 +147,7 @@ export default function WhatWeDo() {
           {/* Left Division: Our Domains */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pr-8">
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
-              {t('whatWeDo.coreDomainsTitle')} <span className="text-[#84CC16]">{t('whatWeDo.coreDomainsHighlight')}</span>
+              {t('whatWeDo.coreDomainsTitle')} <span className="text-[#3A9B9B]">{t('whatWeDo.coreDomainsHighlight')}</span>
             </h2>
             <div className="-mx-4 sm:mx-0">
               <DomainCarousel items={domains} />
@@ -157,7 +157,7 @@ export default function WhatWeDo() {
           {/* Right Division: What We Do & How We Work */}
           <div className="flex flex-col w-full relative z-10 lg:pl-10 border-l border-zinc-200 dark:border-zinc-800/50">
             <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
-              {t('whatWeDo.title')} <span className="text-[#84CC16]">{t('whatWeDo.titleHighlight')}</span>
+              {t('whatWeDo.title')} <span className="text-[#3A9B9B]">{t('whatWeDo.titleHighlight')}</span>
             </h2>
 
             <div className="relative w-full h-[500px] flex items-center justify-center mt-10 mb-6" style={{ perspective: '2000px' }}>
@@ -253,7 +253,7 @@ export default function WhatWeDo() {
               <div className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">
                 <button
                   onClick={handlePrev}
-                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#84CC16]"
+                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#3A9B9B]"
                   aria-label="Previous Text"
                 >
                   <ChevronUp className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
@@ -265,7 +265,7 @@ export default function WhatWeDo() {
                       key={idx}
                       onClick={() => goToSlide(idx)}
                       className={`w-1.5 rounded-full mx-auto transition-all duration-300 ${idx === activeUspIndex
-                        ? 'h-6 bg-[#84CC16]'
+                        ? 'h-6 bg-[#3A9B9B]'
                         : 'h-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400'
                         }`}
                       aria-label={`Go to USP ${idx + 1}`}
@@ -275,7 +275,7 @@ export default function WhatWeDo() {
 
                 <button
                   onClick={handleNext}
-                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#84CC16]"
+                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#3A9B9B]"
                   aria-label="Next Text"
                 >
                   <ChevronDown className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
@@ -287,38 +287,38 @@ export default function WhatWeDo() {
             {/* 
             <div className="mt-12 relative w-full flex flex-col items-center lg:items-start">
               <h3 className="text-lg md:text-xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-8 text-center lg:text-left">
-                How We <span className="text-[#84CC16]">Work</span>
+                How We <span className="text-[#3A9B9B]">Work</span>
               </h3>
               <div className="pl-20 grid grid-cols-2 gap-x-2 gap-y-6 relative w-full max-w-[290px] mx-auto lg:mx-0">
                 <div className="relative group flex flex-col">
-                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#3A9B9B]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[0].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[0].title}</div>
                   </div>
-                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 text-[#84CC16]/60 text-base hidden sm:block">→</div>
+                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 text-[#3A9B9B]/60 text-base hidden sm:block">→</div>
                 </div>
 
                 <div className="relative group flex flex-col">
-                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#3A9B9B]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[1].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[1].title}</div>
                   </div>
-                  <div className="absolute left-1/2 -translate-x-1/2 -bottom-5 text-[#84CC16]/60 text-base hidden sm:block">↓</div>
+                  <div className="absolute left-1/2 -translate-x-1/2 -bottom-5 text-[#3A9B9B]/60 text-base hidden sm:block">↓</div>
                 </div>
 
                 <div className="relative group flex flex-col order-last sm:order-none">
-                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#3A9B9B]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[3].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[3].title}</div>
                   </div>
                 </div>
 
                 <div className="relative group flex flex-col">
-                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#84CC16]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
+                  <div className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 shadow-sm backdrop-blur-md transition-all hover:border-[#3A9B9B]/50 hover:bg-white dark:hover:bg-zinc-900 aspect-square w-full">
                     <div className="text-xl">{workSteps[2].emoji}</div>
                     <div className="text-[9px] font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-tighter">{workSteps[2].title}</div>
                   </div>
-                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 text-[#84CC16]/60 text-base hidden sm:block">←</div>
+                  <div className="absolute -left-2 top-1/2 -translate-y-1/2 text-[#3A9B9B]/60 text-base hidden sm:block">←</div>
                 </div>
               </div>
             </div>
