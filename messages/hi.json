@@ -150,6 +150,15 @@
             }
         }
     },
+    "aboutUsPage": {
+        "title": "हमारे बारे",
+        "titleHighlight": "में",
+        "subtitle": "जिज्ञासा से प्रभाव तक विचारों को पोषित करने वाला अनुसंधान-आधारित नवाचार।",
+        "coreValuesTitle": "हमारे मूल",
+        "coreValuesHighlight": "मूल्य",
+        "coreValuesSubheading": "उद्देश्यपूर्ण नवाचार और व्यवस्थित विकास के माध्यम से भविष्य का निर्माण।",
+        "meaningHeading": "अर्थ"
+    },
     "aboutName": {
         "title": "हमारा",
         "titleHighlight": "नाम",

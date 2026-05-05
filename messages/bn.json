@@ -150,6 +150,15 @@
             }
         }
     },
+    "aboutUsPage": {
+        "title": "আমাদের",
+        "titleHighlight": "সম্পর্কে",
+        "subtitle": "গবেষণা-নেতৃত্বাধীন উদ্ভাবন যা কৌতূহল থেকে প্রভাব পর্যন্ত ধারণাগুলিকে লালন করে।",
+        "coreValuesTitle": "আমাদের মূল",
+        "coreValuesHighlight": "মূল্যবোধ",
+        "coreValuesSubheading": "উদ্দেশ্যমূলক উদ্ভাবন এবং পদ্ধতিগত উন্নয়নের মাধ্যমে ভবিষ্যৎ গঠন।",
+        "meaningHeading": "অর্থ"
+    },
     "aboutName": {
         "title": "আমাদের",
         "titleHighlight": "নাম",

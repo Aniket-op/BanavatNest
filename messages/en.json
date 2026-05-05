@@ -20,6 +20,7 @@
     "nav": {
         "home": "Home",
         "aboutUs": "About Us",
+        "aboutUsMain": "About Us",
         "ourName": "Our Name",
         "philosophy": "Philosophy & Core Values",
         "mission": "Mission and Vision",
@@ -149,6 +150,15 @@
                 }
             }
         }
+    },
+    "aboutUsPage": {
+        "title": "About",
+        "titleHighlight": "Us",
+        "subtitle": "Research-led innovation nurturing ideas from curiosity to impact.",
+        "coreValuesTitle": "Our Core",
+        "coreValuesHighlight": "Values",
+        "coreValuesSubheading": "Building the future through purposeful innovation and systematic development.",
+        "meaningHeading": "Meaning"
     },
     "aboutName": {
         "title": "Our",

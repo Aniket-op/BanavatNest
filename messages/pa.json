@@ -150,6 +150,15 @@
             }
         }
     },
+    "aboutUsPage": {
+        "title": "ਸਾਡੇ",
+        "titleHighlight": "ਬਾਰੇ",
+        "subtitle": "ਖੋਜ-ਅਧਾਰਿਤ ਨਵੀਨਤਾ ਜੋ ਵਿਚਾਰਾਂ ਨੂੰ ਉਤਸੁਕਤਾ ਤੋਂ ਪ੍ਰਭਾਵ ਤੱਕ ਪਾਲਦੀ ਹੈ।",
+        "coreValuesTitle": "ਸਾਡੀਆਂ ਮੁੱਖ",
+        "coreValuesHighlight": "ਕਦਰਾਂ-ਕੀਮਤਾਂ",
+        "coreValuesSubheading": "ਉਦੇਸ਼ਪੂਰਨ ਨਵੀਨਤਾ ਅਤੇ ਯੋਜਨਾਬੱਧ ਵਿਕਾਸ ਰਾਹੀਂ ਭਵਿੱਖ ਦਾ ਨਿਰਮਾਣ।",
+        "meaningHeading": "ਅਰਥ"
+    },
     "aboutName": {
         "title": "ਸਾਡਾ",
         "titleHighlight": "ਨਾਮ",
