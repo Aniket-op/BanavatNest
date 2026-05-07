@@ -106,7 +106,30 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* Core Values Section */}
+            {/* Our Slogan Section */}
+            <section className="py-12 px-4 md:px-8 max-w-5xl mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center"
+                >
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#3A9B9B] mb-3">
+                        {tName('sloganTitle')}
+                    </p>
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight
+                        bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]
+                        dark:from-white dark:via-[#3A9B9B] dark:to-white
+                        bg-clip-text text-transparent"
+                    >
+                        {tName('sloganText')}
+                    </h2>
+                    <div className="mt-5 mx-auto w-16 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]" />
+                </motion.div>
+            </section>
+
+
             <section className="py-24 bg-zinc-50 dark:bg-zinc-900/30">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="text-center mb-20">
@@ -159,6 +182,26 @@ const AboutUs = () => {
                         </motion.div>
                     </div>
                 </div>
+            </section>
+            {/* Closing Statement */}
+            <section className="py-16 px-4 md:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className="max-w-4xl mx-auto text-center px-6 py-10
+                        border border-[#3A9B9B]/25 rounded-3xl
+                        bg-gradient-to-br from-[#3A9B9B]/5 to-[#2D3561]/5
+                        dark:from-[#3A9B9B]/10 dark:to-[#2D3561]/10
+                        backdrop-blur-sm shadow-sm"
+                >
+                    <span className="text-2xl text-[#3A9B9B] font-bold mr-2">&#8220;</span>
+                    <span className="text-base md:text-lg lg:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
+                        {tName('closingStatement')}
+                    </span>
+                    <span className="text-2xl text-[#3A9B9B] font-bold ml-2">&#8221;</span>
+                </motion.div>
             </section>
         </main>
     );

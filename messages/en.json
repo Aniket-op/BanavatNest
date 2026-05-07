@@ -167,9 +167,12 @@
         "subtitle": "Symbolizing the philosophy of creation and nurturing innovation.",
         "meaningTitle": "The Meaning",
         "banavatTitle": "Banavat",
-        "banavatDesc": "Drawn from Punjabi usage, signifies making, crafting, building, and creating. It conveys the spirit of active construction, thoughtful design, and purposeful formation.",
+        "banavatDesc": "Drawn from Hindi (and widely used in Punjabi), Banavat signifies making, crafting, building, and creating. It reflects a mindset of active construction—where ideas are not just imagined, but thoughtfully designed and purposefully shaped into reality.",
         "nestTitle": "Nest",
-        "nestDesc": "Symbolizes a safe and nurturing space where ideas are developed, protected, and allowed to grow before taking flight.",
+        "nestDesc": "A Nest represents a safe and nurturing space—where ideas are developed, protected, and allowed to mature before taking flight. It embodies care, patience, and the journey from concept to impact.",
+        "sloganTitle": "Our Slogan",
+        "sloganText": "Build with Purpose. Nurture to Impact.",
+        "closingStatement": "BanavatNest is not just a name—it is our commitment to shaping ideas through research and prototyping, transforming them into real-world impact.",
         "quote": "\"Together, BanavatNest represents a research-led innovation ecosystem where curiosity-driven ideas are shaped through systematic investigation.\""
     },
     "aboutPhilosophy": {
@@ -206,9 +209,9 @@
         "titleHighlight": "& Vision",
         "subtitle": "Research-driven innovation nurturing ideas from curiosity to impact.",
         "missionTitle": "Our Mission",
-        "missionText": "To create and nurture ideas through research and experimental development, shaping curiosity-driven concepts into innovative, practical, and scalable solutions.",
+        "missionText": "To build with purpose by transforming ideas through research, design, and prototyping—nurturing them into practical, scalable solutions that contribute to industry, society, and sustainable growth.",
         "visionTitle": "Our Vision",
-        "visionText": "To become a research-driven innovation ecosystem that nurtures ideas from curiosity to impact through continuous experimentation and learning."
+        "visionText": "To become a research-led innovation ecosystem where ideas evolve from curiosity to impact—driving meaningful contributions to industry, society, and sustainable growth."
     },
     "aboutTeam": {
         "title": "Our",
