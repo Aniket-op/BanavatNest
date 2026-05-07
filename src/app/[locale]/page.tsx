@@ -25,12 +25,8 @@ const Home = () => {
   const t = useTranslations("home");
   const updates = [
     {
-      title: t("updateTitle"),
-      route: "/",
-    },
-    {
-      title: t("updateTitle2"),
-      route: "https://sites.google.com/thapar.edu/roft2026",
+      title: t("updateTitle3"),
+      route: "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
     },
   ];
 

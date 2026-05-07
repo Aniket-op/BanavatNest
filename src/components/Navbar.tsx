@@ -25,9 +25,9 @@ const Navbar = () => {
             name: t('aboutUs'),
             path: '/about' as const,
             subItems: [
-                { name: t('aboutUsMain'), path: '/aboutUs' as const },
-                { name: t('ourName'), path: '/about/name' as const },
-                { name: t('philosophy'), path: '/about/philosophy' as const },
+                { name: t('ourName'), path: '/aboutUs' as const },
+                // { name: t('ourName'), path: '/about/name' as const },
+                // { name: t('philosophy'), path: '/about/philosophy' as const },
                 { name: t('mission'), path: '/about/mission' as const },
                 { name: t('ourTeam'), path: '/about/team' as const },
                 { name: t('board'), path: '/about/board' as const },
