@@ -174,7 +174,7 @@ const AboutUs = () => {
                             className="relative aspect-square"
                         >
                             <Image
-                                src="/images/Idea-Deploy.png"
+                                src="/images/Core Values.png"
                                 alt="Idea to Deployment - Core Values"
                                 fill
                                 className="object-contain transition-transform duration-700 hover:scale-105"
