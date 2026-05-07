@@ -1,9 +1,53 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import PageWrapper from '@/components/PageWrapper';
+import React from 'react';
+
+// ── 3D Card Wrapper ──
+const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 });
+  const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+    glareOpacity.set(0.14);
+  };
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+    glareOpacity.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+      className={`relative ${className}`}
+    >
+      {children}
+      <motion.div
+        className="absolute inset-0 pointer-events-none rounded-[3rem] overflow-hidden z-30"
+        style={{
+          opacity: glareOpacity,
+          background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
+        }}
+      />
+    </motion.div>
+  );
+};
 
 export default function FacultyEngagementPage() {
     const t = useTranslations('facultyPage');
@@ -25,6 +69,8 @@ export default function FacultyEngagementPage() {
                 </header>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div style={{ perspective: '1200px' }}>
+                    <Card3D>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -49,6 +95,8 @@ export default function FacultyEngagementPage() {
                             </div>
                         </div>
                     </motion.div>
+                    </Card3D>
+                </div>
                 </div>
             </div>
         </PageWrapper>

@@ -26,14 +26,14 @@ const AboutUs = () => {
             {/* Hero Section */}
             <section className="relative w-full overflow-hidden bg-zinc-50 dark:bg-zinc-900/50">
                 <div className="w-full relative">
-                    <ImageCarousel 
-                        images={heroImages} 
-                        aspectRatio="aspect-[1500/800] md:aspect-[1500/625]" 
+                    <ImageCarousel
+                        images={heroImages}
+                        aspectRatio="aspect-[1500/800] md:aspect-[1500/625]"
                         rounded="rounded-none"
                         objectFit="contain"
                     />
                 </div>
-                
+
                 {/* Glow Effect similar to homepage */}
                 <motion.div
                     animate={{ scale: [1, 1.08, 1], opacity: [0.07, 0.14, 0.07] }}
@@ -55,7 +55,7 @@ const AboutUs = () => {
             {/* Our Name Section */}
             <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <motion.h2 
+                    <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -70,11 +70,14 @@ const AboutUs = () => {
                         {t('meaningHeading')}
                     </h3>
                     <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white dark:bg-zinc-900/40 p-10 rounded-3xl shadow-sm border border-zinc-100 dark:border-zinc-800 backdrop-blur-sm"
+                            whileHover={{ y: -6, boxShadow: '0 30px 60px -12px rgba(0, 180, 180, 0.25)' }}
+                            transition={{ duration: 0.5 }}
+                            className="bg-white dark:bg-zinc-900/40 p-10 rounded-3xl shadow-md backdrop-blur-sm border border-t-[6px] border-zinc-200 dark:border-zinc-700"
+                            style={{ borderTopColor: '#3A9B9B' }}
                         >
                             <h4 className="text-3xl font-bold mb-6 text-[#2D3561] dark:text-[#3A9B9B]">
                                 {tName('banavatTitle')}
@@ -83,11 +86,14 @@ const AboutUs = () => {
                                 {tName('banavatDesc')}
                             </p>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white dark:bg-zinc-900/40 p-10 rounded-3xl shadow-sm border border-zinc-100 dark:border-zinc-800 backdrop-blur-sm"
+                            whileHover={{ y: -6, boxShadow: '0 30px 60px -12px rgba(45,53,97,0.2)' }}
+                            transition={{ duration: 0.5 }}
+                            className="bg-white dark:bg-zinc-900/40 p-10 rounded-3xl shadow-md backdrop-blur-sm border border-t-[6px] border-zinc-200 dark:border-zinc-700"
+                            style={{ borderTopColor: '#2D3561' }}
                         >
                             <h4 className="text-3xl font-bold mb-6 text-[#2D3561] dark:text-[#3A9B9B]">
                                 {tName('nestTitle')}
@@ -104,7 +110,7 @@ const AboutUs = () => {
             <section className="py-24 bg-zinc-50 dark:bg-zinc-900/30">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="text-center mb-20">
-                        <motion.h2 
+                        <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -137,18 +143,18 @@ const AboutUs = () => {
                             ))}
                         </div>
 
-                        {/* RIGHT: Image */}
+                        {/* RIGHT: Image (frameless) */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="relative aspect-square rounded-[2rem] overflow-hidden shadow-2xl border border-zinc-200 dark:border-zinc-800"
+                            className="relative aspect-square"
                         >
-                            <Image 
-                                src="/images/Idea-Deploy.png" 
-                                alt="Idea to Deployment - Core Values" 
+                            <Image
+                                src="/images/Idea-Deploy.png"
+                                alt="Idea to Deployment - Core Values"
                                 fill
-                                className="object-cover transition-transform duration-700 hover:scale-105"
+                                className="object-contain transition-transform duration-700 hover:scale-105"
                             />
                         </motion.div>
                     </div>

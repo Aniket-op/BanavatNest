@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -10,6 +10,49 @@ import {
   Tag,
 } from "lucide-react";
 import Image from "next/image";
+import React from "react";
+
+// ── 3D Card Wrapper ──
+const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 });
+    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 });
+    const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+        mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+        glareOpacity.set(0.14);
+    };
+    const handleMouseLeave = () => {
+        mouseX.set(0);
+        mouseY.set(0);
+        glareOpacity.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+            className={`relative ${className}`}
+        >
+            {children}
+            <motion.div
+                className="absolute inset-0 pointer-events-none rounded-[2rem] overflow-hidden z-30"
+                style={{
+                    opacity: glareOpacity,
+                    background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
+                }}
+            />
+        </motion.div>
+    );
+};
 
 // ── LinkedIn Post Data ──
 // images: array of { src, alt } — multiple images will auto-cycle on the right panel
@@ -145,6 +188,8 @@ export default function NewsEvents() {
         </motion.div>
 
         {/* ── Main Carousel Card ── */}
+        <div style={{ perspective: '1400px' }}>
+        <Card3D className="w-full">
         <div className="relative rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-white dark:bg-zinc-900/60 backdrop-blur-sm">
           {/* Progress bar */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-zinc-100 dark:bg-zinc-800 z-20">
@@ -318,6 +363,8 @@ export default function NewsEvents() {
               </div>
             </div>
           </div>
+        </div>
+        </Card3D>
         </div>
 
         {/* ── Post dot indicators ── */}

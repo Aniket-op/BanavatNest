@@ -1,10 +1,53 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Brain, Shield, Microscope, Zap, ChevronUp, ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import DomainCarousel from '@/components/DomainCarousel';
+import React from 'react';
+
+// ── 3D Card Wrapper ──
+const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
+    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
+    const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!ref.current) return;
+        const rect = ref.current.getBoundingClientRect();
+        mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+        mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+        glareOpacity.set(0.18);
+    };
+    const handleMouseLeave = () => {
+        mouseX.set(0);
+        mouseY.set(0);
+        glareOpacity.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+            className={`relative ${className}`}
+        >
+            {children}
+            <motion.div
+                className="absolute inset-0 pointer-events-none rounded-3xl overflow-hidden z-30"
+                style={{
+                    opacity: glareOpacity,
+                    background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
+                }}
+            />
+        </motion.div>
+    );
+};
 
 const usps = [
   {
@@ -203,10 +246,12 @@ export default function WhatWeDo() {
                         pointerEvents: isActive ? 'auto' : 'none',
                         opacity: cardOpacity,
                         transition: 'opacity 0.35s ease',
+                        perspective: '1200px',
                       }}
                     >
+                      <Card3D className="w-full max-w-[260px]">
                       <div
-                        className="w-full max-w-[260px] bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
+                        className="w-full bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
                         style={{
                           WebkitFontSmoothing: 'antialiased',
                           MozOsxFontSmoothing: 'grayscale',
@@ -225,6 +270,7 @@ export default function WhatWeDo() {
                           {t(`whatWeDo.usps.${usp.titleKey}`)}
                         </h4>
                       </div>
+                      </Card3D>
                     </div>
                   );
                 })}

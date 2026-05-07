@@ -1,10 +1,54 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
+import React from 'react';
+
+// ── 3D Card Wrapper (same effect as Opportunities by Level cards) ──
+const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
+  const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+    glareOpacity.set(0.18);
+  };
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+    glareOpacity.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+      className={`relative ${className}`}
+    >
+      {children}
+      {/* Glare */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none rounded-[2.5rem] overflow-hidden z-30"
+        style={{
+          opacity: glareOpacity,
+          background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
+        }}
+      />
+    </motion.div>
+  );
+};
 
 // ── Premium SVG Illustrations with Animations ──
 
@@ -142,7 +186,7 @@ const serveData = [
     href: "/bridge/opportunities",
     emoji: "🎓",
     illustration: StudentIllustration,
-    color: '#3A9B9B',
+    color: '#00993bff',
     bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
   },
   {
@@ -150,7 +194,7 @@ const serveData = [
     href: "/bridge/faculty",
     emoji: "👩‍🏫",
     illustration: FacultyIllustration,
-    color: '#3B82F6',
+    color: '#116cffff',
     bg: 'bg-[#EFF6FF] dark:bg-[#0f1e3d]',
   },
   {
@@ -158,7 +202,7 @@ const serveData = [
     href: "/bridge/partnerships",
     emoji: "🏭",
     illustration: IndustryIllustration,
-    color: '#8B5CF6',
+    color: '#7940ffff',
     bg: 'bg-[#F5F3FF] dark:bg-[#1e1040]',
   }
 ];
@@ -223,107 +267,110 @@ export default function WhatWeServe() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 className="group relative h-[620px]"
+                style={{ perspective: '1200px' }}
               >
-                <Link href={card.href} className="block h-full">
-                  <motion.div
-                    whileHover={{
-                      boxShadow: `0 40px 80px -16px ${card.color}50`,
-                      y: -12,
-                      borderColor: `${card.color}100`
-                    }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    style={{
-                      borderTopColor: card.color,
-                      boxShadow: `0 20px 40px -12px ${card.color}30`,
-                      borderColor: `${card.color}90`
-                    }}
-                    className={`relative rounded-[2.5rem] ${card.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm`}
-                  >
-
-                    {/* Dark mode glow */}
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
-                      style={{
-                        background: `radial-gradient(circle at top, ${card.color}22, transparent 70%)`
+                <Card3D className="h-full">
+                  <Link href={card.href} className="block h-full">
+                    <motion.div
+                      whileHover={{
+                        boxShadow: `0 40px 80px -16px ${card.color}50`,
+                        y: -12,
+                        borderColor: `${card.color}100`
                       }}
-                    />
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      style={{
+                        borderTopColor: card.color,
+                        boxShadow: `0 20px 40px -12px ${card.color}30`,
+                        borderColor: `${card.color}90`
+                      }}
+                      className={`relative rounded-[2.5rem] ${card.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm`}
+                    >
 
-                    {/* Header: Label with Emoji */}
-                    <div className="relative z-10 flex flex-col items-center mb-6">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-[2.2rem]">{card.emoji}</span>
-                        <span className="text-base font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
-                          {t(`whatWeServe.${card.key}.label`)}
-                        </span>
-                      </div>
-
-                      {/* Illustration Container */}
-                      <motion.div
-                      key={`illustration-${card.key}`}
-                        initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
-                        animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-35 h-35 mb-4 transition-transform duration-700 group-hover:scale-110"
-                      >
-                        <Illustration color={card.color} />
-                      </motion.div>
-                    </div>
-
-                    {/* Content with Animation */}
-                    <div className="relative z-10 flex-grow w-full">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={`${card.key}-${cardIndices[idx]}`}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.5, ease: "circOut" }}
-                        >
-                          <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[64px] flex items-center justify-center">
-                            {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.heading`)}
-                          </h3>
-                          <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
-                            {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.desc`)}
-                          </p>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Explore More CTA */}
-                    <div className="relative z-10 mt-8 mb-6 flex items-center justify-center gap-3 group/cta">
-                      <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/50 dark:text-zinc-100/40 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
-                        {t('whatWeServe.exploreMore')}
-                      </span>
+                      {/* Dark mode glow */}
                       <div
-                        className="w-8 h-8 rounded-full flex items-center justify-center transition-all group-hover/cta:translate-x-1"
-                        style={{ backgroundColor: `${card.color}20`, color: card.color }}
-                      >
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
+                        style={{
+                          background: `radial-gradient(circle at top, ${card.color}22, transparent 70%)`
+                        }}
+                      />
 
-                    {/* Bottom Progress Indicator Dots */}
-                    <div className="relative z-10 flex justify-center gap-2 mb-4">
-                      {[0, 1, 2, 3].map((dot) => (
+                      {/* Header: Label with Emoji */}
+                      <div className="relative z-10 flex flex-col items-center mb-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[2.2rem]">{card.emoji}</span>
+                          <span className="text-base font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
+                            {t(`whatWeServe.${card.key}.label`)}
+                          </span>
+                        </div>
+
+                        {/* Illustration Container */}
                         <motion.div
-                          key={dot}
-                          className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
-                          animate={{
-                            width: dot === cardIndices[idx] ? 24 : 6,
-                            backgroundColor: dot === cardIndices[idx] ? card.color : undefined
-                          }}
-                          transition={{ duration: 0.4 }}
-                        />
-                      ))}
-                    </div>
+                          key={`illustration-${card.key}`}
+                          initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
+                          animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                          className="w-35 h-35 mb-4 transition-transform duration-700 group-hover:scale-110"
+                        >
+                          <Illustration color={card.color} />
+                        </motion.div>
+                      </div>
 
-                    {/* Bottom accent bar animate on hover */}
-                    <div
-                      className="absolute bottom-0 left-12 right-12 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center"
-                      style={{ backgroundColor: card.color }}
-                    />
-                  </motion.div>
-                </Link>
+                      {/* Content with Animation */}
+                      <div className="relative z-10 flex-grow w-full">
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={`${card.key}-${cardIndices[idx]}`}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.5, ease: "circOut" }}
+                          >
+                            <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[64px] flex items-center justify-center">
+                              {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.heading`)}
+                            </h3>
+                            <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
+                              {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.desc`)}
+                            </p>
+                          </motion.div>
+                        </AnimatePresence>
+                      </div>
+
+                      {/* Explore More CTA */}
+                      <div className="relative z-10 mt-8 mb-6 flex items-center justify-center gap-3 group/cta">
+                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/50 dark:text-zinc-100/40 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
+                          {t('whatWeServe.exploreMore')}
+                        </span>
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center transition-all group-hover/cta:translate-x-1"
+                          style={{ backgroundColor: `${card.color}20`, color: card.color }}
+                        >
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </div>
+
+                      {/* Bottom Progress Indicator Dots */}
+                      <div className="relative z-10 flex justify-center gap-2 mb-4">
+                        {[0, 1, 2, 3].map((dot) => (
+                          <motion.div
+                            key={dot}
+                            className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
+                            animate={{
+                              width: dot === cardIndices[idx] ? 24 : 6,
+                              backgroundColor: dot === cardIndices[idx] ? card.color : undefined
+                            }}
+                            transition={{ duration: 0.4 }}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Bottom accent bar animate on hover */}
+                      <div
+                        className="absolute bottom-0 left-12 right-12 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center"
+                        style={{ backgroundColor: card.color }}
+                      />
+                    </motion.div>
+                  </Link>
+                </Card3D>
               </motion.div>
             );
           })}
