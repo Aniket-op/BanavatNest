@@ -12,15 +12,15 @@ const Footer = () => {
     const tCommon = useTranslations('common');
 
     const socialLinks = [
-        { Icon: Linkedin, href: "https://www.linkedin.com/company/banavatnest-pvt-ltd/", label: "LinkedIn" },
-        { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587883936129", label: "Facebook" },
-        { Icon: Instagram, href: "https://www.instagram.com/banavatnest/", label: "Instagram" },
+        { Icon: Linkedin, href: "https://www.linkedin.com/company/banavatnest-pvt-ltd/", label: "LinkedIn", color: "#0A66C2", hoverBg: "hover:bg-blue-50 dark:hover:bg-blue-900/20" },
+        { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587883936129", label: "Facebook", color: "#1877F2", hoverBg: "hover:bg-blue-50 dark:hover:bg-blue-900/20" },
+        { Icon: Instagram, href: "https://www.instagram.com/banavatnest/", label: "Instagram", color: "#E1306C", hoverBg: "hover:bg-pink-50 dark:hover:bg-pink-900/20" },
     ];
 
     return (
-        <footer className="bg-white dark:bg-[#070708] pt-24 pb-12 border-t border-gray-100 dark:border-zinc-900 relative overflow-hidden transition-colors">
+        <footer className="bg-white dark:bg-[#070708] pt-6 pb-6 border-t-2 border-[#3A9B9B]/30 dark:border-[#3A9B9B]/50 relative overflow-hidden transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     <div className="col-span-1 md:col-span-1">
                         <Link href="/" className="inline-block transition-transform hover:scale-105 mb-6">
                             <Logo />
@@ -30,9 +30,16 @@ const Footer = () => {
                             <p>{t('cin')}</p>
                         </div>
                         <div className="mt-8 flex space-x-3">
-                            {socialLinks.map(({ Icon, href }, i) => (
+                            {socialLinks.map(({ Icon, href, label, color, hoverBg }, i) => (
                                 <motion.div key={i} whileHover={{ y: -5, scale: 1.1 }}>
-                                    <a href={href} target="_blank" rel="noopener noreferrer" className="block p-2.5 bg-gray-50 dark:bg-zinc-800/50 rounded-xl hover:bg-teal-50 dark:hover:bg-teal-900/10 text-gray-400 dark:text-zinc-500 hover:text-[#3A9B9B] transition-all">
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={label}
+                                        className={`block p-2.5 bg-[#3A9B9B]/20 dark:bg-zinc-800/50 rounded-xl ${hoverBg} transition-all`}
+                                        style={{ color }}
+                                    >
                                         <Icon className="w-5 h-5" />
                                     </a>
                                 </motion.div>
@@ -74,7 +81,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-100 dark:border-zinc-900 pt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 dark:text-zinc-500 font-medium">
+                <div className="border-t-2 border-[#3A9B9B]/30 dark:border-[#3A9B9B]/50 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 dark:text-zinc-500 font-medium">
                     <p>{tCommon('copyright', { year: new Date().getFullYear() })}</p>
                 </div>
             </div>
