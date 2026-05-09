@@ -5,6 +5,7 @@ import FluidCursor from "@/components/FluidCursor";
 import HeroSection from "@/components/homepage/HeroSection";
 import WhatWeDo from "@/components/homepage/WhatWeDo";
 import WhatWeServe from "@/components/homepage/WhatWeServe";
+import FeaturedInnovations from "@/components/homepage/FeaturedInnovations";
 import NewsEvents from "@/components/homepage/NewsEvents";
 import TestimonialsSection from "@/components/homepage/TestimonialsSection";
 import InfiniteUpdateBar from "@/components/InfiniteUpdateBar";
@@ -50,6 +51,10 @@ const Home = () => {
 
       <FadeInSection>
         <WhatWeServe />
+      </FadeInSection>
+
+      <FadeInSection>
+        <FeaturedInnovations />
       </FadeInSection>
 
       <FadeInSection>
