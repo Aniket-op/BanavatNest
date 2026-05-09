@@ -64,7 +64,7 @@ const INNOVATIONS = [
     headline: "Smart Solar-Powered Floating Fish-Feeding System",
     body: "A patented smart aquaculture innovation invented by one of our directors, focused on automated and sustainable fish feeding through an integrated solar-powered floating assembly system designed for efficient aquaculture management.",
     images: [
-      { src: "/images/new%26event/post3/fishfeeder.jpeg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_1.jpg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   },
@@ -76,7 +76,7 @@ const INNOVATIONS = [
     headline: "Integrated Pond & Livestock Shelter System",
     body: "A patented integrated farming innovation invented by one of our directors, designed to support sustainable aquaculture and livestock management through automated, intelligent, and resource-efficient shelter and pond integration systems.",
     images: [
-      { src: "/images/Idea-Deploy.png", alt: "Integrated Farming", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_2.jpg", alt: "Integrated Farming", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   },
@@ -88,7 +88,7 @@ const INNOVATIONS = [
     headline: "Smart Food-Picking Assistance Device",
     body: "A research-driven intelligent assisting innovation focused on automated and efficient food-picking support through adaptive sensing, smart handling mechanisms, and user-oriented design for enhanced accessibility and practical usability.",
     images: [
-      { src: "/images/Idea-Deploy.png", alt: "Assistive Device", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_3.png", alt: "Assistive Device", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   },
@@ -100,7 +100,7 @@ const INNOVATIONS = [
     headline: "Financial Systems & Software Solutions",
     body: "Building secure and scalable software solutions for intelligent financial analytics, automation, monitoring, and decision-support applications.",
     images: [
-      { src: "/images/Idea-Deploy.png", alt: "Software Solutions", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_4.png", alt: "Software Solutions", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   },
@@ -112,7 +112,7 @@ const INNOVATIONS = [
     headline: "Automated Solar-Powered Smart Irrigation System",
     body: "A smart and sustainable irrigation solution designed for automated plant watering through solar-powered operation, intelligent monitoring, and efficient water management for precision agriculture and smart farming applications.",
     images: [
-      { src: "/images/Idea-Deploy.png", alt: "Smart Irrigation", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_5.png", alt: "Smart Irrigation", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   },
@@ -124,7 +124,7 @@ const INNOVATIONS = [
     headline: "Customized Solution Development",
     body: "Developing research-driven and technology-oriented customized solutions tailored to specific industry, academic, automation, analytics, and real-world operational requirements.",
     images: [
-      { src: "/images/Idea-Deploy.png", alt: "Customized Solutions", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_6.png", alt: "Customized Solutions", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   },
@@ -136,7 +136,7 @@ const INNOVATIONS = [
     headline: "Healthcare System Development",
     body: "Designing intelligent and technology-driven healthcare solutions focused on solving real-world clinical, monitoring, automation, and patient-care challenges through research, innovation, and system-oriented development.",
     images: [
-      { src: "/images/Idea-Deploy.png", alt: "Healthcare Systems", objectPosition: "object-center" },
+      { src: "/images/Featured%20Innovations/Project_7.png", alt: "Healthcare Systems", objectPosition: "object-center" },
     ],
     linkUrl: "/bridge/collaboration",
   }

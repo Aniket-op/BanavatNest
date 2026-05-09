@@ -9,44 +9,44 @@ import React from 'react';
 
 // ── 3D Card Wrapper ──
 const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
-    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
-    const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
+  const ref = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
+  const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!ref.current) return;
-        const rect = ref.current.getBoundingClientRect();
-        mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-        mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-        glareOpacity.set(0.18);
-    };
-    const handleMouseLeave = () => {
-        mouseX.set(0);
-        mouseY.set(0);
-        glareOpacity.set(0);
-    };
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+    glareOpacity.set(0.18);
+  };
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+    glareOpacity.set(0);
+  };
 
-    return (
-        <motion.div
-            ref={ref}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
-            className={`relative ${className}`}
-        >
-            {children}
-            <motion.div
-                className="absolute inset-0 pointer-events-none rounded-3xl overflow-hidden z-30"
-                style={{
-                    opacity: glareOpacity,
-                    background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
-                }}
-            />
-        </motion.div>
-    );
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+      className={`relative ${className}`}
+    >
+      {children}
+      <motion.div
+        className="absolute inset-0 pointer-events-none rounded-3xl overflow-hidden z-30"
+        style={{
+          opacity: glareOpacity,
+          background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
+        }}
+      />
+    </motion.div>
+  );
 };
 
 const usps = [
@@ -199,7 +199,7 @@ export default function WhatWeDo() {
 
           {/* Right Division: What We Do & How We Work */}
           <div className="flex flex-col w-full relative z-10 lg:pl-10 border-l border-zinc-200 dark:border-zinc-800/50">
-            <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
+            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
               {t('whatWeDo.title')} <span className="text-[#3A9B9B]">{t('whatWeDo.titleHighlight')}</span>
             </h2>
 
@@ -250,26 +250,26 @@ export default function WhatWeDo() {
                       }}
                     >
                       <Card3D className="w-full max-w-[260px]">
-                      <div
-                        className="w-full bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
-                        style={{
-                          WebkitFontSmoothing: 'antialiased',
-                          MozOsxFontSmoothing: 'grayscale',
-                          transform: `scale(${cardScale})`,
-                          filter: `blur(${blur}px)`,
-                          transition: 'all 0.4s ease',
-                        }}
-                      >
                         <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-md mb-4 transform transition-transform group-hover:scale-110"
-                          style={{ backgroundColor: usp.color }}
+                          className="w-full bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
+                          style={{
+                            WebkitFontSmoothing: 'antialiased',
+                            MozOsxFontSmoothing: 'grayscale',
+                            transform: `scale(${cardScale})`,
+                            filter: `blur(${blur}px)`,
+                            transition: 'all 0.4s ease',
+                          }}
                         >
-                          {usp.emoji}
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-md mb-4 transform transition-transform group-hover:scale-110"
+                            style={{ backgroundColor: usp.color }}
+                          >
+                            {usp.emoji}
+                          </div>
+                          <h4 className="text-base md:text-lg font-black text-zinc-900 dark:text-zinc-100 leading-snug tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
+                            {t(`whatWeDo.usps.${usp.titleKey}`)}
+                          </h4>
                         </div>
-                        <h4 className="text-base md:text-lg font-black text-zinc-900 dark:text-zinc-100 leading-snug tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
-                          {t(`whatWeDo.usps.${usp.titleKey}`)}
-                        </h4>
-                      </div>
                       </Card3D>
                     </div>
                   );
