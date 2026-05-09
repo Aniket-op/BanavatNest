@@ -12,10 +12,10 @@ function formatINR(value: number) {
 function getSliderBackground(value: number, min: number, max: number) {
   const percent = max === min ? 0 : ((value - min) / (max - min)) * 100;
 
-  return `linear-gradient(to right, #1B9AAA 0%, #1B9AAA ${percent}%, #dddddd ${percent}%, #dddddd 100%)`;
+  return `linear-gradient(to right, #3A9B9B 0%, #3A9B9B ${percent}%, #dddddd ${percent}%, #dddddd 100%)`;
 }
 
-const COLORS = ["#1B9AAA", "#14163A"];
+const COLORS = ["#3A9B9B", "#2D3561"];
 
 export default function EmiCalculator() {
   const [amount, setAmount] = useState(10000);
@@ -118,7 +118,7 @@ export default function EmiCalculator() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#F8FCFD] to-[#EEF8FA]">
+    <div className="bg-gradient-to-b from-[#fafafa] to-[#E8F7F7]">
       <div className="no-print">
         <section className="bg-gradient-to-r from-emerald-50 to-teal-50 pb-10 rounded-[22px]">
           <div className="mx-auto max-w-[1100px]  px-5 pt-8 ">
@@ -140,16 +140,16 @@ export default function EmiCalculator() {
             <div className="mt-4 rounded-[22px] bg-white/95 backdrop-blur-sm p-4 shadow-xl">
               <div className="grid gap-5 lg:grid-cols-[1fr_360px]">
                 <div>
-                  <p className="mb-5 text-lg font-semibold text-[#1B9AAA]">
+                  <p className="mb-5 text-lg font-semibold text-[#3A9B9B]">
                     I want to calculate -
                   </p>
 
-                  <div className="mb-8 flex w-fit rounded-full bg-[#E8F6F8] p-1">
+                  <div className="mb-8 flex w-fit rounded-full bg-[#E8F7F7] p-1">
                     <button
                       type="button"
                       onClick={() => setLoanType("home")}
                       className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "home"
-                        ? "bg-[#1B9AAA] text-white shadow-md"
+                        ? "bg-[#3A9B9B] text-white shadow-md"
                         : "text-[#6b7280]"
                         }`}
                     >
@@ -160,7 +160,7 @@ export default function EmiCalculator() {
                       type="button"
                       onClick={() => setLoanType("personal")}
                       className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "personal"
-                        ? "bg-[#1B9AAA] text-white shadow-md"
+                        ? "bg-[#3A9B9B] text-white shadow-md"
                         : "text-[#6b7280]"
                         }`}
                     >
@@ -171,7 +171,7 @@ export default function EmiCalculator() {
                       type="button"
                       onClick={() => setLoanType("car")}
                       className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "car"
-                        ? "bg-[#1B9AAA] text-white shadow-md"
+                        ? "bg-[#3A9B9B] text-white shadow-md"
                         : "text-[#6b7280]"
                         }`}
                     >
@@ -189,8 +189,8 @@ export default function EmiCalculator() {
                             : "Car Loan Amount"}
                       </label>
 
-                      <div className="flex overflow-hidden rounded border border-[#1B9AAA]">
-                        <div className="flex items-center border-r border-[#1B9AAA] px-4 font-bold text-[#1B9AAA]">
+                      <div className="flex overflow-hidden rounded border border-[#3A9B9B]">
+                        <div className="flex items-center border-r border-[#3A9B9B] px-4 font-bold text-[#3A9B9B]">
                           ₹
                         </div>
                         <input
@@ -235,7 +235,7 @@ export default function EmiCalculator() {
                         Loan Tenure
                       </label>
 
-                      <div className="flex overflow-hidden rounded border border-[#1B9AAA]">
+                      <div className="flex overflow-hidden rounded border border-[#3A9B9B]">
                         <input
                           type="number"
                           value={tenure}
@@ -250,8 +250,8 @@ export default function EmiCalculator() {
                           type="button"
                           onClick={() => setTenureType("years")}
                           className={`px-4 text-sm font-semibold transition ${tenureType === "years"
-                            ? "bg-[#1B9AAA] text-white"
-                            : "bg-white text-[#1B9AAA]"
+                            ? "bg-[#3A9B9B] text-white"
+                            : "bg-white text-[#3A9B9B]"
                             }`}
                         >
                           Years
@@ -260,9 +260,9 @@ export default function EmiCalculator() {
                         <button
                           type="button"
                           onClick={() => setTenureType("months")}
-                          className={`border-l border-[#1B9AAA] px-4 text-sm font-semibold transition ${tenureType === "months"
-                            ? "bg-[#1B9AAA] text-white"
-                            : "bg-white text-[#1B9AAA]"
+                          className={`border-l border-[#3A9B9B] px-4 text-sm font-semibold transition ${tenureType === "months"
+                            ? "bg-[#3A9B9B] text-white"
+                            : "bg-white text-[#3A9B9B]"
                             }`}
                         >
                           Months
@@ -313,7 +313,7 @@ export default function EmiCalculator() {
                         Interest Rate
                       </label>
 
-                      <div className="flex overflow-hidden rounded border border-[#1B9AAA]">
+                      <div className="flex overflow-hidden rounded border border-[#3A9B9B]">
                         <input
                           type="number"
                           value={rate}
@@ -322,7 +322,7 @@ export default function EmiCalculator() {
                           onChange={(e) => setRate(Number(e.target.value || 0))}
                           className="w-36 bg-transparent px-4 py-2 font-semibold outline-none"
                         />
-                        <div className="flex items-center border-l border-[#1B9AAA] px-4 font-bold text-[#1B9AAA]">
+                        <div className="flex items-center border-l border-[#3A9B9B] px-4 font-bold text-[#3A9B9B]">
                           %
                         </div>
                       </div>
@@ -351,7 +351,7 @@ export default function EmiCalculator() {
                   </div>
                 </div>
 
-                <div className="rounded-[22px] bg-[#EEF8FA] p-4">
+                <div className="rounded-[22px] bg-[#E8F7F7] p-4">
                   <div className="rounded-[20px] bg-white p-5">
                     <h3 className="text-center text-lg font-bold text-[#243342]">
                       {loanType === "home"
@@ -361,7 +361,7 @@ export default function EmiCalculator() {
                           : "Car Loan EMI"}
                     </h3>
 
-                    <div className="mt-2 text-center text-4xl font-extrabold text-[#1B9AAA]">
+                    <div className="mt-2 text-center text-4xl font-extrabold text-[#3A9B9B]">
                       ₹ {formatINR(emiData.emi)}
                     </div>
 
@@ -440,14 +440,14 @@ export default function EmiCalculator() {
 
                     <div className="mt-1 flex justify-center gap-5">
                       <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded bg-[#1B9AAA]" />
+                        <div className="h-3 w-3 rounded bg-[#3A9B9B]" />
                         <span className="text-xs text-gray-600">
                           Total Interest
                         </span>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded bg-[#0d4778]" />
+                        <div className="h-3 w-3 rounded bg-[#2D3561]" />
                         <span className="text-xs text-gray-600">
                           Principal Loan Amount
                         </span>
@@ -460,7 +460,7 @@ export default function EmiCalculator() {
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="rounded-full bg-[#1B9AAA] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#168a99]"
+                  className="rounded-full bg-[#3A9B9B] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#2a7676]"
                 >
                   Download / Print Report
                 </button>
@@ -472,7 +472,7 @@ export default function EmiCalculator() {
                   className="flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-left transition hover:bg-slate-100"
                 >
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1B9AAA]">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A9B9B]">
                       Month-wise Breakdown
                     </p>
                     <p className="mt-1 text-sm text-slate-600">
@@ -546,7 +546,7 @@ export default function EmiCalculator() {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-16 no-print">
-          <div className="rounded-3xl bg-[#EEF8FA] p-10">
+          <div className="rounded-3xl bg-[#E8F7F7] p-10">
             <h2 className="text-center text-4xl font-bold text-[#0F172A]">
               What is EMI?
             </h2>
@@ -560,7 +560,7 @@ export default function EmiCalculator() {
           </div>
         </section>
 
-        <section className="bg-[#F8FCFD] py-20 no-print">
+        <section className="bg-[#fafafa] py-20 no-print">
           <div className="mx-auto max-w-6xl px-4">
             <h2 className="text-center text-4xl font-bold text-[#0F172A]">
               What are the various factors that affect your due amount?
@@ -624,12 +624,12 @@ export default function EmiCalculator() {
             </div>
 
             <div className="flex items-center justify-center">
-              <div className="rounded-3xl bg-[#EEF8FA] p-14 text-8xl">🧮</div>
+              <div className="rounded-3xl bg-[#E8F7F7] p-14 text-8xl">🧮</div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#EEF8FA] py-20 no-print">
+        <section className="bg-[#E8F7F7] py-20 no-print">
           <div className="mx-auto max-w-6xl px-4">
             <h2 className="text-center text-4xl font-bold text-[#0F172A]">
               How do EMI Calculators work?
@@ -638,7 +638,7 @@ export default function EmiCalculator() {
             <div className="mt-12 rounded-3xl bg-white p-10">
               <p className="text-xl">The formula for calculating EMI is:</p>
 
-              <div className="mt-8 inline-block rounded-2xl bg-[#EEF8FA] px-8 py-5 text-2xl font-bold">
+              <div className="mt-8 inline-block rounded-2xl bg-[#E8F7F7] px-8 py-5 text-2xl font-bold">
                 EMI = [P × r × (1 + r)^n] / [(1 + r)^n - 1]
               </div>
 
@@ -675,7 +675,7 @@ export default function EmiCalculator() {
           height: 16px;
           border-radius: 999px;
           background: #ffffff;
-          border: 3px solid #1b9aaa;
+          border: 3px solid #3A9B9B;
           cursor: pointer;
           margin-top: -5px;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -692,7 +692,7 @@ export default function EmiCalculator() {
           height: 16px;
           border-radius: 999px;
           background: #ffffff;
-          border: 3px solid #1b9aaa;
+          border: 3px solid #3A9B9B;
           cursor: pointer;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
