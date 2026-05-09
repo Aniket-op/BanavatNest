@@ -26,10 +26,7 @@ const Navbar = () => {
             path: '/about' as const,
             subItems: [
                 { name: t('ourName'), path: '/aboutUs' as const },
-                // { name: t('ourName'), path: '/about/name' as const },
-                // { name: t('philosophy'), path: '/about/philosophy' as const },
-                { name: t('mission'), path: '/about/mission' as const },
-                { name: t('ourTeam'), path: '/about/team' as const },
+                { name: 'Our Ecosystem', path: '/bridge/collaboration' as const },
                 { name: t('board'), path: '/about/board' as const },
             ]
         },
@@ -45,7 +42,7 @@ const Navbar = () => {
             name: t('bridge'),
             path: '/bridge' as const,
             subItems: [
-                { name: t('collaboration'), path: '/bridge/collaboration' as const },
+                // { name: t('collaboration'), path: '/bridge/collaboration' as const },
                 { name: t('opportunities'), path: '/bridge/opportunities' as const },
                 { name: t('faculty'), path: '/bridge/faculty' as const },
                 { name: t('partnerships'), path: '/bridge/partnerships' as const },
@@ -56,6 +53,16 @@ const Navbar = () => {
 
     const handleDropdownEnter = (name: string) => {
         setActiveDropdown(name);
+    };
+
+    // Paths that belong to one nav section but are listed under another
+    const pathOverrides: Record<string, string> = {
+        '/bridge/collaboration': '/about',
+    };
+
+    const isActive = (linkPath: string) => {
+        const effective = pathOverrides[pathname] ?? pathname;
+        return effective.startsWith(linkPath);
     };
 
     const handleDropdownLeave = () => {
@@ -81,7 +88,7 @@ const Navbar = () => {
                             >
                                 {link.subItems ? (
                                     <button
-                                        className={`text-sm font-bold transition-all flex items-center gap-1 py-1 ${pathname.startsWith(link.path)
+                                        className={`text-sm font-bold transition-all flex items-center gap-1 py-1 ${isActive(link.path)
                                             ? 'text-[#3A9B9B]'
                                             : 'text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100'
                                             }`}

@@ -246,7 +246,40 @@ export default function CollaborationPage() {
 
   return (
     <PageWrapper>
-      <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors pb-24">
+      <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
+        {/* Hero Section */}
+        <div className="w-full pt-12">
+          <div className="relative w-full">
+            <Image
+              src="/images/ourEcosystem.jpeg"
+              alt="Our Ecosystem"
+              width={1920}
+              height={800}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16"
+        >
+          {/* Quote text */}
+          <p className="text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed tracking-tight text-zinc-700 dark:text-zinc-200">
+            <span className="text-3xl text-[#3A9B9B] font-black mr-1 leading-none align-top">&#8220;</span>
+            BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact.
+            <span className="text-3xl text-[#3A9B9B] font-black ml-1 leading-none align-bottom">&#8221;</span>
+          </p>
+
+          {/* Bottom accent */}
+          <div className="mt-8 mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]" />
+        </motion.div>
+
+
+        {/* ── Original Hero (commented out) ──
         <header className="bg-white dark:bg-zinc-900/40 pt-32 pb-20 border-b border-gray-100 dark:border-zinc-800 grid-bg mb-12 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -269,7 +302,6 @@ export default function CollaborationPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative flex justify-center lg:justify-end"
               >
-                {/* Glow backdrop */}
                 <div className="absolute inset-0 bg-[#3A9B9B]/10 blur-[100px] rounded-full" />
                 <Image
                   src={collaboration_logo}
@@ -282,8 +314,42 @@ export default function CollaborationPage() {
             </div>
           </div>
         </header>
+        ── End Original Hero ── */}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Who Can Collaborate Heading */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-zinc-900 dark:text-zinc-100"
+          >
+            Who Can{' '}
+            <span className="text-[#3A9B9B]">
+              Collaborate
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed"
+          >
+            Open to students, faculty, researchers, startups, and industry partners driven by
+            innovation and real-world impact.
+          </motion.p>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.35, duration: 0.5 }}
+            className="mt-8 mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {collaborationTracks.map((track, idx) => {
               // Extract items from translations
@@ -304,107 +370,190 @@ export default function CollaborationPage() {
                   style={{ perspective: '1200px' }}
                 >
                   <Card3D className="h-full">
-                  <Link href={track.href} className="block h-full cursor-pointer">
-                    <motion.div
-                      whileHover={{
-                        boxShadow: `0 40px 80px -16px ${track.color}40`,
-                        y: -8,
-                        borderColor: `${track.color}80`
-                      }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                      style={{
-                        borderTopColor: track.color,
-                        boxShadow: `0 20px 40px -12px ${track.color}20`,
-                        borderColor: `${track.color}40`
-                      }}
-                      className={`relative rounded-[2.5rem] ${track.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
-                    >
-                      {/* Background Glow */}
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
-                        style={{
-                          background: `radial-gradient(circle at top, ${track.color}15, transparent 70%)`
+                    <Link href={track.href} className="block h-full cursor-pointer">
+                      <motion.div
+                        whileHover={{
+                          boxShadow: `0 40px 80px -16px ${track.color}40`,
+                          y: -8,
+                          borderColor: `${track.color}80`
                         }}
-                      />
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        style={{
+                          borderTopColor: track.color,
+                          boxShadow: `0 20px 40px -12px ${track.color}20`,
+                          borderColor: `${track.color}40`
+                        }}
+                        className={`relative rounded-[2.5rem] ${track.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
+                      >
+                        {/* Background Glow */}
+                        <div
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
+                          style={{
+                            background: `radial-gradient(circle at top, ${track.color}15, transparent 70%)`
+                          }}
+                        />
 
-                      {/* Header */}
-                      <div className="relative z-10 flex flex-col items-center mb-6 w-full">
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/60 dark:text-zinc-100/40 mb-4 h-4">
-                          {t(`${track.key}.title`)}
-                        </span>
+                        {/* Header */}
+                        <div className="relative z-10 flex flex-col items-center mb-6 w-full">
+                          <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/60 dark:text-zinc-100/40 mb-4 h-4">
+                            {t(`${track.key}.title`)}
+                          </span>
 
-                        {/* Animated SVG illustration */}
-                        <div className="w-[120px] h-[120px] mb-2 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center -mt-2">
-                          {(() => {
-                            const Illus = ILLUSTRATIONS[track.key];
-                            return Illus ? <Illus color={track.color} /> : null;
-                          })()}
+                          {/* Animated SVG illustration */}
+                          <div className="w-[120px] h-[120px] mb-2 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center -mt-2">
+                            {(() => {
+                              const Illus = ILLUSTRATIONS[track.key];
+                              return Illus ? <Illus color={track.color} /> : null;
+                            })()}
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Rotating Content */}
-                      <div className="relative z-10 flex-grow w-full flex flex-col justify-center">
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={`${track.key}-${activeIndex}`}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                          >
-                            <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[60px] flex items-center justify-center">
-                              {currentItem.heading}
-                            </h3>
-                            <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                              {currentItem.desc}
-                            </p>
-                          </motion.div>
-                        </AnimatePresence>
-                      </div>
+                        {/* Rotating Content */}
+                        <div className="relative z-10 flex-grow w-full flex flex-col justify-center">
+                          <AnimatePresence mode="wait">
+                            <motion.div
+                              key={`${track.key}-${activeIndex}`}
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -20 }}
+                              transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
+                              <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[60px] flex items-center justify-center">
+                                {currentItem.heading}
+                              </h3>
+                              <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                                {currentItem.desc}
+                              </p>
+                            </motion.div>
+                          </AnimatePresence>
+                        </div>
 
-                      {/* Progress Dots */}
-                      <div className="relative z-10 flex justify-center gap-2 mt-8">
-                        {[0, 1, 2, 3].map((dot) => (
-                          <motion.div
-                            key={dot}
-                            className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
-                            animate={{
-                              width: dot === activeIndex ? 24 : 6,
-                              backgroundColor: dot === activeIndex ? track.color : undefined
-                            }}
-                            transition={{ duration: 0.3 }}
-                          />
-                        ))}
-                      </div>
-                    </motion.div>
-                  </Link>
+                        {/* Progress Dots */}
+                        <div className="relative z-10 flex justify-center gap-2 mt-8">
+                          {[0, 1, 2, 3].map((dot) => (
+                            <motion.div
+                              key={dot}
+                              className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
+                              animate={{
+                                width: dot === activeIndex ? 24 : 6,
+                                backgroundColor: dot === activeIndex ? track.color : undefined
+                              }}
+                              transition={{ duration: 0.3 }}
+                            />
+                          ))}
+                        </div>
+                      </motion.div>
+                    </Link>
                   </Card3D>
                 </motion.div>
               );
             })}
           </div>
 
+        </div>
+
+        {/* ── Innovation Journey Section ── */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-zinc-900/30">
+          <div className="max-w-7xl mx-auto">
+
+            {/* Top Heading */}
+            <div className="text-center mb-16">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-100 mb-4"
+              >
+                Innovation <span className="text-[#3A9B9B]">Journey</span>
+              </motion.h2>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]"
+              />
+            </div>
+
+            {/* Two-column layout */}
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+              {/* LEFT: Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative flex flex-col justify-center rounded-3xl
+                  bg-white dark:bg-zinc-900/50
+                  border border-zinc-200 dark:border-zinc-800
+                  border-t-[10px] p-10 shadow-md"
+                style={{ borderTopColor: '#3A9B9B' }}
+              >
+                {/* Eyebrow */}
+                <p className="text-xl font-bold uppercase tracking-[0.28em] text-[#2D3561] dark:text-[#3A9B9B] mb-4">
+                  From Curiosity to Impact
+                </p>
+
+                {/* Headline */}
+                <h3 className="text-3xl  font-black text-zinc-900 dark:text-zinc-100 leading-tight mb-5">
+                  Transforming curiosity-driven ideas into practical, scalable, and impactful
+                  real-world solutions.
+                </h3>
+              </motion.div>
+
+              {/* RIGHT: Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, x: 24 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="relative w-full aspect-square"
+              >
+                <Image
+                  src="/images/Idea-Deploy.png"
+                  alt="Innovation Journey — Idea to Deployment"
+                  fill
+                  className="object-contain transition-transform duration-700 hover:scale-105"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mt-24 p-8 md:p-12 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md max-w-5xl mx-auto shadow-2xl relative overflow-hidden"
+            className="p-8 md:p-12 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md max-w-5xl mx-auto shadow-2xl relative overflow-hidden"
           >
             {/* Decorative background glow */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#3A9B9B]/10 blur-[60px] rounded-full" />
             <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#3A9B9B]/5 blur-[60px] rounded-full" />
 
-            <div className="relative z-10 space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-              <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 italic text-zinc-900 dark:text-zinc-100">
-                {t('bodyP1')}
-              </p>
-              <p className="border-l-4 border-zinc-200 dark:border-zinc-700 pl-6 py-2">
-                {t('bodyP2')}
-              </p>
+            <div className="relative z-10">
+              {/* Heading */}
+              <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4">
+                Our <span className="text-[#3A9B9B]">Approach</span>
+              </h2>
+              <div className="w-10 h-[3px] rounded-full bg-[#3A9B9B] mb-8" />
+              {/* Body paragraphs */}
+              <div className="space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 italic text-zinc-700 dark:text-zinc-100">
+                  We adopt a problem-driven approach where real-world industry challenges are mapped into
+                  academic research opportunities and student-led innovation projects. Collaboration is enabled
+                  through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.
+                </p>
+                <p className="border-l-4 border-zinc-200 dark:border-zinc-700 pl-6 py-2">
+                  Our ecosystem encourages interdisciplinary collaboration where ideas evolve through research,
+                  experimentation, prototyping, and continuous innovation.
+                </p>
+              </div>
             </div>
           </motion.div>
-        </div>
+        </section>
       </div>
     </PageWrapper>
   );
