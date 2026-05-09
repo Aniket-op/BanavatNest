@@ -265,7 +265,7 @@ export default function CollaborationPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16"
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16"
         >
           {/* Quote text */}
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed tracking-tight text-zinc-700 dark:text-zinc-200">
