@@ -48,7 +48,14 @@ const Navbar = () => {
                 { name: t('partnerships'), path: '/bridge/partnerships' as const },
             ]
         },
-        { name: t('contact'), path: '/contact' as const },
+        {
+            name: "Tools & Utilities",
+            path: '/tools' as const,
+            subItems: [
+                { name: "EMI Calculator", path: "/tools/emi-calculator" as const },
+                { name: "GST Calculator", path: "/tools/gst-calculator" as const },
+            ]
+        },
     ];
 
     const handleDropdownEnter = (name: string) => {

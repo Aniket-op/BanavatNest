@@ -85,7 +85,7 @@ const NEWS_EVENTS = [
     images: [
       { src: "/images/new%26event/post3/fishfeeder.jpeg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
     ],
-    linkedinUrl: "https://www.linkedin.com/company/banavatnest-pvt-ltd",
+    linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7454019410836754432/",
   },
   {
     id: 3,
