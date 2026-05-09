@@ -27,7 +27,7 @@ const Navbar = () => {
             subItems: [
                 { name: t('ourName'), path: '/aboutUs' as const },
                 { name: 'Our Ecosystem', path: '/bridge/collaboration' as const },
-                { name: t('board'), path: '/about/board' as const },
+                { name: "Our Support Network", path: '/about/board' as const },
             ]
         },
         {
@@ -58,6 +58,7 @@ const Navbar = () => {
     // Paths that belong to one nav section but are listed under another
     const pathOverrides: Record<string, string> = {
         '/bridge/collaboration': '/about',
+        '/about/board': '/about',
     };
 
     const isActive = (linkPath: string) => {
