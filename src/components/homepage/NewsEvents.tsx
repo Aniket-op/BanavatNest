@@ -67,12 +67,38 @@ const NEWS_EVENTS = [
       "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
     body: "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
     images: [
-      { src: "/images/new%26event/post1/1.jpeg", alt: "Image 1" },
-      { src: "/images/new%26event/post1/2.jpeg", alt: "Image 2" },
-      { src: "/images/new%26event/post1/3.jpeg", alt: "Image 3" },
+      { src: "/images/new%26event/post1/1.jpeg", alt: "Image 1", objectPosition: "object-top" },
+      { src: "/images/new%26event/post1/2.jpeg", alt: "Image 2", objectPosition: "object-top" },
+      { src: "/images/new%26event/post1/3.jpeg", alt: "Image 3", objectPosition: "object-top" },
     ],
     linkedinUrl:
       "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
+  },
+  {
+    id: 2,
+    tag: "News",
+    tagColor: "#2D3561",
+    date: "May 2026",
+    headline:
+      "Deployment Site Finalized for Patented Smart Fish-Feeding System",
+    body: "BanavatNest Pvt. Ltd. has finalized the deployment site for the field study of its solar-powered automated floating fish-feeding system. We are proud that one of our Founder Directors is the inventor associated with this patented technology.",
+    images: [
+      { src: "/images/new%26event/post3/fishfeeder.jpeg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
+    ],
+    linkedinUrl: "https://www.linkedin.com/company/banavatnest-pvt-ltd",
+  },
+  {
+    id: 3,
+    tag: "Upcoming Event",
+    tagColor: "#3A9B9B",
+    date: "Upcoming",
+    headline: "Full Moon Photography Challenge",
+    body: "Experience the beauty of the Full Moon through guided photography and observation sessions hosted by BanavatNest. The platform will provide telescope access, lenses, and camera support to help participants capture detailed moon photographs. Selected entries will receive exciting prizes and recognition.\n\nVenue: Thapar Institute of Engineering and Technology (TIET), Patiala",
+    images: [
+      { src: "/images/new%26event/post2/moonEvent.jpeg", alt: "Full Moon Event", objectPosition: "object-center" },
+      { src: "/images/new%26event/post2/moon2.jpeg", alt: "Moon Photography", objectPosition: "object-center" },
+    ],
+    linkedinUrl: "https://www.linkedin.com/company/banavatnest-pvt-ltd",
   },
 ];
 
@@ -289,7 +315,7 @@ export default function NewsEvents() {
                     src={item.images[safeImgIndex].src}
                     alt={item.images[safeImgIndex].alt}
                     fill
-                    className="object-cover object-top"
+                    className={`object-cover ${item.images[safeImgIndex].objectPosition ?? 'object-center'}`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   {/* Subtle overlay */}
