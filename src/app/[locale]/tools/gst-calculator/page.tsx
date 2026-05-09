@@ -1,4 +1,4 @@
-import GstCalculator from "@/components/tools/GstCalculator";
+import GstCalculator from "@/components/Tools/GstCalculator";
 
 export default function GstCalculatorPage() {
     return (
