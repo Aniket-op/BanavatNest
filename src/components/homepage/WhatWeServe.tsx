@@ -1,19 +1,39 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
-import { ArrowRight } from 'lucide-react';
-import React from 'react';
+import { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import { ArrowRight } from "lucide-react";
+import React from "react";
 
 // ── 3D Card Wrapper (same effect as Opportunities by Level cards) ──
-const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+const Card3D = ({
+  children,
+  className = "",
+  style = {},
+}: {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), {
+    stiffness: 400,
+    damping: 30,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), {
+    stiffness: 400,
+    damping: 30,
+  });
   const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -34,7 +54,7 @@ const Card3D = ({ children, className = '', style = {} }: { children: React.Reac
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d", ...style }}
       className={`relative ${className}`}
     >
       {children}
@@ -53,7 +73,14 @@ const Card3D = ({ children, className = '', style = {} }: { children: React.Reac
 // ── Premium SVG Illustrations with Animations ──
 
 const StudentIllustration = ({ color }: { color: string }) => (
-  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+  <svg
+    width="120"
+    height="120"
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-full h-full drop-shadow-xl overflow-visible"
+  >
     <defs>
       <linearGradient id="grad-student" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor={color} stopOpacity="0.4" />
@@ -69,20 +96,58 @@ const StudentIllustration = ({ color }: { color: string }) => (
     <circle cx="50" cy="50" r="35" fill="url(#grad-student)" />
 
     {/* Orbital Path with Moving Dot */}
-    <circle cx="50" cy="50" r="42" stroke={color} strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3" />
+    <circle
+      cx="50"
+      cy="50"
+      r="42"
+      stroke={color}
+      strokeWidth="0.5"
+      strokeDasharray="4 8"
+      opacity="0.3"
+    />
     <motion.circle
-      cx="50" cy="8" r="3" fill={color} filter="url(#glow-student-orb)"
+      cx="50"
+      cy="8"
+      r="3"
+      fill={color}
+      filter="url(#glow-student-orb)"
       animate={{
         cx: [50, 92, 50, 8, 50],
-        cy: [8, 50, 92, 50, 8]
+        cy: [8, 50, 92, 50, 8],
       }}
       transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
     />
 
     {/* Laptop Base (Glassmorphic) */}
-    <rect x="25" y="45" width="50" height="32" rx="4" fill="white" fillOpacity="0.05" stroke={color} strokeWidth="1.5" className="backdrop-blur-sm" />
-    <rect x="30" y="50" width="40" height="22" rx="2" fill="white" className="dark:fill-zinc-900" opacity="0.8" />
-    <path d="M22 77H78" stroke={color} strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+    <rect
+      x="25"
+      y="45"
+      width="50"
+      height="32"
+      rx="4"
+      fill="white"
+      fillOpacity="0.05"
+      stroke={color}
+      strokeWidth="1.5"
+      className="backdrop-blur-sm"
+    />
+    <rect
+      x="30"
+      y="50"
+      width="40"
+      height="22"
+      rx="2"
+      fill="white"
+      className="dark:fill-zinc-900"
+      opacity="0.8"
+    />
+    <path
+      d="M22 77H78"
+      stroke={color}
+      strokeWidth="4"
+      strokeLinecap="round"
+      opacity="0.8"
+    />
 
     {/* Graduation Cap (Animated Floating) */}
     <motion.g
@@ -90,14 +155,31 @@ const StudentIllustration = ({ color }: { color: string }) => (
       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
     >
       <path d="M35 40L50 32L65 40L50 48L35 40Z" fill={color} />
-      <path d="M42 44V50C42 50 45 52 50 52C55 52 58 50 58 50V44" stroke={color} strokeWidth="2" strokeLinecap="round" />
-      <path d="M65 40V48" stroke={color} strokeWidth="1" strokeLinecap="round" />
+      <path
+        d="M42 44V50C42 50 45 52 50 52C55 52 58 50 58 50V44"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M65 40V48"
+        stroke={color}
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
     </motion.g>
   </svg>
 );
 
 const FacultyIllustration = ({ color }: { color: string }) => (
-  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+  <svg
+    width="120"
+    height="120"
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-full h-full drop-shadow-xl overflow-visible"
+  >
     <defs>
       <linearGradient id="grad-faculty" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor={color} stopOpacity="0.4" />
@@ -109,9 +191,37 @@ const FacultyIllustration = ({ color }: { color: string }) => (
     <circle cx="45" cy="45" r="35" fill="url(#grad-faculty)" />
 
     {/* Book Pages Layered */}
-    <rect x="20" y="30" width="30" height="40" rx="3" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" strokeOpacity="0.6" />
-    <rect x="50" y="30" width="30" height="40" rx="3" fill="white" className="dark:fill-zinc-900" stroke={color} strokeWidth="1.5" strokeOpacity="0.6" />
-    <path d="M25 40H40M25 48H45M25 56H40" stroke={color} strokeWidth="1" strokeLinecap="round" opacity="0.3" />
+    <rect
+      x="20"
+      y="30"
+      width="30"
+      height="40"
+      rx="3"
+      fill="white"
+      className="dark:fill-zinc-900"
+      stroke={color}
+      strokeWidth="1.5"
+      strokeOpacity="0.6"
+    />
+    <rect
+      x="50"
+      y="30"
+      width="30"
+      height="40"
+      rx="3"
+      fill="white"
+      className="dark:fill-zinc-900"
+      stroke={color}
+      strokeWidth="1.5"
+      strokeOpacity="0.6"
+    />
+    <path
+      d="M25 40H40M25 48H45M25 56H40"
+      stroke={color}
+      strokeWidth="1"
+      strokeLinecap="round"
+      opacity="0.3"
+    />
 
     {/* Rotating Gear */}
     <motion.g
@@ -119,24 +229,74 @@ const FacultyIllustration = ({ color }: { color: string }) => (
       transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       style={{ originX: "65px", originY: "60px" }}
     >
-      <circle cx="65" cy="60" r="12" fill={color} fillOpacity="0.2" stroke={color} strokeWidth="1.5" />
-      <circle cx="65" cy="60" r="4" fill="white" className="dark:fill-background" stroke={color} strokeWidth="1.5" />
-      {[0, 45, 90, 135, 180, 225, 270, 315].map(angle => (
-        <path key={angle} d={`M65 45V48`} stroke={color} strokeWidth="2.5" strokeLinecap="round" transform={`rotate(${angle} 65 60)`} />
+      <circle
+        cx="65"
+        cy="60"
+        r="12"
+        fill={color}
+        fillOpacity="0.2"
+        stroke={color}
+        strokeWidth="1.5"
+      />
+      <circle
+        cx="65"
+        cy="60"
+        r="4"
+        fill="white"
+        className="dark:fill-background"
+        stroke={color}
+        strokeWidth="1.5"
+      />
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
+        <path
+          key={angle}
+          d={`M65 45V48`}
+          stroke={color}
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          transform={`rotate(${angle} 65 60)`}
+        />
       ))}
     </motion.g>
 
     {/* Network Nodes (Pulsing) */}
     <g>
-      <motion.circle cx="70" cy="25" r="3" fill={color} animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }} />
-      <motion.circle cx="85" cy="40" r="3" fill={color} animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-      <path d="M70 25L85 40" stroke={color} strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
+      <motion.circle
+        cx="70"
+        cy="25"
+        r="3"
+        fill={color}
+        animate={{ opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      />
+      <motion.circle
+        cx="85"
+        cy="40"
+        r="3"
+        fill={color}
+        animate={{ opacity: [1, 0.5, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      />
+      <path
+        d="M70 25L85 40"
+        stroke={color}
+        strokeWidth="1"
+        strokeDasharray="3 3"
+        opacity="0.6"
+      />
     </g>
   </svg>
 );
 
 const IndustryIllustration = ({ color }: { color: string }) => (
-  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl overflow-visible">
+  <svg
+    width="120"
+    height="120"
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-full h-full drop-shadow-xl overflow-visible"
+  >
     <defs>
       <linearGradient id="grad-industry" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor={color} stopOpacity="0.4" />
@@ -148,10 +308,20 @@ const IndustryIllustration = ({ color }: { color: string }) => (
     <circle cx="55" cy="45" r="35" fill="url(#grad-industry)" />
 
     {/* Factory Silhouette (Tech-styled) */}
-    <path d="M20 65V35L30 45V35L40 45V35L60 45V65H20Z" fill="white" className="dark:fill-zinc-900" fillOpacity="0.8" stroke={color} strokeWidth="1.5" />
+    <path
+      d="M20 65V35L30 45V35L40 45V35L60 45V65H20Z"
+      fill="white"
+      className="dark:fill-zinc-900"
+      fillOpacity="0.8"
+      stroke={color}
+      strokeWidth="1.5"
+    />
     <rect x="22" y="30" width="10" height="5" fill={color} opacity="0.4" />
     <motion.path
-      d="M27 30V20" stroke={color} strokeWidth="2" strokeLinecap="round"
+      d="M27 30V20"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
       animate={{ strokeDashoffset: [0, -10] }}
       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
       strokeDasharray="4 4"
@@ -159,22 +329,78 @@ const IndustryIllustration = ({ color }: { color: string }) => (
 
     {/* Circuit Paths with Animating Dots */}
     <g>
-      <path d="M60 45H85" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
-      <motion.circle cx="60" cy="45" r="2" fill={color} animate={{ cx: [60, 85] }} transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }} />
+      <path
+        d="M60 45H85"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeOpacity="0.4"
+      />
+      <motion.circle
+        cx="60"
+        cy="45"
+        r="2"
+        fill={color}
+        animate={{ cx: [60, 85] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+      />
       <circle cx="85" cy="45" r="3" stroke={color} strokeWidth="1" />
 
-      <path d="M60 55H75" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
-      <motion.circle cx="60" cy="55" r="2" fill={color} animate={{ cx: [60, 75] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 0.5 }} />
+      <path
+        d="M60 55H75"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeOpacity="0.4"
+      />
+      <motion.circle
+        cx="60"
+        cy="55"
+        r="2"
+        fill={color}
+        animate={{ cx: [60, 75] }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          ease: "easeOut",
+          delay: 0.5,
+        }}
+      />
       <circle cx="75" cy="55" r="3" stroke={color} strokeWidth="1" />
 
-      <path d="M60 35H80" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
-      <motion.circle cx="60" cy="35" r="2" fill={color} animate={{ cx: [60, 80] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 0.2 }} />
+      <path
+        d="M60 35H80"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeOpacity="0.4"
+      />
+      <motion.circle
+        cx="60"
+        cy="35"
+        r="2"
+        fill={color}
+        animate={{ cx: [60, 80] }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: "easeOut",
+          delay: 0.2,
+        }}
+      />
       <circle cx="80" cy="35" r="3" stroke={color} strokeWidth="1" />
     </g>
 
     {/* Technical Grid Overlay */}
-    <path d="M45 25H65M45 35H65M45 45H65" stroke={color} strokeWidth="0.5" opacity="0.2" />
-    <path d="M50 20V50M60 20V50" stroke={color} strokeWidth="0.5" opacity="0.2" />
+    <path
+      d="M45 25H65M45 35H65M45 45H65"
+      stroke={color}
+      strokeWidth="0.5"
+      opacity="0.2"
+    />
+    <path
+      d="M50 20V50M60 20V50"
+      stroke={color}
+      strokeWidth="0.5"
+      opacity="0.2"
+    />
   </svg>
 );
 
@@ -186,29 +412,29 @@ const serveData = [
     href: "/bridge/opportunities",
     emoji: "🎓",
     illustration: StudentIllustration,
-    color: '#2D3561',
-    bg: 'bg-[#EAECF5] dark:bg-[#1a1e35]',
+    color: "#2D3561",
+    bg: "bg-[#EAECF5] dark:bg-[#1a1e35]",
   },
   {
     key: "faculty",
     href: "/bridge/faculty",
     emoji: "👩‍🏫",
     illustration: FacultyIllustration,
-    color: '#3A9B9B',
-    bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]',
+    color: "#3A9B9B",
+    bg: "bg-[#E8F7F7] dark:bg-[#0d2a2a]",
   },
   {
     key: "industry",
     href: "/bridge/partnerships",
     emoji: "🏭",
     illustration: IndustryIllustration,
-    color: '#5BBD4A',
-    bg: 'bg-[#EAF8EA] dark:bg-[#142614]',
-  }
+    color: "#5BBD4A",
+    bg: "bg-[#EAF8EA] dark:bg-[#142614]",
+  },
 ];
 
 export default function WhatWeServe() {
-  const t = useTranslations('home');
+  const t = useTranslations("home");
   // Per-card independent indices (each card cycles its own content)
   const [cardIndices, setCardIndices] = useState([0, 0, 0]);
 
@@ -235,9 +461,11 @@ export default function WhatWeServe() {
   }, []);
 
   return (
-    <section id="what-we-serve" className="py-12 bg-white dark:bg-[#0C0C0A] overflow-hidden">
+    <section
+      id="what-we-serve"
+      className="py-12 bg-white dark:bg-[#0C0C0A] overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-
         {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -247,10 +475,13 @@ export default function WhatWeServe() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1] mb-5">
-            {t('whatWeServe.title')} <span className="text-[#3A9B9B]">{t('whatWeServe.titleHighlight')}</span>
+            {t("whatWeServe.title")}{" "}
+            <span className="text-[#3A9B9B]">
+              {t("whatWeServe.titleHighlight")}
+            </span>
           </h2>
           <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
-            {t('whatWeServe.description')}
+            {t("whatWeServe.description")}
           </p>
         </motion.div>
 
@@ -267,7 +498,7 @@ export default function WhatWeServe() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 className="group relative h-[620px]"
-                style={{ perspective: '1200px' }}
+                style={{ perspective: "1200px" }}
               >
                 <Card3D className="h-full">
                   <Link href={card.href} className="block h-full">
@@ -275,22 +506,21 @@ export default function WhatWeServe() {
                       whileHover={{
                         boxShadow: `0 40px 80px -16px ${card.color}50`,
                         y: -12,
-                        borderColor: `${card.color}100`
+                        borderColor: `${card.color}`,
                       }}
                       transition={{ duration: 0.5, ease: "easeOut" }}
                       style={{
                         borderTopColor: card.color,
                         boxShadow: `0 20px 40px -12px ${card.color}30`,
-                        borderColor: `${card.color}90`
+                        borderColor: `${card.color}`,
                       }}
                       className={`relative rounded-[2.5rem] ${card.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm`}
                     >
-
                       {/* Dark mode glow */}
                       <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
                         style={{
-                          background: `radial-gradient(circle at top, ${card.color}22, transparent 70%)`
+                          background: `radial-gradient(circle at top, ${card.color}22, transparent 70%)`,
                         }}
                       />
 
@@ -308,7 +538,10 @@ export default function WhatWeServe() {
                           key={`illustration-${card.key}`}
                           initial={{ scale: 0.8, opacity: 0, rotate: -5 }}
                           animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                          transition={{
+                            duration: 0.6,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
                           className="w-35 h-35 mb-4 transition-transform duration-700 group-hover:scale-110"
                         >
                           <Illustration color={card.color} />
@@ -326,10 +559,14 @@ export default function WhatWeServe() {
                             transition={{ duration: 0.5, ease: "circOut" }}
                           >
                             <h3 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight mb-4 min-h-[64px] flex items-center justify-center">
-                              {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.heading`)}
+                              {t(
+                                `whatWeServe.${card.key}.items.${cardIndices[idx]}.heading`,
+                              )}
                             </h3>
                             <p className="text-base text-zinc-600 dark:text-zinc-400 font-medium leading-[1.6]">
-                              {t(`whatWeServe.${card.key}.items.${cardIndices[idx]}.desc`)}
+                              {t(
+                                `whatWeServe.${card.key}.items.${cardIndices[idx]}.desc`,
+                              )}
                             </p>
                           </motion.div>
                         </AnimatePresence>
@@ -338,11 +575,14 @@ export default function WhatWeServe() {
                       {/* Explore More CTA */}
                       <div className="relative z-10 mt-8 mb-6 flex items-center justify-center gap-3 group/cta">
                         <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/50 dark:text-zinc-100/40 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
-                          {t('whatWeServe.exploreMore')}
+                          {t("whatWeServe.exploreMore")}
                         </span>
                         <div
                           className="w-8 h-8 rounded-full flex items-center justify-center transition-all group-hover/cta:translate-x-1"
-                          style={{ backgroundColor: `${card.color}20`, color: card.color }}
+                          style={{
+                            backgroundColor: `${card.color}20`,
+                            color: card.color,
+                          }}
                         >
                           <ArrowRight className="w-4 h-4" />
                         </div>
@@ -356,7 +596,10 @@ export default function WhatWeServe() {
                             className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800"
                             animate={{
                               width: dot === cardIndices[idx] ? 24 : 6,
-                              backgroundColor: dot === cardIndices[idx] ? card.color : undefined
+                              backgroundColor:
+                                dot === cardIndices[idx]
+                                  ? card.color
+                                  : undefined,
                             }}
                             transition={{ duration: 0.4 }}
                           />
@@ -375,7 +618,6 @@ export default function WhatWeServe() {
             );
           })}
         </div>
-
       </div>
     </section>
   );

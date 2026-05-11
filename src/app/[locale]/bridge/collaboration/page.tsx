@@ -452,21 +452,15 @@ export default function CollaborationPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16"
+          className="w-full mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10"
         >
           {/* Quote text */}
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed tracking-tight text-zinc-700 dark:text-zinc-200">
-            <span className="text-3xl text-[#3A9B9B] font-black mr-1 leading-none align-top">
-              &#8220;
-            </span>
             {tCollab("heroQuote")}
-            <span className="text-3xl text-[#3A9B9B] font-black ml-1 leading-none align-bottom">
-              &#8221;
-            </span>
           </p>
 
           {/* Bottom accent */}
-          <div className="mt-8 mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]" />
+          {/* <div className="mt-8 mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]" /> */}
         </motion.div>
 
         {/* ── Original Hero (commented out) ──
@@ -506,30 +500,23 @@ export default function CollaborationPage() {
         </header>
         ── End Original Hero ── */}
 
-        {/* Who Can Collaborate Heading */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-zinc-900 dark:text-zinc-100"
-          >
-            {tCollab("whoCanTitle")}{" "}
-            <span className="text-[#3A9B9B]">{tCollab("whoCanHighlight")}</span>
-          </motion.h2>
-          {/* <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed"
-          >
-            {tCollab("whoCanDesc")}
-          </motion.p> */}
-        </div>
+        {/* Who Can Collaborate Section */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-zinc-900 dark:text-zinc-100"
+            >
+              {tCollab("whoCanTitle")}{" "}
+              <span className="text-[#3A9B9B]">
+                {tCollab("whoCanHighlight")}
+              </span>
+            </motion.h2>
+          </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {collaborationTracks.map((track, idx) => {
               // Extract items from translations
@@ -559,13 +546,13 @@ export default function CollaborationPage() {
                       whileHover={{
                         boxShadow: `0 40px 80px -16px ${track.color}40`,
                         y: -8,
-                        borderColor: `${track.color}80`,
+                        borderColor: `${track.color}`,
                       }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
                       style={{
                         borderTopColor: track.color,
                         boxShadow: `0 20px 40px -12px ${track.color}20`,
-                        borderColor: `${track.color}40`,
+                        borderColor: `${track.color}`,
                       }}
                       className={`relative rounded-[2.5rem] ${track.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
                     >
@@ -649,10 +636,10 @@ export default function CollaborationPage() {
               );
             })}
           </div>
-        </div>
+        </section>
 
         {/* ── Innovation Journey Section ── */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           {/* Top Heading */}
           <div className="text-center mb-16">
             <motion.h2
@@ -682,35 +669,35 @@ export default function CollaborationPage() {
           >
             <div className="grid md:grid-cols-2 gap-0 items-start">
               {/* LEFT: Heading + Content */}
-               <div className="px-8 md:px-14 !pt-[30px] py-24 md:py-48">
-                 {/* Headline */}
-                 <motion.h2
-                   initial={{ opacity: 0, y: 12 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ delay: 0.2, duration: 0.6 }}
-                   className="text-2xl text-justify md:text-4xl lg:text-5xl font-black tracking-tight
+              <div className="px-8 md:px-14 py-12 md:py-20">
+                {/* Headline */}
+                <motion.h2
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="text-2xl text-justify md:text-4xl lg:text-5xl font-black tracking-tight
                                        bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]
                                        dark:from-white dark:via-[#3A9B9B] dark:to-white
                                        bg-clip-text text-transparent mb-4"
-                 >
-                   {tName("sloganText")}
-                 </motion.h2>
+                >
+                  {tName("sloganText")}
+                </motion.h2>
 
-                 {/* Divider */}
-                 <div className="w-16 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
+                {/* Divider */}
+                <div className="w-16 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
 
-                 {/* Philosophy text */}
-                 <motion.p
-                   initial={{ opacity: 0, y: 10 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ delay: 0.35, duration: 0.6 }}
-                   className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
-                 >
-                   {tName("closingStatement")}
-                 </motion.p>
-               </div>
+                {/* Philosophy text */}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.35, duration: 0.6 }}
+                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
+                >
+                  {tName("closingStatement")}
+                </motion.p>
+              </div>
 
               {/* RIGHT: Image */}
               <motion.div
@@ -730,35 +717,40 @@ export default function CollaborationPage() {
             </div>
           </motion.div>
         </section>
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          {/* Top Heading */}
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-100 mb-4"
+            >
+              {tCollab("approachTitle")}{" "}
+              <span className="text-[#3A9B9B]">
+                {tCollab("approachHighlight")}
+              </span>
+            </motion.h2>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="p-8 md:p-12 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md shadow-2xl relative overflow-hidden"
+            className="p-10 md:p-16 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md shadow-2xl relative overflow-hidden"
           >
             {/* Decorative background glow */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#3A9B9B]/10 blur-[60px] rounded-full" />
             <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#3A9B9B]/5 blur-[60px] rounded-full" />
 
             <div className="relative z-10">
-              {/* Heading */}
-              <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4">
-                {tCollab("approachTitle")}{" "}
-                <span className="text-[#3A9B9B]">
-                  {tCollab("approachHighlight")}
-                </span>
-              </h2>
-              <div className="w-10 h-[3px] rounded-full bg-[#3A9B9B] mb-8" />
               {/* Body paragraphs */}
               <div className="space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 italic text-zinc-700 dark:text-zinc-100">
+                <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 text-justify text-zinc-700 dark:text-zinc-100">
                   {tCollab("approachP1")}
                 </p>
-                {/* <p className="border-l-4 border-zinc-200 dark:border-zinc-700 pl-6 py-2">
-                
-                </p> */}
               </div>
             </div>
           </motion.div>
