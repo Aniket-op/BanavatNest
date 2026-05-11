@@ -751,7 +751,7 @@ export default function CollaborationPage() {
             <div className="relative z-10">
               {/* Body paragraphs */}
               <div className="space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 text-justify text-zinc-700 dark:text-zinc-100">
+                <p className="text-justify text-zinc-700 dark:text-zinc-100">
                   {tCollab("approachP1")}
                 </p>
               </div>

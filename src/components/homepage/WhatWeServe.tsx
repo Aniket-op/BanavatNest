@@ -1,74 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import React from "react";
-
-// ── 3D Card Wrapper (same effect as Opportunities by Level cards) ──
-const Card3D = ({
-  children,
-  className = "",
-  style = {},
-}: {
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), {
-    stiffness: 400,
-    damping: 30,
-  });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), {
-    stiffness: 400,
-    damping: 30,
-  });
-  const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-    glareOpacity.set(0.18);
-  };
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-    glareOpacity.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", ...style }}
-      className={`relative ${className}`}
-    >
-      {children}
-      {/* Glare */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none rounded-[2.5rem] overflow-hidden z-30"
-        style={{
-          opacity: glareOpacity,
-          background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
-        }}
-      />
-    </motion.div>
-  );
-};
 
 // ── Premium SVG Illustrations with Animations ──
 
@@ -480,9 +417,9 @@ export default function WhatWeServe() {
               {t("whatWeServe.titleHighlight")}
             </span>
           </h2>
-          <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
+          {/* <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium max-w-5xl mx-auto leading-relaxed">
             {t("whatWeServe.description")}
-          </p>
+          </p> */}
         </motion.div>
 
         {/* ── Served Cards ── */}
@@ -498,9 +435,8 @@ export default function WhatWeServe() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 className="group relative h-[620px]"
-                style={{ perspective: "1200px" }}
               >
-                <Card3D className="h-full">
+                <div className="h-full">
                   <Link href={card.href} className="block h-full">
                     <motion.div
                       whileHover={{
@@ -528,7 +464,7 @@ export default function WhatWeServe() {
                       <div className="relative z-10 flex flex-col items-center mb-6">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-[2.2rem]">{card.emoji}</span>
-                          <span className="text-base font-black uppercase tracking-[0.3em] text-zinc-900/60 dark:text-zinc-100/40">
+                          <span className="text-base font-black uppercase tracking-[0.3em] text-zinc-900/80 dark:text-zinc-100/60">
                             {t(`whatWeServe.${card.key}.label`)}
                           </span>
                         </div>
@@ -574,7 +510,7 @@ export default function WhatWeServe() {
 
                       {/* Explore More CTA */}
                       <div className="relative z-10 mt-8 mb-6 flex items-center justify-center gap-3 group/cta">
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/50 dark:text-zinc-100/40 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
+                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/80 dark:text-zinc-100/60 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
                           {t("whatWeServe.exploreMore")}
                         </span>
                         <div
@@ -613,7 +549,7 @@ export default function WhatWeServe() {
                       />
                     </motion.div>
                   </Link>
-                </Card3D>
+                </div>
               </motion.div>
             );
           })}

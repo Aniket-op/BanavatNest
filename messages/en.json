@@ -1,631 +1,631 @@
 {
-  "common": {
-    "getInvolved": "Get Involved",
-    "learnMore": "Learn More",
-    "submit": "Submit",
-    "email": "Email",
-    "phone": "Phone",
-    "name": "Name",
-    "message": "Message",
-    "copyright": "© {year} BanavatNest Private Limited. All rights reserved.",
-    "lastUpdated": "Last Updated: {date}"
-  },
-  "languageSwitcher": {
-    "en": "English",
-    "hi": "हिन्दी",
-    "pa": "ਪੰਜਾਬੀ",
-    "bn": "বাংলা",
-    "label": "Language"
-  },
-  "nav": {
-    "home": "Home",
-    "aboutUs": "About Us",
-    "aboutUsMain": "About Us",
-    "ourName": "Our Name",
-    "philosophy": "Philosophy & Core Values",
-    "mission": "Mission and Vision",
-    "ourTeam": "Our Team",
-    "board": "Board of Directors",
-    "whatWeDo": "What We Do",
-    "focusAreas": "Focus Areas",
-    "domains": "Domains",
-    "bridge": "Academia-Industry Bridge",
-    "collaboration": "Collaboration Model",
-    "opportunities": "Opportunities for Students",
-    "faculty": "Faculty Engagement",
-    "partnerships": "Industry Partnerships",
-    "contact": "Contact",
-    "ourEcosystem": "Our Ecosystem",
-    "ourSupportNetwork": "Our Support Network",
-    "toolsUtilities": "Tools & Utilities",
-    "emiCalculator": "EMI Calculator",
-    "gstCalculator": "GST Calculator"
-  },
-  "footer": {
-    "companyName": "BanavatNest Private Limited",
-    "cin": "CIN: U72100WB2025PTC280919",
-    "platform": "Platform",
-    "researchDomains": "Research Domains",
-    "company": "Company",
-    "aboutUs": "About Us",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfUse": "Terms of Use"
-  },
-  "newsEvents": {
-    "latestUpdates": "Latest Updates",
-    "sectionTitle": "News &",
-    "sectionHighlight": "Events",
-    "viewOnLinkedIn": "View on LinkedIn",
-    "post1Tag": "Event",
-    "post1Date": "April 2026",
-    "post1Headline": "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
-    "post1Body": "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
-    "post2Tag": "News",
-    "post2Date": "April 2026",
-    "post2Headline": "Deployment Site Finalized for Patented Smart Fish-Feeding System",
-    "post2Body": "BanavatNest Pvt. Ltd. has finalized the deployment site for the field study of its solar-powered automated floating fish-feeding system. We are proud that one of our Founder Directors is the inventor associated with this patented technology.",
-    "post3Tag": "Upcoming Event",
-    "post3Date": "Upcoming",
-    "post3Headline": "Full Moon Photography Challenge",
-    "post3Body": "Experience the beauty of the Full Moon through guided photography and observation sessions hosted by BanavatNest. The platform will provide telescope access, lenses, and camera support to help participants capture detailed moon photographs. Selected entries will receive exciting prizes and recognition.\n\nVenue: Thapar Institute of Engineering and Technology (TIET), Patiala"
-  },
-  "featuredInnovations": {
-    "ourShowcase": "Our Showcase",
-    "sectionTitle": "Featured",
-    "sectionHighlight": "Innovations",
-    "inn1Tag": "Aquaculture",
-    "inn1Date": "Prototype Development & Field Deployment",
-    "inn1Headline": "Smart Solar-Powered Floating Fish-Feeding System",
-    "inn1Body": "A patented smart aquaculture innovation invented by one of our directors, focused on automated and sustainable fish feeding through an integrated solar-powered floating assembly system designed for efficient aquaculture management.",
-    "inn2Tag": "Integrated Farming",
-    "inn2Date": "Prototype Development & Research Translation",
-    "inn2Headline": "Integrated Pond & Livestock Shelter System",
-    "inn2Body": "A patented integrated farming innovation invented by one of our directors, designed to support sustainable aquaculture and livestock management through automated, intelligent, and resource-efficient shelter and pond integration systems.",
-    "inn3Tag": "Assistive Tech",
-    "inn3Date": "Patent Published — FER Filed",
-    "inn3Headline": "Smart Food-Picking Assistance Device",
-    "inn3Body": "A research-driven intelligent assisting innovation focused on automated and efficient food-picking support through adaptive sensing, smart handling mechanisms, and user-oriented design for enhanced accessibility and practical usability.",
-    "inn4Tag": "Software Solutions",
-    "inn4Date": "Under Development & Research Translation Phase",
-    "inn4Headline": "Financial Systems & Software Solutions",
-    "inn4Body": "Building secure and scalable software solutions for intelligent financial analytics, automation, monitoring, and decision-support applications.",
-    "inn5Tag": "Smart Agriculture",
-    "inn5Date": "Research Paper Published — Prototype Development",
-    "inn5Headline": "Automated Solar-Powered Smart Irrigation System",
-    "inn5Body": "A smart and sustainable irrigation solution designed for automated plant watering through solar-powered operation, intelligent monitoring, and efficient water management for precision agriculture and smart farming applications.",
-    "inn6Tag": "Custom Solutions",
-    "inn6Date": "Ongoing Collaborative Development",
-    "inn6Headline": "Customized Solution Development",
-    "inn6Body": "Developing research-driven and technology-oriented customized solutions tailored to specific industry, academic, automation, analytics, and real-world operational requirements.",
-    "inn7Tag": "Healthcare Tech",
-    "inn7Date": "Research & Solution Development Phase",
-    "inn7Headline": "Healthcare System Development",
-    "inn7Body": "Designing intelligent and technology-driven healthcare solutions focused on solving real-world clinical, monitoring, automation, and patient-care challenges through research, innovation, and system-oriented development."
-  },
-  "collaborationPage": {
-    "heroQuote": "BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact.",
-    "whoCanTitle": "Who Can",
-    "whoCanHighlight": "Collaborate",
-    "whoCanDesc": "Open to students, faculty, researchers, startups, and industry partners driven by innovation and real-world impact.",
-    "journeyTitle": "Innovation",
-    "journeyHighlight": "Journey",
-    "journeyEyebrow": "From Curiosity to Impact",
-    "journeyHeadline": "Transforming curiosity-driven ideas into practical, scalable, and impactful real-world solutions.",
-    "approachTitle": "Our",
-    "approachHighlight": "Approach",
-    "approachP1": "We adopt a problem-driven approach where real-world industry challenges are mapped into academic research opportunities and student-led innovation projects. Collaboration is enabled through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.",
-    "approachP2": "Our ecosystem encourages interdisciplinary collaboration where ideas evolve through research, experimentation, prototyping, and continuous innovation."
-  },
-  "boardPage": {
-    "badge": "Innovation • Mentorship • Incubation",
-    "heroTitle": "Incubation",
-    "heroHighlight": "Mentor",
-    "heroDesc": "is the startup incubation and innovation support ecosystem at",
-    "cardSubtitle": "Incubation & Innovation Ecosystem",
-    "cardSupportText": "Supporting",
-    "cardSupportSuffix": "in strengthening its vision toward:",
-    "feat1": "Research-led innovation",
-    "feat2": "Prototype-oriented execution",
-    "feat3": "Meaningful real-world impact",
-    "boardTitle": "Board of",
-    "boardHighlight": "Directors",
-    "viewPortfolio": "View Portfolio"
-  },
-  "home": {
-    "badge": "Research-Led Innovation Ecosystem",
-    "heroTitle1": "Build with",
-    "heroTitle2": "Purpose",
-    "heroTitle3": "Nurture to",
-    "heroTitle4": "Impact",
-    "heroDesc": "BanavatNest transforms curiosity into practical, scalable, and impactful solutions through systematic investigation.",
-    "ctaWhatWeDo": "What We Do",
-    "ctaBridge": "Our Bridge",
-    "updateTitle": "BanavatNest Official Website Goes Live",
-    "updateTitle2": "BanavatNest welcomes participants of ROFT 2026 | 👉 Explore Event",
-    "updateTitle3": "BanavatNest Pvt. Ltd. congratulates the winners of the ROFT 2026 Quiz Competition.",
-    "domainAiTitle": "AI & ML",
-    "domainAiDesc": "Artificial Intelligence, Machine Learning & Data Science",
-    "domainCyberTitle": "Cybersecurity",
-    "domainCyberDesc": "Cybersecurity, Internet of Things & Blockchain",
-    "domainSmartTitle": "Smart Systems",
-    "domainSmartDesc": "Healthcare & Sustainability focus areas",
-    "domainAgriTitle": "Agriculture",
-    "domainAgriDesc": "Smart Farming and Precision Agriculture",
-    "heroTagline": "BanavatNest Pvt. Ltd. — where research meets prototypes and prototypes move toward real-world impact",
-    "whatWeDo": {
-      "coreDomainsTitle": "Our Core",
-      "coreDomainsHighlight": "Domains",
-      "title": "What We",
-      "titleHighlight": "Do",
-      "usps": {
-        "prototype": "Prototype Development",
-        "bridge": "Academia ↔ Industry Bridge",
-        "ai": "AI & Intelligent Systems",
-        "scalable": "Scalable Solutions",
-        "custom": "Customized Problem Solving",
-        "health": "Smart Healthcare Systems",
-        "agri": "Precision Agriculture"
-      }
+    "common": {
+        "getInvolved": "Get Involved",
+        "learnMore": "Learn More",
+        "submit": "Submit",
+        "email": "Email",
+        "phone": "Phone",
+        "name": "Name",
+        "message": "Message",
+        "copyright": "© {year} BanavatNest Private Limited. All rights reserved.",
+        "lastUpdated": "Last Updated: {date}"
     },
-    "whatWeServe": {
-      "title": "What We",
-      "titleHighlight": "Serve",
-      "description": "Empowering ideas at every stage — from concept to deployment and real-world impact.",
-      "exploreMore": "Explore More",
-      "students": {
-        "label": "Students",
-        "items": {
-          "0": {
-            "heading": "Hands-on Projects",
-            "desc": "Building real-world prototypes and earning practical engineering experience."
-          },
-          "1": {
-            "heading": "Skill Development",
-            "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
-          },
-          "2": {
-            "heading": "Industry Exposure",
-            "desc": "Solving live problems from top companies to become career-ready."
-          },
-          "3": {
-            "heading": "Mentorship",
-            "desc": "Expert guidance for research, prestigious internships, and startup ventures."
-          }
+    "languageSwitcher": {
+        "en": "English",
+        "hi": "हिन्दी",
+        "pa": "ਪੰਜਾਬੀ",
+        "bn": "বাংলা",
+        "label": "Language"
+    },
+    "nav": {
+        "home": "Home",
+        "aboutUs": "About Us",
+        "aboutUsMain": "About Us",
+        "ourName": "Our Name",
+        "philosophy": "Philosophy & Core Values",
+        "mission": "Mission and Vision",
+        "ourTeam": "Our Team",
+        "board": "Board of Directors",
+        "whatWeDo": "What We Do",
+        "focusAreas": "Focus Areas",
+        "domains": "Domains",
+        "bridge": "Collaborate",
+        "collaboration": "Collaboration Model",
+        "opportunities": "Students & Innovators",
+        "faculty": "Faculty & Researchers",
+        "partnerships": "Industry & Startups",
+        "contact": "Contact",
+        "ourEcosystem": "Our Ecosystem",
+        "ourSupportNetwork": "Our Support Network",
+        "toolsUtilities": "Tools & Utilities",
+        "emiCalculator": "EMI Calculator",
+        "gstCalculator": "GST Calculator"
+    },
+    "footer": {
+        "companyName": "BanavatNest Private Limited",
+        "cin": "CIN: U72100WB2025PTC280919",
+        "platform": "Platform",
+        "researchDomains": "Research Domains",
+        "company": "Company",
+        "aboutUs": "About Us",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use"
+    },
+    "newsEvents": {
+        "latestUpdates": "Latest Updates",
+        "sectionTitle": "News &",
+        "sectionHighlight": "Events",
+        "viewOnLinkedIn": "View on LinkedIn",
+        "post1Tag": "Event",
+        "post1Date": "April 2026",
+        "post1Headline": "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
+        "post1Body": "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
+        "post2Tag": "News",
+        "post2Date": "April 2026",
+        "post2Headline": "Deployment Site Finalized for Patented Smart Fish-Feeding System",
+        "post2Body": "BanavatNest Pvt. Ltd. has finalized the deployment site for the field study of its solar-powered automated floating fish-feeding system. We are proud that one of our Founder Directors is the inventor associated with this patented technology.",
+        "post3Tag": "Upcoming Event",
+        "post3Date": "Upcoming",
+        "post3Headline": "Full Moon Photography Challenge",
+        "post3Body": "Experience the beauty of the Full Moon through guided photography and observation sessions hosted by BanavatNest. The platform will provide telescope access, lenses, and camera support to help participants capture detailed moon photographs. Selected entries will receive exciting prizes and recognition.\n\nVenue: Thapar Institute of Engineering and Technology (TIET), Patiala"
+    },
+    "featuredInnovations": {
+        "ourShowcase": "Our Showcase",
+        "sectionTitle": "Featured",
+        "sectionHighlight": "Innovations",
+        "inn1Tag": "Aquaculture",
+        "inn1Date": "Prototype Development & Field Deployment",
+        "inn1Headline": "Smart Solar-Powered Floating Fish-Feeding System",
+        "inn1Body": "A patented smart aquaculture innovation invented by one of our directors, focused on automated and sustainable fish feeding through an integrated solar-powered floating assembly system designed for efficient aquaculture management.",
+        "inn2Tag": "Integrated Farming",
+        "inn2Date": "Prototype Development & Research Translation",
+        "inn2Headline": "Integrated Pond & Livestock Shelter System",
+        "inn2Body": "A patented integrated farming innovation invented by one of our directors, designed to support sustainable aquaculture and livestock management through automated, intelligent, and resource-efficient shelter and pond integration systems.",
+        "inn3Tag": "Assistive Tech",
+        "inn3Date": "Patent Published — FER Filed",
+        "inn3Headline": "Smart Food-Picking Assistance Device",
+        "inn3Body": "A research-driven intelligent assisting innovation focused on automated and efficient food-picking support through adaptive sensing, smart handling mechanisms, and user-oriented design for enhanced accessibility and practical usability.",
+        "inn4Tag": "Software Solutions",
+        "inn4Date": "Under Development & Research Translation Phase",
+        "inn4Headline": "Financial Systems & Software Solutions",
+        "inn4Body": "Building secure and scalable software solutions for intelligent financial analytics, automation, monitoring, and decision-support applications.",
+        "inn5Tag": "Smart Agriculture",
+        "inn5Date": "Research Paper Published — Prototype Development",
+        "inn5Headline": "Automated Solar-Powered Smart Irrigation System",
+        "inn5Body": "A smart and sustainable irrigation solution designed for automated plant watering through solar-powered operation, intelligent monitoring, and efficient water management for precision agriculture and smart farming applications.",
+        "inn6Tag": "Custom Solutions",
+        "inn6Date": "Ongoing Collaborative Development",
+        "inn6Headline": "Customized Solution Development",
+        "inn6Body": "Developing research-driven and technology-oriented customized solutions tailored to specific industry, academic, automation, analytics, and real-world operational requirements.",
+        "inn7Tag": "Healthcare Tech",
+        "inn7Date": "Research & Solution Development Phase",
+        "inn7Headline": "Healthcare System Development",
+        "inn7Body": "Designing intelligent and technology-driven healthcare solutions focused on solving real-world clinical, monitoring, automation, and patient-care challenges through research, innovation, and system-oriented development."
+    },
+    "collaborationPage": {
+        "heroQuote": "BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact.",
+        "whoCanTitle": "Who Can",
+        "whoCanHighlight": "Collaborate",
+        "whoCanDesc": "Open to students, faculty, researchers, startups, and industry partners driven by innovation and real-world impact.",
+        "journeyTitle": "Innovation",
+        "journeyHighlight": "Journey",
+        "journeyEyebrow": "From Curiosity to Impact",
+        "journeyHeadline": "Transforming curiosity-driven ideas into practical, scalable, and impactful real-world solutions.",
+        "approachTitle": "Our",
+        "approachHighlight": "Approach",
+        "approachP1": "We adopt a problem-driven approach where real-world industry challenges are mapped into academic research opportunities and student-led innovation projects. Collaboration is enabled through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.",
+        "approachP2": "Our ecosystem encourages interdisciplinary collaboration where ideas evolve through research, experimentation, prototyping, and continuous innovation."
+    },
+    "boardPage": {
+        "badge": "Innovation • Mentorship • Incubation",
+        "heroTitle": "Incubation",
+        "heroHighlight": "Mentor",
+        "heroDesc": "is the startup incubation and innovation support ecosystem at",
+        "cardSubtitle": "Incubation & Innovation Ecosystem",
+        "cardSupportText": "Supporting",
+        "cardSupportSuffix": "in strengthening its vision toward:",
+        "feat1": "Research-led innovation",
+        "feat2": "Prototype-oriented execution",
+        "feat3": "Meaningful real-world impact",
+        "boardTitle": "Board of",
+        "boardHighlight": "Directors",
+        "viewPortfolio": "View Portfolio"
+    },
+    "home": {
+        "badge": "Research-Led Innovation Ecosystem",
+        "heroTitle1": "Build with",
+        "heroTitle2": "Purpose",
+        "heroTitle3": "Nurture to",
+        "heroTitle4": "Impact",
+        "heroDesc": "BanavatNest transforms curiosity into practical, scalable, and impactful solutions through systematic investigation.",
+        "ctaWhatWeDo": "What We Do",
+        "ctaBridge": "Our Bridge",
+        "updateTitle": "BanavatNest Official Website Goes Live",
+        "updateTitle2": "BanavatNest welcomes participants of ROFT 2026 | 👉 Explore Event",
+        "updateTitle3": "BanavatNest Pvt. Ltd. congratulates the winners of the ROFT 2026 Quiz Competition.",
+        "domainAiTitle": "AI & ML",
+        "domainAiDesc": "Artificial Intelligence, Machine Learning & Data Science",
+        "domainCyberTitle": "Cybersecurity",
+        "domainCyberDesc": "Cybersecurity, Internet of Things & Blockchain",
+        "domainSmartTitle": "Smart Systems",
+        "domainSmartDesc": "Healthcare & Sustainability focus areas",
+        "domainAgriTitle": "Agriculture",
+        "domainAgriDesc": "Smart Farming and Precision Agriculture",
+        "heroTagline": "BanavatNest Pvt. Ltd. — where research meets prototypes and prototypes move toward real-world impact",
+        "whatWeDo": {
+            "coreDomainsTitle": "Our Core",
+            "coreDomainsHighlight": "Domains",
+            "title": "What We",
+            "titleHighlight": "Do",
+            "usps": {
+                "prototype": "Prototype Development",
+                "bridge": "Academia ↔ Industry Bridge",
+                "ai": "AI & Intelligent Systems",
+                "scalable": "Scalable Solutions",
+                "custom": "Customized Problem Solving",
+                "health": "Smart Healthcare Systems",
+                "agri": "Precision Agriculture"
+            }
+        },
+        "whatWeServe": {
+            "title": "What We",
+            "titleHighlight": "Serve",
+            "description": "Empowering ideas at every stage — from concept to deployment and real-world impact.",
+            "exploreMore": "Explore More",
+            "students": {
+                "label": "Students",
+                "items": {
+                    "0": {
+                        "heading": "Hands-on Projects",
+                        "desc": "Building real-world prototypes and earning practical engineering experience."
+                    },
+                    "1": {
+                        "heading": "Skill Development",
+                        "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
+                    },
+                    "2": {
+                        "heading": "Industry Exposure",
+                        "desc": "Solving live problems from top companies to become career-ready."
+                    },
+                    "3": {
+                        "heading": "Mentorship",
+                        "desc": "Expert guidance for research, prestigious internships, and startup ventures."
+                    }
+                }
+            },
+            "faculty": {
+                "label": "Faculty",
+                "items": {
+                    "0": {
+                        "heading": "Research Prototypes",
+                        "desc": "Converting academic research into functional, industry-grade prototypes."
+                    },
+                    "1": {
+                        "heading": "Project Support",
+                        "desc": "Assistance with funded project proposals and strategic grant applications."
+                    },
+                    "2": {
+                        "heading": "Technology Transfer",
+                        "desc": "Direct industry collaboration and commercialization of intellectual capital."
+                    },
+                    "3": {
+                        "heading": "Deployment Support",
+                        "desc": "Data-driven validation and real-world deployment of academic solutions."
+                    }
+                }
+            },
+            "industry": {
+                "label": "Industry",
+                "items": {
+                    "0": {
+                        "heading": "Customized Solutions",
+                        "desc": "Tailored engineering to solve your most challenging business problems."
+                    },
+                    "1": {
+                        "heading": "Core Tech R&D",
+                        "desc": "Advanced development in AI, IoT, and high-security system architectures."
+                    },
+                    "2": {
+                        "heading": "Rapid Prototyping",
+                        "desc": "Moving from initial concept to pilot deployment with extreme speed."
+                    },
+                    "3": {
+                        "heading": "Scalable Systems",
+                        "desc": "Production-ready, battle-tested solutions designed for market expansion."
+                    }
+                }
+            }
         }
-      },
-      "faculty": {
-        "label": "Faculty",
-        "items": {
-          "0": {
-            "heading": "Research Prototypes",
-            "desc": "Converting academic research into functional, industry-grade prototypes."
-          },
-          "1": {
-            "heading": "Project Support",
-            "desc": "Assistance with funded project proposals and strategic grant applications."
-          },
-          "2": {
-            "heading": "Technology Transfer",
-            "desc": "Direct industry collaboration and commercialization of intellectual capital."
-          },
-          "3": {
-            "heading": "Deployment Support",
-            "desc": "Data-driven validation and real-world deployment of academic solutions."
-          }
+    },
+    "aboutUsPage": {
+        "title": "About",
+        "titleHighlight": "Us",
+        "subtitle": "Research-led innovation nurturing ideas from curiosity to impact.",
+        "coreValuesTitle": "Our Core",
+        "coreValuesHighlight": "Values",
+        "coreValuesSubheading": "Building the future through purposeful innovation and systematic development.",
+        "coreValuesIntro": "At <brand>BanavatNest</brand>, we believe innovation is not just about ideas -- it is about nurturing them through Purpose, Process, and Prototyping until they create meaningful Progress.",
+        "meaningHeading": "Meaning",
+        "whyTheName": "Why the Name",
+        "whyTheNameHighlight": "BanavatNest ?",
+        "symbolismLabel": "The Symbolism of <brand>BanavatNest</brand>",
+        "purposeTitle": "PURPOSE",
+        "purposeDesc": "Why we do it",
+        "processTitle": "PROCESS",
+        "processDesc": "How we approach it",
+        "prototypeTitle": "PROTOTYPE",
+        "prototypeDesc": "What we create",
+        "progressTitle": "PROGRESS",
+        "progressDesc": "What impact it drives"
+    },
+    "aboutName": {
+        "title": "Our",
+        "titleHighlight": "Name",
+        "subtitle": "Symbolizing the philosophy of creation and nurturing innovation.",
+        "meaningTitle": "The Meaning",
+        "banavatTitle": "Banavat",
+        "banavatDesc": "Drawn from Hindi and widely used in Punjabi, Banavat signifies creating, building, and shaping ideas with purpose and intent.",
+        "nestTitle": "Nest",
+        "nestDesc": "A Nest symbolizes a nurturing space where ideas are developed, refined, and prepared to grow into meaningful impact.",
+        "sloganTitle": "Our Slogan",
+        "sloganText": "Build with Purpose. Nurture to Impact.",
+        "closingStatement": "BanavatNest is not just a name—it is our commitment to shaping ideas through research and prototyping, transforming them into real-world impact.",
+        "quote": "Together, BanavatNest represents a research-led innovation ecosystem where curiosity-driven ideas are shaped through systematic investigation."
+    },
+    "aboutPhilosophy": {
+        "title": "Philosophy",
+        "titleHighlight": "& Values",
+        "subtitle": "A unified philosophy where ideas are built with purpose and nurtured with care.",
+        "banavatHeader": "Our Foundation — BANAVAT",
+        "nestHeader": "Our Ecosystem — NEST",
+        "b_title": "Building with Purpose",
+        "b_desc": "Focusing on purposeful creation to address meaningful challenges.",
+        "a1_title": "Analytical Thinking",
+        "a1_desc": "Rigorous analysis, critical reasoning, and evidence-based decision-making.",
+        "n1_title": "Nurturing Curiosity",
+        "n1_desc": "Encouraging exploration, questioning, and continuous learning.",
+        "a2_title": "Adaptability",
+        "a2_desc": "Staying flexible and responsive to new ideas and emerging technologies.",
+        "v_title": "Validation",
+        "v_desc": "Refining ideas through systematic experimentation and iterative improvement.",
+        "a3_title": "Accountability",
+        "a3_desc": "Integrity, responsibility, and ethical conduct are central.",
+        "t_title": "Translation",
+        "t_desc": "Translating research outcomes into practical, scalable solutions.",
+        "nest_n_title": "Nurturing Ideas",
+        "nest_n_desc": "Supportive environment where ideas are encouraged and allowed to mature.",
+        "nest_e_title": "Experimentation",
+        "nest_e_desc": "Learning through experimentation and evidence-based validation.",
+        "nest_s_title": "Supportive Innovation",
+        "nest_s_desc": "Fostering collaboration across disciplines for shared problem-solving.",
+        "nest_t_title": "Together",
+        "nest_t_desc": "Working together to deliver meaningful and lasting impact."
+    },
+    "aboutMission": {
+        "title": "Mission",
+        "titleHighlight": "& Vision",
+        "subtitle": "Research-driven innovation nurturing ideas from curiosity to impact.",
+        "missionTitle": "Our Mission",
+        "missionText": "To transform purposeful ideas into practical and scalable solutions through research, design, and prototyping.",
+        "visionTitle": "Our Vision",
+        "visionText": "To build a research-driven innovation ecosystem where ideas evolve from curiosity to meaningful real-world impact."
+    },
+    "aboutTeam": {
+        "title": "Our",
+        "titleHighlight": "Team",
+        "subtitle": "Collaborative ecosystem of students, scholars, and experts.",
+        "intro": "At BanavatNest, we follow a collaborative and inclusive team model rather than a conventional in-house service-based structure.",
+        "studentsTitle": "Students",
+        "studentsDesc": "Contribute through project-based learning, exploratory research, and prototype development.",
+        "facultyTitle": "Faculty",
+        "facultyDesc": "Role as mentors, domain experts, and research leaders, guiding projects with academic rigor.",
+        "partnersTitle": "Partners",
+        "partnersDesc": "Bring real-world problems and deployment perspectives for impactful outcomes.",
+        "quote": "\"We act as a bridge between academia, industry, and society, enabling collaborative innovation.\""
+    },
+    "aboutBoard": {
+        "sukhdevName": "Dr. Sukhdev Singh",
+        "sukhdevEdu": "PHD (IIT Patna)",
+        "sukhdevRole": "Co-Founder & Director (Research & Strategy)",
+        "sukhdevBio": "A passionate researcher and strategic visionary with deep expertise in transforming complex ideas into scalable technological solutions.",
+        "sukhdevAch1": "Ph.D. in Computer Science & Engineering from IIT Patna.",
+        "sukhdevAch2": "Pioneered research in AI, IoT & Smart Systems.",
+        "sukhdevAch3": "Published numerous patents & high-impact research papers.",
+        "sangitaName": "Dr. Sangita Roy",
+        "sangitaEdu": "PHD (IIT Patna)",
+        "sangitaRole": "Co-Founder & Director (Innovation & Technology)",
+        "sangitaBio": "An innovative technologist and academician dedicated to developing sustainable, research-led prototypes with real-world industry applications.",
+        "sangitaAch1": "Ph.D. in Computer Science & Engineering from IIT Patna.",
+        "sangitaAch2": "Expertise in Machine Learning & Health Informatics.",
+        "sangitaAch3": "Led multiple technology transfer initiatives & prototype developments."
+    },
+    "focusAreas": {
+        "title": "Our Focus",
+        "titleHighlight": "Areas",
+        "subtitle": "Bridging the gap between theoretical research and practical application.",
+        "rdTitle": "Research & Development",
+        "rdDesc": "Systematic investigation and analytical modeling to solve real-world problems with scalable solutions.",
+        "protoTitle": "Product Prototyping",
+        "protoDesc": "Integrating design and engineering to translate ideas into functional, industrial-grade prototypes.",
+        "acadTitle": "Academia Collaboration",
+        "acadDesc": "Enabling student-driven projects and faculty-led innovation through active industry partnering.",
+        "techTitle": "Tech Transfer",
+        "techDesc": "Transforming research into deployable technologies through IP development and commercialization."
+    },
+    "researchDomains": {
+        "title": "Our",
+        "titleHighlight": "Domains",
+        "subtitle": "Diverse expertise driving technological advancement across impactful industries.",
+        "aiTitle": "AI, ML & Data Science",
+        "aiDesc": "Intelligent algorithms for prediction and optimization across engineering and health sectors.",
+        "cyberTitle": "Cybersecurity & IoT",
+        "cyberDesc": "Secure and decentralized systems for connected environments. Addressing network security and privacy.",
+        "smartTitle": "Smart Systems & Health",
+        "smartDesc": "Integrating sensing and automation for resource-efficient technologies and improved quality of life.",
+        "agriTitle": "Precision Agriculture",
+        "agriDesc": "Advanced data analytics and IoT monitoring to enhance farming productivity and sustainability."
+    },
+    "collaboration": {
+        "academic": {
+            "title": "Students & Innovators",
+            "items": {
+                "0": {
+                    "heading": "Hands-on Projects",
+                    "desc": "Building real-world prototypes and earning practical engineering experience."
+                },
+                "1": {
+                    "heading": "Skill Development",
+                    "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
+                },
+                "2": {
+                    "heading": "Industry Exposure",
+                    "desc": "Solving live problems from top companies to become career-ready."
+                },
+                "3": {
+                    "heading": "Mentorship",
+                    "desc": "Expert guidance for research, prestigious internships, and startup ventures."
+                }
+            }
+        },
+        "industry": {
+            "title": "Industry & Startups",
+            "items": {
+                "0": {
+                    "heading": "Customized Solutions",
+                    "desc": "Tailored engineering to solve your most challenging business problems."
+                },
+                "1": {
+                    "heading": "Core Tech R&D",
+                    "desc": "Advanced development in AI, IoT, and high-security system architectures."
+                },
+                "2": {
+                    "heading": "Rapid Prototyping",
+                    "desc": "Moving from initial concept to pilot deployment with extreme speed."
+                },
+                "3": {
+                    "heading": "Scalable Systems",
+                    "desc": "Production-ready, battle-tested solutions designed for market expansion."
+                }
+            }
+        },
+        "startup": {
+            "title": "Faculty & Researchers",
+            "items": {
+                "0": {
+                    "heading": "Research Prototypes",
+                    "desc": "Converting academic research into functional, industry-grade prototypes."
+                },
+                "1": {
+                    "heading": "Project Support",
+                    "desc": "Assistance with funded project proposals and strategic grant applications."
+                },
+                "2": {
+                    "heading": "Technology Transfer",
+                    "desc": "Direct industry collaboration and commercialization of intellectual capital."
+                },
+                "3": {
+                    "heading": "Deployment Support",
+                    "desc": "Data-driven validation and real-world deployment of academic solutions."
+                }
+            }
         }
-      },
-      "industry": {
-        "label": "Industry",
-        "items": {
-          "0": {
-            "heading": "Customized Solutions",
-            "desc": "Tailored engineering to solve your most challenging business problems."
-          },
-          "1": {
-            "heading": "Core Tech R&D",
-            "desc": "Advanced development in AI, IoT, and high-security system architectures."
-          },
-          "2": {
-            "heading": "Rapid Prototyping",
-            "desc": "Moving from initial concept to pilot deployment with extreme speed."
-          },
-          "3": {
-            "heading": "Scalable Systems",
-            "desc": "Production-ready, battle-tested solutions designed for market expansion."
-          }
-        }
-      }
+    },
+    "opportunities": {
+        "title": "Student",
+        "titleHighlight": "Growth",
+        "subtitle": "Creating research and innovation opportunities for students at all levels.",
+        "ugTitle": "Undergraduate Students",
+        "ugDesc": "Engage through exploratory projects, internships, and innovation challenges aimed at skill development and early research exposure.",
+        "pgTitle": "Postgraduate Students",
+        "pgDesc": "Work on advanced problem-solving, system design, and prototype development aligned with industry needs.",
+        "phdTitle": "Doctoral Researchers",
+        "phdDesc": "Supported through industry-relevant research problems, joint supervision, access to real datasets, and opportunities for funded research."
+    },
+    "facultyPage": {
+        "title": "Faculty",
+        "titleHighlight": "Roles",
+        "subtitle": "Central to our ecosystem as domain experts, mentors, and principal investigators.",
+        "heading": "Leading interdisciplinary teams and guiding research with impact.",
+        "bodyP1": "BanavatNest enables faculty engagement through joint research projects, consultancy, sponsored research, and co-development of intellectual property.",
+        "bodyP2": "Faculty members are encouraged to lead interdisciplinary teams, guide student researchers, and contribute to grant proposals and pilot deployments. This engagement fosters meaningful research impact while strengthening institutional collaboration with industry."
+    },
+    "industryPartnerships": {
+        "title": "Industry",
+        "titleHighlight": "Partnerships",
+        "subtitle": "Demonstrating technical feasibility and business potential through Proof-of-Concepts (PoCs).",
+        "frameworkTitle": "The PoC Framework",
+        "step1": "Problem definition",
+        "step2": "Solution design",
+        "step3": "Prototype development",
+        "step4": "Validation",
+        "step5": "Scalability assessment",
+        "heading": "Collaborating to develop solutions that demonstrate real-world impact.",
+        "bodyP1": "Industry partners benefit from rapid prototyping, academic validation, and access to skilled talent, while academic participants gain exposure to real-world constraints and deployment challenges.",
+        "successNote": "Successful PoCs can progress toward technology transfer, startup incubation, or long-term industry adoption."
+    },
+    "contact": {
+        "title": "Get in",
+        "titleHighlight": "Touch",
+        "subtitle": "We're always looking for new ideas, partnerships, and collaborations.",
+        "directContact": "Direct Contact",
+        "sendMessage": "Send a Message",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "your@email.com",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Your message..."
+    },
+    "disclaimer": {
+        "title": "Disclaimer",
+        "p1": "All information provided on this website is for informational purposes only. While every effort is made to ensure that the information presented is current and accurate, BanavatNest makes no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, or suitability of the information.",
+        "p2": "This website may contain information and links provided by various internal or external sources. BanavatNest does not independently verify, monitor, or guarantee the authenticity of such information and does not endorse, control, or assume responsibility for the content of any external websites or linked resources. Any reliance placed on the information available through this website is strictly at the user's own risk."
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "intro": "BanavatNest Private Limited (\"BanavatNest\", \"we\", \"our\", \"us\") respects the privacy of all users, collaborators, and stakeholders who interact with our platform. This Privacy Policy describes how information shared with us is handled.",
+        "s1Title": "1. Information We May Receive",
+        "s1Text": "We may receive information that you voluntarily provide, including (but not limited to) problem statements, ideas, documents, messages, contact details, and other materials submitted through our website, email, forms, or collaboration channels.",
+        "s2Title": "2. How We Use Information",
+        "s2Text": "Information shared with BanavatNest is used solely for research discussion, problem analysis, experimentation, collaborative innovation, feasibility assessment, pilot planning, training/learning activities, and related communication.",
+        "s3Title": "3. Sharing and Disclosure",
+        "s3Item1": "We do not sell submitted information to third parties.",
+        "s3Item2": "We do not disclose or share submitted information externally without prior consent, except where required by law or explicitly agreed upon for collaboration.",
+        "s3Item3": "For collaborative engagements, we may share limited information with participating team members (e.g., students, scholars, faculty collaborators) on a need-to-know basis, subject to ethical and responsible practices.",
+        "s4Title": "4. Confidentiality and Sensitive Information",
+        "s4Text": "While BanavatNest takes reasonable care to respect confidentiality, submission through the platform does not automatically create a confidential relationship. Users are encouraged not to share highly sensitive, proprietary, or confidential information unless a formal written agreement (e.g., NDA) is in place.",
+        "s5Title": "5. User Responsibilities",
+        "s5Text": "Users are responsible for ensuring that content submitted does not violate confidentiality obligations, intellectual property rights, or third-party restrictions. Do not submit trade secrets, copyrighted material, or confidential information belonging to others without authorization.",
+        "s6Title": "6. Data Protection",
+        "s6Text": "We take reasonable administrative and technical precautions to protect submitted information. However, no method of transmission or storage is completely secure; therefore, absolute security cannot be guaranteed.",
+        "s7Title": "7. Contact",
+        "s7Text": "For queries regarding this Privacy Policy, please contact:"
+    },
+    "readMore": {
+        "readMore": "Read More",
+        "readLess": "Read Less",
+        "backToDomains": "Back to Domains",
+        "backToFocusAreas": "Back to Focus Areas"
+    },
+    "domainAgriPage": {
+        "pageTitle": "Agriculture & Smart Farming",
+        "summaryHeading": "• Technology-Driven Agriculture",
+        "summaryContent": "BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation.",
+        "h2": "• Smart Monitoring & Automation",
+        "p2": "We integrate IoT-based sensors, monitoring systems, and automation tools to support modern farming environments. These technologies enable real-time data collection and intelligent farm management.",
+        "h3": "• Data-Driven Decision Support",
+        "p3": "Using AI/ML and data analytics, we develop systems that assist farmers and agricultural enterprises in making informed decisions. These solutions help optimize resource usage and improve crop management strategies.",
+        "h4": "• Sustainable & Scalable Farming Solutions",
+        "p4": "Our innovations aim to reduce unnecessary human intervention while improving safety and efficiency. BanavatNest promotes smart farming practices that are practical, affordable, and environmentally sustainable."
+    },
+    "domainAiPage": {
+        "pageTitle": "Artificial Intelligence, Machine Learning & Data Science",
+        "summaryHeading": "• Data-Driven Intelligence",
+        "summaryContent": "BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications.",
+        "h2": "• Core Technology Platform",
+        "p2": "Artificial Intelligence, Machine Learning, and Data Science form the technological backbone of our innovation ecosystem. These domains support solutions across healthcare, agriculture, cybersecurity, IoT systems, and software development.",
+        "h3": "• Advanced Data Analysis",
+        "p3": "Through AI and ML techniques, we analyze large datasets, detect patterns, and develop predictive models. Data science enables us to convert sensor data and digital information into meaningful insights.",
+        "h4": "• Intelligent Systems & Automation",
+        "p4": "These technologies enable intelligent monitoring, anomaly detection, predictive analysis, and system optimization. AI-driven analytics strengthen decision-making across smart systems and data-intensive applications."
+    },
+    "domainCyberPage": {
+        "pageTitle": "Cybersecurity, Internet of Things & Blockchain",
+        "summaryHeading": "• Secure Connected Systems",
+        "summaryContent": "BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely.",
+        "h2": "• IoT-Based Intelligent Environments",
+        "p2": "We explore IoT-enabled systems that integrate sensors, devices, and data platforms for smart monitoring and automation. Our research focuses on designing secure frameworks for large-scale connected infrastructures.",
+        "h3": "• Cybersecurity & Threat Detection",
+        "p3": "Our research investigates network security, vulnerability detection, and anomaly identification in digital systems. Using analytical and AI/ML-based approaches, we aim to strengthen security and system resilience.",
+        "h4": "• Blockchain for Trust & Transparency",
+        "p4": "We study blockchain technologies to develop decentralized and tamper-resistant systems. These solutions enable secure data sharing, trusted digital records, and transparent digital transactions."
+    },
+    "domainSmartPage": {
+        "pageTitle": "Smart Systems, Healthcare & Sustainability",
+        "summaryHeading": "• Intelligent Sensor-Based Systems",
+        "summaryContent": "BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support.",
+        "h2": "• Data-Driven Healthcare Solutions",
+        "p2": "In healthcare, we explore sensor-enabled monitoring and AI/ML-based analytics to support diagnosis and health assessment. These technologies assist in early detection, continuous monitoring, and improved healthcare decision-making.",
+        "h3": "• Sustainable Technology Development",
+        "p3": "Our work focuses on designing technologies that optimize resource usage and improve operational efficiency. Smart sensing and analytics help create solutions that support sustainability and responsible system management.",
+        "h4": "• Data, Analytics & Predictive Intelligence",
+        "p4": "By combining sensor technologies with data-driven analytics, we develop systems capable of detecting patterns and generating predictive insights. These intelligent systems contribute to safer, healthier, and more sustainable environments."
+    },
+    "focusRdPage": {
+        "pageTitle": "Research & Development",
+        "summaryHeading": "• Research-Driven Innovation",
+        "summaryContent": "BanavatNest focuses on research-driven innovation by addressing real-world challenges through systematic investigation, analytical modeling, and experimental validation. Our goal is to develop scalable, reliable, and application-oriented solutions.",
+        "h2": "• Problem-First Approach",
+        "p2": "Our R&D begins with identifying real problems faced by industry and society. Instead of building technology first, we carefully study existing limitations and redesign components, processes, or systems to create practical improvements.",
+        "h3": "• Multidisciplinary Technology Development",
+        "p3": "Our work spans domains such as healthcare, agriculture, cybersecurity, IoT, and AI/ML-driven analytics. We develop intelligent solutions that enable data-driven insights, automation, secure systems, and technology-enabled decision support.",
+        "h4": "• Ongoing Research Programs",
+        "p4": "Currently, BanavatNest is working on eight active problem statements across software development, healthcare, agriculture, and IoT. Each project aims to translate research outcomes into scalable products, services, or deployable technologies."
+    },
+    "focusProtoPage": {
+        "pageTitle": "Product Prototyping",
+        "summaryHeading": "• From Idea to Prototype",
+        "summaryContent": "BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance.",
+        "h2": "• Industry & Innovation Pathways",
+        "p2": "Prototypes are developed either through industry collaborations or innovative ideas proposed by students, faculty, and researchers. Each concept is evaluated for feasibility, relevance, and potential impact.",
+        "h3": "• Proof-of-Concept Development",
+        "p3": "Our prototyping stage focuses on building working models that demonstrate how a technology performs in real conditions. This allows us to test assumptions, evaluate limitations, and refine system design.",
+        "h4": "• Towards Commercialization",
+        "p4": "Once prototypes are validated, we explore product refinement, field testing, and industry partnerships. Our goal is to convert prototypes into scalable and market-ready technologies."
+    },
+    "focusInnovPage": {
+        "pageTitle": "Innovation & Technology Transfer",
+        "summaryHeading": "• Enabling Research-Based Innovation",
+        "summaryContent": "BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies.",
+        "h2": "• Open Innovation Ecosystem",
+        "p2": "Students, faculty members, and researchers are encouraged to bring forward ideas and identified challenges. BanavatNest provides a collaborative platform where these ideas can be explored through research and technological development.",
+        "h3": "• Intellectual Property Development",
+        "p3": "Promising innovations are supported through intellectual property development, including patent documentation and protection where appropriate. BanavatNest acts as a facilitating platform and stakeholder in the resulting technology.",
+        "h4": "• Technology Transfer & Commercialization",
+        "p4": "Once technologies reach sufficient maturity, we explore commercialization and industry collaboration. This includes prototype refinement, testing, and transferring technologies to partners capable of scaling and deployment."
+    },
+    "focusCollabPage": {
+        "pageTitle": "Industry–Academia Collaboration",
+        "summaryHeading": "• Bridging Research and Practice",
+        "summaryContent": "BanavatNest bridges the gap between academia and industry by combining scientific research with real-world industrial experience. This collaboration enables practical innovation and technology-driven problem solving.",
+        "h2": "• Industry Problem Integration",
+        "p2": "Industry partners share operational challenges, product ideas, or technical problems. Our team analyzes these challenges and breaks them into manageable research modules for systematic investigation and solution development.",
+        "h3": "• Collaborative Research Ecosystem",
+        "p3": "Students, faculty members, and researchers work together on industry-relevant problems through research, experimentation, and technological development. This process strengthens both academic learning and practical experience.",
+        "h4": "• Mutual Innovation Platform",
+        "p4": "Industry partners benefit from analytical insights and innovative solutions, while academia gains exposure to real-world challenges. BanavatNest creates a platform where knowledge, experience, and innovation intersect."
+    },
+    "terms": {
+        "title": "Terms of Use",
+        "intro": "By accessing or using the BanavatNest platform, you agree to the following terms:",
+        "s1Title": "1. Purpose of the Platform",
+        "s1Text": "BanavatNest operates as a research and innovation platform. Engagements are exploratory in nature and intended to support research-led problem solving, experimentation, and innovation.",
+        "s2Title": "2. Originality of Submissions (User Declaration)",
+        "s2Text": "Users confirm that any ideas, problem statements, data, or materials shared on this platform are original to the best of their knowledge, or that they have lawful permission to share them. Users agree not to knowingly submit content copied from proprietary, copyrighted, restricted, or confidential sources.",
+        "s3Title": "3. Independent Research and Solution Development",
+        "s3Text": "BanavatNest undertakes research and experimental development based on independent analysis, scientific/technical reasoning, and collaborative effort. Unless explicitly stated otherwise, solutions proposed through the platform are developed through independent research processes (e.g., analysis, experimentation, simulation, prototyping, validation).",
+        "s4Title": "4. No Infringement Assurance",
+        "s4Text": "Users agree not to submit content that infringes intellectual property rights, trade secrets, or confidential information belonging to others. BanavatNest is not responsible for verifying the originality or ownership of user-submitted content.",
+        "s5Title": "5. Collaborative and Exploratory Nature (No Guarantee)",
+        "s5Item1": "Submission of a problem statement does not guarantee a complete, correct, or implementable solution.",
+        "s5Item2": "Research and experimental development are inherently uncertain and may yield partial results, insights, or alternative directions rather than a finalized outcome.",
+        "s6Title": "6. Intellectual Property (IP) and Ownership",
+        "s6Text": "Ownership, licensing, authorship/acknowledgment, and usage rights related to submitted ideas and resulting research outputs shall be governed by mutually agreed terms or separate written agreements, where applicable. No transfer of IP or exclusivity is implied by submission alone.",
+        "s7Title": "7. Independent Similar Work Disclaimer",
+        "s7Text": "BanavatNest may be engaged in or may independently develop ideas, methods, or solutions similar to those submitted, without obligation or liability, provided no confidential or proprietary information is misused.",
+        "s8Title": "8. Confidentiality and Formal Agreements",
+        "s8Text": "Submission through the platform does not automatically establish a confidential relationship. If sensitive or proprietary disclosure is required, users should request a formal NDA or written agreement prior to sharing detailed confidential information.",
+        "s9Title": "9. Academic and Research Use",
+        "s9Text": "Ideas and problems shared on the platform may inform academic research, student projects, or exploratory studies. Any publication, presentation, or public disclosure arising from such work will follow responsible and ethical practices and, where applicable, appropriate acknowledgment and/or agreement.",
+        "s10Title": "10. Incentivized Micro-Tasks and Contributor Engagement",
+        "s10Text": "Where feasible, BanavatNest may assign well-scoped micro-problems or research tasks to students, scholars, or faculty collaborators and may provide honoraria or incentives. Terms (scope, timelines, payments, acknowledgments) may be specified separately for each engagement.",
+        "s11Title": "11. Right to Accept or Decline Engagement",
+        "s11Text": "BanavatNest reserves the right to accept, defer, or decline any submission or engagement based on feasibility, resource availability, ethical considerations, legal constraints, or alignment with its mission.",
+        "s12Title": "12. Ethical and Responsible Use",
+        "s12Text": "Users agree not to submit problems or content related to unlawful activities, misuse of technology, or unethical practices. BanavatNest upholds responsible research and innovation principles.",
+        "s13Title": "13. Limitation of Liability",
+        "s13Text": "BanavatNest shall not be held liable for any loss, damages, claims, or disputes arising from (i) the use of submitted content, (ii) reliance on research outcomes, or (iii) any third-party claims related to user submissions.",
+        "s14Title": "14. Updates to These Terms",
+        "s14Text": "BanavatNest may update these policies from time to time. Continued use of the platform after updates constitutes acceptance of the revised terms."
     }
-  },
-  "aboutUsPage": {
-    "title": "About",
-    "titleHighlight": "Us",
-    "subtitle": "Research-led innovation nurturing ideas from curiosity to impact.",
-    "coreValuesTitle": "Our Core",
-    "coreValuesHighlight": "Values",
-    "coreValuesSubheading": "Building the future through purposeful innovation and systematic development.",
-    "coreValuesIntro": "At <brand>BanavatNest</brand>, we believe innovation is not just about ideas -- it is about nurturing them through Purpose, Process, and Prototyping until they create meaningful Progress.",
-    "meaningHeading": "Meaning",
-    "whyTheName": "Why the Name",
-    "whyTheNameHighlight": "BanavatNest ?",
-    "symbolismLabel": "The Symbolism of <brand>BanavatNest</brand>",
-    "purposeTitle": "PURPOSE",
-    "purposeDesc": "Why we do it",
-    "processTitle": "PROCESS",
-    "processDesc": "How we approach it",
-    "prototypeTitle": "PROTOTYPE",
-    "prototypeDesc": "What we create",
-    "progressTitle": "PROGRESS",
-    "progressDesc": "What impact it drives"
-  },
-  "aboutName": {
-    "title": "Our",
-    "titleHighlight": "Name",
-    "subtitle": "Symbolizing the philosophy of creation and nurturing innovation.",
-    "meaningTitle": "The Meaning",
-    "banavatTitle": "Banavat",
-    "banavatDesc": "Drawn from Hindi and widely used in Punjabi, Banavat signifies creating, building, and shaping ideas with purpose and intent.",
-    "nestTitle": "Nest",
-    "nestDesc": "A Nest symbolizes a nurturing space where ideas are developed, refined, and prepared to grow into meaningful impact.",
-    "sloganTitle": "Our Slogan",
-    "sloganText": "Build with Purpose. Nurture to Impact.",
-    "closingStatement": "BanavatNest is not just a name—it is our commitment to shaping ideas through research and prototyping, transforming them into real-world impact.",
-    "quote": "Together, BanavatNest represents a research-led innovation ecosystem where curiosity-driven ideas are shaped through systematic investigation."
-  },
-  "aboutPhilosophy": {
-    "title": "Philosophy",
-    "titleHighlight": "& Values",
-    "subtitle": "A unified philosophy where ideas are built with purpose and nurtured with care.",
-    "banavatHeader": "Our Foundation — BANAVAT",
-    "nestHeader": "Our Ecosystem — NEST",
-    "b_title": "Building with Purpose",
-    "b_desc": "Focusing on purposeful creation to address meaningful challenges.",
-    "a1_title": "Analytical Thinking",
-    "a1_desc": "Rigorous analysis, critical reasoning, and evidence-based decision-making.",
-    "n1_title": "Nurturing Curiosity",
-    "n1_desc": "Encouraging exploration, questioning, and continuous learning.",
-    "a2_title": "Adaptability",
-    "a2_desc": "Staying flexible and responsive to new ideas and emerging technologies.",
-    "v_title": "Validation",
-    "v_desc": "Refining ideas through systematic experimentation and iterative improvement.",
-    "a3_title": "Accountability",
-    "a3_desc": "Integrity, responsibility, and ethical conduct are central.",
-    "t_title": "Translation",
-    "t_desc": "Translating research outcomes into practical, scalable solutions.",
-    "nest_n_title": "Nurturing Ideas",
-    "nest_n_desc": "Supportive environment where ideas are encouraged and allowed to mature.",
-    "nest_e_title": "Experimentation",
-    "nest_e_desc": "Learning through experimentation and evidence-based validation.",
-    "nest_s_title": "Supportive Innovation",
-    "nest_s_desc": "Fostering collaboration across disciplines for shared problem-solving.",
-    "nest_t_title": "Together",
-    "nest_t_desc": "Working together to deliver meaningful and lasting impact."
-  },
-  "aboutMission": {
-    "title": "Mission",
-    "titleHighlight": "& Vision",
-    "subtitle": "Research-driven innovation nurturing ideas from curiosity to impact.",
-    "missionTitle": "Our Mission",
-    "missionText": "To transform purposeful ideas into practical and scalable solutions through research, design, and prototyping.",
-    "visionTitle": "Our Vision",
-    "visionText": "To build a research-driven innovation ecosystem where ideas evolve from curiosity to meaningful real-world impact."
-  },
-  "aboutTeam": {
-    "title": "Our",
-    "titleHighlight": "Team",
-    "subtitle": "Collaborative ecosystem of students, scholars, and experts.",
-    "intro": "At BanavatNest, we follow a collaborative and inclusive team model rather than a conventional in-house service-based structure.",
-    "studentsTitle": "Students",
-    "studentsDesc": "Contribute through project-based learning, exploratory research, and prototype development.",
-    "facultyTitle": "Faculty",
-    "facultyDesc": "Role as mentors, domain experts, and research leaders, guiding projects with academic rigor.",
-    "partnersTitle": "Partners",
-    "partnersDesc": "Bring real-world problems and deployment perspectives for impactful outcomes.",
-    "quote": "\"We act as a bridge between academia, industry, and society, enabling collaborative innovation.\""
-  },
-  "aboutBoard": {
-    "sukhdevName": "Dr. Sukhdev Singh",
-    "sukhdevEdu": "PHD (IIT Patna)",
-    "sukhdevRole": "Co-Founder & Director (Research & Strategy)",
-    "sukhdevBio": "A passionate researcher and strategic visionary with deep expertise in transforming complex ideas into scalable technological solutions.",
-    "sukhdevAch1": "Ph.D. in Computer Science & Engineering from IIT Patna.",
-    "sukhdevAch2": "Pioneered research in AI, IoT & Smart Systems.",
-    "sukhdevAch3": "Published numerous patents & high-impact research papers.",
-    "sangitaName": "Dr. Sangita Roy",
-    "sangitaEdu": "PHD (IIT Patna)",
-    "sangitaRole": "Co-Founder & Director (Innovation & Technology)",
-    "sangitaBio": "An innovative technologist and academician dedicated to developing sustainable, research-led prototypes with real-world industry applications.",
-    "sangitaAch1": "Ph.D. in Computer Science & Engineering from IIT Patna.",
-    "sangitaAch2": "Expertise in Machine Learning & Health Informatics.",
-    "sangitaAch3": "Led multiple technology transfer initiatives & prototype developments."
-  },
-  "focusAreas": {
-    "title": "Our Focus",
-    "titleHighlight": "Areas",
-    "subtitle": "Bridging the gap between theoretical research and practical application.",
-    "rdTitle": "Research & Development",
-    "rdDesc": "Systematic investigation and analytical modeling to solve real-world problems with scalable solutions.",
-    "protoTitle": "Product Prototyping",
-    "protoDesc": "Integrating design and engineering to translate ideas into functional, industrial-grade prototypes.",
-    "acadTitle": "Academia Collaboration",
-    "acadDesc": "Enabling student-driven projects and faculty-led innovation through active industry partnering.",
-    "techTitle": "Tech Transfer",
-    "techDesc": "Transforming research into deployable technologies through IP development and commercialization."
-  },
-  "researchDomains": {
-    "title": "Our",
-    "titleHighlight": "Domains",
-    "subtitle": "Diverse expertise driving technological advancement across impactful industries.",
-    "aiTitle": "AI, ML & Data Science",
-    "aiDesc": "Intelligent algorithms for prediction and optimization across engineering and health sectors.",
-    "cyberTitle": "Cybersecurity & IoT",
-    "cyberDesc": "Secure and decentralized systems for connected environments. Addressing network security and privacy.",
-    "smartTitle": "Smart Systems & Health",
-    "smartDesc": "Integrating sensing and automation for resource-efficient technologies and improved quality of life.",
-    "agriTitle": "Precision Agriculture",
-    "agriDesc": "Advanced data analytics and IoT monitoring to enhance farming productivity and sustainability."
-  },
-  "collaboration": {
-    "academic": {
-      "title": "Academic Opportunities",
-      "items": {
-        "0": {
-          "heading": "Hands-on Projects",
-          "desc": "Building real-world prototypes and earning practical engineering experience."
-        },
-        "1": {
-          "heading": "Skill Development",
-          "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
-        },
-        "2": {
-          "heading": "Industry Exposure",
-          "desc": "Solving live problems from top companies to become career-ready."
-        },
-        "3": {
-          "heading": "Mentorship",
-          "desc": "Expert guidance for research, prestigious internships, and startup ventures."
-        }
-      }
-    },
-    "industry": {
-      "title": "Industry Partnerships",
-      "items": {
-        "0": {
-          "heading": "Customized Solutions",
-          "desc": "Tailored engineering to solve your most challenging business problems."
-        },
-        "1": {
-          "heading": "Core Tech R&D",
-          "desc": "Advanced development in AI, IoT, and high-security system architectures."
-        },
-        "2": {
-          "heading": "Rapid Prototyping",
-          "desc": "Moving from initial concept to pilot deployment with extreme speed."
-        },
-        "3": {
-          "heading": "Scalable Systems",
-          "desc": "Production-ready, battle-tested solutions designed for market expansion."
-        }
-      }
-    },
-    "startup": {
-      "title": "Faculty & Startups",
-      "items": {
-        "0": {
-          "heading": "Research Prototypes",
-          "desc": "Converting academic research into functional, industry-grade prototypes."
-        },
-        "1": {
-          "heading": "Project Support",
-          "desc": "Assistance with funded project proposals and strategic grant applications."
-        },
-        "2": {
-          "heading": "Technology Transfer",
-          "desc": "Direct industry collaboration and commercialization of intellectual capital."
-        },
-        "3": {
-          "heading": "Deployment Support",
-          "desc": "Data-driven validation and real-world deployment of academic solutions."
-        }
-      }
-    }
-  },
-  "opportunities": {
-    "title": "Student",
-    "titleHighlight": "Growth",
-    "subtitle": "Creating research and innovation opportunities for students at all levels.",
-    "ugTitle": "Undergraduate Students",
-    "ugDesc": "Engage through exploratory projects, internships, and innovation challenges aimed at skill development and early research exposure.",
-    "pgTitle": "Postgraduate Students",
-    "pgDesc": "Work on advanced problem-solving, system design, and prototype development aligned with industry needs.",
-    "phdTitle": "Doctoral Researchers",
-    "phdDesc": "Supported through industry-relevant research problems, joint supervision, access to real datasets, and opportunities for funded research."
-  },
-  "facultyPage": {
-    "title": "Faculty",
-    "titleHighlight": "Roles",
-    "subtitle": "Central to our ecosystem as domain experts, mentors, and principal investigators.",
-    "heading": "Leading interdisciplinary teams and guiding research with impact.",
-    "bodyP1": "BanavatNest enables faculty engagement through joint research projects, consultancy, sponsored research, and co-development of intellectual property.",
-    "bodyP2": "Faculty members are encouraged to lead interdisciplinary teams, guide student researchers, and contribute to grant proposals and pilot deployments. This engagement fosters meaningful research impact while strengthening institutional collaboration with industry."
-  },
-  "industryPartnerships": {
-    "title": "Industry",
-    "titleHighlight": "Partnerships",
-    "subtitle": "Demonstrating technical feasibility and business potential through Proof-of-Concepts (PoCs).",
-    "frameworkTitle": "The PoC Framework",
-    "step1": "Problem definition",
-    "step2": "Solution design",
-    "step3": "Prototype development",
-    "step4": "Validation",
-    "step5": "Scalability assessment",
-    "heading": "Collaborating to develop solutions that demonstrate real-world impact.",
-    "bodyP1": "Industry partners benefit from rapid prototyping, academic validation, and access to skilled talent, while academic participants gain exposure to real-world constraints and deployment challenges.",
-    "successNote": "Successful PoCs can progress toward technology transfer, startup incubation, or long-term industry adoption."
-  },
-  "contact": {
-    "title": "Get in",
-    "titleHighlight": "Touch",
-    "subtitle": "We're always looking for new ideas, partnerships, and collaborations.",
-    "directContact": "Direct Contact",
-    "sendMessage": "Send a Message",
-    "nameLabel": "Name",
-    "namePlaceholder": "Your name",
-    "emailLabel": "Email",
-    "emailPlaceholder": "your@email.com",
-    "messageLabel": "Message",
-    "messagePlaceholder": "Your message..."
-  },
-  "disclaimer": {
-    "title": "Disclaimer",
-    "p1": "All information provided on this website is for informational purposes only. While every effort is made to ensure that the information presented is current and accurate, BanavatNest makes no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, or suitability of the information.",
-    "p2": "This website may contain information and links provided by various internal or external sources. BanavatNest does not independently verify, monitor, or guarantee the authenticity of such information and does not endorse, control, or assume responsibility for the content of any external websites or linked resources. Any reliance placed on the information available through this website is strictly at the user's own risk."
-  },
-  "privacy": {
-    "title": "Privacy Policy",
-    "intro": "BanavatNest Private Limited (\"BanavatNest\", \"we\", \"our\", \"us\") respects the privacy of all users, collaborators, and stakeholders who interact with our platform. This Privacy Policy describes how information shared with us is handled.",
-    "s1Title": "1. Information We May Receive",
-    "s1Text": "We may receive information that you voluntarily provide, including (but not limited to) problem statements, ideas, documents, messages, contact details, and other materials submitted through our website, email, forms, or collaboration channels.",
-    "s2Title": "2. How We Use Information",
-    "s2Text": "Information shared with BanavatNest is used solely for research discussion, problem analysis, experimentation, collaborative innovation, feasibility assessment, pilot planning, training/learning activities, and related communication.",
-    "s3Title": "3. Sharing and Disclosure",
-    "s3Item1": "We do not sell submitted information to third parties.",
-    "s3Item2": "We do not disclose or share submitted information externally without prior consent, except where required by law or explicitly agreed upon for collaboration.",
-    "s3Item3": "For collaborative engagements, we may share limited information with participating team members (e.g., students, scholars, faculty collaborators) on a need-to-know basis, subject to ethical and responsible practices.",
-    "s4Title": "4. Confidentiality and Sensitive Information",
-    "s4Text": "While BanavatNest takes reasonable care to respect confidentiality, submission through the platform does not automatically create a confidential relationship. Users are encouraged not to share highly sensitive, proprietary, or confidential information unless a formal written agreement (e.g., NDA) is in place.",
-    "s5Title": "5. User Responsibilities",
-    "s5Text": "Users are responsible for ensuring that content submitted does not violate confidentiality obligations, intellectual property rights, or third-party restrictions. Do not submit trade secrets, copyrighted material, or confidential information belonging to others without authorization.",
-    "s6Title": "6. Data Protection",
-    "s6Text": "We take reasonable administrative and technical precautions to protect submitted information. However, no method of transmission or storage is completely secure; therefore, absolute security cannot be guaranteed.",
-    "s7Title": "7. Contact",
-    "s7Text": "For queries regarding this Privacy Policy, please contact:"
-  },
-  "readMore": {
-    "readMore": "Read More",
-    "readLess": "Read Less",
-    "backToDomains": "Back to Domains",
-    "backToFocusAreas": "Back to Focus Areas"
-  },
-  "domainAgriPage": {
-    "pageTitle": "Agriculture & Smart Farming",
-    "summaryHeading": "• Technology-Driven Agriculture",
-    "summaryContent": "BanavatNest develops technology-enabled solutions that address real challenges in agricultural practices. Our goal is to improve productivity and operational efficiency through research and engineering innovation.",
-    "h2": "• Smart Monitoring & Automation",
-    "p2": "We integrate IoT-based sensors, monitoring systems, and automation tools to support modern farming environments. These technologies enable real-time data collection and intelligent farm management.",
-    "h3": "• Data-Driven Decision Support",
-    "p3": "Using AI/ML and data analytics, we develop systems that assist farmers and agricultural enterprises in making informed decisions. These solutions help optimize resource usage and improve crop management strategies.",
-    "h4": "• Sustainable & Scalable Farming Solutions",
-    "p4": "Our innovations aim to reduce unnecessary human intervention while improving safety and efficiency. BanavatNest promotes smart farming practices that are practical, affordable, and environmentally sustainable."
-  },
-  "domainAiPage": {
-    "pageTitle": "Artificial Intelligence, Machine Learning & Data Science",
-    "summaryHeading": "• Data-Driven Intelligence",
-    "summaryContent": "BanavatNest develops AI and ML models that enable prediction, optimization, and intelligent decision support. These technologies help transform complex data into actionable insights for real-world applications.",
-    "h2": "• Core Technology Platform",
-    "p2": "Artificial Intelligence, Machine Learning, and Data Science form the technological backbone of our innovation ecosystem. These domains support solutions across healthcare, agriculture, cybersecurity, IoT systems, and software development.",
-    "h3": "• Advanced Data Analysis",
-    "p3": "Through AI and ML techniques, we analyze large datasets, detect patterns, and develop predictive models. Data science enables us to convert sensor data and digital information into meaningful insights.",
-    "h4": "• Intelligent Systems & Automation",
-    "p4": "These technologies enable intelligent monitoring, anomaly detection, predictive analysis, and system optimization. AI-driven analytics strengthen decision-making across smart systems and data-intensive applications."
-  },
-  "domainCyberPage": {
-    "pageTitle": "Cybersecurity, Internet of Things & Blockchain",
-    "summaryHeading": "• Secure Connected Systems",
-    "summaryContent": "BanavatNest develops secure and scalable architectures for modern connected environments. Our work focuses on building reliable systems where devices, networks, and digital platforms interact safely.",
-    "h2": "• IoT-Based Intelligent Environments",
-    "p2": "We explore IoT-enabled systems that integrate sensors, devices, and data platforms for smart monitoring and automation. Our research focuses on designing secure frameworks for large-scale connected infrastructures.",
-    "h3": "• Cybersecurity & Threat Detection",
-    "p3": "Our research investigates network security, vulnerability detection, and anomaly identification in digital systems. Using analytical and AI/ML-based approaches, we aim to strengthen security and system resilience.",
-    "h4": "• Blockchain for Trust & Transparency",
-    "p4": "We study blockchain technologies to develop decentralized and tamper-resistant systems. These solutions enable secure data sharing, trusted digital records, and transparent digital transactions."
-  },
-  "domainSmartPage": {
-    "pageTitle": "Smart Systems, Healthcare & Sustainability",
-    "summaryHeading": "• Intelligent Sensor-Based Systems",
-    "summaryContent": "BanavatNest develops smart systems that integrate sensors, analytics, and automation. These systems collect real-world data and transform it into actionable insights for intelligent monitoring and decision support.",
-    "h2": "• Data-Driven Healthcare Solutions",
-    "p2": "In healthcare, we explore sensor-enabled monitoring and AI/ML-based analytics to support diagnosis and health assessment. These technologies assist in early detection, continuous monitoring, and improved healthcare decision-making.",
-    "h3": "• Sustainable Technology Development",
-    "p3": "Our work focuses on designing technologies that optimize resource usage and improve operational efficiency. Smart sensing and analytics help create solutions that support sustainability and responsible system management.",
-    "h4": "• Data, Analytics & Predictive Intelligence",
-    "p4": "By combining sensor technologies with data-driven analytics, we develop systems capable of detecting patterns and generating predictive insights. These intelligent systems contribute to safer, healthier, and more sustainable environments."
-  },
-  "focusRdPage": {
-    "pageTitle": "Research & Development",
-    "summaryHeading": "• Research-Driven Innovation",
-    "summaryContent": "BanavatNest focuses on research-driven innovation by addressing real-world challenges through systematic investigation, analytical modeling, and experimental validation. Our goal is to develop scalable, reliable, and application-oriented solutions.",
-    "h2": "• Problem-First Approach",
-    "p2": "Our R&D begins with identifying real problems faced by industry and society. Instead of building technology first, we carefully study existing limitations and redesign components, processes, or systems to create practical improvements.",
-    "h3": "• Multidisciplinary Technology Development",
-    "p3": "Our work spans domains such as healthcare, agriculture, cybersecurity, IoT, and AI/ML-driven analytics. We develop intelligent solutions that enable data-driven insights, automation, secure systems, and technology-enabled decision support.",
-    "h4": "• Ongoing Research Programs",
-    "p4": "Currently, BanavatNest is working on eight active problem statements across software development, healthcare, agriculture, and IoT. Each project aims to translate research outcomes into scalable products, services, or deployable technologies."
-  },
-  "focusProtoPage": {
-    "pageTitle": "Product Prototyping",
-    "summaryHeading": "• From Idea to Prototype",
-    "summaryContent": "BanavatNest transforms research ideas into functional prototypes through integrated design, engineering, and testing. This process helps validate feasibility, usability, and technical performance.",
-    "h2": "• Industry & Innovation Pathways",
-    "p2": "Prototypes are developed either through industry collaborations or innovative ideas proposed by students, faculty, and researchers. Each concept is evaluated for feasibility, relevance, and potential impact.",
-    "h3": "• Proof-of-Concept Development",
-    "p3": "Our prototyping stage focuses on building working models that demonstrate how a technology performs in real conditions. This allows us to test assumptions, evaluate limitations, and refine system design.",
-    "h4": "• Towards Commercialization",
-    "p4": "Once prototypes are validated, we explore product refinement, field testing, and industry partnerships. Our goal is to convert prototypes into scalable and market-ready technologies."
-  },
-  "focusInnovPage": {
-    "pageTitle": "Innovation & Technology Transfer",
-    "summaryHeading": "• Enabling Research-Based Innovation",
-    "summaryContent": "BanavatNest supports the transformation of research ideas into deployable technologies through structured innovation processes. Our approach focuses on proof-of-concept development and practical validation of emerging technologies.",
-    "h2": "• Open Innovation Ecosystem",
-    "p2": "Students, faculty members, and researchers are encouraged to bring forward ideas and identified challenges. BanavatNest provides a collaborative platform where these ideas can be explored through research and technological development.",
-    "h3": "• Intellectual Property Development",
-    "p3": "Promising innovations are supported through intellectual property development, including patent documentation and protection where appropriate. BanavatNest acts as a facilitating platform and stakeholder in the resulting technology.",
-    "h4": "• Technology Transfer & Commercialization",
-    "p4": "Once technologies reach sufficient maturity, we explore commercialization and industry collaboration. This includes prototype refinement, testing, and transferring technologies to partners capable of scaling and deployment."
-  },
-  "focusCollabPage": {
-    "pageTitle": "Industry–Academia Collaboration",
-    "summaryHeading": "• Bridging Research and Practice",
-    "summaryContent": "BanavatNest bridges the gap between academia and industry by combining scientific research with real-world industrial experience. This collaboration enables practical innovation and technology-driven problem solving.",
-    "h2": "• Industry Problem Integration",
-    "p2": "Industry partners share operational challenges, product ideas, or technical problems. Our team analyzes these challenges and breaks them into manageable research modules for systematic investigation and solution development.",
-    "h3": "• Collaborative Research Ecosystem",
-    "p3": "Students, faculty members, and researchers work together on industry-relevant problems through research, experimentation, and technological development. This process strengthens both academic learning and practical experience.",
-    "h4": "• Mutual Innovation Platform",
-    "p4": "Industry partners benefit from analytical insights and innovative solutions, while academia gains exposure to real-world challenges. BanavatNest creates a platform where knowledge, experience, and innovation intersect."
-  },
-  "terms": {
-    "title": "Terms of Use",
-    "intro": "By accessing or using the BanavatNest platform, you agree to the following terms:",
-    "s1Title": "1. Purpose of the Platform",
-    "s1Text": "BanavatNest operates as a research and innovation platform. Engagements are exploratory in nature and intended to support research-led problem solving, experimentation, and innovation.",
-    "s2Title": "2. Originality of Submissions (User Declaration)",
-    "s2Text": "Users confirm that any ideas, problem statements, data, or materials shared on this platform are original to the best of their knowledge, or that they have lawful permission to share them. Users agree not to knowingly submit content copied from proprietary, copyrighted, restricted, or confidential sources.",
-    "s3Title": "3. Independent Research and Solution Development",
-    "s3Text": "BanavatNest undertakes research and experimental development based on independent analysis, scientific/technical reasoning, and collaborative effort. Unless explicitly stated otherwise, solutions proposed through the platform are developed through independent research processes (e.g., analysis, experimentation, simulation, prototyping, validation).",
-    "s4Title": "4. No Infringement Assurance",
-    "s4Text": "Users agree not to submit content that infringes intellectual property rights, trade secrets, or confidential information belonging to others. BanavatNest is not responsible for verifying the originality or ownership of user-submitted content.",
-    "s5Title": "5. Collaborative and Exploratory Nature (No Guarantee)",
-    "s5Item1": "Submission of a problem statement does not guarantee a complete, correct, or implementable solution.",
-    "s5Item2": "Research and experimental development are inherently uncertain and may yield partial results, insights, or alternative directions rather than a finalized outcome.",
-    "s6Title": "6. Intellectual Property (IP) and Ownership",
-    "s6Text": "Ownership, licensing, authorship/acknowledgment, and usage rights related to submitted ideas and resulting research outputs shall be governed by mutually agreed terms or separate written agreements, where applicable. No transfer of IP or exclusivity is implied by submission alone.",
-    "s7Title": "7. Independent Similar Work Disclaimer",
-    "s7Text": "BanavatNest may be engaged in or may independently develop ideas, methods, or solutions similar to those submitted, without obligation or liability, provided no confidential or proprietary information is misused.",
-    "s8Title": "8. Confidentiality and Formal Agreements",
-    "s8Text": "Submission through the platform does not automatically establish a confidential relationship. If sensitive or proprietary disclosure is required, users should request a formal NDA or written agreement prior to sharing detailed confidential information.",
-    "s9Title": "9. Academic and Research Use",
-    "s9Text": "Ideas and problems shared on the platform may inform academic research, student projects, or exploratory studies. Any publication, presentation, or public disclosure arising from such work will follow responsible and ethical practices and, where applicable, appropriate acknowledgment and/or agreement.",
-    "s10Title": "10. Incentivized Micro-Tasks and Contributor Engagement",
-    "s10Text": "Where feasible, BanavatNest may assign well-scoped micro-problems or research tasks to students, scholars, or faculty collaborators and may provide honoraria or incentives. Terms (scope, timelines, payments, acknowledgments) may be specified separately for each engagement.",
-    "s11Title": "11. Right to Accept or Decline Engagement",
-    "s11Text": "BanavatNest reserves the right to accept, defer, or decline any submission or engagement based on feasibility, resource availability, ethical considerations, legal constraints, or alignment with its mission.",
-    "s12Title": "12. Ethical and Responsible Use",
-    "s12Text": "Users agree not to submit problems or content related to unlawful activities, misuse of technology, or unethical practices. BanavatNest upholds responsible research and innovation principles.",
-    "s13Title": "13. Limitation of Liability",
-    "s13Text": "BanavatNest shall not be held liable for any loss, damages, claims, or disputes arising from (i) the use of submitted content, (ii) reliance on research outcomes, or (iii) any third-party claims related to user submissions.",
-    "s14Title": "14. Updates to These Terms",
-    "s14Text": "BanavatNest may update these policies from time to time. Continued use of the platform after updates constitutes acceptance of the revised terms."
-  }
 }

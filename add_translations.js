@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const enCollab = {
     "academic": {
-        "title": "Academic Opportunities",
+        "title": "Students & Innovators",
         "items": {
             "0": { "heading": "Hands-on Projects", "desc": "Building real-world prototypes and earning practical engineering experience." },
             "1": { "heading": "Skill Development", "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops." },
@@ -11,7 +11,7 @@ const enCollab = {
         }
     },
     "industry": {
-        "title": "Industry Partnerships",
+        "title": "Industry & Startups",
         "items": {
             "0": { "heading": "Customized Solutions", "desc": "Tailored engineering to solve your most challenging business problems." },
             "1": { "heading": "Core Tech R&D", "desc": "Advanced development in AI, IoT, and high-security system architectures." },
@@ -20,7 +20,7 @@ const enCollab = {
         }
     },
     "startup": {
-        "title": "Faculty & Startups",
+        "title": "Faculty & Researchers",
         "items": {
             "0": { "heading": "Research Prototypes", "desc": "Converting academic research into functional, industry-grade prototypes." },
             "1": { "heading": "Project Support", "desc": "Assistance with funded project proposals and strategic grant applications." },
@@ -49,7 +49,7 @@ const enBoard = {
 
 const hiCollab = {
     "academic": {
-        "title": "शैक्षणिक अवसर",
+        "title": "छात्र और नवाचारकर्ता",
         "items": {
             "0": { "heading": "व्यावहारिक प्रोजेक्ट्स", "desc": "वास्तविक दुनिया के प्रोटोटाइप बनाना और व्यावहारिक इंजीनियरिंग अनुभव प्राप्त करना।" },
             "1": { "heading": "कौशल विकास", "desc": "निर्देशित कार्यशालाओं के माध्यम से एआई, आईओटी और उभरती प्रौद्योगिकियों में गहन अध्ययन।" },
@@ -58,7 +58,7 @@ const hiCollab = {
         }
     },
     "industry": {
-        "title": "उद्योग साझेदारी",
+        "title": "उद्योग और स्टार्टअप",
         "items": {
             "0": { "heading": "अनुकूलित समाधान", "desc": "आपकी सबसे चुनौतीपूर्ण व्यावसायिक समस्याओं को हल करने के लिए अनुकूलित इंजीनियरिंग।" },
             "1": { "heading": "कोर टेक अनुसंधान", "desc": "एआई, आईओटी और उच्च सुरक्षा प्रणाली आर्किटेक्चर में उन्नत विकास।" },
@@ -67,7 +67,7 @@ const hiCollab = {
         }
     },
     "startup": {
-        "title": "संकाय और स्टार्टअप",
+        "title": "संकाय और शोधकर्ता",
         "items": {
             "0": { "heading": "अनुसंधान प्रोटोटाइप", "desc": "शैक्षणिक अनुसंधान को कार्यात्मक, उद्योग-ग्रेड प्रोटोटाइप में बदलना।" },
             "1": { "heading": "परियोजना समर्थन", "desc": "वित्त पोषित परियोजना प्रस्तावों और रणनीतिक अनुदान आवेदनों के साथ सहायता।" },
@@ -96,7 +96,7 @@ const hiBoard = {
 
 const paCollab = {
     "academic": {
-        "title": "ਅਕਾਦਮਿਕ ਮੌਕੇ",
+        "title": "ਵਿਦਿਆਰਥੀ ਅਤੇ ਨਵੀਨਤਾਕਾਰੀ",
         "items": {
             "0": { "heading": "ਹੱਥੀਂ ਪ੍ਰੋਜੈਕਟ", "desc": "ਅਸਲ-ਦੁਨੀਆ ਦੇ ਪ੍ਰੋਟੋਟਾਈਪ ਬਣਾਉਣਾ ਅਤੇ ਵਿਹਾਰਕ ਇੰਜੀਨੀਅਰਿੰਗ ਦਾ ਤਜਰਬਾ ਹਾਸਲ ਕਰਨਾ।" },
             "1": { "heading": "ਹੁਨਰ ਵਿਕਾਸ", "desc": "ਗਾਈਡਡ ਵਰਕਸ਼ਾਪਾਂ ਰਾਹੀਂ AI, IoT ਅਤੇ ਉਭਰਦੀਆਂ ਤਕਨੀਕਾਂ ਵਿੱਚ ਡੂੰਘੀ ਜਾਣਕਾਰੀ।" },
@@ -105,7 +105,7 @@ const paCollab = {
         }
     },
     "industry": {
-        "title": "ਉਦਯੋਗਿਕ ਭਾਈਵਾਲੀ",
+        "title": "ਉਦਯੋਗ ਅਤੇ ਸਟਾਰਟਅੱਪ",
         "items": {
             "0": { "heading": "ਅਨੁਕੂਲਿਤ ਹੱਲ", "desc": "ਤੁਹਾਡੀਆਂ ਸਭ ਤੋਂ ਚੁਣੌਤੀਪੂਰਨ ਵਪਾਰਕ ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਅਨੁਕੂਲਿਤ ਇੰਜੀਨੀਅਰਿੰਗ।" },
             "1": { "heading": "ਕੋਰ ਤਕਨੀਕੀ ਖੋਜ", "desc": "AI, IoT, ਅਤੇ ਉੱਚ-ਸੁਰੱਖਿਆ ਸਿਸਟਮ ਆਰਕੀਟੈਕਚਰ ਵਿੱਚ ਉੱਨਤ ਵਿਕਾਸ।" },
@@ -114,7 +114,7 @@ const paCollab = {
         }
     },
     "startup": {
-        "title": "ਫੈਕਲਟੀ ਅਤੇ ਸਟਾਰਟਅੱਪ",
+        "title": "ਫੈਕਲਟੀ ਅਤੇ ਖੋਜਕਰਤਾ",
         "items": {
             "0": { "heading": "ਖੋਜ ਪ੍ਰੋਟੋਟਾਈਪ", "desc": "ਅਕਾਦਮਿਕ ਖੋਜ ਨੂੰ ਕਾਰਜਸ਼ੀਲ, ਉਦਯੋਗ-ਗ੍ਰੇਡ ਪ੍ਰੋਟੋਟਾਈਪਾਂ ਵਿੱਚ ਬਦਲਣਾ।" },
             "1": { "heading": "ਪ੍ਰੋਜੈਕਟ ਸਹਾਇਤਾ", "desc": "ਫੰਡ ਪ੍ਰਾਪਤ ਪ੍ਰੋਜੈਕਟ ਪ੍ਰਸਤਾਵਾਂ ਅਤੇ ਰਣਨੀਤਕ ਗ੍ਰਾਂਟ ਅਰਜ਼ੀਆਂ ਲਈ ਸਹਾਇਤਾ।" },
@@ -143,7 +143,7 @@ const paBoard = {
 
 const bnCollab = {
     "academic": {
-        "title": "একাডেমিক সুযোগ",
+        "title": "ছাত্র ও উদ্ভাবক",
         "items": {
             "0": { "heading": "হাতে-কলমে প্রকল্প", "desc": "বাস্তব-বিশ্বের প্রোটোটাইপ তৈরি করা এবং ব্যবহারিক ইঞ্জিনিয়ারিং অভিজ্ঞতা অর্জন করা।" },
             "1": { "heading": "দক্ষতা উন্নয়ন", "desc": "গাইডেড ওয়ার্কশপের মাধ্যমে এআই, আইওটি এবং উদীয়মান প্রযুক্তিতে গভীর জ্ঞান।" },
@@ -152,7 +152,7 @@ const bnCollab = {
         }
     },
     "industry": {
-        "title": "শিল্প অংশীদারিত্ব",
+        "title": "শিল্প ও স্টার্টআপ",
         "items": {
             "0": { "heading": "কাস্টমাইজড সমাধান", "desc": "আপনার সবচেয়ে চ্যালেঞ্জিং ব্যবসায়িক সমস্যা সমাধানের জন্য কাস্টমাইজড ইঞ্জিনিয়ারিং।" },
             "1": { "heading": "কোর টেক গবেষণা", "desc": "এআই, আইওটি এবং উচ্চ-সুরক্ষা সিস্টেম আর্কিটেকচারে উন্নত বিকাশ।" },
@@ -161,7 +161,7 @@ const bnCollab = {
         }
     },
     "startup": {
-        "title": "ফ্যাকাল্টি এবং স্টার্টআপ",
+        "title": "শিক্ষক ও গবেষক",
         "items": {
             "0": { "heading": "গবেষণা প্রোটোটাইপ", "desc": "একাডেমিক গবেষণাকে কার্যকরী, শিল্প-মানের প্রোটোটাইপে রূপান্তর করা।" },
             "1": { "heading": "প্রকল্প সমর্থন", "desc": "অর্থায়িত প্রকল্প প্রস্তাব এবং কৌশলগত অনুদান আবেদনের জন্য সহায়তা।" },

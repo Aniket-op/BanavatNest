@@ -1,7 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -12,48 +15,6 @@ import {
 import Image from "next/image";
 import React from "react";
 import { useTranslations } from "next-intl";
-
-// ── 3D Card Wrapper ──
-const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 });
-  const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-    glareOpacity.set(0.14);
-  };
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-    glareOpacity.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
-      className={`relative ${className}`}
-    >
-      {children}
-      <motion.div
-        className="absolute inset-0 pointer-events-none rounded-[2rem] overflow-hidden z-30"
-        style={{
-          opacity: glareOpacity,
-          background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
-        }}
-      />
-    </motion.div>
-  );
-};
 
 export default function NewsEvents() {
   const t = useTranslations("newsEvents");
@@ -67,11 +28,24 @@ export default function NewsEvents() {
       headline: t("post1Headline"),
       body: t("post1Body"),
       images: [
-        { src: "/images/new%26event/post1/1.jpeg", alt: "Image 1", objectPosition: "object-top" },
-        { src: "/images/new%26event/post1/2.jpeg", alt: "Image 2", objectPosition: "object-top" },
-        { src: "/images/new%26event/post1/3.jpeg", alt: "Image 3", objectPosition: "object-top" },
+        {
+          src: "/images/new%26event/post1/1.jpeg",
+          alt: "Image 1",
+          objectPosition: "object-top",
+        },
+        {
+          src: "/images/new%26event/post1/2.jpeg",
+          alt: "Image 2",
+          objectPosition: "object-top",
+        },
+        {
+          src: "/images/new%26event/post1/3.jpeg",
+          alt: "Image 3",
+          objectPosition: "object-top",
+        },
       ],
-      linkedinUrl: "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
+      linkedinUrl:
+        "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
     },
     {
       id: 2,
@@ -81,9 +55,14 @@ export default function NewsEvents() {
       headline: t("post2Headline"),
       body: t("post2Body"),
       images: [
-        { src: "/images/new%26event/post3/fishfeeder.jpeg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
+        {
+          src: "/images/new%26event/post3/fishfeeder.jpeg",
+          alt: "Smart Fish-Feeding System",
+          objectPosition: "object-center",
+        },
       ],
-      linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7454019410836754432/",
+      linkedinUrl:
+        "https://www.linkedin.com/feed/update/urn:li:activity:7454019410836754432/",
     },
     {
       id: 3,
@@ -93,8 +72,16 @@ export default function NewsEvents() {
       headline: t("post3Headline"),
       body: t("post3Body"),
       images: [
-        { src: "/images/new%26event/post2/moonEvent.jpeg", alt: "Full Moon Event", objectPosition: "object-center" },
-        { src: "/images/new%26event/post2/moon2.jpeg", alt: "Moon Photography", objectPosition: "object-center" },
+        {
+          src: "/images/new%26event/post2/moonEvent.jpeg",
+          alt: "Full Moon Event",
+          objectPosition: "object-center",
+        },
+        {
+          src: "/images/new%26event/post2/moon2.jpeg",
+          alt: "Moon Photography",
+          objectPosition: "object-center",
+        },
       ],
       linkedinUrl: "https://www.linkedin.com/company/banavatnest-pvt-ltd",
     },
@@ -181,7 +168,7 @@ export default function NewsEvents() {
   return (
     <section
       id="news-events"
-      className="py-16 bg-zinc-50 dark:bg-[#09090b] overflow-hidden"
+      className="py-16 bg-zinc-50 dark:bg-[#09090b] overflow-hidden grid-bg"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -192,28 +179,29 @@ export default function NewsEvents() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex items-end justify-between mb-10 flex-wrap gap-4"
+          className="flex flex-col items-center text-center mb-10 gap-4"
         >
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#3A9B9B] mb-2">
+            {/* <p className="text-xs font-black uppercase tracking-[0.25em] text-[#3A9B9B] mb-2">
               {t("latestUpdates")}
-            </p>
+            </p> */}
             <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1]">
-              {t("sectionTitle")} <span className="text-[#3A9B9B]">{t("sectionHighlight")}</span>
+              {t("sectionTitle")}{" "}
+              <span className="text-[#3A9B9B]">{t("sectionHighlight")}</span>
             </h2>
           </div>
 
           {/* Slide counter */}
-          <span className="text-sm font-bold text-zinc-400 dark:text-zinc-500 tabular-nums">
+          {/* <span className="text-sm font-bold text-zinc-400 dark:text-zinc-500 tabular-nums">
             {String(activeIndex + 1).padStart(2, "0")} /{" "}
             {String(total).padStart(2, "0")}
-          </span>
+          </span> */}
         </motion.div>
 
         {/* ── Main Carousel Card ── */}
-        <div style={{ perspective: '1400px' }}>
-          <Card3D className="w-full">
-            <div className="relative rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-white dark:bg-zinc-900/60 backdrop-blur-sm">
+        <div>
+          <div className="w-full">
+            <div className="relative rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl dark:bg-zinc-900/60 backdrop-blur-sm">
               {/* Progress bar */}
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-zinc-100 dark:bg-zinc-800 z-20">
                 {!paused && (
@@ -223,7 +211,10 @@ export default function NewsEvents() {
                     style={{ backgroundColor: item.tagColor }}
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
-                    transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
+                    transition={{
+                      duration: SLIDE_DURATION / 1000,
+                      ease: "linear",
+                    }}
                   />
                 )}
               </div>
@@ -231,7 +222,7 @@ export default function NewsEvents() {
               {/* Two-column layout */}
               <div className="grid grid-cols-1 md:grid-cols-2 min-h-[400px] md:min-h-[440px]">
                 {/* LEFT — Post Text */}
-                <div className="relative flex flex-col justify-between p-8 md:p-10 border-b md:border-b-0 md:border-r border-zinc-100 dark:border-zinc-800">
+                <div className="relative flex flex-col justify-between p-8 md:p-10 border-b md:border-b-0 md:border-r border-zinc-100 dark:border-zinc-800 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 backdrop-blur-sm">
                   <AnimatePresence custom={direction} mode="wait">
                     <motion.div
                       key={`text-${activeIndex}`}
@@ -312,7 +303,7 @@ export default function NewsEvents() {
                         src={item.images[safeImgIndex].src}
                         alt={item.images[safeImgIndex].alt}
                         fill
-                        className={`object-cover ${item.images[safeImgIndex].objectPosition ?? 'object-center'}`}
+                        className={`object-cover ${item.images[safeImgIndex].objectPosition ?? "object-center"}`}
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                       {/* Subtle overlay */}
@@ -330,7 +321,9 @@ export default function NewsEvents() {
                           style={{
                             width: i === safeImgIndex ? 20 : 6,
                             backgroundColor:
-                              i === safeImgIndex ? "#fff" : "rgba(255,255,255,0.4)",
+                              i === safeImgIndex
+                                ? "#fff"
+                                : "rgba(255,255,255,0.4)",
                           }}
                         />
                       ))}
@@ -360,7 +353,9 @@ export default function NewsEvents() {
                     )}
 
                     {/* Divider */}
-                    {imgTotal > 1 && <div className="w-px h-5 bg-white/30 mx-1" />}
+                    {imgTotal > 1 && (
+                      <div className="w-px h-5 bg-white/30 mx-1" />
+                    )}
 
                     {/* Post prev/next */}
                     <button
@@ -387,7 +382,7 @@ export default function NewsEvents() {
                 </div>
               </div>
             </div>
-          </Card3D>
+          </div>
         </div>
 
         {/* ── Post dot indicators ── */}

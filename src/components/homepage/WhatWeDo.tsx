@@ -1,19 +1,46 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Brain, Shield, Microscope, Zap, ChevronUp, ChevronDown } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import DomainCarousel from '@/components/DomainCarousel';
-import React from 'react';
+import { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import {
+  Brain,
+  Shield,
+  Microscope,
+  Zap,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
+import DomainCarousel from "@/components/DomainCarousel";
+import React from "react";
 
 // ── 3D Card Wrapper ──
-const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
+const Card3D = ({
+  children,
+  className = "",
+  style = {},
+}: {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), {
+    stiffness: 400,
+    damping: 30,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), {
+    stiffness: 400,
+    damping: 30,
+  });
   const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -34,7 +61,7 @@ const Card3D = ({ children, className = '', style = {} }: { children: React.Reac
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d", ...style }}
       className={`relative ${className}`}
     >
       {children}
@@ -51,88 +78,88 @@ const Card3D = ({ children, className = '', style = {} }: { children: React.Reac
 
 const usps = [
   {
-    emoji: '🚀',
-    titleKey: 'prototype',
-    color: '#F59E0B',
+    emoji: "🚀",
+    titleKey: "prototype",
+    color: "#F59E0B",
   },
   {
-    emoji: '🔗',
-    titleKey: 'bridge',
-    color: '#3B82F6',
+    emoji: "🔗",
+    titleKey: "bridge",
+    color: "#3B82F6",
   },
   {
-    emoji: '🧠',
-    titleKey: 'ai',
-    color: '#8B5CF6',
+    emoji: "🧠",
+    titleKey: "ai",
+    color: "#8B5CF6",
   },
   {
-    emoji: '⚙️',
-    titleKey: 'scalable',
-    color: '#10B981',
+    emoji: "⚙️",
+    titleKey: "scalable",
+    color: "#10B981",
   },
   {
-    emoji: '🎯',
-    titleKey: 'custom',
-    color: '#EF4444',
+    emoji: "🎯",
+    titleKey: "custom",
+    color: "#EF4444",
   },
   {
-    emoji: '🏥',
-    titleKey: 'health',
-    color: '#EC4899',
+    emoji: "🏥",
+    titleKey: "health",
+    color: "#EC4899",
   },
   {
-    emoji: '🌾',
-    titleKey: 'agri',
-    color: '#3A9B9B',
+    emoji: "🌾",
+    titleKey: "agri",
+    color: "#3A9B9B",
   },
 ];
 
 const workSteps = [
-  { title: 'Idea', emoji: '💡', color: '#3A9B9B' },
-  { title: 'Design', emoji: '🎨', color: '#3B82F6' },
-  { title: 'Prototype', emoji: '🛠️', color: '#F59E0B' },
-  { title: 'Deployment', emoji: '🚀', color: '#10B981' },
+  { title: "Idea", emoji: "💡", color: "#3A9B9B" },
+  { title: "Design", emoji: "🎨", color: "#3B82F6" },
+  { title: "Prototype", emoji: "🛠️", color: "#F59E0B" },
+  { title: "Deployment", emoji: "🚀", color: "#10B981" },
 ];
 
 export default function WhatWeDo() {
-  const t = useTranslations('home');
+  const t = useTranslations("home");
 
   const domains = [
     {
-      title: t('domainAiTitle'),
-      url: '/images/homepage/Ai.jpg',
-      desc: t('domainAiDesc'),
+      title: t("domainAiTitle"),
+      url: "/images/homepage/Ai.jpg",
+      desc: t("domainAiDesc"),
       icon: <Brain className="w-7 h-7" />,
-      accent: 'from-[#3A9B9B] to-cyan-500',
-      iconGradient: 'from-blue-500 to-cyan-400',
-      href: '/what-we-do/domains/ai-ml-data-science',
+      accent: "from-[#3A9B9B] to-cyan-500",
+      iconGradient: "from-blue-500 to-cyan-400",
+      href: "/what-we-do/domains/ai-ml-data-science",
     },
     {
-      title: t('domainCyberTitle'),
-      url: '/images/homepage/cyberSecure.jpg',
-      desc: t('domainCyberDesc'),
+      title: t("domainCyberTitle"),
+      url: "/images/homepage/cyberSecure.jpg",
+      desc: t("domainCyberDesc"),
       icon: <Shield className="w-7 h-7" />,
-      accent: 'from-emerald-500 to-[#3A9B9B]',
-      iconGradient: 'from-green-500 to-emerald-400',
-      href: '/what-we-do/domains/cybersecurity-iot-blockchain',
+      accent: "from-emerald-500 to-[#3A9B9B]",
+      iconGradient: "from-green-500 to-emerald-400",
+      href: "/what-we-do/domains/cybersecurity-iot-blockchain",
     },
     {
-      title: t('domainSmartTitle'),
-      url: '/images/homepage/Our-Vision.png',
-      desc: t('domainSmartDesc'),
+      title: t("domainSmartTitle"),
+      url: "/images/homepage/Our-Vision.png",
+      desc: t("domainSmartDesc"),
       icon: <Microscope className="w-7 h-7" />,
-      accent: 'from-purple-500 to-pink-500',
-      iconGradient: 'from-purple-500 to-pink-400',
-      href: '/what-we-do/domains/smart-systems-healthcare-sustainability',
+      accent: "from-purple-500 to-pink-500",
+      iconGradient: "from-purple-500 to-pink-400",
+      href: "/what-we-do/domains/smart-systems-healthcare-sustainability",
     },
     {
-      title: t('domainAgriTitle'),
-      url: '/images/homepage/Prototype-image.png',
-      desc: t('domainAgriDesc'),
+      title: t("domainAgriTitle"),
+      url: "/images/homepage/Prototype-image.png",
+      desc: t("domainAgriDesc"),
       icon: <Zap className="w-7 h-7" />,
-      accent: 'from-amber-500 to-[#3A9B9B]',
-      iconGradient: 'from-teal-500 to-yellow-600',
-      href: '/what-we-do/domains/agriculture-smart-farming',
+      accent: "from-amber-500 to-[#3A9B9B]",
+      iconGradient: "from-teal-500 to-yellow-600",
+      href: "/what-we-do/domains/agriculture-smart-farming",
     },
   ];
 
@@ -184,13 +211,14 @@ export default function WhatWeDo() {
   return (
     <section className="py-12 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-stretch">
-
           {/* Left Division: Our Domains */}
           <div className="flex flex-col h-full w-full relative z-10 lg:pr-8">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
-              {t('whatWeDo.coreDomainsTitle')} <span className="text-[#3A9B9B]">{t('whatWeDo.coreDomainsHighlight')}</span>
+            <h2 className="text-3xl !text-center md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
+              {t("whatWeDo.coreDomainsTitle")}{" "}
+              <span className="text-[#3A9B9B]">
+                {t("whatWeDo.coreDomainsHighlight")}
+              </span>
             </h2>
             <div className="-mx-4 sm:mx-0">
               <DomainCarousel items={domains} />
@@ -199,30 +227,39 @@ export default function WhatWeDo() {
 
           {/* Right Division: What We Do & How We Work */}
           <div className="flex flex-col w-full relative z-10 lg:pl-10 border-l border-zinc-200 dark:border-zinc-800/50">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
-              {t('whatWeDo.title')} <span className="text-[#3A9B9B]">{t('whatWeDo.titleHighlight')}</span>
+            <h2 className="text-3xl !text-center md:text-5xl lg:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-10 text-center lg:text-left">
+              {t("whatWeDo.title")}{" "}
+              <span className="text-[#3A9B9B]">
+                {t("whatWeDo.titleHighlight")}
+              </span>
             </h2>
 
-            <div className="relative w-full h-[500px] flex items-center justify-center mt-10 mb-6" style={{ perspective: '2000px' }}>
+            <div
+              className="relative w-full h-[500px] flex items-center justify-center mt-10 mb-6"
+              style={{ perspective: "2000px" }}
+            >
               <motion.div
                 animate={{ rotateX: totalRotation }}
                 transition={{
-                  type: 'spring',
+                  type: "spring",
                   stiffness: 60,
                   damping: 20,
                   mass: 1,
                 }}
                 style={{
-                  transformStyle: 'preserve-3d',
-                  width: '100%',
-                  height: '100%',
-                  position: 'relative',
-                  willChange: 'transform'
+                  transformStyle: "preserve-3d",
+                  width: "100%",
+                  height: "100%",
+                  position: "relative",
+                  willChange: "transform",
                 }}
               >
                 {usps.map((usp, index) => {
                   // Wrap-aware angular distance from the active face
-                  const pos = ((totalRotation / -rotationStep) % usps.length + usps.length) % usps.length;
+                  const pos =
+                    (((totalRotation / -rotationStep) % usps.length) +
+                      usps.length) %
+                    usps.length;
                   const raw = Math.abs(pos - index);
                   const dist = Math.min(raw, usps.length - raw);
                   const isActive = dist < 0.5;
@@ -235,29 +272,29 @@ export default function WhatWeDo() {
                     <div
                       key={index}
                       style={{
-                        position: 'absolute',
+                        position: "absolute",
                         inset: 0,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         transform: `rotateX(${index * rotationStep}deg) translateZ(220px)`,
-                        backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden',
-                        pointerEvents: isActive ? 'auto' : 'none',
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                        pointerEvents: isActive ? "auto" : "none",
                         opacity: cardOpacity,
-                        transition: 'opacity 0.35s ease',
-                        perspective: '1200px',
+                        transition: "opacity 0.35s ease",
+                        perspective: "1200px",
                       }}
                     >
                       <Card3D className="w-full max-w-[260px]">
                         <div
                           className="w-full bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
                           style={{
-                            WebkitFontSmoothing: 'antialiased',
-                            MozOsxFontSmoothing: 'grayscale',
+                            WebkitFontSmoothing: "antialiased",
+                            MozOsxFontSmoothing: "grayscale",
                             transform: `scale(${cardScale})`,
                             filter: `blur(${blur}px)`,
-                            transition: 'all 0.4s ease',
+                            transition: "all 0.4s ease",
                           }}
                         >
                           <div
@@ -266,7 +303,10 @@ export default function WhatWeDo() {
                           >
                             {usp.emoji}
                           </div>
-                          <h4 className="text-base md:text-lg font-black text-zinc-900 dark:text-zinc-100 leading-snug tracking-tight" style={{ textRendering: 'optimizeLegibility' }}>
+                          <h4
+                            className="text-base md:text-lg font-black text-zinc-900 dark:text-zinc-100 leading-snug tracking-tight"
+                            style={{ textRendering: "optimizeLegibility" }}
+                          >
                             {t(`whatWeDo.usps.${usp.titleKey}`)}
                           </h4>
                         </div>
@@ -280,14 +320,16 @@ export default function WhatWeDo() {
               <div
                 className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10"
                 style={{
-                  background: 'linear-gradient(to bottom, var(--mask-bg, #f4f4f5) 0%, transparent 100%)'
+                  background:
+                    "linear-gradient(to bottom, var(--mask-bg, #f4f4f5) 0%, transparent 100%)",
                 }}
               />
               {/* Bottom shadow mask — suggests card below */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
                 style={{
-                  background: 'linear-gradient(to top, var(--mask-bg, #f4f4f5) 0%, transparent 100%)'
+                  background:
+                    "linear-gradient(to top, var(--mask-bg, #f4f4f5) 0%, transparent 100%)",
                 }}
               />
               <style>{`
@@ -310,10 +352,11 @@ export default function WhatWeDo() {
                     <button
                       key={idx}
                       onClick={() => goToSlide(idx)}
-                      className={`w-1.5 rounded-full mx-auto transition-all duration-300 ${idx === activeUspIndex
-                        ? 'h-6 bg-[#3A9B9B]'
-                        : 'h-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400'
-                        }`}
+                      className={`w-1.5 rounded-full mx-auto transition-all duration-300 ${
+                        idx === activeUspIndex
+                          ? "h-6 bg-[#3A9B9B]"
+                          : "h-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"
+                      }`}
                       aria-label={`Go to USP ${idx + 1}`}
                     />
                   ))}
@@ -375,4 +418,3 @@ export default function WhatWeDo() {
     </section>
   );
 }
-

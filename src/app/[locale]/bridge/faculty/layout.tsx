@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Faculty Engagement",
+    title: "Faculty & Researchers",
     description:
         "Faculty engagement at BanavatNest — mentors and domain experts guiding projects with academic rigor and cross-disciplinary collaboration.",
     openGraph: {
-        title: "Faculty Engagement | BanavatNest",
+        title: "Faculty & Researchers | BanavatNest",
         description:
             "Academic mentors and domain experts driving research excellence.",
     },
