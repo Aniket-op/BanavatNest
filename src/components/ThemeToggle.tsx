@@ -37,7 +37,7 @@ const ThemeToggle = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className="p-2.5 rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 hover:text-[#3A9B9B] transition-colors border border-gray-200 dark:border-zinc-700"
+            className="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-100 text-gray-600 dark:text-gray-600 hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B] transition-colors border border-gray-200 dark:border-gray-200"
             aria-label="Toggle Theme"
         >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
