@@ -667,6 +667,9 @@ export default function CollaborationPage() {
                         dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
                         backdrop-blur-sm shadow-lg"
           >
+            {/* Decorative gradient line at top */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
+
             <div className="grid md:grid-cols-2 gap-0 items-start">
               {/* LEFT: Heading + Content */}
               <div className="px-8 md:px-14 py-12 md:py-20">
