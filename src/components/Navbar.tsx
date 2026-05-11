@@ -26,8 +26,8 @@ const Navbar = () => {
             path: '/about' as const,
             subItems: [
                 { name: t('ourName'), path: '/aboutUs' as const },
-                { name: 'Our Ecosystem', path: '/bridge/collaboration' as const },
-                { name: "Our Support Network", path: '/about/board' as const },
+                { name: t('ourEcosystem'), path: '/bridge/collaboration' as const },
+                { name: t('ourSupportNetwork'), path: '/about/board' as const },
             ]
         },
         {
@@ -49,11 +49,11 @@ const Navbar = () => {
             ]
         },
         {
-            name: "Tools & Utilities",
+            name: t('toolsUtilities'),
             path: '/tools' as const,
             subItems: [
-                { name: "EMI Calculator", path: "/tools/emi-calculator" as const },
-                { name: "GST Calculator", path: "/tools/gst-calculator" as const },
+                { name: t('emiCalculator'), path: "/tools/emi-calculator" as const },
+                { name: t('gstCalculator'), path: "/tools/gst-calculator" as const },
             ]
         },
     ];

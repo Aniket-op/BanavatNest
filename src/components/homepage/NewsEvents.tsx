@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 // ── 3D Card Wrapper ──
 const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
@@ -54,58 +55,54 @@ const Card3D = ({ children, className = '', style = {} }: { children: React.Reac
   );
 };
 
-// ── LinkedIn Post Data ──
-// images: array of { src, alt } — multiple images will auto-cycle on the right panel
-// linkedinUrl: direct link to the LinkedIn post
-const NEWS_EVENTS = [
-  {
-    id: 1,
-    tag: "Event",
-    tagColor: "#3A9B9B",
-    date: "April 2026",
-    headline:
-      "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
-    body: "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
-    images: [
-      { src: "/images/new%26event/post1/1.jpeg", alt: "Image 1", objectPosition: "object-top" },
-      { src: "/images/new%26event/post1/2.jpeg", alt: "Image 2", objectPosition: "object-top" },
-      { src: "/images/new%26event/post1/3.jpeg", alt: "Image 3", objectPosition: "object-top" },
-    ],
-    linkedinUrl:
-      "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
-  },
-  {
-    id: 2,
-    tag: "News",
-    tagColor: "#2D3561",
-    date: "april 2026",
-    headline:
-      "Deployment Site Finalized for Patented Smart Fish-Feeding System",
-    body: "BanavatNest Pvt. Ltd. has finalized the deployment site for the field study of its solar-powered automated floating fish-feeding system. We are proud that one of our Founder Directors is the inventor associated with this patented technology.",
-    images: [
-      { src: "/images/new%26event/post3/fishfeeder.jpeg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
-    ],
-    linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7454019410836754432/",
-  },
-  {
-    id: 3,
-    tag: "Upcoming Event",
-    tagColor: "#3A9B9B",
-    date: "Upcoming",
-    headline: "Full Moon Photography Challenge",
-    body: "Experience the beauty of the Full Moon through guided photography and observation sessions hosted by BanavatNest. The platform will provide telescope access, lenses, and camera support to help participants capture detailed moon photographs. Selected entries will receive exciting prizes and recognition.\n\nVenue: Thapar Institute of Engineering and Technology (TIET), Patiala",
-    images: [
-      { src: "/images/new%26event/post2/moonEvent.jpeg", alt: "Full Moon Event", objectPosition: "object-center" },
-      { src: "/images/new%26event/post2/moon2.jpeg", alt: "Moon Photography", objectPosition: "object-center" },
-    ],
-    linkedinUrl: "https://www.linkedin.com/company/banavatnest-pvt-ltd",
-  },
-];
-
-const SLIDE_DURATION = 5500; // ms — outer post carousel
-const IMAGE_CYCLE_DURATION = 2800; // ms — inner image cycle per post
-
 export default function NewsEvents() {
+  const t = useTranslations("newsEvents");
+
+  const NEWS_EVENTS = [
+    {
+      id: 1,
+      tag: t("post1Tag"),
+      tagColor: "#3A9B9B",
+      date: t("post1Date"),
+      headline: t("post1Headline"),
+      body: t("post1Body"),
+      images: [
+        { src: "/images/new%26event/post1/1.jpeg", alt: "Image 1", objectPosition: "object-top" },
+        { src: "/images/new%26event/post1/2.jpeg", alt: "Image 2", objectPosition: "object-top" },
+        { src: "/images/new%26event/post1/3.jpeg", alt: "Image 3", objectPosition: "object-top" },
+      ],
+      linkedinUrl: "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
+    },
+    {
+      id: 2,
+      tag: t("post2Tag"),
+      tagColor: "#2D3561",
+      date: t("post2Date"),
+      headline: t("post2Headline"),
+      body: t("post2Body"),
+      images: [
+        { src: "/images/new%26event/post3/fishfeeder.jpeg", alt: "Smart Fish-Feeding System", objectPosition: "object-center" },
+      ],
+      linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7454019410836754432/",
+    },
+    {
+      id: 3,
+      tag: t("post3Tag"),
+      tagColor: "#3A9B9B",
+      date: t("post3Date"),
+      headline: t("post3Headline"),
+      body: t("post3Body"),
+      images: [
+        { src: "/images/new%26event/post2/moonEvent.jpeg", alt: "Full Moon Event", objectPosition: "object-center" },
+        { src: "/images/new%26event/post2/moon2.jpeg", alt: "Moon Photography", objectPosition: "object-center" },
+      ],
+      linkedinUrl: "https://www.linkedin.com/company/banavatnest-pvt-ltd",
+    },
+  ];
+
+  const SLIDE_DURATION = 5500;
+  const IMAGE_CYCLE_DURATION = 2800;
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
@@ -199,10 +196,10 @@ export default function NewsEvents() {
         >
           <div>
             <p className="text-xs font-black uppercase tracking-[0.25em] text-[#3A9B9B] mb-2">
-              Latest Updates
+              {t("latestUpdates")}
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1]">
-              News &amp; <span className="text-[#3A9B9B]">Events</span>
+              {t("sectionTitle")} <span className="text-[#3A9B9B]">{t("sectionHighlight")}</span>
             </h2>
           </div>
 
@@ -289,7 +286,7 @@ export default function NewsEvents() {
                             boxShadow: `0 8px 24px -6px ${item.tagColor}60`,
                           }}
                         >
-                          View on LinkedIn
+                          {t("viewOnLinkedIn")}
                           <ExternalLink className="w-3.5 h-3.5" />
                         </span>
                       </a>

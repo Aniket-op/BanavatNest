@@ -6,13 +6,6 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import PageWrapper from '@/components/PageWrapper';
 
-// ── Feature points for the STEP-TIET card ──
-const featurePoints = [
-    { title: 'Research-led innovation', color: 'bg-[#3A9B9B]' },
-    { title: 'Prototype-oriented execution', color: 'bg-[#2D3561]' },
-    { title: 'Meaningful real-world impact', color: 'bg-[#3A9B9B]' },
-];
-
 function SparklesIcon({ className = '' }) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -36,6 +29,13 @@ function ArrowUpRightIcon({ className = '' }) {
 
 export default function BoardPage() {
     const t = useTranslations('aboutBoard');
+    const tBoard = useTranslations('boardPage');
+
+    const featurePoints = [
+        { title: tBoard('feat1'), color: 'bg-[#3A9B9B]' },
+        { title: tBoard('feat2'), color: 'bg-[#2D3561]' },
+        { title: tBoard('feat3'), color: 'bg-[#3A9B9B]' },
+    ];
 
     return (
         <PageWrapper>
@@ -69,12 +69,12 @@ export default function BoardPage() {
                                 >
                                     <SparklesIcon className="w-4 h-4 text-[#3A9B9B]" />
                                     <span className="text-xs sm:text-sm font-bold tracking-widest text-[#2D3561] dark:text-[#3A9B9B] uppercase">
-                                        Innovation • Mentorship • Incubation
+                                        {tBoard('badge')}
                                     </span>
                                 </motion.div>
 
                                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight text-zinc-900 dark:text-zinc-100 mb-8">
-                                    Incubation <span className="text-[#3A9B9B]">Mentor</span>
+                                    {tBoard('heroTitle')} <span className="text-[#3A9B9B]">{tBoard('heroHighlight')}</span>
                                 </h1>
 
                                 <div className="w-16 h-1 bg-[#3A9B9B] rounded-full mb-8" />
@@ -84,7 +84,7 @@ export default function BoardPage() {
                                         target="_blank" rel="noopener noreferrer"
                                         className="font-bold text-[#2D3561] dark:text-zinc-100 hover:text-[#3A9B9B] transition-colors"
                                     >Science &amp; Technology Entrepreneurs Park (STEP)</a>{' '}
-                                    is the startup incubation and innovation support ecosystem at{' '}
+                                    {tBoard('heroDesc')}{' '}
                                     <a href="https://thapar.edu/" target="_blank" rel="noopener noreferrer"
                                         className="font-bold text-[#3A9B9B] hover:underline transition-colors"
                                     >Thapar Institute of Engineering and Technology (TIET)</a>
@@ -111,7 +111,7 @@ export default function BoardPage() {
                                                     target="_blank" rel="noopener noreferrer"
                                                     className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight hover:text-[#3A9B9B] transition-colors"
                                                 >STEP-TIET</a>
-                                                <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Incubation &amp; Innovation Ecosystem</p>
+                                                <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{tBoard('cardSubtitle')}</p>
                                             </div>
                                         </div>
                                         <a href="https://www.thapar.edu/academics/centers/science-technology-entrepreneurs-park-step"
@@ -125,9 +125,9 @@ export default function BoardPage() {
                                     {/* Description */}
                                     <div className="space-y-6">
                                         <p className="text-lg font-medium leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                            Supporting{' '}
+                                            {tBoard('cardSupportText')}{' '}
                                             <span className="font-bold text-zinc-900 dark:text-zinc-100">BanavatNest</span>{' '}
-                                            in strengthening its vision toward:
+                                            {tBoard('cardSupportSuffix')}
                                         </p>
                                         <ul className="space-y-5">
                                             {featurePoints.map((point) => (
@@ -171,7 +171,7 @@ export default function BoardPage() {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-100 mb-4"
                             >
-                                Board of <span className="text-[#3A9B9B]">Directors</span>
+                                {tBoard('boardTitle')} <span className="text-[#3A9B9B]">{tBoard('boardHighlight')}</span>
                             </motion.h2>
                             <motion.div
                                 initial={{ scaleX: 0 }}
@@ -200,8 +200,8 @@ export default function BoardPage() {
                                     </div>
                                     <div className="flex-grow">
                                         <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-1 whitespace-nowrap">{t('sukhdevName')}</h3>
-                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 uppercase tracking-wide">PHD (IIT Patna)</p>
-                                        <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">Co-Founder &amp; Director (Research &amp; Strategy)</p>
+                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 uppercase tracking-wide">{t('sukhdevEdu')}</p>
+                                        <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">{t('sukhdevRole')}</p>
                                     </div>
                                 </div>
                                 <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">{t('sukhdevBio')}</p>
@@ -212,7 +212,7 @@ export default function BoardPage() {
                                 </ul>
                                 <Link href="/about/board/dr-sukhdev-singh"
                                     className="inline-flex items-center gap-2 text-[#3A9B9B] font-bold text-lg hover:text-[#2a7676] transition-colors group">
-                                    View Portfolio <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    {tBoard('viewPortfolio')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </motion.div>
 
@@ -231,8 +231,8 @@ export default function BoardPage() {
                                     </div>
                                     <div className="flex-grow">
                                         <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-1 whitespace-nowrap">{t('sangitaName')}</h3>
-                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 uppercase tracking-wide">PHD (IIT Patna)</p>
-                                        <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">Co-Founder &amp; Director (Innovation &amp; Technology)</p>
+                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 uppercase tracking-wide">{t('sangitaEdu')}</p>
+                                        <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">{t('sangitaRole')}</p>
                                     </div>
                                 </div>
                                 <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">{t('sangitaBio')}</p>
@@ -243,7 +243,7 @@ export default function BoardPage() {
                                 </ul>
                                 <Link href="/about/board/dr-sangita-roy"
                                     className="inline-flex items-center gap-2 text-[#3A9B9B] font-bold text-lg hover:text-[#2a7676] transition-colors group">
-                                    View Portfolio <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    {tBoard('viewPortfolio')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </motion.div>
 

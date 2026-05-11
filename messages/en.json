@@ -34,7 +34,12 @@
         "opportunities": "Opportunities for Students",
         "faculty": "Faculty Engagement",
         "partnerships": "Industry Partnerships",
-        "contact": "Contact"
+        "contact": "Contact",
+        "ourEcosystem": "Our Ecosystem",
+        "ourSupportNetwork": "Our Support Network",
+        "toolsUtilities": "Tools & Utilities",
+        "emiCalculator": "EMI Calculator",
+        "gstCalculator": "GST Calculator"
     },
     "footer": {
         "companyName": "BanavatNest Private Limited",
@@ -45,6 +50,86 @@
         "aboutUs": "About Us",
         "privacyPolicy": "Privacy Policy",
         "termsOfUse": "Terms of Use"
+    },
+    "newsEvents": {
+        "latestUpdates": "Latest Updates",
+        "sectionTitle": "News &",
+        "sectionHighlight": "Events",
+        "viewOnLinkedIn": "View on LinkedIn",
+        "post1Tag": "Event",
+        "post1Date": "April 2026",
+        "post1Headline": "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
+        "post1Body": "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
+        "post2Tag": "News",
+        "post2Date": "April 2026",
+        "post2Headline": "Deployment Site Finalized for Patented Smart Fish-Feeding System",
+        "post2Body": "BanavatNest Pvt. Ltd. has finalized the deployment site for the field study of its solar-powered automated floating fish-feeding system. We are proud that one of our Founder Directors is the inventor associated with this patented technology.",
+        "post3Tag": "Upcoming Event",
+        "post3Date": "Upcoming",
+        "post3Headline": "Full Moon Photography Challenge",
+        "post3Body": "Experience the beauty of the Full Moon through guided photography and observation sessions hosted by BanavatNest. The platform will provide telescope access, lenses, and camera support to help participants capture detailed moon photographs. Selected entries will receive exciting prizes and recognition.\n\nVenue: Thapar Institute of Engineering and Technology (TIET), Patiala"
+    },
+    "featuredInnovations": {
+        "ourShowcase": "Our Showcase",
+        "sectionTitle": "Featured",
+        "sectionHighlight": "Innovations",
+        "inn1Tag": "Aquaculture",
+        "inn1Date": "Prototype Development & Field Deployment",
+        "inn1Headline": "Smart Solar-Powered Floating Fish-Feeding System",
+        "inn1Body": "A patented smart aquaculture innovation invented by one of our directors, focused on automated and sustainable fish feeding through an integrated solar-powered floating assembly system designed for efficient aquaculture management.",
+        "inn2Tag": "Integrated Farming",
+        "inn2Date": "Prototype Development & Research Translation",
+        "inn2Headline": "Integrated Pond & Livestock Shelter System",
+        "inn2Body": "A patented integrated farming innovation invented by one of our directors, designed to support sustainable aquaculture and livestock management through automated, intelligent, and resource-efficient shelter and pond integration systems.",
+        "inn3Tag": "Assistive Tech",
+        "inn3Date": "Patent Published — FER Filed",
+        "inn3Headline": "Smart Food-Picking Assistance Device",
+        "inn3Body": "A research-driven intelligent assisting innovation focused on automated and efficient food-picking support through adaptive sensing, smart handling mechanisms, and user-oriented design for enhanced accessibility and practical usability.",
+        "inn4Tag": "Software Solutions",
+        "inn4Date": "Under Development & Research Translation Phase",
+        "inn4Headline": "Financial Systems & Software Solutions",
+        "inn4Body": "Building secure and scalable software solutions for intelligent financial analytics, automation, monitoring, and decision-support applications.",
+        "inn5Tag": "Smart Agriculture",
+        "inn5Date": "Research Paper Published — Prototype Development",
+        "inn5Headline": "Automated Solar-Powered Smart Irrigation System",
+        "inn5Body": "A smart and sustainable irrigation solution designed for automated plant watering through solar-powered operation, intelligent monitoring, and efficient water management for precision agriculture and smart farming applications.",
+        "inn6Tag": "Custom Solutions",
+        "inn6Date": "Ongoing Collaborative Development",
+        "inn6Headline": "Customized Solution Development",
+        "inn6Body": "Developing research-driven and technology-oriented customized solutions tailored to specific industry, academic, automation, analytics, and real-world operational requirements.",
+        "inn7Tag": "Healthcare Tech",
+        "inn7Date": "Research & Solution Development Phase",
+        "inn7Headline": "Healthcare System Development",
+        "inn7Body": "Designing intelligent and technology-driven healthcare solutions focused on solving real-world clinical, monitoring, automation, and patient-care challenges through research, innovation, and system-oriented development."
+    },
+    "collaborationPage": {
+        "heroQuote": "BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact.",
+        "whoCanTitle": "Who Can",
+        "whoCanHighlight": "Collaborate",
+        "whoCanDesc": "Open to students, faculty, researchers, startups, and industry partners driven by innovation and real-world impact.",
+        "journeyTitle": "Innovation",
+        "journeyHighlight": "Journey",
+        "journeyEyebrow": "From Curiosity to Impact",
+        "journeyHeadline": "Transforming curiosity-driven ideas into practical, scalable, and impactful real-world solutions.",
+        "approachTitle": "Our",
+        "approachHighlight": "Approach",
+        "approachP1": "We adopt a problem-driven approach where real-world industry challenges are mapped into academic research opportunities and student-led innovation projects. Collaboration is enabled through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.",
+        "approachP2": "Our ecosystem encourages interdisciplinary collaboration where ideas evolve through research, experimentation, prototyping, and continuous innovation."
+    },
+    "boardPage": {
+        "badge": "Innovation • Mentorship • Incubation",
+        "heroTitle": "Incubation",
+        "heroHighlight": "Mentor",
+        "heroDesc": "is the startup incubation and innovation support ecosystem at",
+        "cardSubtitle": "Incubation & Innovation Ecosystem",
+        "cardSupportText": "Supporting",
+        "cardSupportSuffix": "in strengthening its vision toward:",
+        "feat1": "Research-led innovation",
+        "feat2": "Prototype-oriented execution",
+        "feat3": "Meaningful real-world impact",
+        "boardTitle": "Board of",
+        "boardHighlight": "Directors",
+        "viewPortfolio": "View Portfolio"
     },
     "home": {
         "badge": "Research-Led Innovation Ecosystem",
@@ -159,7 +244,18 @@
         "coreValuesTitle": "Our Core",
         "coreValuesHighlight": "Values",
         "coreValuesSubheading": "Building the future through purposeful innovation and systematic development.",
-        "meaningHeading": "Meaning"
+        "meaningHeading": "Meaning",
+        "whyTheName": "Why the Name",
+        "whyTheNameHighlight": "BanavatNest ?",
+        "symbolismLabel": "The Symbolism of BanavatNest",
+        "purposeTitle": "PURPOSE",
+        "purposeDesc": "Why we do it",
+        "processTitle": "PROCESS",
+        "processDesc": "How we approach it",
+        "prototypeTitle": "PROTOTYPE",
+        "prototypeDesc": "What we create",
+        "progressTitle": "PROGRESS",
+        "progressDesc": "What impact it drives"
     },
     "aboutName": {
         "title": "Our",
@@ -227,21 +323,20 @@
         "quote": "\"We act as a bridge between academia, industry, and society, enabling collaborative innovation.\""
     },
     "aboutBoard": {
-        "title": "Board of",
-        "titleHighlight": "Directors",
-        "subtitle": "Strategic leadership ensuring alignment between academic excellence and industry needs.",
         "sukhdevName": "Dr. Sukhdev Singh",
-        "sukhdevRole": "Director | PhD (IIT Patna)",
-        "sukhdevBio": "Experienced academic and researcher with over 8 years in higher education. Holds strong expertise in statistical modeling, estimation, and data-driven problem solving. Active contributor to bridging academia and industry.",
-        "sukhdevAch1": "Author of 20+ research publications",
-        "sukhdevAch2": "CSIR Junior and Senior Research Fellow",
-        "sukhdevAch3": "Strategic leadership in research planning",
+        "sukhdevEdu": "PHD (IIT Patna)",
+        "sukhdevRole": "Co-Founder & Director (Research & Strategy)",
+        "sukhdevBio": "A passionate researcher and strategic visionary with deep expertise in transforming complex ideas into scalable technological solutions.",
+        "sukhdevAch1": "Ph.D. in Computer Science & Engineering from IIT Patna.",
+        "sukhdevAch2": "Pioneered research in AI, IoT & Smart Systems.",
+        "sukhdevAch3": "Published numerous patents & high-impact research papers.",
         "sangitaName": "Dr. Sangita Roy",
-        "sangitaRole": "Director | PhD (IIT Patna)",
-        "sangitaBio": "Accomplished academic with expertise in Computer Science, specialized in Cybersecurity, BlockChain, and IoT. Experienced in industry-oriented and funded research.",
-        "sangitaAch1": "PhD from IIT Patna, Postdoc from Tel Aviv University (Israel)",
-        "sangitaAch2": "Former Senior Scientist at IIT Bombay",
-        "sangitaAch3": "Leadership in technology innovation"
+        "sangitaEdu": "PHD (IIT Patna)",
+        "sangitaRole": "Co-Founder & Director (Innovation & Technology)",
+        "sangitaBio": "An innovative technologist and academician dedicated to developing sustainable, research-led prototypes with real-world industry applications.",
+        "sangitaAch1": "Ph.D. in Computer Science & Engineering from IIT Patna.",
+        "sangitaAch2": "Expertise in Machine Learning & Health Informatics.",
+        "sangitaAch3": "Led multiple technology transfer initiatives & prototype developments."
     },
     "focusAreas": {
         "title": "Our Focus",
@@ -270,82 +365,69 @@
         "agriDesc": "Advanced data analytics and IoT monitoring to enhance farming productivity and sustainability."
     },
     "collaboration": {
-        "title": "Collaboration",
-        "titleHighlight": "Model",
-        "subtitle": "Connecting academic rigor with industrial relevance through a multi-layer engagement framework.",
         "academic": {
-            "title": "Academic Collaboration",
-            "emoji": "🎓",
-            "items": [
-                {
-                    "heading": "Joint research & funded projects",
-                    "desc": "Collaborative investigation and development supported by external funding bodies."
+            "title": "Academic Opportunities",
+            "items": {
+                "0": {
+                    "heading": "Hands-on Projects",
+                    "desc": "Building real-world prototypes and earning practical engineering experience."
                 },
-                {
-                    "heading": "Student innovation & projects",
-                    "desc": "Hands-on capstone projects and research-led innovation by students."
+                "1": {
+                    "heading": "Skill Development",
+                    "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
                 },
-                {
-                    "heading": "Prototype development",
-                    "desc": "Translating academic research into functional, industry-grade prototypes."
+                "2": {
+                    "heading": "Industry Exposure",
+                    "desc": "Solving live problems from top companies to become career-ready."
                 },
-                {
-                    "heading": "Internship & mentorship",
-                    "desc": "Structured programs for student growth and expert professional guidance."
+                "3": {
+                    "heading": "Mentorship",
+                    "desc": "Expert guidance for research, prestigious internships, and startup ventures."
                 }
-            ]
+            }
         },
         "industry": {
-            "title": "Industry Collaboration",
-            "emoji": "🏭",
-            "items": [
-                {
-                    "heading": "Solution development",
-                    "desc": "Problem-driven engineering to address core industrial challenges."
+            "title": "Industry Partnerships",
+            "items": {
+                "0": {
+                    "heading": "Customized Solutions",
+                    "desc": "Tailored engineering to solve your most challenging business problems."
                 },
-                {
-                    "heading": "System integration",
-                    "desc": "Advanced implementation of AI, IoT, and secure computing architectures."
+                "1": {
+                    "heading": "Core Tech R&D",
+                    "desc": "Advanced development in AI, IoT, and high-security system architectures."
                 },
-                {
-                    "heading": "Rapid prototyping",
-                    "desc": "Moving from initial concept to pilot deployment with agility and speed."
+                "2": {
+                    "heading": "Rapid Prototyping",
+                    "desc": "Moving from initial concept to pilot deployment with extreme speed."
                 },
-                {
-                    "heading": "Technology partnerships",
-                    "desc": "Long-term relationships for continuous innovation and tech adoption."
+                "3": {
+                    "heading": "Scalable Systems",
+                    "desc": "Production-ready, battle-tested solutions designed for market expansion."
                 }
-            ]
+            }
         },
         "startup": {
-            "title": "Startup / Innovator Collaboration",
-            "emoji": "🚀",
-            "items": [
-                {
-                    "heading": "Idea validation & prototyping",
-                    "desc": "Validating core concepts through expert research and rapid builds."
+            "title": "Faculty & Startups",
+            "items": {
+                "0": {
+                    "heading": "Research Prototypes",
+                    "desc": "Converting academic research into functional, industry-grade prototypes."
                 },
-                {
-                    "heading": "Technical co-development",
-                    "desc": "Collaborative engineering support to build and refine core technology."
+                "1": {
+                    "heading": "Project Support",
+                    "desc": "Assistance with funded project proposals and strategic grant applications."
                 },
-                {
-                    "heading": "MVP development",
-                    "desc": "Developing lean, functional products ready for initial market entry."
+                "2": {
+                    "heading": "Technology Transfer",
+                    "desc": "Direct industry collaboration and commercialization of intellectual capital."
                 },
-                {
-                    "heading": "Scaling & deployment",
-                    "desc": "Strategic guidance for system expansion and real-world deployment."
+                "3": {
+                    "heading": "Deployment Support",
+                    "desc": "Data-driven validation and real-world deployment of academic solutions."
                 }
-            ]
-        },
-        "frameworkTitle": "The Framework",
-        "item1": "Problem-driven approach: Industry challenges mapped to academic research.",
-        "item2": "Joint Supervision: Collaboration enabled through faculty and industry mentoring.",
-        "item3": "Milestone-based execution: Ensuring alignment with goals and timelines.",
-        "item4": "Flexibility: Adapting to different Technology Readiness Levels (TRLs).",
-        "bodyP1": "Our collaboration model is built on a multi-layer engagement framework that connects students, faculty, and industry partners through well-defined roles and outcomes.",
-        "bodyP2": "We adopt a problem-driven approach where industry partners propose real-world challenges, which are then mapped to academic research problems and student projects. Collaboration is enabled through joint supervision, milestone-based project execution, and continuous technical mentoring."
+            }
+        }
     },
     "opportunities": {
         "title": "Student",

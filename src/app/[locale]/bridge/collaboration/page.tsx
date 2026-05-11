@@ -208,6 +208,7 @@ const ILLUSTRATIONS: Record<string, React.FC<{ color: string }>> = {
 
 export default function CollaborationPage() {
   const t = useTranslations('collaboration');
+  const tCollab = useTranslations('collaborationPage');
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -270,7 +271,7 @@ export default function CollaborationPage() {
           {/* Quote text */}
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed tracking-tight text-zinc-700 dark:text-zinc-200">
             <span className="text-3xl text-[#3A9B9B] font-black mr-1 leading-none align-top">&#8220;</span>
-            BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact.
+            {tCollab('heroQuote')}
             <span className="text-3xl text-[#3A9B9B] font-black ml-1 leading-none align-bottom">&#8221;</span>
           </p>
 
@@ -325,9 +326,9 @@ export default function CollaborationPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-zinc-900 dark:text-zinc-100"
           >
-            Who Can{' '}
+            {tCollab('whoCanTitle')}{' '}
             <span className="text-[#3A9B9B]">
-              Collaborate
+              {tCollab('whoCanHighlight')}
             </span>
           </motion.h2>
           <motion.p
@@ -337,8 +338,7 @@ export default function CollaborationPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed"
           >
-            Open to students, faculty, researchers, startups, and industry partners driven by
-            innovation and real-world impact.
+            {tCollab('whoCanDesc')}
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -465,7 +465,7 @@ export default function CollaborationPage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-3xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-100 mb-4"
               >
-                Innovation <span className="text-[#3A9B9B]">Journey</span>
+                {tCollab('journeyTitle')} <span className="text-[#3A9B9B]">{tCollab('journeyHighlight')}</span>
               </motion.h2>
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -493,13 +493,12 @@ export default function CollaborationPage() {
               >
                 {/* Eyebrow */}
                 <p className="text-xl font-bold uppercase tracking-[0.28em] text-[#2D3561] dark:text-[#3A9B9B] mb-4">
-                  From Curiosity to Impact
+                  {tCollab('journeyEyebrow')}
                 </p>
 
                 {/* Headline */}
                 <h3 className="text-3xl  font-black text-zinc-900 dark:text-zinc-100 leading-tight mb-5">
-                  Transforming curiosity-driven ideas into practical, scalable, and impactful
-                  real-world solutions.
+                  {tCollab('journeyHeadline')}
                 </h3>
               </motion.div>
 
@@ -536,19 +535,16 @@ export default function CollaborationPage() {
             <div className="relative z-10">
               {/* Heading */}
               <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4">
-                Our <span className="text-[#3A9B9B]">Approach</span>
+                {tCollab('approachTitle')} <span className="text-[#3A9B9B]">{tCollab('approachHighlight')}</span>
               </h2>
               <div className="w-10 h-[3px] rounded-full bg-[#3A9B9B] mb-8" />
               {/* Body paragraphs */}
               <div className="space-y-6 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
                 <p className="border-l-4 border-[#3A9B9B] pl-6 py-2 italic text-zinc-700 dark:text-zinc-100">
-                  We adopt a problem-driven approach where real-world industry challenges are mapped into
-                  academic research opportunities and student-led innovation projects. Collaboration is enabled
-                  through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.
+                  {tCollab('approachP1')}
                 </p>
                 <p className="border-l-4 border-zinc-200 dark:border-zinc-700 pl-6 py-2">
-                  Our ecosystem encourages interdisciplinary collaboration where ideas evolve through research,
-                  experimentation, prototyping, and continuous innovation.
+                  {tCollab('approachP2')}
                 </p>
               </div>
             </div>

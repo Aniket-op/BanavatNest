@@ -8,6 +8,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 const AboutUs = () => {
     const t = useTranslations('aboutUsPage');
     const tName = useTranslations('aboutName');
+    const tMission = useTranslations('aboutMission');
 
     const heroImages = [
         '/images/BANAVAT.png',
@@ -59,7 +60,7 @@ const AboutUs = () => {
                         viewport={{ once: true }}
                         className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
                     >
-                        Why the Name<span className="text-[#3A9B9B]"> BanavatNest ?</span>
+                        {t('whyTheName')} <span className="text-[#3A9B9B]">{t('whyTheNameHighlight')}</span>
                     </motion.h2>
                 </div>
 
@@ -82,7 +83,7 @@ const AboutUs = () => {
                                 {tName('banavatTitle')}
                             </h4>
                             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg text-justify">
-                                Drawn from Hindi and widely used in Punjabi, Banavat signifies creating, building, and shaping ideas with purpose and intent.
+                                {tName('banavatDesc')}
                             </p>
                         </motion.div>
                         <motion.div
@@ -98,15 +99,12 @@ const AboutUs = () => {
                                 {tName('nestTitle')}
                             </h4>
                             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg text-justify">
-                                {/* {tName('nestDesc')} */}
-                                A Nest symbolizes a nurturing space where ideas are developed, refined, and prepared to
-                                grow into meaningful impact.
+                                {tName('nestDesc')}
                             </p>
                         </motion.div>
                     </div>
                     <p className="text-zinc-600 dark:text-zinc-400 w-full max-w-7xl mx-auto text-lg pt-10">
-                        Together, BanavatNest represents a research-driven ecosystem connecting academia, industry,
-                        and innovation to transform ideas into real-world solutions.
+                        {tName('quote')}
                     </p>
                 </div>
             </section>
@@ -140,7 +138,7 @@ const AboutUs = () => {
                                 transition={{ delay: 0.1, duration: 0.5 }}
                                 className="text-lg font-bold uppercase tracking-[0.28em] text-[#2D3561] dark:text-[#3A9B9B] mb-4"
                             >
-                                The Symbolism of BanavatNest
+                                {t('symbolismLabel')}
                             </motion.p>
 
                             {/* Headline */}
@@ -154,7 +152,7 @@ const AboutUs = () => {
                                     dark:from-white dark:via-[#3A9B9B] dark:to-white
                                     bg-clip-text text-transparent mb-4"
                             >
-                                Build with Purpose. Nurture to Impact.
+                                {tName('sloganText')}
                             </motion.h2>
 
                             {/* Divider */}
@@ -168,9 +166,7 @@ const AboutUs = () => {
                                 transition={{ delay: 0.35, duration: 0.6 }}
                                 className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed"
                             >
-                                The philosophy behind BanavatNest reflects our belief that meaningful innovation begins with
-                                purposeful ideas and grows through continuous nurturing, collaboration, and practical execution
-                                toward real-world impact.
+                                {tName('closingStatement')}
                             </motion.p>
                         </div>
 
@@ -232,10 +228,10 @@ const AboutUs = () => {
                         {/* RIGHT: Values — 2×2 card grid */}
                         <div className="grid grid-cols-2 gap-5">
                             {[
-                                { num: '01', title: 'PURPOSE', desc: 'Why we do it' },
-                                { num: '02', title: 'PROCESS', desc: 'How we approach it' },
-                                { num: '03', title: 'PROTOTYPE', desc: 'What we create' },
-                                { num: '04', title: 'PROGRESS', desc: 'What impact it drives' }
+                                { num: '01', title: t('purposeTitle'), desc: t('purposeDesc') },
+                                { num: '02', title: t('processTitle'), desc: t('processDesc') },
+                                { num: '03', title: t('prototypeTitle'), desc: t('prototypeDesc') },
+                                { num: '04', title: t('progressTitle'), desc: t('progressDesc') }
                             ].map((item, index) => (
                                 <motion.div
                                     key={item.title}
@@ -291,8 +287,7 @@ const AboutUs = () => {
                             transition={{ duration: 0.6 }}
                             className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
                         >
-                            Our <span className="text-[#2D3561] dark:text-white">Mission</span> &amp; Our{' '}
-                            <span className="text-[#3A9B9B]">Vision</span>
+                            {tMission('missionTitle')} &amp; {tMission('visionTitle')}
                         </motion.h2>
                         <motion.div
                             initial={{ scaleX: 0 }}
@@ -312,10 +307,9 @@ const AboutUs = () => {
                             whileHover={{ y: -5 }}
                             className="bg-white dark:bg-zinc-900 p-12 rounded-[2.5rem] shadow-sm border-t-8 border-[#2D3561] hover:shadow-xl transition-all"
                         >
-                            <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">Our Mission</h2>
+                            <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">{tMission('missionTitle')}</h2>
                             <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
-                                To transform purposeful ideas into practical and scalable solutions through research,
-                                design, and prototyping.
+                                {tMission('missionText')}
                             </p>
                         </motion.div>
                         <motion.div
@@ -326,10 +320,9 @@ const AboutUs = () => {
                             whileHover={{ y: -5 }}
                             className="bg-white dark:bg-zinc-900 p-12 rounded-[2.5rem] shadow-sm border-t-8 border-[#3A9B9B] hover:shadow-xl transition-all"
                         >
-                            <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">Our Vision</h2>
+                            <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">{tMission('visionTitle')}</h2>
                             <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
-                                To build a research-driven innovation ecosystem where ideas evolve from curiosity to
-                                meaningful real-world impact.
+                                {tMission('visionText')}
                             </p>
                         </motion.div>
                     </div>
