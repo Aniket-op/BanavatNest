@@ -186,24 +186,24 @@ const serveData = [
     href: "/bridge/opportunities",
     emoji: "🎓",
     illustration: StudentIllustration,
-    color: '#00993bff',
-    bg: 'bg-[#F7FEE7] dark:bg-[#1a2a06]',
+    color: '#2D3561',
+    bg: 'bg-[#EAECF5] dark:bg-[#1a1e35]',
   },
   {
     key: "faculty",
     href: "/bridge/faculty",
     emoji: "👩‍🏫",
     illustration: FacultyIllustration,
-    color: '#116cffff',
-    bg: 'bg-[#EFF6FF] dark:bg-[#0f1e3d]',
+    color: '#3A9B9B',
+    bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]',
   },
   {
     key: "industry",
     href: "/bridge/partnerships",
     emoji: "🏭",
     illustration: IndustryIllustration,
-    color: '#7940ffff',
-    bg: 'bg-[#F5F3FF] dark:bg-[#1e1040]',
+    color: '#5BBD4A',
+    bg: 'bg-[#EAF8EA] dark:bg-[#142614]',
   }
 ];
 
