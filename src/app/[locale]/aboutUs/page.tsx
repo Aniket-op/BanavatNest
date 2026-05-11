@@ -195,19 +195,18 @@ const AboutUs = () => {
         </motion.div>
       </section>
 
-      <section className="p-12 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl lg:text-6xl dark:text-white font-bold mb-6"
-            >
-              {t("coreValuesTitle")}{" "}
-              <span className="text-[#3A9B9B]">{t("coreValuesHighlight")}</span>
-            </motion.h2>
-          </div>
+      <section className="p-12 relative max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl lg:text-6xl dark:text-white font-bold mb-6"
+          >
+            {t("coreValuesTitle")}{" "}
+            <span className="text-[#3A9B9B]">{t("coreValuesHighlight")}</span>
+          </motion.h2>
+        </div>
 
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -336,81 +335,72 @@ const AboutUs = () => {
               </div>
             </div>
           </motion.div>
-        </div>
       </section>
       {/* Our Mission & Our Vision Section */}
-      <section className="p-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Section heading */}
-          <div className="text-center mb-14">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl lg:text-6xl dark:text-white font-bold mb-4"
-            >
-              <span className="text-[#2D3561] ">
-                {" "}
-                {tMission("missionTitle")}
-              </span>{" "}
-              &amp;{" "}
-              <span className="text-[#3A9B9B] ">
-                {" "}
-                {tMission("visionTitle")}
-              </span>
-            </motion.h2>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]"
-            />
-          </div>
+      <section className="p-12 max-w-7xl mx-auto">
+        {/* Section heading */}
+        <div className="text-center mb-14">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl lg:text-6xl dark:text-white font-bold mb-4"
+          >
+            <span className="text-[#2D3561] "> {tMission("missionTitle")}</span>{" "}
+            &amp;{" "}
+            <span className="text-[#3A9B9B] "> {tMission("visionTitle")}</span>
+          </motion.h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]"
+          />
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-              className="relative p-12 rounded-[2.5rem] overflow-hidden 
+        <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            whileHover={{ y: -5 }}
+            className="relative p-12 rounded-[2.5rem] overflow-hidden 
                                 border-2 border-[#3A9B9B]/20 
                                 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 
                                 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 
                                 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
-            >
-              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-              <h2 className="text-4xl font-black text-[#2D3561] mb-8 tracking-tight">
-                {tMission("missionTitle")}
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
-                {tMission("missionText")}
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-              className="relative p-12 rounded-[2.5rem] overflow-hidden 
+          >
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+            <h2 className="text-4xl font-black text-[#2D3561] mb-8 tracking-tight">
+              {tMission("missionTitle")}
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
+              {tMission("missionText")}
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            whileHover={{ y: -5 }}
+            className="relative p-12 rounded-[2.5rem] overflow-hidden 
                                 border-2 border-[#3A9B9B]/20 
                                 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 
                                 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 
                                 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
-            >
-              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-              <h2 className="text-4xl font-black text-[#3A9B9B] mb-8 tracking-tight">
-                {tMission("visionTitle")}
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
-                {tMission("visionText")}
-              </p>
-            </motion.div>
-          </div>
+          >
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+            <h2 className="text-4xl font-black text-[#3A9B9B] mb-8 tracking-tight">
+              {tMission("visionTitle")}
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
+              {tMission("visionText")}
+            </p>
+          </motion.div>
         </div>
       </section>
     </main>
