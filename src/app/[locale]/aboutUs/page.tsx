@@ -248,11 +248,13 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.35, duration: 0.6 }}
-                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
+                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed mb-12"
                 >
-                  At BanavatNest, we believe innovation is not just about ideas-
-                  it is about nurturing them through Purpose, Process, and
-                  Prototyping until they create meaningful Progress.
+                  {t.rich("coreValuesIntro", {
+                    brand: (chunks) => (
+                      <span className="text-[#3A9B9B]">{chunks}</span>
+                    ),
+                  })}
                 </motion.p>
 
                 {/* Divider */}
