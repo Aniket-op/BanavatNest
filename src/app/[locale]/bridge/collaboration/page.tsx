@@ -382,7 +382,6 @@ const StartupIllustration = ({ color }: { color: string }) => (
 );
 
 import collaboration_logo from "@/../public/images/collabaration_logo.png";
-import React from "react";
 
 // Illustration map keyed to collaboration track
 const ILLUSTRATIONS: Record<string, React.FC<{ color: string }>> = {
@@ -683,45 +682,35 @@ export default function CollaborationPage() {
           >
             <div className="grid md:grid-cols-2 gap-0 items-start">
               {/* LEFT: Heading + Content */}
-              <div className="px-8 md:px-14 !pt-[30px] py-24 md:py-48">
-                {/* Headline */}
-                <motion.h2
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  className="text-2xl text-justify md:text-4xl lg:text-5xl font-black tracking-tight
+               <div className="px-8 md:px-14 !pt-[30px] py-24 md:py-48">
+                 {/* Headline */}
+                 <motion.h2
+                   initial={{ opacity: 0, y: 12 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: 0.2, duration: 0.6 }}
+                   className="text-2xl text-justify md:text-4xl lg:text-5xl font-black tracking-tight
                                        bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]
                                        dark:from-white dark:via-[#3A9B9B] dark:to-white
                                        bg-clip-text text-transparent mb-4"
-                >
-                  {tCollab("journeyEyebrow")}
-                </motion.h2>
+                 >
+                   {tName("sloganText")}
+                 </motion.h2>
 
-                {/* Divider */}
-                <div className="w-16 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
+                 {/* Divider */}
+                 <div className="w-16 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
 
-                {/* Philosophy text */}
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.35, duration: 0.6 }}
-                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
-                >
-                  {tCollab("journeyHeadline")}
-                </motion.p>
-                <br />
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.35, duration: 0.6 }}
-                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
-                >
-                  {tCollab("approachP2")}
-                </motion.p>
-              </div>
+                 {/* Philosophy text */}
+                 <motion.p
+                   initial={{ opacity: 0, y: 10 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: 0.35, duration: 0.6 }}
+                   className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
+                 >
+                   {tName("closingStatement")}
+                 </motion.p>
+               </div>
 
               {/* RIGHT: Image */}
               <motion.div
