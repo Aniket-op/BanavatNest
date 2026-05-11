@@ -168,7 +168,7 @@ export default function NewsEvents() {
   return (
     <section
       id="news-events"
-      className="py-16 bg-zinc-50 dark:bg-[#09090b] overflow-hidden grid-bg"
+      className="py-16 bg-white dark:bg-zinc-900 overflow-hidden grid-bg"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >

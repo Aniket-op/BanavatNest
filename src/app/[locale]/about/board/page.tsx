@@ -39,19 +39,10 @@ export default function BoardPage() {
 
     return (
         <PageWrapper>
-            <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
+            <div className="min-h-screen bg-white dark:bg-zinc-900 transition-colors">
 
                 {/* ── Section 1: STEP-TIET Incubation Mentor ── */}
-                <section className="relative overflow-hidden bg-zinc-50 dark:bg-[#09090b] py-16 pt-32 transition-colors duration-300 flex items-center">
-                    {/* Decorative grid */}
-                    <div className="absolute inset-0 opacity-40" style={{
-                        backgroundImage: 'radial-gradient(circle, rgba(58,155,155,0.12) 1.5px, transparent 1.5px)',
-                        backgroundSize: '40px 40px',
-                    }} />
-                    {/* Background blobs */}
-                    <div className="absolute top-0 right-0 h-[28rem] w-[28rem] rounded-full bg-[#3A9B9B]/15 blur-[130px]" />
-                    <div className="absolute bottom-0 left-0 h-[24rem] w-[24rem] rounded-full bg-[#2D3561]/15 blur-[130px]" />
-
+                <section className="py-16 pt-32 transition-colors duration-300 flex items-center grid-bg">
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +150,7 @@ export default function BoardPage() {
                 </section>
 
                 {/* ── Section 2: Board of Directors ── */}
-                <section className="py-16 px-4 sm:px-6 lg:px-8">
+                <section className="py-16 px-4 sm:px-6 lg:px-8 grid-bg">
                     <div className="max-w-7xl mx-auto">
 
                         {/* Section heading */}

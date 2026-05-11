@@ -13,7 +13,7 @@ export default function HeroSection() {
     <>
       <section
         ref={ref}
-        className="relative w-full bg-zinc-50 dark:bg-zinc-900/50"
+        className="relative w-full bg-white dark:bg-zinc-900 grid-bg"
       >
         <Image
           src="/images/banavatnest_banner_1500x625.png"

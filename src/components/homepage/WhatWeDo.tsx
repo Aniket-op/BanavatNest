@@ -209,7 +209,7 @@ export default function WhatWeDo() {
   };
 
   return (
-    <section className="py-12 bg-zinc-50 dark:bg-[#09090b] overflow-hidden">
+    <section className="py-12 bg-white dark:bg-zinc-900 overflow-hidden grid-bg">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative grid grid-cols-1 lg:grid-cols-[0.7fr_0.3fr] gap-12 items-stretch">
           {/* Left Division: Our Domains */}
@@ -321,7 +321,7 @@ export default function WhatWeDo() {
                 className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10"
                 style={{
                   background:
-                    "linear-gradient(to bottom, var(--mask-bg, #f4f4f5) 0%, transparent 100%)",
+                    "linear-gradient(to bottom, var(--mask-bg, #fff) 0%, transparent 100%)",
                 }}
               />
               {/* Bottom shadow mask — suggests card below */}
@@ -329,19 +329,19 @@ export default function WhatWeDo() {
                 className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
                 style={{
                   background:
-                    "linear-gradient(to top, var(--mask-bg, #f4f4f5) 0%, transparent 100%)",
+                    "linear-gradient(to top, var(--mask-bg, #fff) 0%, transparent 100%)",
                 }}
               />
               <style>{`
-                :root { --mask-bg: #f4f4f5; }
-                .dark { --mask-bg: #09090b; }
+                :root { --mask-bg: #fff; }
+                .dark { --mask-bg: #18181b; }
               `}</style>
 
               {/* Vertical Navigation Controls */}
               <div className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">
                 <button
                   onClick={handlePrev}
-                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#3A9B9B]"
+                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-900 shadow-md border border-zinc-200 dark:border-zinc-800 transition-all hover:scale-110 hover:border-[#3A9B9B]"
                   aria-label="Previous Text"
                 >
                   <ChevronUp className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
@@ -355,7 +355,7 @@ export default function WhatWeDo() {
                       className={`w-1.5 rounded-full mx-auto transition-all duration-300 ${
                         idx === activeUspIndex
                           ? "h-6 bg-[#3A9B9B]"
-                          : "h-1.5 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400"
+                          : "h-1.5 bg-zinc-300 dark:bg-zinc-800 hover:bg-zinc-400"
                       }`}
                       aria-label={`Go to USP ${idx + 1}`}
                     />
@@ -364,7 +364,7 @@ export default function WhatWeDo() {
 
                 <button
                   onClick={handleNext}
-                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-800 shadow-md border border-zinc-200 dark:border-zinc-700 transition-all hover:scale-110 hover:border-[#3A9B9B]"
+                  className="flex w-8 h-8 rounded-full items-center justify-center bg-white dark:bg-zinc-900 shadow-md border border-zinc-200 dark:border-zinc-800 transition-all hover:scale-110 hover:border-[#3A9B9B]"
                   aria-label="Next Text"
                 >
                   <ChevronDown className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />

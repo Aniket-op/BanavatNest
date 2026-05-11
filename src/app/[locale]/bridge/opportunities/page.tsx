@@ -15,46 +15,13 @@ import Image from 'next/image';
 // ── 3D Card Wrapper ──
 
 const Card3D = ({ children, className = '', style = {} }: { children: React.ReactNode, className?: string, style?: React.CSSProperties }) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), { stiffness: 400, damping: 30 });
-    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), { stiffness: 400, damping: 30 });
-    const glareX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
-    const glareY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
-    const glareOpacity = useSpring(0, { stiffness: 300, damping: 30 });
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!ref.current) return;
-        const rect = ref.current.getBoundingClientRect();
-        mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-        mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-        glareOpacity.set(0.18);
-    };
-    const handleMouseLeave = () => {
-        mouseX.set(0);
-        mouseY.set(0);
-        glareOpacity.set(0);
-    };
-
     return (
-        <motion.div
-            ref={ref}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{ rotateX, rotateY, transformStyle: 'preserve-3d', ...style }}
+        <div
+            style={style}
             className={`relative ${className}`}
         >
             {children}
-            {/* Glare */}
-            <motion.div
-                className="absolute inset-0 pointer-events-none rounded-[2.5rem] overflow-hidden z-30"
-                style={{
-                    opacity: glareOpacity,
-                    background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 65%)`,
-                }}
-            />
-        </motion.div>
+        </div>
     );
 };
 
@@ -263,7 +230,8 @@ const GrowthCard = ({
     color,
     cta,
     href,
-    delay
+    delay,
+    bgClass
 }: {
     title: string,
     desc: string,
@@ -271,7 +239,8 @@ const GrowthCard = ({
     color: string,
     cta: string,
     href: string,
-    delay: number
+    delay: number,
+    bgClass: string
 }) => (
     <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -282,42 +251,37 @@ const GrowthCard = ({
         style={{ perspective: '1200px' }}
     >
         <Card3D className="h-full">
-            <motion.div
-                whileHover={{
-                    y: -12,
-                    scale: 1.01,
-                    boxShadow: `0 35px 70px -15px ${color}40, 0 20px 40px -10px rgba(0,0,0,0.1)`
-                }}
+            <div
                 className={`
-                    group relative h-full p-10 rounded-[2.5rem] bg-white dark:bg-zinc-900/40 
-                    border-2 border-zinc-100 dark:border-zinc-800/80
-                    transition-all duration-500 overflow-hidden
+                    group relative h-full p-10 rounded-[2.5rem] ${bgClass} backdrop-blur-sm 
+                    border border-t-8 overflow-hidden
                     flex flex-col items-center text-center cursor-pointer
                 `}
-                style={{ boxShadow: "0 10px 30px -10px rgba(0,0,0,0.05)" }}
+                style={{ 
+                    borderTopColor: color,
+                    borderColor: color,
+                    boxShadow: `0 20px 40px -12px ${color}30`
+                }}
             >
-                {/* Hover Gradient Backdrop */}
+                {/* Dark mode glow */}
                 <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                    style={{ background: `radial-gradient(circle at top, ${color}15, transparent 70%)` }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
+                    style={{ background: `radial-gradient(circle at top, ${color}22, transparent 70%)` }}
                 />
-                {/* Bottom Glow */}
-                <div
-                    className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-48 h-48 blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none"
-                    style={{ backgroundColor: color }}
-                />
+                
                 <Illustration />
+                
                 <div className="relative z-10 flex-grow">
-                    <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight transition-colors group-hover:text-zinc-800 dark:group-hover:text-white">
+                    <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight transition-colors">
                         {title}
                     </h3>
-                    <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-10 transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
+                    <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed mb-10 transition-colors">
                         {desc}
                     </p>
                 </div>
+
                 <Link href={href} className="relative z-10 w-full">
                     <motion.div
-                        whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
                         className="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-5 w-full rounded-full bg-[#2D3561] hover:bg-[#1f2545] dark:bg-[#3A9B9B] dark:hover:bg-[#2a7676] text-white dark:text-white font-black shadow-xl overflow-hidden transition-all duration-300"
                         style={{ boxShadow: `0 10px 30px -10px ${color}80` }}
@@ -330,7 +294,13 @@ const GrowthCard = ({
                         />
                     </motion.div>
                 </Link>
-            </motion.div>
+
+                {/* Bottom accent bar */}
+                <div
+                    className="absolute bottom-0 left-12 right-12 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center"
+                    style={{ backgroundColor: color }}
+                />
+            </div>
         </Card3D>
     </motion.div>
 );
@@ -455,8 +425,7 @@ const WhatStudentsGetSection = () => {
             viewport={{ once: true, margin: "-50px" }}
             className="relative py-12 overflow-hidden"
         >
-            {/* Background */}
-            <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
+            {/* Background Blur Only */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#3A9B9B]/5 blur-[150px] rounded-full pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -500,19 +469,12 @@ const WhatStudentsGetSection = () => {
                                     <div style={{ perspective: '1200px' }} className="absolute inset-0 w-full">
                                     <Card3D className="h-full">
                                     <div
-                                        className="group relative h-full flex flex-col justify-center p-8 md:p-12 rounded-[2rem] bg-white dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800/80 cursor-pointer transition-all duration-500"
+                                        className="relative h-full flex flex-col justify-center p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 cursor-pointer transition-all duration-500"
                                         style={{ boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)' }}
                                     >
-                                        {/* Hover gradient */}
-                                        <div
-                                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[2rem]"
-                                            style={{ background: `radial-gradient(circle at top left, ${benefit.glow}, transparent 70%)` }}
-                                        />
                                         {/* Content Wrapper */}
                                         <div className="relative z-10 flex flex-col items-start">
-                                            <motion.div
-                                                whileHover={{ scale: 1.1, rotate: 5 }}
-                                                transition={{ duration: 0.3 }}
+                                            <div
                                                 className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-3xl"
                                                 style={{
                                                     backgroundColor: `${benefit.color}15`,
@@ -521,19 +483,14 @@ const WhatStudentsGetSection = () => {
                                                 }}
                                             >
                                                 <span>{benefit.emoji}</span>
-                                            </motion.div>
-                                            <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight group-hover:text-zinc-800 dark:group-hover:text-white transition-colors">
+                                            </div>
+                                            <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight transition-colors">
                                                 {benefit.title}
                                             </h3>
-                                            <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+                                            <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed transition-colors">
                                                 {benefit.desc}
                                             </p>
                                         </div>
-                                        {/* Bottom accent line */}
-                                        <div
-                                            className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-b-[2rem]"
-                                            style={{ backgroundColor: benefit.color }}
-                                        />
                                     </div>
                                     </Card3D>
                                     </div>
@@ -617,7 +574,6 @@ const TypesOfOpportunitiesSection = () => (
         viewport={{ once: true, margin: "-50px" }}
         className="relative py-12 overflow-hidden"
     >
-        <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950/50" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[#3A9B9B]/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -628,15 +584,12 @@ const TypesOfOpportunitiesSection = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="text-center mb-20"
+                className="text-center mb-20 max-w-3xl mx-auto"
             >
 
-                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">
                     Types of <span className="text-blue-400">Opportunities</span>
                 </h2>
-                <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
-                    Choose the path that matches your goals and ambitions.
-                </p>
             </motion.div>
 
             {/* Two column layout */}
@@ -651,25 +604,19 @@ const TypesOfOpportunitiesSection = () => (
                         style={{ perspective: '1200px' }}
                     >
                     <Card3D>
-                        <motion.div
-                        whileHover={{
-                            y: -8,
-                            boxShadow: `0 40px 80px -20px ${type.glow}`
-                        }}
-                        className="group relative p-10 rounded-[2rem] bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500"
+                        <div
+                        className="group relative p-10 rounded-[2rem] bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500"
                         style={{ boxShadow: '0 8px 30px -10px rgba(0,0,0,0.07)' }}
                     >
-                        {/* Glow bg */}
+                        {/* Static Glow bg */}
                         <div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                            className="absolute inset-0 opacity-10 pointer-events-none"
                             style={{ background: `radial-gradient(ellipse at top left, ${type.glow}, transparent 65%)` }}
                         />
 
                         {/* Header */}
                         <div className="relative z-10 flex items-center gap-4 mb-10">
-                            <motion.div
-                                whileHover={{ scale: 1.1, rotate: -5 }}
-                                transition={{ duration: 0.3 }}
+                            <div
                                 className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
                                 style={{
                                     backgroundColor: `${type.color}15`,
@@ -678,7 +625,7 @@ const TypesOfOpportunitiesSection = () => (
                                 }}
                             >
                                 {type.icon}
-                            </motion.div>
+                            </div>
                             <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">{type.title}</h3>
                         </div>
 
@@ -702,19 +649,13 @@ const TypesOfOpportunitiesSection = () => (
                                     >
                                         <item.icon className="w-4 h-4" style={{ color: type.color }} />
                                     </div>
-                                    <span className="text-zinc-600 dark:text-zinc-300 font-medium leading-snug group-hover:text-zinc-800 dark:group-hover:text-zinc-200 transition-colors">
+                                    <span className="text-zinc-600 dark:text-zinc-300 font-medium leading-snug transition-colors">
                                         {item.text}
                                     </span>
                                 </motion.div>
                             ))}
                         </div>
-
-                        {/* Bottom accent */}
-                        <div
-                            className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 rounded-b-[2rem]"
-                            style={{ backgroundColor: type.color }}
-                        />
-                        </motion.div>
+                        </div>
                     </Card3D>
                     </motion.div>
                 ))}
@@ -748,7 +689,6 @@ const WhoCanApplySection = () => (
         viewport={{ once: true, margin: "-50px" }}
         className="relative py-12 overflow-hidden"
     >
-        <div className="absolute inset-0 bg-white dark:bg-[#09090b]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#3A9B9B]/4 blur-[150px] rounded-full pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -758,15 +698,12 @@ const WhoCanApplySection = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="text-center mb-20"
+                className="text-center mb-20 max-w-3xl mx-auto"
             >
 
-                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
+                <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">
                     Who Can <span className="text-[#3A9B9B]">Apply?</span>
                 </h2>
-                <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
-                    Our process is simple, transparent, and designed to find passionate learners — not just high scorers.
-                </p>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -776,6 +713,7 @@ const WhoCanApplySection = () => (
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
+                    className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800/80"
                 >
                     <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">Eligibility Criteria</h3>
                     <div className="flex flex-col gap-5">
@@ -786,7 +724,6 @@ const WhoCanApplySection = () => (
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                whileHover={{ x: 6, boxShadow: `0 10px 30px -10px ${item.color}40` }}
                                 className="flex items-center gap-5 p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-100 dark:border-zinc-800 cursor-default transition-all duration-300"
                             >
                                 <div
@@ -807,6 +744,7 @@ const WhoCanApplySection = () => (
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
+                    className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800/80"
                 >
                     <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
                         Selection Process — <span className="text-[#3A9B9B]">Simple & Transparent</span>
@@ -822,17 +760,14 @@ const WhoCanApplySection = () => (
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 + i * 0.12 }}
-                                whileHover={{ x: 6 }}
-                                className="relative flex items-start gap-6 pb-8 last:pb-0 cursor-default transition-transform duration-300"
+                                className="relative flex items-start gap-6 pb-8 last:pb-0 cursor-default"
                             >
                                 {/* Step badge */}
-                                <motion.div
-                                    whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(58,155,155,0.4)' }}
-                                    transition={{ duration: 0.2 }}
+                                <div
                                     className="relative z-10 w-12 h-12 rounded-full bg-[#3A9B9B] flex items-center justify-center text-xs font-black text-white flex-shrink-0 shadow-[0_0_20px_rgba(58,155,155,0.25)]"
                                 >
                                     {step.step}
-                                </motion.div>
+                                </div>
                                 <div className="pt-1">
                                     <div className="text-lg font-black text-zinc-900 dark:text-zinc-100 mb-1 tracking-tight">{step.label}</div>
                                     <div className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{step.desc}</div>
@@ -853,10 +788,10 @@ export default function OpportunitiesPage() {
 
     return (
         <PageWrapper>
-            <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
+            <div className="min-h-screen bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-950 dark:to-[#2D3561]/10 backdrop-blur-sm transition-colors grid-bg">
 
                 {/* ── Header Image ── */}
-                <header className="relative w-full pt-20 bg-zinc-50 dark:bg-zinc-900/50">
+                <header className="relative w-full pt-20">
                     <Image
                         src="/images/banavatNestTimes.jpeg"
                         alt="BanavatNest Times — Opportunities"
@@ -890,21 +825,19 @@ export default function OpportunitiesPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
-                        className="text-center mb-20"
+                        className="text-center mb-20 max-w-3xl mx-auto"
                     >
                         <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
                             Opportunities by <span className="text-purple-400">Level</span>
                         </h2>
-                        <p className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed">
-                            Tailored pathways for every stage of your academic journey.
-                        </p>
                     </motion.div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                         <GrowthCard
                             title={t('ugTitle')}
                             desc={t('ugDesc')}
                             Illustration={UGIllustration}
-                            color="#3B82F6"
+                            color="#2D3561"
+                            bgClass="bg-[#EAECF5] dark:bg-[#1a1e35]"
                             cta="Apply Now"
                             href="/contact"
                             delay={0.1}
@@ -913,7 +846,8 @@ export default function OpportunitiesPage() {
                             title={t('pgTitle')}
                             desc={t('pgDesc')}
                             Illustration={PGIllustration}
-                            color="#8B5CF6"
+                            color="#3A9B9B"
+                            bgClass="bg-[#E8F7F7] dark:bg-[#0d2a2a]"
                             cta="Apply Now"
                             href="/contact"
                             delay={0.2}
@@ -922,7 +856,8 @@ export default function OpportunitiesPage() {
                             title={t('phdTitle')}
                             desc={t('phdDesc')}
                             Illustration={PhDIllustration}
-                            color="#3A9B9B"
+                            color="#5BBD4A"
+                            bgClass="bg-[#EAF8EA] dark:bg-[#142614]"
                             cta="Apply Now"
                             href="/contact"
                             delay={0.3}
