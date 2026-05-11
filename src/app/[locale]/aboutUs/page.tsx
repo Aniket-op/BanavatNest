@@ -55,7 +55,7 @@ const AboutUs = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
+            className="text-3xl md:text-5xl dark:text-white lg:text-6xl font-bold mb-4"
           >
             {t("whyTheName")}{" "}
             <span className="text-[#3A9B9B]">{t("whyTheNameHighlight")}</span>
@@ -63,9 +63,6 @@ const AboutUs = () => {
         </div>
 
         <div className="mt-12">
-          <h3 className="text-xl font-bold mb-12 text-center text-[#3A9B9B] uppercase tracking-[0.2em]">
-            {/* {t('meaningHeading')} */}
-          </h3>
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -80,7 +77,7 @@ const AboutUs = () => {
                                 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
             >
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-              <h4 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
+              <h4 className="text-4xl font-black text-[#2D3561]  mb-8 tracking-tight  ">
                 {tName("banavatTitle")}
               </h4>
               <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
@@ -100,7 +97,7 @@ const AboutUs = () => {
                                 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
             >
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-              <h4 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
+              <h4 className="text-4xl font-black text-[#3A9B9B] mb-8 tracking-tight">
                 {tName("nestTitle")}
               </h4>
               <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
@@ -108,7 +105,7 @@ const AboutUs = () => {
               </p>
             </motion.div>
           </div>
-          <p className="text-zinc-600 dark:text-zinc-400 w-full max-w-7xl mx-auto text-lg pt-10">
+          <p className="text-zinc-600 dark:text-zinc-400 w-full max-w-7xl mx-auto text-2xl pt-10">
             {tName("quote")}
           </p>
         </div>
@@ -116,6 +113,19 @@ const AboutUs = () => {
 
       {/* Symbolism of BanavatNest Section */}
       <section className="p-12 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl dark:text-white lg:text-6xl font-bold mb-4"
+          >
+            {t.rich("symbolismLabel", {
+              brand: (chunks) => <span className="text-[#3A9B9B]">{chunks}</span>,
+            })}
+          </motion.h2>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,27 +141,16 @@ const AboutUs = () => {
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
 
           {/* Two-column layout */}
-          <div className="grid md:grid-cols-2 gap-0 items-center">
+          <div className="grid md:grid-cols-2 gap-0 items-start pt-5">
             {/* LEFT: Heading + Content */}
-            <div className="px-8 md:px-14 py-20 md:py-28">
-              {/* Label */}
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                className="text-lg font-bold uppercase tracking-[0.28em] text-[#2D3561] dark:text-[#3A9B9B] mb-4"
-              >
-                {t("symbolismLabel")}
-              </motion.p>
-
+            <div className="px-8 md:px-14 !pt-[30px] py-24 md:py-48">
               {/* Headline */}
               <motion.h2
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight
+                className="text-2xl text-justify md:text-4xl lg:text-5xl font-black tracking-tight
                                     bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]
                                     dark:from-white dark:via-[#3A9B9B] dark:to-white
                                     bg-clip-text text-transparent mb-4"
@@ -168,7 +167,7 @@ const AboutUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.35, duration: 0.6 }}
-                className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed"
+                className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
               >
                 {tName("closingStatement")}
               </motion.p>
@@ -177,10 +176,10 @@ const AboutUs = () => {
             {/* RIGHT: Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 20 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              whileInView={{ opacity: 1, scale: 1.1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="relative w-full h-full min-h-[380px] md:min-h-[500px]"
+              className="relative aspect-square"
             >
               <Image
                 src="/images/Idea-Deploy.png"
@@ -198,103 +197,143 @@ const AboutUs = () => {
 
       <section className="p-12 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6"
+              className="text-3xl md:text-5xl lg:text-6xl dark:text-white font-bold mb-6"
             >
               {t("coreValuesTitle")}{" "}
               <span className="text-[#3A9B9B]">{t("coreValuesHighlight")}</span>
             </motion.h2>
-            <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto text-lg">
-              {t("coreValuesSubheading")}
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* LEFT: Image (frameless) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative aspect-square"
-            >
-              <Image
-                src="/images/Core Values.png"
-                alt="Idea to Deployment - Core Values"
-                fill
-                className="object-contain transition-transform duration-700 hover:scale-105"
-              />
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative rounded-[2.5rem] overflow-hidden
+                        border-2 border-[#3A9B9B]/20
+                        bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5
+                        dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
+                        backdrop-blur-sm shadow-lg"
+          >
+            {/* Decorative accent line */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
 
-            {/* RIGHT: Values — 2×2 card grid */}
-            <div className="grid grid-cols-2 gap-5">
-              {[
-                { num: "01", title: t("purposeTitle"), desc: t("purposeDesc") },
-                { num: "02", title: t("processTitle"), desc: t("processDesc") },
-                {
-                  num: "03",
-                  title: t("prototypeTitle"),
-                  desc: t("prototypeDesc"),
-                },
-                {
-                  num: "04",
-                  title: t("progressTitle"),
-                  desc: t("progressDesc"),
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
+            <div className="grid md:grid-cols-2 gap-0 items-start">
+              {/* LEFT: Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, x: -20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="relative aspect-square md:aspect-auto md:h-full min-h-[400px] md:min-h-[600px]"
+              >
+                <Image
+                  src="/images/Core Values.png"
+                  alt="Idea to Deployment - Core Values"
+                  fill
+                  className="object-contain transition-transform duration-700 hover:scale-105 p-12"
+                />
+              </motion.div>
+
+              {/* RIGHT: Text + Grid */}
+              <div className="px-8 md:px-14 py-16 md:py-24">
+                {/* Philosophy text */}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.12, duration: 0.5 }}
-                  whileHover={{
-                    y: -4,
-                    boxShadow: "0 20px 40px -12px rgba(58,155,155,0.2)",
-                  }}
-                  className="relative flex flex-col justify-between p-6 rounded-2xl overflow-hidden
-                                        border-2 border-[#3A9B9B]/20 
-                                        bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 
-                                        dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 
-                                        backdrop-blur-sm shadow-sm
-                                        transition-all duration-300 cursor-default"
+                  transition={{ delay: 0.35, duration: 0.6 }}
+                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
                 >
-                  {/* Accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  At BanavatNest, we believe innovation is not just about ideas-
+                  it is about nurturing them through Purpose, Process, and
+                  Prototyping until they create meaningful Progress.
+                </motion.p>
 
-                  {/* Number badge */}
-                  <span className="text-xs font-bold tracking-widest text-zinc-400 dark:text-zinc-500 mb-3">
-                    {item.num}
-                  </span>
+                {/* Divider */}
+                {/* <div className="w-16 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" /> */}
+                <br />
+                {/* Values — 2×2 card grid */}
+                <div className="grid grid-cols-2 gap-5">
+                  {[
+                    {
+                      num: "01",
+                      title: t("purposeTitle"),
+                      desc: t("purposeDesc"),
+                    },
+                    {
+                      num: "02",
+                      title: t("processTitle"),
+                      desc: t("processDesc"),
+                    },
+                    {
+                      num: "03",
+                      title: t("prototypeTitle"),
+                      desc: t("prototypeDesc"),
+                    },
+                    {
+                      num: "04",
+                      title: t("progressTitle"),
+                      desc: t("progressDesc"),
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                      whileHover={{
+                        y: -4,
+                        boxShadow: "0 20px 40px -12px rgba(58,155,155,0.2)",
+                      }}
+                      className="relative flex flex-col justify-between p-5 rounded-2xl overflow-hidden
+                                            border-2 border-[#3A9B9B]/20 
+                                            bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 
+                                            dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 
+                                            backdrop-blur-sm shadow-sm
+                                            transition-all duration-300 cursor-default"
+                    >
+                      {/* Accent line */}
+                      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
 
-                  {/* Title */}
-                  <h3
-                    className="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-2
-                                        bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] bg-clip-text text-transparent
-                                        dark:from-white dark:to-[#3A9B9B]"
-                  >
-                    {item.title}
-                  </h3>
+                      {/* Number badge */}
+                      <span className="text-[10px] font-bold tracking-widest text-zinc-400 dark:text-zinc-500 mb-2">
+                        {item.num}
+                      </span>
 
-                  {/* Divider */}
-                  <div
-                    className="w-8 h-[2px] rounded-full mb-3"
-                    style={{
-                      background: index % 2 === 0 ? "#3A9B9B" : "#2D3561",
-                    }}
-                  />
+                      {/* Title */}
+                      <h3
+                        className="text-lg md:text-xl font-black tracking-tight leading-tight mb-2
+                                                bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] bg-clip-text text-transparent
+                                                dark:from-white dark:to-[#3A9B9B]"
+                      >
+                        {item.title}
+                      </h3>
 
-                  {/* Description */}
-                  <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base font-medium leading-relaxed">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
+                      {/* Divider */}
+                      <div
+                        className="w-8 h-[1.5px] rounded-full mb-2"
+                        style={{
+                          background: index % 2 === 0 ? "#3A9B9B" : "#2D3561",
+                        }}
+                      />
+
+                      {/* Description */}
+                      <p className="text-zinc-500 dark:text-zinc-400 text-[11px] md:text-[13px] font-medium leading-relaxed line-clamp-3">
+                        {item.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* Our Mission & Our Vision Section */}
@@ -307,9 +346,17 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className="text-3xl md:text-5xl lg:text-6xl dark:text-white font-bold mb-4"
             >
-              {tMission("missionTitle")} &amp; {tMission("visionTitle")}
+              <span className="text-[#2D3561] ">
+                {" "}
+                {tMission("missionTitle")}
+              </span>{" "}
+              &amp;{" "}
+              <span className="text-[#3A9B9B] ">
+                {" "}
+                {tMission("visionTitle")}
+              </span>
             </motion.h2>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -334,7 +381,7 @@ const AboutUs = () => {
                                 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
             >
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-              <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
+              <h2 className="text-4xl font-black text-[#2D3561] mb-8 tracking-tight">
                 {tMission("missionTitle")}
               </h2>
               <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
@@ -354,7 +401,7 @@ const AboutUs = () => {
                                 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
             >
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-              <h2 className="text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tight">
+              <h2 className="text-4xl font-black text-[#3A9B9B] mb-8 tracking-tight">
                 {tMission("visionTitle")}
               </h2>
               <p className="text-xl text-gray-600 dark:text-zinc-300 leading-relaxed font-medium text-justify">
