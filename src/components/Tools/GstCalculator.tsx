@@ -44,30 +44,32 @@ export default function GstCalculator() {
   // =========================
   // GST CALCULATOR STATE
   // =========================
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<string>("");
   const [gst, setGst] = useState<number>(18);
   const [type, setType] = useState<TaxType>("exclusive");
 
   // =========================
   // PROFIT CALCULATOR STATE
   // =========================
-  const [cost, setCost] = useState<number>(100);
+  const [cost, setCost] = useState<string>("");
   const [costGst, setCostGst] = useState<number>(18);
-  const [costType, setCostType] = useState<TaxType>("inclusive");
+  const [costType, setCostType] = useState<TaxType>("exclusive");
 
-  const [sell, setSell] = useState<number>(150);
+  const [sell, setSell] = useState<string>("");
   const [sellGst, setSellGst] = useState<number>(18);
   const [sellType, setSellType] = useState<TaxType>("exclusive");
 
   // User-editable desired profit
-  const [desiredProfit, setDesiredProfit] = useState<number>(65);
-  const [profitPercentage, setProfitPercentage] = useState<number>(0);
+  const [desiredProfit, setDesiredProfit] = useState<string>("");
+  const [profitPercentage, setProfitPercentage] = useState<string>("");
 
   // =========================
   // GST CALCULATION
   // =========================
   const gstResult: GstCalculationResult = useMemo(() => {
-    if (!amount) {
+    const numericAmount = Number(amount);
+
+    if (!amount || isNaN(numericAmount)) {
       return {
         actual: 0,
         gstAmount: 0,
@@ -76,22 +78,27 @@ export default function GstCalculator() {
     }
 
     if (type === "exclusive") {
-      const gstAmount = calculateTaxAmount(amount, gst);
+      const gstAmount = calculateTaxAmount(numericAmount, gst);
 
       return {
-        actual: amount,
+        actual: numericAmount,
         gstAmount,
-        total: amount + gstAmount,
+        total: numericAmount + gstAmount,
       };
     }
 
-    const actual = normalizeBaseAmount(amount, gst, "inclusive");
-    const gstAmount = amount - actual;
+    const actual = normalizeBaseAmount(
+      numericAmount,
+      gst,
+      "inclusive"
+    );
+
+    const gstAmount = numericAmount - actual;
 
     return {
       actual,
       gstAmount,
-      total: amount,
+      total: numericAmount,
     };
   }, [amount, gst, type]);
 
@@ -99,19 +106,46 @@ export default function GstCalculator() {
   // PROFIT CALCULATION
   // =========================
   const profitResult: ProfitCalculationResult = useMemo(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
+    const numericCost = Number(cost);
+    const numericSell = Number(sell);
+
+    if (
+      !cost ||
+      !sell ||
+      isNaN(numericCost) ||
+      isNaN(numericSell)
+    ) {
+      return {
+        actualCost: 0,
+        gstPaid: 0,
+        actualSell: 0,
+        gstCollected: 0,
+        profit: 0,
+        gstPayable: 0,
+      };
+    }
+
+    const actualCost = normalizeBaseAmount(
+      numericCost,
+      costGst,
+      costType
+    );
 
     const gstPaid =
       costType === "inclusive"
-        ? cost - actualCost
-        : calculateTaxAmount(cost, costGst);
+        ? numericCost - actualCost
+        : calculateTaxAmount(numericCost, costGst);
 
-    const actualSell = normalizeBaseAmount(sell, sellGst, sellType);
+    const actualSell = normalizeBaseAmount(
+      numericSell,
+      sellGst,
+      sellType
+    );
 
     const gstCollected =
       sellType === "inclusive"
-        ? sell - actualSell
-        : calculateTaxAmount(sell, sellGst);
+        ? numericSell - actualSell
+        : calculateTaxAmount(numericSell, sellGst);
 
     const profit = actualSell - actualCost;
     const gstPayable = gstCollected - gstPaid;
@@ -130,19 +164,47 @@ export default function GstCalculator() {
   // PREDICTED SELLING PRICE
   // =========================
   const predictedResult: PredictedPriceResult = useMemo(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
+    const numericCost = Number(cost);
 
-    const baseSellingPrice = actualCost + desiredProfit;
-    const predictedGst = calculateTaxAmount(baseSellingPrice, sellGst);
+    if (!cost || isNaN(numericCost)) {
+      return {
+        actualCost: 0,
+        gstPaid: 0,
+        baseSellingPrice: 0,
+        predictedGst: 0,
+        predictedSellingPrice: 0,
+        predictedSellingLabel: "Exclusive Selling Price",
+      };
+    }
+
+    const actualCost = normalizeBaseAmount(
+      numericCost,
+      costGst,
+      costType
+    );
+
+    const numericDesiredProfit = Number(desiredProfit);
+
+    const baseSellingPrice =
+      actualCost +
+      (
+        !desiredProfit || isNaN(numericDesiredProfit)
+          ? 0
+          : numericDesiredProfit
+      );
+
+    const predictedGst = calculateTaxAmount(
+      baseSellingPrice,
+      sellGst
+    );
 
     let predictedSellingPrice = baseSellingPrice;
     let predictedSellingLabel = "Exclusive Selling Price";
 
-    if (sellType === "exclusive") {
-      predictedSellingPrice = baseSellingPrice;
-      predictedSellingLabel = "Exclusive Selling Price";
-    } else {
-      predictedSellingPrice = baseSellingPrice + predictedGst;
+    if (sellType === "inclusive") {
+      predictedSellingPrice =
+        baseSellingPrice + predictedGst;
+
       predictedSellingLabel = "Inclusive Selling Price";
     }
 
@@ -150,8 +212,8 @@ export default function GstCalculator() {
       actualCost,
       gstPaid:
         costType === "inclusive"
-          ? cost - actualCost
-          : calculateTaxAmount(cost, costGst),
+          ? numericCost - actualCost
+          : calculateTaxAmount(numericCost, costGst),
       baseSellingPrice,
       predictedGst,
       predictedSellingPrice,
@@ -162,46 +224,116 @@ export default function GstCalculator() {
   // =========================
   // SYNC PROFIT % <-> AMOUNT
   // =========================
-  const actualCostForSync = normalizeBaseAmount(cost, costGst, costType);
+  const numericCostForSync = Number(cost);
+
+  const actualCostForSync =
+    !cost || isNaN(numericCostForSync)
+      ? 0
+      : normalizeBaseAmount(
+        numericCostForSync,
+        costGst,
+        costType
+      );
 
   // when desiredProfit changes → update %
-  const handleDesiredProfitChange = (value: number) => {
+  const handleDesiredProfitChange = (value: string) => {
     setDesiredProfit(value);
 
-    if (actualCostForSync > 0) {
-      setProfitPercentage((value / actualCostForSync) * 100);
-    } else {
-      setProfitPercentage(0);
+    const numericValue = Number(value);
+
+    if (
+      !value ||
+      isNaN(numericValue) ||
+      actualCostForSync <= 0
+    ) {
+      setProfitPercentage("");
+      return;
     }
+
+    setProfitPercentage(
+      ((numericValue / actualCostForSync) * 100).toString()
+    );
   };
 
-  // when % changes → update desiredProfit
-  const handleProfitPercentageChange = (value: number) => {
+  const handleProfitPercentageChange = (value: string) => {
     setProfitPercentage(value);
 
-    const profit = (actualCostForSync * value) / 100;
-    setDesiredProfit(profit);
+    const numericValue = Number(value);
+
+    if (
+      !value ||
+      isNaN(numericValue) ||
+      actualCostForSync <= 0
+    ) {
+      setDesiredProfit("");
+      return;
+    }
+
+    const profit =
+      (actualCostForSync * numericValue) / 100;
+
+    setDesiredProfit(profit.toString());
   };
   // =========================
   // AUTO SYNC WHEN COST CHANGES
   // =========================
   useEffect(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
+    const numericCost = Number(cost);
+    const numericProfitPercentage =
+      Number(profitPercentage);
+
+    if (
+      !cost ||
+      !profitPercentage ||
+      isNaN(numericCost) ||
+      isNaN(numericProfitPercentage)
+    ) {
+      setDesiredProfit("");
+      return;
+    }
+
+    const actualCost = normalizeBaseAmount(
+      numericCost,
+      costGst,
+      costType
+    );
 
     if (actualCost > 0) {
-      const profit = (actualCost * profitPercentage) / 100;
-      setDesiredProfit(profit);
+      const profit =
+        (actualCost * numericProfitPercentage) / 100;
+
+      setDesiredProfit(profit.toString());
     }
   }, [cost, costGst, costType]);
 
   useEffect(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
+    const numericCost = Number(cost);
+    const numericDesiredProfit =
+      Number(desiredProfit);
+
+    if (
+      !cost ||
+      !desiredProfit ||
+      isNaN(numericCost) ||
+      isNaN(numericDesiredProfit)
+    ) {
+      setProfitPercentage("");
+      return;
+    }
+
+    const actualCost = normalizeBaseAmount(
+      numericCost,
+      costGst,
+      costType
+    );
 
     if (actualCost > 0) {
-      const percentage = (desiredProfit / actualCost) * 100;
-      setProfitPercentage(percentage);
+      const percentage =
+        (numericDesiredProfit / actualCost) * 100;
+
+      setProfitPercentage(percentage.toString());
     }
-  }, [desiredProfit]);
+  }, [desiredProfit, cost, costGst, costType]);
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans pt-2 grid-bg">
       {/* ========================= HEADER ========================= */}
@@ -228,16 +360,12 @@ export default function GstCalculator() {
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">
-                    GST Calculator
-                  </p>
+
                   <h2 className="mt-1 text-2xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
                     Calculate GST instantly
                   </h2>
                 </div>
-                <div className="rounded-full bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-bold text-zinc-900 dark:text-zinc-100 shadow-sm border border-zinc-200 dark:border-zinc-700">
-                  Exclusive / Inclusive
-                </div>
+
               </div>
             </div>
 
@@ -253,7 +381,7 @@ export default function GstCalculator() {
                     className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     placeholder="Enter amount"
                     value={amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
+                    onChange={(e) => setAmount(e.target.value)}
                   />
                 </div>
 
@@ -327,16 +455,12 @@ export default function GstCalculator() {
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 backdrop-blur-sm px-8 py-6 sm:px-10">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">
-                    Profit Calculator
-                  </p>
+
                   <h2 className="mt-1 text-2xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
                     Profit, GST paid, and payable tax
                   </h2>
                 </div>
-                <div className="rounded-full bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-bold text-zinc-900 dark:text-zinc-100 shadow-sm border border-zinc-200 dark:border-zinc-700">
-                  Live profit summary
-                </div>
+
               </div>
             </div>
 
@@ -349,9 +473,10 @@ export default function GstCalculator() {
                   </label>
                   <input
                     type="number"
+                    placeholder="Enter Cost Price"
                     className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={cost}
-                    onChange={(e) => setCost(Number(e.target.value))}
+                    onChange={(e) => setCost(e.target.value)}
                   />
                 </div>
 
@@ -395,9 +520,10 @@ export default function GstCalculator() {
                   </label>
                   <input
                     type="number"
+                    placeholder="Enter Selling Price"
                     className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={sell}
-                    onChange={(e) => setSell(Number(e.target.value))}
+                    onChange={(e) => setSell(e.target.value)}
                   />
                 </div>
 
@@ -481,10 +607,11 @@ export default function GstCalculator() {
                   </label>
                   <input
                     type="number"
+                    placeholder='Enter Profit Percentage'
                     className="mt-2 w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={profitPercentage}
                     onChange={(e) =>
-                      handleProfitPercentageChange(Number(e.target.value))
+                      handleProfitPercentageChange(e.target.value)
                     }
                   />
                 </div>
@@ -497,10 +624,11 @@ export default function GstCalculator() {
                   </label>
                   <input
                     type="number"
+                    placeholder="Enter Desired Profit"
                     className="mt-2 w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={desiredProfit}
                     onChange={(e) =>
-                      handleDesiredProfitChange(Number(e.target.value))
+                      handleDesiredProfitChange(e.target.value)
                     }
                   />
                 </div>
@@ -709,7 +837,7 @@ export default function GstCalculator() {
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 {/* LEFT CONTENT */}
                 <div className="max-w-2xl">
-                  
+
                   <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">
                     Selling Price Prediction
                   </p>
@@ -860,7 +988,7 @@ export default function GstCalculator() {
             </div>
 
             {/* EXTRA TIPS */}
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {/* <div className="mt-6 grid gap-6 md:grid-cols-2">
               <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 shadow-sm hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                 <h3 className="text-base font-bold ">
@@ -884,7 +1012,7 @@ export default function GstCalculator() {
                   earnings after considering GST paid and GST collected.
                 </p>
               </div>
-            </div>
+            </div> */}
           </section>
 
           {/* ========================= INFO SECTION ========================= */}
@@ -900,16 +1028,11 @@ export default function GstCalculator() {
                 GST — Goods and Services Tax
               </h2>
 
-              <p className="mx-auto mt-4 max-w-3xl leading-7 text-zinc-600 dark:text-zinc-400">
-                GST is an indirect tax introduced in India on July 1, 2017. It
-                is applied to the supply of goods and services and replaced
-                multiple indirect taxes such as VAT, Service Tax, and Excise
-                Duty.
-              </p>
+
             </div>
 
             {/* INFO CARDS */}
-            <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3 py-4">
               {/* What is GST */}
               <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 hover:shadow-md transition-all duration-300">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
