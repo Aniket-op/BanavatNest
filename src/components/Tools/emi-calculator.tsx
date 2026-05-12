@@ -137,10 +137,9 @@ export default function EmiCalculator() {
             {/* Section Header */}
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">EMI Calculator</p>
+                
                 <h2 className="mt-1 text-xl sm:text-2xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Calculate your loan EMI</h2>
               </div>
-              <div className="w-fit rounded-full bg-white dark:bg-zinc-900 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-sm font-bold text-zinc-900 dark:text-zinc-100 shadow-sm border border-zinc-200 dark:border-zinc-700">Live calculation</div>
             </div>
             <div className="p-6 sm:p-8 md:p-10">
               <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
@@ -635,9 +634,9 @@ export default function EmiCalculator() {
         </main>
       </div>
       {/* --- PRINT ONLY LAYOUT --- */}
-      <div className="hidden print:block bg-white text-black min-h-screen max-w-5xl mx-auto print:p-8">
+      <div className="hidden print:block bg-white text-black min-h-screen max-w-5xl mx-auto print:px-8 print:pt-0 print:pb-8">
         {/* Company Header */}
-        <div className="flex items-center justify-between border-b-[3px] border-slate-900 pb-6 mb-8">
+        <div className="flex items-center justify-between border-b-[3px] border-slate-900 pt-2 pb-6 mb-8">
           <div className="flex flex-shrink-0 items-center justify-center">
             <img
               src="/logo.jpg"
@@ -828,7 +827,7 @@ export default function EmiCalculator() {
 
         @media print {
           @page {
-            margin: 15mm;
+            margin: 8mm 15mm;
             size: auto;
           }
           tr, td, th {
