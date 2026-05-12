@@ -742,11 +742,18 @@ export default function CollaborationPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="p-10 md:p-16 rounded-[2.5rem] bg-white/50 dark:bg-zinc-900/40 border border-gray-100 dark:border-zinc-800 backdrop-blur-md shadow-2xl relative overflow-hidden"
+            className="relative p-10 md:p-16 rounded-[2.5rem] overflow-hidden
+                        border-2 border-[#3A9B9B]/20
+                        bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5
+                        dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
+                        backdrop-blur-sm shadow-lg"
           >
+            {/* Decorative gradient line at top */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
+
             {/* Decorative background glow */}
-            <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#3A9B9B]/10 blur-[60px] rounded-full" />
-            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#3A9B9B]/5 blur-[60px] rounded-full" />
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#3A9B9B]/10 blur-[60px] rounded-full pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#3A9B9B]/5 blur-[60px] rounded-full pointer-events-none" />
 
             <div className="relative z-10">
               {/* Body paragraphs */}

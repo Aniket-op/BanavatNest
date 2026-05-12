@@ -164,13 +164,6 @@ export default function BoardPage() {
                             >
                                 {tBoard('boardTitle')} <span className="text-[#3A9B9B]">{tBoard('boardHighlight')}</span>
                             </motion.h2>
-                            <motion.div
-                                initial={{ scaleX: 0 }}
-                                whileInView={{ scaleX: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.3, duration: 0.5 }}
-                                className="mx-auto w-20 h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B]"
-                            />
                         </div>
 
                         {/* Director cards */}
