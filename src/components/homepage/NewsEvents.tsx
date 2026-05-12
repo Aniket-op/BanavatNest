@@ -168,7 +168,7 @@ export default function NewsEvents() {
   return (
     <section
       id="news-events"
-      className="py-16 bg-white dark:bg-zinc-900 overflow-hidden grid-bg"
+      className="pt-16 bg-white dark:bg-zinc-900 overflow-hidden grid-bg"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -239,7 +239,7 @@ export default function NewsEvents() {
                       {/* Tag + Date */}
                       <div className="flex items-center gap-3 mb-5">
                         <span
-                          className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full"
+                          className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.2em] px-3 rounded-full"
                           style={{
                             backgroundColor: `${item.tagColor}18`,
                             color: item.tagColor,

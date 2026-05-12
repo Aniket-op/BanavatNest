@@ -257,7 +257,7 @@ const GrowthCard = ({
                     border border-t-8 overflow-hidden
                     flex flex-col items-center text-center cursor-pointer
                 `}
-                style={{ 
+                style={{
                     borderTopColor: color,
                     borderColor: color,
                     boxShadow: `0 20px 40px -12px ${color}30`
@@ -268,9 +268,9 @@ const GrowthCard = ({
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block"
                     style={{ background: `radial-gradient(circle at top, ${color}22, transparent 70%)` }}
                 />
-                
+
                 <Illustration />
-                
+
                 <div className="relative z-10 flex-grow">
                     <h3 className="text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight leading-tight transition-colors">
                         {title}
@@ -467,32 +467,32 @@ const WhatStudentsGetSection = () => {
                                     className="absolute inset-0 w-full"
                                 >
                                     <div style={{ perspective: '1200px' }} className="absolute inset-0 w-full">
-                                    <Card3D className="h-full">
-                                    <div
-                                        className="relative h-full flex flex-col justify-center p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 cursor-pointer transition-all duration-500"
-                                        style={{ boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)' }}
-                                    >
-                                        {/* Content Wrapper */}
-                                        <div className="relative z-10 flex flex-col items-start">
+                                        <Card3D className="h-full">
                                             <div
-                                                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-3xl"
-                                                style={{
-                                                    backgroundColor: `${benefit.color}15`,
-                                                    border: `1.5px solid ${benefit.color}30`,
-                                                    boxShadow: `0 8px 20px -5px ${benefit.glow}`
-                                                }}
+                                                className="relative h-full flex flex-col justify-center p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 cursor-pointer transition-all duration-500"
+                                                style={{ boxShadow: '0 20px 40px -10px rgba(0,0,0,0.05)' }}
                                             >
-                                                <span>{benefit.emoji}</span>
+                                                {/* Content Wrapper */}
+                                                <div className="relative z-10 flex flex-col items-start">
+                                                    <div
+                                                        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-3xl"
+                                                        style={{
+                                                            backgroundColor: `${benefit.color}15`,
+                                                            border: `1.5px solid ${benefit.color}30`,
+                                                            boxShadow: `0 8px 20px -5px ${benefit.glow}`
+                                                        }}
+                                                    >
+                                                        <span>{benefit.emoji}</span>
+                                                    </div>
+                                                    <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight transition-colors">
+                                                        {benefit.title}
+                                                    </h3>
+                                                    <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed transition-colors">
+                                                        {benefit.desc}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <h3 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight transition-colors">
-                                                {benefit.title}
-                                            </h3>
-                                            <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed transition-colors">
-                                                {benefit.desc}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    </Card3D>
+                                        </Card3D>
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
@@ -588,7 +588,7 @@ const TypesOfOpportunitiesSection = () => (
             >
 
                 <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">
-                    Types of <span className="text-blue-400">Opportunities</span>
+                    Types of <span className="text-[#3A9B9B]">Opportunities</span>
                 </h2>
             </motion.div>
 
@@ -603,60 +603,60 @@ const TypesOfOpportunitiesSection = () => (
                         transition={{ duration: 0.6, delay: i * 0.15 }}
                         style={{ perspective: '1200px' }}
                     >
-                    <Card3D>
-                        <div
-                        className="group relative p-10 rounded-[2rem] bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500"
-                        style={{ boxShadow: '0 8px 30px -10px rgba(0,0,0,0.07)' }}
-                    >
-                        {/* Static Glow bg */}
-                        <div
-                            className="absolute inset-0 opacity-10 pointer-events-none"
-                            style={{ background: `radial-gradient(ellipse at top left, ${type.glow}, transparent 65%)` }}
-                        />
-
-                        {/* Header */}
-                        <div className="relative z-10 flex items-center gap-4 mb-10">
+                        <Card3D>
                             <div
-                                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-                                style={{
-                                    backgroundColor: `${type.color}15`,
-                                    border: `2px solid ${type.borderColor}`,
-                                    boxShadow: `0 10px 30px -10px ${type.glow}`
-                                }}
+                                className="group relative p-10 rounded-[2rem] bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 overflow-hidden cursor-pointer transition-all duration-500"
+                                style={{ boxShadow: '0 8px 30px -10px rgba(0,0,0,0.07)' }}
                             >
-                                {type.icon}
-                            </div>
-                            <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">{type.title}</h3>
-                        </div>
+                                {/* Static Glow bg */}
+                                <div
+                                    className="absolute inset-0 opacity-10 pointer-events-none"
+                                    style={{ background: `radial-gradient(ellipse at top left, ${type.glow}, transparent 65%)` }}
+                                />
 
-                        {/* Items */}
-                        <div className="relative z-10 flex flex-col gap-5">
-                            {type.items.map((item, j) => (
-                                <motion.div
-                                    key={j}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 + j * 0.08 }}
-                                    className="flex items-center gap-4"
-                                >
+                                {/* Header */}
+                                <div className="relative z-10 flex items-center gap-4 mb-10">
                                     <div
-                                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
                                         style={{
                                             backgroundColor: `${type.color}15`,
-                                            border: `1px solid ${type.borderColor}`,
+                                            border: `2px solid ${type.borderColor}`,
+                                            boxShadow: `0 10px 30px -10px ${type.glow}`
                                         }}
                                     >
-                                        <item.icon className="w-4 h-4" style={{ color: type.color }} />
+                                        {type.icon}
                                     </div>
-                                    <span className="text-zinc-600 dark:text-zinc-300 font-medium leading-snug transition-colors">
-                                        {item.text}
-                                    </span>
-                                </motion.div>
-                            ))}
-                        </div>
-                        </div>
-                    </Card3D>
+                                    <h3 className="text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">{type.title}</h3>
+                                </div>
+
+                                {/* Items */}
+                                <div className="relative z-10 flex flex-col gap-5">
+                                    {type.items.map((item, j) => (
+                                        <motion.div
+                                            key={j}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.2 + j * 0.08 }}
+                                            className="flex items-center gap-4"
+                                        >
+                                            <div
+                                                className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                                                style={{
+                                                    backgroundColor: `${type.color}15`,
+                                                    border: `1px solid ${type.borderColor}`,
+                                                }}
+                                            >
+                                                <item.icon className="w-4 h-4" style={{ color: type.color }} />
+                                            </div>
+                                            <span className="text-zinc-600 dark:text-zinc-300 font-medium leading-snug transition-colors">
+                                                {item.text}
+                                            </span>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        </Card3D>
                     </motion.div>
                 ))}
             </div>
@@ -828,7 +828,7 @@ export default function OpportunitiesPage() {
                         className="text-center mb-20 max-w-3xl mx-auto"
                     >
                         <h2 className="text-5xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6 leading-tight">
-                            Opportunities by <span className="text-purple-400">Level</span>
+                            Opportunities by <span className="text-[#3A9B9B]">Level</span>
                         </h2>
                     </motion.div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">

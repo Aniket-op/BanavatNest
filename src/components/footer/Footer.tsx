@@ -92,8 +92,8 @@ const Footer = () => {
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-3 mt-0.5 text-[#3A9B9B] shrink-0" />
                                 <div>
-                                    <span className="block text-zinc-900 text-[12px] font-bold mb-1">Incubation Address:</span>
-                                    <span className="block text-[12px] font-bold">STEP-TIET Patiala, Punjab-147004</span>
+                                    <span className="block text-zinc-900 text-[12px] font-bold mb-1">Incubation Support:</span>
+                                    <span className="block text-[12px] font-bold">STEP-TIET, Patiala, Punjab-147004</span>
                                 </div>
                             </div>
                         </div>
