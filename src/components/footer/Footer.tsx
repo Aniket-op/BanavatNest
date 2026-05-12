@@ -25,13 +25,13 @@ const Footer = () => {
                         <Link href="/" className="inline-block transition-transform hover:scale-105 ">
                             <Logo className="h-20 w-auto" />
                         </Link>
-                        <div className="text-gray-500 dark:text-gray-500 text-sm leading-relaxed font-medium space-y-2">
+                        <div className="text-gray-500 dark:text-gray-500 text-[12px] leading-relaxed font-bold space-y-1">
                             <p>{t('companyName')}</p>
                             <p>{t('cin')}</p>
                             <p>GSTIN: 19AANCB7293G1Z4</p>
                             <p>Udyam No: UDYAM-WB-12-0125063</p>
                         </div>
-                        <div className="mt-8 flex space-x-3">
+                        <div className="mt-4 flex space-x-3">
                             {socialLinks.map(({ Icon, href, label, color, hoverBg }, i) => (
                                 <motion.div key={i} whileHover={{ y: -5, scale: 1.1 }}>
                                     <a
