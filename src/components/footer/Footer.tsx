@@ -85,15 +85,15 @@ const Footer = () => {
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-3 mt-0.5 text-[#3A9B9B] shrink-0" />
                                 <div>
-                                    <span className="block text-zinc-900 text-[12px] font-bold mb-1">Registered Address:</span>
-                                    <span className="block text-[12px] font-bold">Bajitpur, Sutahata, West Bengal-721645</span>
+                                    <span className="block text-zinc-900 text-[12px] font-bold mb-1">{t('registeredAddressLabel')}</span>
+                                    <span className="block text-[12px] font-bold">{t('registeredAddress')}</span>
                                 </div>
                             </div>
                             <div className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-3 mt-0.5 text-[#3A9B9B] shrink-0" />
                                 <div>
-                                    <span className="block text-zinc-900 text-[12px] font-bold mb-1">Incubation Support:</span>
-                                    <span className="block text-[12px] font-bold">STEP-TIET, Patiala, Punjab-147004</span>
+                                    <span className="block text-zinc-900 text-[12px] font-bold mb-1">{t('incubationSupportLabel')}</span>
+                                    <span className="block text-[12px] font-bold">{t('incubationSupport')}</span>
                                 </div>
                             </div>
                         </div>

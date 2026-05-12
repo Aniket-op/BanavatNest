@@ -31,11 +31,6 @@ export default function BoardPage() {
     const t = useTranslations('aboutBoard');
     const tBoard = useTranslations('boardPage');
 
-    const featurePoints = [
-        { title: tBoard('feat1'), color: 'bg-[#3A9B9B]' },
-        { title: tBoard('feat2'), color: 'bg-[#2D3561]' },
-        { title: tBoard('feat3'), color: 'bg-[#3A9B9B]' },
-    ];
 
     return (
         <PageWrapper>
@@ -74,7 +69,7 @@ export default function BoardPage() {
                                     <div className="relative z-10">
                                         {/* Heading */}
                                         <h2 className="text-2xl md:text-4xl font-black tracking-tight text-[#111827] leading-tight mb-6">
-                                            Thapar Institute of Engineering and Technology (TIET)
+                                            {tBoard('tietTitle')}
                                         </h2>
 
                                         {/* Stats Card */}
@@ -89,10 +84,10 @@ export default function BoardPage() {
 
                                                     <div>
                                                         <h4 className="text-lg font-black text-[#111827]">
-                                                            70+ Years
+                                                            {tBoard('stat1Val')}
                                                         </h4>
                                                         <p className="text-xs text-zinc-600 font-medium">
-                                                            of Academic Excellence
+                                                            {tBoard('stat1Label')}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -105,10 +100,10 @@ export default function BoardPage() {
 
                                                     <div>
                                                         <h4 className="text-lg font-black text-[#111827]">
-                                                            NAAC A++
+                                                            {tBoard('stat2Val')}
                                                         </h4>
                                                         <p className="text-xs text-zinc-600 font-medium">
-                                                            Accredited Institute
+                                                            {tBoard('stat2Label')}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -121,10 +116,10 @@ export default function BoardPage() {
 
                                                     <div>
                                                         <h4 className="text-lg font-black text-[#111827]">
-                                                            Ecosystem
+                                                            {tBoard('stat3Val')}
                                                         </h4>
                                                         <p className="text-xs text-zinc-600 font-medium">
-                                                            Research to Impact
+                                                            {tBoard('stat3Label')}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -134,17 +129,11 @@ export default function BoardPage() {
                                         {/* Description */}
                                         <div className="space-y-6">
                                             <p className="text-lg text-justify md:text-xl leading-relaxed text-[#111827] font-medium opacity-90">
-                                                Science &amp; Technology Entrepreneurs Park
-                                                (STEP) and Venture Lab TIET together form the
-                                                innovation and startup incubation ecosystem at
-                                                TIET.
+                                                {tBoard('desc1')}
                                             </p>
 
                                             <p className="text-lg text-justify md:text-xl leading-relaxed text-[#111827] font-medium opacity-90">
-                                                Backed by NSTEDB-DST, MeitY Startup Hub,
-                                                and Startup India, the ecosystem fosters
-                                                innovation, entrepreneurship, and research-led
-                                                startup growth.
+                                                {tBoard('desc2')}
                                             </p>
                                         </div>
                                     </div>
@@ -173,11 +162,11 @@ export default function BoardPage() {
 
                                             <div>
                                                 <h3 className="text-2xl font-black tracking-tight text-[#0F172A]">
-                                                    STEP-TIET
+                                                    {tBoard('stepTietTitle')}
                                                 </h3>
 
                                                 <p className="text-sm text-zinc-600 font-semibold uppercase tracking-wider">
-                                                    Incubation Center
+                                                    {tBoard('stepTietSubtitle')}
                                                 </p>
                                             </div>
                                         </div>
@@ -186,11 +175,11 @@ export default function BoardPage() {
 
                                         {/* Intro */}
                                         <p className="text-lg leading-relaxed text-[#0F172A] mb-8 font-medium">
-                                            Supporting{" "}
+                                            {tBoard('supportingText')}{" "}
                                             <span className="font-black text-[#148787]">
                                                 BanavatNest
                                             </span>{" "}
-                                            in:
+                                            {tBoard('supportingIn')}
                                         </p>
 
                                         {/* Features */}
@@ -198,23 +187,23 @@ export default function BoardPage() {
 
                                             {[
                                                 {
-                                                    title: "Research-led TEP innovation",
-                                                    desc: "Driving innovation through deep research.",
+                                                    title: tBoard('feat1Title'),
+                                                    desc: tBoard('feat1Desc'),
                                                     icon: Beaker
                                                 },
                                                 {
-                                                    title: "Prototype-oriented execution",
-                                                    desc: "Turning ideas into functional prototypes.",
+                                                    title: tBoard('feat2Title'),
+                                                    desc: tBoard('feat2Desc'),
                                                     icon: Cpu
                                                 },
                                                 {
-                                                    title: "Entrepreneurial journey",
-                                                    desc: "Guiding startups from ideation to growth.",
+                                                    title: tBoard('feat3Title'),
+                                                    desc: tBoard('feat3Desc'),
                                                     icon: Trophy
                                                 },
                                                 {
-                                                    title: "Networking support",
-                                                    desc: "Connecting with mentors & industry.",
+                                                    title: tBoard('feat4Title'),
+                                                    desc: tBoard('feat4Desc'),
                                                     icon: Network
                                                 },
                                             ].map((item, index) => (
