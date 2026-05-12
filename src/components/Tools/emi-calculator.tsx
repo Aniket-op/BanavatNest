@@ -116,77 +116,77 @@ export default function EmiCalculator() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans pt-2 grid-bg">
       <div className="print:hidden">
-        <header className="bg-transparent pt-24 pb-20 border-b border-zinc-100 dark:border-zinc-800 mb-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="bg-transparent pt-5 pb-1 border-b border-zinc-100 dark:border-zinc-800 mb-12">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B] mb-4">Financial Tools</p>
-              <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tighter leading-tight">
+             
+              <h1 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tighter leading-tight">
                 EMI <span className="text-[#3A9B9B]">Calculator</span>
               </h1>
-              <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
                 Calculate monthly EMI payments, total interest, and repayment amount instantly.
               </p>
             </div>
           </div>
         </header>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24 grid gap-8">
+        <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-24 grid gap-5">
           <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             {/* Decorative accent line */}
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             {/* Section Header */}
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">EMI Calculator</p>
-                <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">Calculate your loan EMI</h2>
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">EMI Calculator</p>
+                <h2 className="mt-1 text-xl sm:text-2xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Calculate your loan EMI</h2>
               </div>
-              <div className="rounded-full bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-bold text-zinc-900 dark:text-zinc-100 shadow-sm border border-zinc-200 dark:border-zinc-700">Live calculation</div>
+              <div className="w-fit rounded-full bg-white dark:bg-zinc-900 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-sm font-bold text-zinc-900 dark:text-zinc-100 shadow-sm border border-zinc-200 dark:border-zinc-700">Live calculation</div>
             </div>
-            <div className="p-8 md:p-10">
-              <div className="grid gap-5 lg:grid-cols-[1fr_360px]">
+            <div className="p-6 sm:p-8 md:p-10">
+              <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
                 <div>
-                  <p className="mb-5 text-lg font-semibold text-[#3A9B9B]">
+                  <p className="mb-4 text-base sm:text-lg font-semibold text-[#3A9B9B]">
                     I want to calculate -
                   </p>
 
-                  <div className="mb-8 flex w-fit rounded-full bg-zinc-100 dark:bg-zinc-800/50 p-1">
+                  <div className="mb-8 flex w-full sm:w-fit rounded-full bg-zinc-100 dark:bg-zinc-800/50 p-1">
                     <button
                       type="button"
                       onClick={() => setLoanType("home")}
-                      className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "home"
+                      className={`flex-1 sm:flex-none rounded-full px-3 sm:px-7 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "home"
                           ? "bg-[#3A9B9B] text-white shadow-md"
                           : "text-zinc-500 dark:text-zinc-400"
                         }`}
                     >
-                      Home Loan
+                      Home
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setLoanType("personal")}
-                      className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "personal"
+                      className={`flex-1 sm:flex-none rounded-full px-3 sm:px-7 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "personal"
                           ? "bg-[#3A9B9B] text-white shadow-md"
                           : "text-zinc-500 dark:text-zinc-400"
                         }`}
                     >
-                      Personal Loan
+                      Personal
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setLoanType("car")}
-                      className={`rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "car"
+                      className={`flex-1 sm:flex-none rounded-full px-3 sm:px-7 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "car"
                           ? "bg-[#3A9B9B] text-white shadow-md"
                           : "text-zinc-500 dark:text-zinc-400"
                         }`}
                     >
-                      Car Loan
+                      Car
                     </button>
                   </div>
 
                   <div className="mb-8">
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                      <label className="text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
+                    <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                      <label className="text-sm sm:text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
                         {loanType === "home"
                           ? "Home Loan Amount"
                           : loanType === "personal"
@@ -194,8 +194,8 @@ export default function EmiCalculator() {
                             : "Car Loan Amount"}
                       </label>
 
-                      <div className="flex overflow-hidden rounded border border-[#3A9B9B]">
-                        <div className="flex items-center border-r border-[#3A9B9B] px-4 font-bold text-[#3A9B9B]">
+                      <div className="flex overflow-hidden rounded border border-[#3A9B9B] w-full sm:w-fit">
+                        <div className="flex items-center border-r border-[#3A9B9B] px-3 sm:px-4 font-bold text-[#3A9B9B] bg-zinc-50 dark:bg-zinc-900/30">
                           ₹
                         </div>
                         <input
@@ -205,7 +205,7 @@ export default function EmiCalculator() {
                           onChange={(e) =>
                             setAmount(Number(e.target.value || 0))
                           }
-                          className="w-52 bg-transparent px-4 py-2 font-semibold outline-none"
+                          className="flex-1 sm:w-48 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold outline-none"
                         />
                       </div>
                     </div>
@@ -223,7 +223,7 @@ export default function EmiCalculator() {
                       }}
                     />
 
-                    <div className="mt-2 flex justify-between text-[10px] text-zinc-500 dark:text-zinc-400">
+                    <div className="mt-2 flex justify-between text-[9px] sm:text-[10px] text-zinc-500 dark:text-zinc-400">
                       <span>0</span>
                       <span>25L</span>
                       <span>50L</span>
@@ -235,12 +235,12 @@ export default function EmiCalculator() {
                   </div>
 
                   <div className="mb-8">
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                      <label className="text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
+                    <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                      <label className="text-sm sm:text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
                         Loan Tenure
                       </label>
 
-                      <div className="flex overflow-hidden rounded border border-[#3A9B9B]">
+                      <div className="flex overflow-hidden rounded border border-[#3A9B9B] w-full sm:w-fit">
                         <input
                           type="number"
                           value={tenure}
@@ -248,29 +248,29 @@ export default function EmiCalculator() {
                           onChange={(e) =>
                             setTenure(Number(e.target.value || 0))
                           }
-                          className="w-28 bg-transparent px-4 py-2 font-semibold outline-none"
+                          className="flex-1 sm:w-24 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold outline-none"
                         />
 
                         <button
                           type="button"
                           onClick={() => setTenureType("years")}
-                          className={`px-4 text-sm font-semibold transition ${tenureType === "years"
+                          className={`px-3 sm:px-4 text-xs sm:text-sm font-semibold transition ${tenureType === "years"
                               ? "bg-[#3A9B9B] text-white"
-                              : "bg-white text-[#3A9B9B]"
+                              : "bg-white dark:bg-zinc-900 text-[#3A9B9B]"
                             }`}
                         >
-                          Years
+                          Y
                         </button>
 
                         <button
                           type="button"
                           onClick={() => setTenureType("months")}
-                          className={`border-l border-[#3A9B9B] px-4 text-sm font-semibold transition ${tenureType === "months"
+                          className={`border-l border-[#3A9B9B] px-3 sm:px-4 text-xs sm:text-sm font-semibold transition ${tenureType === "months"
                               ? "bg-[#3A9B9B] text-white"
-                              : "bg-white text-[#3A9B9B]"
+                              : "bg-white dark:bg-zinc-900 text-[#3A9B9B]"
                             }`}
                         >
-                          Months
+                          M
                         </button>
                       </div>
                     </div>
@@ -283,11 +283,11 @@ export default function EmiCalculator() {
                       onChange={(e) => setTenure(Number(e.target.value))}
                       className="emi-slider w-full"
                       style={{
-                        background: getSliderBackground(tenure, 0, 30),
+                        background: getSliderBackground(tenure, 0, tenureType === "years" ? 30 : 360),
                       }}
                     />
 
-                    <div className="mt-2 flex justify-between text-[10px] text-zinc-500 dark:text-zinc-400">
+                    <div className="mt-2 flex justify-between text-[9px] sm:text-[10px] text-zinc-500 dark:text-zinc-400">
                       {tenureType === "years" ? (
                         <>
                           <span>0Y</span>
@@ -312,22 +312,22 @@ export default function EmiCalculator() {
                     </div>
                   </div>
 
-                  <div>
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                      <label className="text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
+                  <div className="mb-8">
+                    <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                      <label className="text-sm sm:text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
                         Interest Rate
                       </label>
 
-                      <div className="flex overflow-hidden rounded border border-[#3A9B9B]">
+                      <div className="flex overflow-hidden rounded border border-[#3A9B9B] w-full sm:w-fit">
                         <input
                           type="number"
                           value={rate}
                           step={0.1}
                           min={0}
                           onChange={(e) => setRate(Number(e.target.value || 0))}
-                          className="w-36 bg-transparent px-4 py-2 font-semibold outline-none"
+                          className="flex-1 sm:w-28 bg-transparent px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold outline-none"
                         />
-                        <div className="flex items-center border-l border-[#3A9B9B] px-4 font-bold text-[#3A9B9B]">
+                        <div className="flex items-center border-l border-[#3A9B9B] px-3 sm:px-4 font-bold text-[#3A9B9B] bg-zinc-50 dark:bg-zinc-900/30">
                           %
                         </div>
                       </div>
@@ -346,7 +346,7 @@ export default function EmiCalculator() {
                       }}
                     />
 
-                    <div className="mt-2 flex justify-between text-[10px] text-zinc-500 dark:text-zinc-400">
+                    <div className="mt-2 flex justify-between text-[9px] sm:text-[10px] text-zinc-500 dark:text-zinc-400">
                       <span>0%</span>
                       <span>5%</span>
                       <span>10%</span>
@@ -355,10 +355,10 @@ export default function EmiCalculator() {
                     </div>
                   </div>
                 </div>
-                <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 md:p-8 shadow-lg transition-all duration-300">
+                <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-8 shadow-lg transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
-                  <div className="rounded-2xl border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-sm">
-                    <h3 className="text-center text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                  <div className="rounded-2xl border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 sm:p-6 shadow-sm">
+                    <h3 className="text-center text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
                       {loanType === "home"
                         ? "Home Loan EMI"
                         : loanType === "personal"
@@ -366,28 +366,28 @@ export default function EmiCalculator() {
                           : "Car Loan EMI"}
                     </h3>
 
-                    <div className="mt-3 text-center text-5xl font-black tracking-tighter text-[#3A9B9B]">
+                    <div className="mt-3 text-center text-3xl sm:text-5xl font-black tracking-tighter text-[#3A9B9B]">
                       ₹ {formatINR(emiData.emi)}
                     </div>
-                    <p className="text-center text-xs text-zinc-400 dark:text-zinc-500 mt-1 font-medium">per month</p>
+                    <p className="text-center text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 mt-1 font-medium">per month</p>
 
                     <div className="my-5 border-t border-dashed" />
 
                     <div className="flex flex-col gap-0 divide-y divide-dashed divide-zinc-200 dark:divide-zinc-700">
                       {/* Total Interest */}
                       <div className="flex items-center justify-between gap-2 py-3 min-w-0">
-                        <p className="text-xs text-zinc-500 dark:text-zinc-400 shrink-0">Total Interest Payable</p>
-                        <p className="text-base font-bold text-zinc-900 dark:text-zinc-100 text-right truncate">
+                        <p className="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 shrink-0">Total Interest Payable</p>
+                        <p className="text-sm sm:text-base font-bold text-zinc-900 dark:text-zinc-100 text-right truncate">
                           ₹ {formatINR(emiData.totalInterest)}
                         </p>
                       </div>
                       {/* Total Payment */}
                       <div className="flex items-center justify-between gap-2 py-3 min-w-0">
                         <div className="shrink-0">
-                          <p className="text-xs text-zinc-500 dark:text-zinc-400">Total Payment</p>
-                          <p className="text-[10px] text-zinc-400 dark:text-zinc-500">(Principal + Interest)</p>
+                          <p className="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400">Total Payment</p>
+                          <p className="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500">(Principal + Interest)</p>
                         </div>
-                        <p className="text-base font-bold text-zinc-900 dark:text-zinc-100 text-right truncate">
+                        <p className="text-sm sm:text-base font-bold text-zinc-900 dark:text-zinc-100 text-right truncate">
                           ₹ {formatINR(emiData.totalPayment)}
                         </p>
                       </div>
@@ -395,19 +395,19 @@ export default function EmiCalculator() {
 
                     <div className="my-5 border-t border-dashed" />
 
-                    <h4 className="text-center text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                    <h4 className="text-center text-xs sm:text-sm font-bold text-zinc-900 dark:text-zinc-100">
                       Break-up of Total Payment
                     </h4>
 
-                    <div className="mt-4 h-[210px]">
+                    <div className="mt-4 h-[180px] sm:h-[210px]">
                       <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
                           <Pie
                             data={chartData}
                             cx="50%"
                             cy="50%"
-                            innerRadius={38}
-                            outerRadius={58}
+                            innerRadius={30}
+                            outerRadius={50}
                             paddingAngle={4}
                             dataKey="value"
                             animationBegin={0}
@@ -430,18 +430,18 @@ export default function EmiCalculator() {
                       </ResponsiveContainer>
                     </div>
 
-                    <div className="mt-1 flex justify-center gap-5">
+                    <div className="mt-2 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-5">
                       <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded bg-[#3A9B9B]" />
-                        <span className="text-xs text-gray-600">
+                        <div className="h-2 w-2 sm:h-3 sm:w-3 rounded bg-[#3A9B9B]" />
+                        <span className="text-[10px] sm:text-xs text-gray-600 dark:text-zinc-400">
                           Total Interest
                         </span>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded bg-[#0d4778]" />
-                        <span className="text-xs text-gray-600">
-                          Principal Loan Amount
+                        <div className="h-2 w-2 sm:h-3 sm:w-3 rounded bg-[#2D3561]" />
+                        <span className="text-[10px] sm:text-xs text-gray-600 dark:text-zinc-400">
+                          Principal Amount
                         </span>
                       </div>
                     </div>
@@ -449,34 +449,33 @@ export default function EmiCalculator() {
                 </div>
               </div>
 
-              <div className="mt-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 p-4 border border-zinc-100 dark:border-zinc-800">
+              <div className="mt-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 p-4 sm:p-5 border border-zinc-100 dark:border-zinc-800">
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="mb-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-[#3A9B9B] hover:bg-[#2a7676] px-5 py-4 text-center font-bold text-white shadow-md transition hover:scale-[1.01] hover:shadow-lg"
+                  className="mb-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-[#3A9B9B] hover:bg-[#2a7676] px-5 py-3.5 sm:py-4 text-center text-sm sm:text-base font-bold text-white shadow-md transition hover:scale-[1.01] hover:shadow-lg"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
                   Download / Print Report
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setShowBreakdown((prev) => !prev)}
-                  className="relative overflow-hidden flex w-full items-center justify-between rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm px-5 py-4 text-left transition hover:shadow-md"
+                  className="relative overflow-hidden flex w-full items-center justify-between rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm px-4 sm:px-5 py-3.5 sm:py-4 text-left transition hover:shadow-md"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A9B9B]">
+                  <div className="pr-2">
+                    <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#3A9B9B]">
                       Month-wise Breakdown
                     </p>
-                    <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                      View EMI, interest, principal, and remaining balance for
-                      each month
+                    <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
+                      View full schedule and balance details
                     </p>
                   </div>
 
                   <span
-                    className={`text-2xl text-zinc-500 dark:text-zinc-400 transition-transform duration-300 ${showBreakdown ? "rotate-180" : ""
+                    className={`text-xl sm:text-2xl text-zinc-500 dark:text-zinc-400 transition-transform duration-300 ${showBreakdown ? "rotate-180" : ""
                       }`}
                   >
                     ⌄
@@ -559,18 +558,18 @@ export default function EmiCalculator() {
               <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">What affects your due amount?</h2>
             </div>
             <div className="p-8 md:p-10">
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
                 {[
                   { icon: "🏠", title: "Principal Amount", text: "The higher the principal amount, the more you will pay in dues." },
                   { icon: "📈", title: "Interest Rates", text: "Interest rates play a key role in determining your due amount." },
                   { icon: "📅", title: "Repayment Tenure", text: "Longer repayment tenure can lower your monthly EMI dues." },
                   { icon: "⚠️", title: "Fees & Penalties", text: "Additional charges and penalties can increase your due amount." },
                 ].map((item) => (
-                  <div key={item.title} className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                  <div key={item.title} className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-2xl">{item.icon}</div>
-                    <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">{item.text}</p>
+                    <div className="mx-auto mb-4 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-xl sm:text-2xl shrink-0">{item.icon}</div>
+                    <h3 className="text-sm sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
+                    <p className="mt-auto pt-3 text-xs sm:text-sm leading-6 sm:leading-7 text-zinc-600 dark:text-zinc-400">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -616,17 +615,17 @@ export default function EmiCalculator() {
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   EMI = [P × r × (1 + r)^n] / [(1 + r)^n − 1]
                 </div>
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {[
                     { var: "P", label: "Principal", desc: "The original loan amount borrowed" },
                     { var: "r", label: "Rate", desc: "Monthly interest rate (annual rate ÷ 12 ÷ 100)" },
                     { var: "n", label: "Tenure", desc: "Total number of monthly installments" },
-                  ].map((v) => (
-                    <div key={v.var} className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 hover:shadow-md transition-all duration-300">
+                  ].map((v, idx) => (
+                    <div key={v.var} className={`flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 hover:shadow-md transition-all duration-300 ${idx === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                       <div className="text-3xl font-black text-[#3A9B9B]">{v.var}</div>
                       <div className="mt-1 text-sm font-bold text-zinc-900 dark:text-zinc-100">{v.label}</div>
-                      <div className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 leading-5">{v.desc}</div>
+                      <div className="mt-auto pt-2 text-xs text-zinc-500 dark:text-zinc-400 leading-5">{v.desc}</div>
                     </div>
                   ))}
                 </div>
@@ -641,7 +640,7 @@ export default function EmiCalculator() {
         <div className="flex items-center justify-between border-b-[3px] border-slate-900 pb-6 mb-8">
           <div className="flex flex-shrink-0 items-center justify-center">
             <img
-              src="/logo.png"
+              src="/logo.jpg"
               className="h-14 w-32 object-contain"
               alt="Logo"
             />

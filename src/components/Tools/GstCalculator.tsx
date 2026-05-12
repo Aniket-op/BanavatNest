@@ -465,7 +465,7 @@ export default function GstCalculator() {
             </div>
 
             <div className="p-8 md:p-10">
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 ">
                 {/* Cost Price */}
                 <div className="space-y-2 col-span-2 md:col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
@@ -561,54 +561,54 @@ export default function GstCalculator() {
                 </div>
               </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 xl:grid-cols-4">
-                <div className="relative overflow-hidden rounded-2xl border-none bg-gradient-to-r from-[#5BBD4A] to-[#4A9D3B] p-4 sm:p-6 text-center shadow-lg shadow-[#5BBD4A]/20">
+              <div className="mt-4 lg:mt-3 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-4 xl:grid-cols-4">
+                <div className="relative overflow-hidden rounded-2xl border-none bg-gradient-to-r from-[#5BBD4A] to-[#4A9D3B] p-4 sm:p-6 lg:p-4 xl:p-5 text-center shadow-lg shadow-[#5BBD4A]/20">
                   <p className="text-xs sm:text-sm text-green-50 font-bold">Net Profit</p>
-                  <p className="mt-2 text-lg sm:text-2xl font-black tracking-tighter text-white">
+                  <p className="mt-2 text-lg sm:text-2xl lg:text-xl font-black tracking-tighter text-white">
                     ₹{profitResult.profit.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 text-center hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 text-center hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
                     GST Paid
                   </p>
-                  <p className="mt-2 text-base sm:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <p className="mt-2 text-base sm:text-lg lg:text-base xl:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{profitResult.gstPaid.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 text-center hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 text-center hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
                     GST Collected
                   </p>
-                  <p className="mt-2 text-base sm:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <p className="mt-2 text-base sm:text-lg lg:text-base xl:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{profitResult.gstCollected.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 text-center hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 text-center hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <p className="text-xs sm:text-sm text-[#3A9B9B]">GST Payable</p>
-                  <p className="mt-2 text-base sm:text-lg font-bold tracking-tight text-[#3A9B9B]">
+                  <p className="mt-2 text-base sm:text-lg lg:text-base xl:text-lg font-bold tracking-tight text-[#3A9B9B]">
                     ₹{profitResult.gstPayable.toFixed(2)}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-4 lg:grid-cols-3">
+              <div className="mt-6 lg:mt-4 grid grid-cols-2 gap-4 lg:gap-3 lg:grid-cols-3">
                 {/* Profit Percentage */}
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                    Profit Percentage (%)
+                    Profit %
                   </label>
                   <input
                     type="number"
-                    placeholder='Enter Profit Percentage'
-                    className="mt-2 w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
+                    placeholder='%'
+                    className="mt-auto w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20 text-sm"
                     value={profitPercentage}
                     onChange={(e) =>
                       handleProfitPercentageChange(e.target.value)
@@ -617,15 +617,15 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Desired Profit */}
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
-                    Desired Profit
+                    Profit Amount
                   </label>
                   <input
                     type="number"
-                    placeholder="Enter Desired Profit"
-                    className="mt-2 w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-4 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
+                    placeholder="Amt"
+                    className="mt-auto w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-3 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20 text-sm"
                     value={desiredProfit}
                     onChange={(e) =>
                       handleDesiredProfitChange(e.target.value)
@@ -634,7 +634,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Predicted Selling Price */}
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden col-span-2 lg:col-span-1 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-6 lg:p-4 xl:p-5 hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Predicted Selling Price
@@ -645,16 +645,16 @@ export default function GstCalculator() {
                     value={predictedResult.predictedSellingPrice.toFixed(2)}
                     readOnly
                   />
-                  <p className="mt-3 text-xs leading-5 text-[#3A9B9B] font-medium">
+                  <p className="mt-3 text-xs lg:text-[11px] xl:text-xs leading-5 text-[#3A9B9B] font-medium">
                     {predictedResult.predictedSellingLabel} based on your
                     desired profit and selling tax type.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+              <div className="mt-4 lg:mt-3 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-4 md:grid-cols-3">
                 {/* Actual Cost */}
-                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm">
+                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 shadow-sm">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">
                     Actual Cost
@@ -665,7 +665,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Base Selling Price */}
-                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm">
+                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 shadow-sm">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">
                     Base Selling Price
@@ -676,7 +676,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Predicted GST on Sale */}
-                <div className="flex flex-col relative overflow-hidden col-span-2 md:col-span-1 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm text-center">
+                <div className="flex flex-col relative overflow-hidden col-span-2 md:col-span-1 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 lg:p-4 xl:p-5 shadow-sm text-center">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <p className="text-xs sm:text-sm text-[#3A9B9B] font-bold">
                     Predicted GST on Sale
