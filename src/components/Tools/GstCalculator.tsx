@@ -370,9 +370,9 @@ export default function GstCalculator() {
             </div>
 
             <div className="p-8 md:p-10">
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                 {/* Amount */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-2 md:col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Amount
                   </label>
@@ -386,7 +386,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* GST % */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     GST %
                   </label>
@@ -404,7 +404,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Tax Type */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Tax Type
                   </label>
@@ -465,9 +465,9 @@ export default function GstCalculator() {
             </div>
 
             <div className="p-8 md:p-10">
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                 {/* Cost Price */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-2 md:col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Cost Price
                   </label>
@@ -481,7 +481,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* GST on Purchase */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     GST on Purchase (%)
                   </label>
@@ -499,7 +499,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Purchase Tax Type */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Tax Type (Purchase)
                   </label>
@@ -514,7 +514,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Selling Price */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-2 md:col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Selling Price
                   </label>
@@ -528,7 +528,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* GST on Selling */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     GST on Selling (%)
                   </label>
@@ -546,7 +546,7 @@ export default function GstCalculator() {
                 </div>
 
                 {/* Selling Tax Type */}
-                <div className="space-y-2">
+                <div className="space-y-2 col-span-1">
                   <label className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                     Tax Type (Selling)
                   </label>
@@ -561,38 +561,38 @@ export default function GstCalculator() {
                 </div>
               </div>
 
-              <div className="mt-4 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                <div className="relative overflow-hidden rounded-2xl border-none bg-gradient-to-r from-[#5BBD4A] to-[#4A9D3B] p-6 text-center shadow-lg shadow-[#5BBD4A]/20">
-                  <p className="text-sm text-green-50 font-bold">Net Profit</p>
-                  <p className="mt-2 text-2xl font-black tracking-tighter text-white">
+              <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 xl:grid-cols-4">
+                <div className="relative overflow-hidden rounded-2xl border-none bg-gradient-to-r from-[#5BBD4A] to-[#4A9D3B] p-4 sm:p-6 text-center shadow-lg shadow-[#5BBD4A]/20">
+                  <p className="text-xs sm:text-sm text-green-50 font-bold">Net Profit</p>
+                  <p className="mt-2 text-lg sm:text-2xl font-black tracking-tighter text-white">
                     ₹{profitResult.profit.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 text-center hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 text-center hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
                     GST Paid
                   </p>
-                  <p className="mt-2 text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <p className="mt-2 text-base sm:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{profitResult.gstPaid.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 text-center hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 text-center hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
                     GST Collected
                   </p>
-                  <p className="mt-2 text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <p className="mt-2 text-base sm:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{profitResult.gstCollected.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 text-center hover:shadow-md transition-all duration-300">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 text-center hover:shadow-md transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <p className="text-sm text-[#3A9B9B]">GST Payable</p>
-                  <p className="mt-2 text-lg font-bold tracking-tight text-[#3A9B9B]">
+                  <p className="text-xs sm:text-sm text-[#3A9B9B]">GST Payable</p>
+                  <p className="mt-2 text-base sm:text-lg font-bold tracking-tight text-[#3A9B9B]">
                     ₹{profitResult.gstPayable.toFixed(2)}
                   </p>
                 </div>
@@ -652,33 +652,36 @@ export default function GstCalculator() {
                 </div>
               </div>
 
-              <div className="mt-4 grid gap-6 md:grid-cols-3">
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 shadow-sm">
+              <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+                {/* Actual Cost */}
+                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">
                     Actual Cost
                   </p>
-                  <p className="mt-1 text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                  <p className="mt-auto pt-2 text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
                     ₹{predictedResult.actualCost.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 shadow-sm">
+                {/* Base Selling Price */}
+                <div className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">
                     Base Selling Price
                   </p>
-                  <p className="mt-1 text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                  <p className="mt-auto pt-2 text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
                     ₹{predictedResult.baseSellingPrice.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 shadow-sm text-center">
+                {/* Predicted GST on Sale */}
+                <div className="flex flex-col relative overflow-hidden col-span-2 md:col-span-1 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm text-center">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                  <p className="text-sm text-[#3A9B9B] font-bold">
+                  <p className="text-xs sm:text-sm text-[#3A9B9B] font-bold">
                     Predicted GST on Sale
                   </p>
-                  <p className="mt-1 text-2xl font-black text-[#3A9B9B]">
+                  <p className="mt-auto pt-2 text-xl sm:text-2xl font-black text-[#3A9B9B]">
                     ₹{predictedResult.predictedGst.toFixed(2)}
                   </p>
                 </div>
@@ -774,7 +777,7 @@ export default function GstCalculator() {
 
               <div className="space-y-6">
                 {/* ---- Exclusive GST Row ---- */}
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 p-6 border border-zinc-100 dark:border-zinc-800">
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 p-4 sm:p-6 border border-zinc-100 dark:border-zinc-800">
                   {/* Left: explanation */}
                   <div className="lg:w-64 shrink-0">
                     <span className="inline-block rounded-full bg-[#3A9B9B]/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Exclusive GST</span>
@@ -783,26 +786,26 @@ export default function GstCalculator() {
                   </div>
 
                   {/* Right: stat cards */}
-                  <div className="flex-1 grid grid-cols-3 gap-6">
-                    <div className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-6 text-center shadow-sm">
+                  <div className="flex-1 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
+                    <div className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-3 sm:p-6 text-center shadow-sm">
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Actual Amount</p>
-                      <p className="mt-2 text-xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">₹100</p>
+                      <p className="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 font-medium">Actual Amount</p>
+                      <p className="mt-2 text-base sm:text-xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">₹100</p>
                     </div>
-                    <div className="relative overflow-hidden rounded-2xl border border-[#3A9B9B]/30 bg-white dark:bg-zinc-900 p-6 text-center shadow-sm">
+                    <div className="relative overflow-hidden rounded-2xl border border-[#3A9B9B]/30 bg-white dark:bg-zinc-900 p-3 sm:p-6 text-center shadow-sm">
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                      <p className="text-xs text-[#3A9B9B] font-bold">GST Amount (18%)</p>
-                      <p className="mt-2 text-xl font-black tracking-tight text-[#3A9B9B]">₹18</p>
+                      <p className="text-[10px] sm:text-xs text-[#3A9B9B] font-bold">GST Amount (18%)</p>
+                      <p className="mt-2 text-base sm:text-xl font-black tracking-tight text-[#3A9B9B]">₹18</p>
                     </div>
-                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] p-6 text-center shadow-md">
-                      <p className="text-xs text-teal-100 font-bold">Total Amount</p>
-                      <p className="mt-2 text-xl font-black tracking-tight text-white">₹118</p>
+                    <div className="relative overflow-hidden col-span-2 lg:col-span-1 rounded-2xl bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] p-3 sm:p-6 text-center shadow-md">
+                      <p className="text-[10px] sm:text-xs text-teal-100 font-bold">Total Amount</p>
+                      <p className="mt-2 text-lg sm:text-xl font-black tracking-tight text-white">₹118</p>
                     </div>
                   </div>
                 </div>
 
                 {/* ---- Inclusive GST Row ---- */}
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 p-6 border border-zinc-100 dark:border-zinc-800">
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 p-4 sm:p-6 border border-zinc-100 dark:border-zinc-800">
                   {/* Left: explanation */}
                   <div className="lg:w-64 shrink-0">
                     <span className="inline-block rounded-full bg-[#2D3561]/10 dark:bg-[#2D3561]/30 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#2D3561] dark:text-indigo-300">Inclusive GST</span>
@@ -811,20 +814,20 @@ export default function GstCalculator() {
                   </div>
 
                   {/* Right: stat cards */}
-                  <div className="flex-1 grid grid-cols-3 gap-6">
-                    <div className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-6 text-center shadow-sm">
+                  <div className="flex-1 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
+                    <div className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-3 sm:p-6 text-center shadow-sm">
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Actual Amount</p>
-                      <p className="mt-2 text-xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">₹84.75</p>
+                      <p className="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 font-medium">Actual Amount</p>
+                      <p className="mt-2 text-base sm:text-xl font-black tracking-tight text-zinc-900 dark:text-zinc-100">₹84.75</p>
                     </div>
-                    <div className="relative overflow-hidden rounded-2xl border border-[#3A9B9B]/30 bg-white dark:bg-zinc-900 p-6 text-center shadow-sm">
+                    <div className="relative overflow-hidden rounded-2xl border border-[#3A9B9B]/30 bg-white dark:bg-zinc-900 p-3 sm:p-6 text-center shadow-sm">
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                      <p className="text-xs text-[#3A9B9B] font-bold">GST Amount (18%)</p>
-                      <p className="mt-2 text-xl font-black tracking-tight text-[#3A9B9B]">₹15.25</p>
+                      <p className="text-[10px] sm:text-xs text-[#3A9B9B] font-bold">GST Amount (18%)</p>
+                      <p className="mt-2 text-base sm:text-xl font-black tracking-tight text-[#3A9B9B]">₹15.25</p>
                     </div>
-                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] p-6 text-center shadow-md">
-                      <p className="text-xs text-teal-100 font-bold">Total Amount</p>
-                      <p className="mt-2 text-xl font-black tracking-tight text-white">₹100</p>
+                    <div className="relative overflow-hidden col-span-2 lg:col-span-1 rounded-2xl bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] p-3 sm:p-6 text-center shadow-md">
+                      <p className="text-[10px] sm:text-xs text-teal-100 font-bold">Total Amount</p>
+                      <p className="mt-2 text-lg sm:text-xl font-black tracking-tight text-white">₹100</p>
                     </div>
                   </div>
                 </div>
