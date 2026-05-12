@@ -118,8 +118,8 @@
     },
     "boardPage": {
         "badge": "Innovation • Mentorship • Incubation",
-        "heroTitle": "Incubation",
-        "heroHighlight": "Mentor",
+        "heroTitle": "Incubation &",
+        "heroHighlight": "Mentorship",
         "heroDesc": "is the startup incubation and innovation support ecosystem at",
         "cardSubtitle": "Incubation & Innovation Ecosystem",
         "cardSupportText": "Supporting",
