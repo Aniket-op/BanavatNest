@@ -131,7 +131,9 @@ export default function EmiCalculator() {
         </header>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24 grid gap-8">
-          <section className="overflow-hidden rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_40px_rgba(58,155,155,0.15)] transition-all duration-300">
+          <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            {/* Decorative accent line */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             {/* Section Header */}
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -353,7 +355,8 @@ export default function EmiCalculator() {
                     </div>
                   </div>
                 </div>
-                <div className="rounded-[2.5rem] border border-[#3A9B9B]/20 bg-[#E8F7F7] dark:bg-[#3A9B9B]/10 p-6 md:p-8 shadow-md">
+                <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 md:p-8 shadow-lg transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
                   <div className="rounded-2xl border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-sm">
                     <h3 className="text-center text-lg font-bold text-zinc-900 dark:text-zinc-100">
                       {loanType === "home"
@@ -459,8 +462,9 @@ export default function EmiCalculator() {
                 <button
                   type="button"
                   onClick={() => setShowBreakdown((prev) => !prev)}
-                  className="flex w-full items-center justify-between rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 px-5 py-4 text-left transition hover:bg-zinc-100 dark:bg-zinc-800/50"
+                  className="relative overflow-hidden flex w-full items-center justify-between rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm px-5 py-4 text-left transition hover:shadow-md"
                 >
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A9B9B]">
                       Month-wise Breakdown
@@ -533,7 +537,8 @@ export default function EmiCalculator() {
               </div>
             </div>
           </section>
-          <section className="overflow-hidden rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_40px_rgba(58,155,155,0.15)] transition-all duration-300">
+          <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10">
               <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Understanding EMI</p>
               <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">What is EMI?</h2>
@@ -547,7 +552,8 @@ export default function EmiCalculator() {
               </p>
             </div>
           </section>
-          <section className="overflow-hidden rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_40px_rgba(58,155,155,0.15)] transition-all duration-300">
+          <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Key Factors</p>
               <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">What affects your due amount?</h2>
@@ -560,7 +566,8 @@ export default function EmiCalculator() {
                   { icon: "📅", title: "Repayment Tenure", text: "Longer repayment tenure can lower your monthly EMI dues." },
                   { icon: "⚠️", title: "Fees & Penalties", text: "Additional charges and penalties can increase your due amount." },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-6 hover:border-[#3A9B9B]/30 transition-colors text-center">
+                  <div key={item.title} className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-2xl">{item.icon}</div>
                     <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">{item.text}</p>
@@ -569,7 +576,8 @@ export default function EmiCalculator() {
               </div>
             </div>
           </section>
-          <section className="overflow-hidden rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_40px_rgba(58,155,155,0.15)] transition-all duration-300">
+          <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10">
               <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">User Guide</p>
               <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">How to use the EMI calculator?</h2>
@@ -595,7 +603,8 @@ export default function EmiCalculator() {
               </div>
             </div>
           </section>
-          <section className="overflow-hidden rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm hover:shadow-xl dark:hover:shadow-[0_0_40px_rgba(58,155,155,0.15)] transition-all duration-300">
+          <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">The Formula</p>
               <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">How do EMI Calculators work?</h2>
@@ -603,7 +612,8 @@ export default function EmiCalculator() {
             <div className="p-8 md:p-10">
               <div className="mx-auto max-w-3xl">
                 <p className="text-lg font-medium text-zinc-600 dark:text-zinc-400">The formula for calculating EMI is:</p>
-                <div className="mt-6 rounded-2xl border border-[#3A9B9B]/20 bg-[#E8F7F7] dark:bg-[#3A9B9B]/10 px-8 py-6 text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight">
+                <div className="relative overflow-hidden mt-6 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm px-8 py-6 text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight shadow-sm">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   EMI = [P × r × (1 + r)^n] / [(1 + r)^n − 1]
                 </div>
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -612,7 +622,8 @@ export default function EmiCalculator() {
                     { var: "r", label: "Rate", desc: "Monthly interest rate (annual rate ÷ 12 ÷ 100)" },
                     { var: "n", label: "Tenure", desc: "Total number of monthly installments" },
                   ].map((v) => (
-                    <div key={v.var} className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 p-5 hover:border-[#3A9B9B]/30 transition-colors">
+                    <div key={v.var} className="relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 hover:shadow-md transition-all duration-300">
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                       <div className="text-3xl font-black text-[#3A9B9B]">{v.var}</div>
                       <div className="mt-1 text-sm font-bold text-zinc-900 dark:text-zinc-100">{v.label}</div>
                       <div className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 leading-5">{v.desc}</div>
