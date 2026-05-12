@@ -502,7 +502,7 @@ export default function CollaborationPage() {
 
         {/* Who Can Collaborate Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -536,7 +536,7 @@ export default function CollaborationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group relative h-[620px]"
+                  className="group relative h-[580px] md:h-[620px]"
                 >
                   <Link
                     href={track.href}
@@ -554,7 +554,7 @@ export default function CollaborationPage() {
                         boxShadow: `0 20px 40px -12px ${track.color}20`,
                         borderColor: `${track.color}`,
                       }}
-                      className={`relative rounded-[2.5rem] ${track.bg} border border-t-8 p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
+                      className={`relative rounded-3xl md:rounded-[2.5rem] ${track.bg} border border-t-8 p-6 md:p-10 h-full overflow-hidden flex flex-col items-center text-center backdrop-blur-sm shadow-xl`}
                     >
                       {/* Background Glow */}
                       <div
@@ -641,7 +641,7 @@ export default function CollaborationPage() {
         {/* ── Innovation Journey Section ── */}
         <section className="pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           {/* Top Heading */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -661,7 +661,7 @@ export default function CollaborationPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative rounded-[2.5rem] overflow-hidden
+            className="relative rounded-3xl md:rounded-[2.5rem] overflow-hidden
                         border-2 border-[#3A9B9B]/20
                         bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5
                         dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
@@ -672,14 +672,14 @@ export default function CollaborationPage() {
 
             <div className="grid md:grid-cols-2 gap-0 items-start">
               {/* LEFT: Heading + Content */}
-              <div className="px-8 md:px-14 py-12 md:py-20">
+              <div className="px-6 md:px-14 py-10 md:py-20">
                 {/* Headline */}
                 <motion.h2
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2, duration: 0.6 }}
-                  className="text-2xl text-justify md:text-4xl lg:text-5xl font-black tracking-tight
+                  className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight
                                        bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]
                                        dark:from-white dark:via-[#3A9B9B] dark:to-white
                                        bg-clip-text text-transparent mb-4"
@@ -696,7 +696,7 @@ export default function CollaborationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.35, duration: 0.6 }}
-                  className="text-zinc-600 md:text-2xl text-justify dark:text-zinc-400 text-base leading-relaxed"
+                  className="text-zinc-600 md:text-2xl md:text-justify dark:text-zinc-400 text-base leading-relaxed"
                 >
                   {tName("closingStatement")}
                 </motion.p>
@@ -708,7 +708,7 @@ export default function CollaborationPage() {
                 whileInView={{ opacity: 1, scale: 1.1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.7 }}
-                className="relative aspect-square md:aspect-auto md:h-full min-h-[400px] md:min-h-[600px]"
+                className="relative aspect-square md:aspect-auto md:h-full min-h-[300px] md:min-h-[600px]"
               >
                 <Image
                   src="/images/Idea-Deploy.png"
@@ -722,7 +722,7 @@ export default function CollaborationPage() {
         </section>
         <section className="pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           {/* Top Heading */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -742,7 +742,7 @@ export default function CollaborationPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative p-10 md:p-16 rounded-[2.5rem] overflow-hidden
+            className="relative p-6 md:p-16 rounded-3xl md:rounded-[2.5rem] overflow-hidden
                         border-2 border-[#3A9B9B]/20
                         bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5
                         dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
