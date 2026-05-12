@@ -414,20 +414,20 @@ export default function CollaborationPage() {
       href: "/bridge/opportunities",
     },
     {
-      key: "industry",
-      emoji: "🏭",
-      icon: Factory,
-      color: "#3A9B9B",
-      bg: "bg-[#E8F7F7] dark:bg-[#0d2a2a]",
-      href: "/bridge/partnerships",
-    },
-    {
       key: "startup",
       emoji: "🚀",
       icon: Rocket,
+      color: "#3A9B9B",
+      bg: "bg-[#E8F7F7] dark:bg-[#0d2a2a]",
+      href: "/bridge/faculty",
+    },
+    {
+      key: "industry",
+      emoji: "🏭",
+      icon: Factory,
       color: "#5BBD4A",
       bg: "bg-[#EAF8EA] dark:bg-[#142614]",
-      href: "/bridge/faculty",
+      href: "/bridge/partnerships",
     },
   ];
 
@@ -566,7 +566,7 @@ export default function CollaborationPage() {
 
                       {/* Header */}
                       <div className="relative z-10 flex flex-col items-center mb-6 w-full">
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/60 dark:text-zinc-100/40 mb-4 h-4">
+                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900 dark:text-zinc-100 mb-4 h-4">
                           {t(`${track.key}.title`)}
                         </span>
 
@@ -601,7 +601,7 @@ export default function CollaborationPage() {
 
                       {/* Explore More CTA */}
                       <div className="relative z-10 mt-8 mb-6 flex items-center justify-center gap-3 group/cta">
-                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900/50 dark:text-zinc-100/40 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
+                        <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-900 dark:text-zinc-100 transition-colors group-hover/cta:text-zinc-900 dark:group-hover/cta:text-white">
                           {tHome("whatWeServe.exploreMore")}
                         </span>
                         <div
