@@ -280,7 +280,7 @@ export default function BoardPage() {
                                     </div>
                                     <div className="flex-grow">
                                         <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-1 whitespace-nowrap">{t('sukhdevName')}</h3>
-                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 uppercase tracking-wide">{t('sukhdevEdu')}</p>
+                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 tracking-wide">{t('sukhdevEdu')}</p>
                                         <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">{t('sukhdevRole')}</p>
                                     </div>
                                 </div>
@@ -311,7 +311,7 @@ export default function BoardPage() {
                                     </div>
                                     <div className="flex-grow">
                                         <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 mb-1 whitespace-nowrap">{t('sangitaName')}</h3>
-                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 uppercase tracking-wide">{t('sangitaEdu')}</p>
+                                        <p className="text-zinc-500 dark:text-zinc-400 font-semibold text-sm mb-1 tracking-wide">{t('sangitaEdu')}</p>
                                         <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">{t('sangitaRole')}</p>
                                     </div>
                                 </div>
