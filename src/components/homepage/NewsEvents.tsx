@@ -187,7 +187,7 @@ export default function NewsEvents() {
             </p> */}
             <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-50 tracking-[-0.03em] leading-[1]">
               {t("sectionTitle")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] dark:from-white dark:via-[#3A9B9B] dark:to-white">
+              <span className="text-[#3A9B9B]">
                 {t("sectionHighlight")}
               </span>
             </h2>

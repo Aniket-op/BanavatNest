@@ -45,6 +45,7 @@ const Home = () => {
         </div>
       </FadeInSection>
 
+
       <FadeInSection>
         <WhatWeDo />
       </FadeInSection>
