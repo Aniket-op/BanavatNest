@@ -120,10 +120,10 @@ export default function EmiCalculator() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
              
-              <h1 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tighter leading-tight">
+              <h1 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-6 md:mb-8 tracking-tighter leading-tight">
                 EMI <span className="text-[#3A9B9B]">Calculator</span>
               </h1>
-              <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              <p className="text-base md:text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-2xl">
                 Calculate monthly EMI payments, total interest, and repayment amount instantly.
               </p>
             </div>
@@ -135,20 +135,19 @@ export default function EmiCalculator() {
             {/* Decorative accent line */}
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             {/* Section Header */}
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 sm:py-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between items-center">
               <div>
-                
-                <h2 className="mt-1 text-xl sm:text-2xl md:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Calculate your loan EMI</h2>
+                <h2 className="mt-1 text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Calculate your loan EMI</h2>
               </div>
             </div>
-            <div className="p-6 sm:p-8 md:p-10">
+            <div className="p-4 pt-2 sm:p-8 sm:pt-4 md:p-10 md:pt-6">
               <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
                 <div>
-                  <p className="mb-4 text-base sm:text-lg font-semibold text-[#3A9B9B]">
+                  <p className="mb-4 text-sm sm:text-lg font-semibold text-[#3A9B9B]">
                     I want to calculate -
                   </p>
 
-                  <div className="mb-8 flex w-full sm:w-fit rounded-full bg-zinc-100 dark:bg-zinc-800/50 p-1">
+                  <div className="mb-6 flex w-full sm:w-fit rounded-full bg-zinc-100 dark:bg-zinc-800/50 p-1">
                     <button
                       type="button"
                       onClick={() => setLoanType("home")}
@@ -183,7 +182,7 @@ export default function EmiCalculator() {
                     </button>
                   </div>
 
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                       <label className="text-sm sm:text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
                         {loanType === "home"
@@ -233,7 +232,7 @@ export default function EmiCalculator() {
                     </div>
                   </div>
 
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                       <label className="text-sm sm:text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
                         Loan Tenure
@@ -311,7 +310,7 @@ export default function EmiCalculator() {
                     </div>
                   </div>
 
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <div className="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                       <label className="text-sm sm:text-[15px] font-medium text-zinc-900 dark:text-zinc-100">
                         Interest Rate
@@ -354,7 +353,7 @@ export default function EmiCalculator() {
                     </div>
                   </div>
                 </div>
-                <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-8 shadow-lg transition-all duration-300">
+                <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-8 shadow-lg transition-all duration-300">
                   <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
                   <div className="rounded-2xl border border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 sm:p-6 shadow-sm">
                     <h3 className="text-center text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
@@ -448,7 +447,7 @@ export default function EmiCalculator() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 p-4 sm:p-5 border border-zinc-100 dark:border-zinc-800">
+              <div className="mt-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 p-3 sm:p-5 border border-zinc-100 dark:border-zinc-800">
                 <button
                   type="button"
                   onClick={handlePrint}
@@ -537,12 +536,11 @@ export default function EmiCalculator() {
           </section>
           <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Understanding EMI</p>
-              <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">What is EMI?</h2>
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 text-center">
+              <h2 className="mt-1 text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">What is EMI?</h2>
             </div>
-            <div className="p-8 md:p-10">
-              <p className="text-lg leading-9 text-zinc-600 dark:text-zinc-400 font-medium">
+            <div className="p-6 pt-1 sm:p-10">
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium text-justify">
                 Equated Monthly Instalment or EMI is the fixed amount a borrower
                 pays every month towards the repayment of their loan. It has two
                 components — the <strong className="text-zinc-900 dark:text-zinc-100">principal</strong> and the <strong className="text-zinc-900 dark:text-zinc-100">interest</strong> — and is usually paid
@@ -552,23 +550,27 @@ export default function EmiCalculator() {
           </section>
           <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10 text-center">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Key Factors</p>
-              <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">What affects your due amount?</h2>
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 text-center">
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Key Factors</p>
+              <h2 className="mt-1 text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">What affects your due amount?</h2>
             </div>
-            <div className="p-8 md:p-10">
-              <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
+            <div className="p-4 sm:p-10">
+              <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { icon: "🏠", title: "Principal Amount", text: "The higher the principal amount, the more you will pay in dues." },
                   { icon: "📈", title: "Interest Rates", text: "Interest rates play a key role in determining your due amount." },
                   { icon: "📅", title: "Repayment Tenure", text: "Longer repayment tenure can lower your monthly EMI dues." },
                   { icon: "⚠️", title: "Fees & Penalties", text: "Additional charges and penalties can increase your due amount." },
                 ].map((item) => (
-                  <div key={item.title} className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                  <div key={item.title} className="flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                    <div className="mx-auto mb-4 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-xl sm:text-2xl shrink-0">{item.icon}</div>
-                    <h3 className="text-sm sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
-                    <p className="mt-auto pt-3 text-xs sm:text-sm leading-6 sm:leading-7 text-zinc-600 dark:text-zinc-400">{item.text}</p>
+                    <div className="flex items-center gap-3 sm:flex-col sm:text-center">
+                      <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-lg sm:text-2xl shrink-0">{item.icon}</div>
+                      <h3 className=" sm:text-sm font-bold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
+                    </div>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 text-justify sm:pt-3">
+                      {item.text}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -576,13 +578,13 @@ export default function EmiCalculator() {
           </section>
           <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">User Guide</p>
-              <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">How to use the EMI calculator?</h2>
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 text-center">
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#3A9B9B] ">User Guide</p>
+              <h2 className="mt-1 text-lg sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">How to use the EMI calculator?</h2>
             </div>
-            <div className="p-8 md:p-10">
-              <div className="grid gap-10 lg:grid-cols-2 items-center">
-                <div className="space-y-6">
+            <div className="p-6 pt-1 sm:p-10">
+              <div className="grid gap-8 lg:grid-cols-2 items-center">
+                <div className="space-y-4">
                   {[
                     { step: "1", text: "Select your loan type — Home, Personal, or Car Loan." },
                     { step: "2", text: "Enter your loan amount using the slider or input field." },
@@ -590,12 +592,12 @@ export default function EmiCalculator() {
                     { step: "4", text: "Adjust the interest rate to see your monthly EMI instantly." },
                   ].map((s) => (
                     <div key={s.step} className="flex items-start gap-4">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-sm font-black text-[#3A9B9B]">{s.step}</div>
-                      <p className="pt-1 text-base leading-7 text-zinc-600 dark:text-zinc-400 font-medium">{s.text}</p>
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3A9B9B]/10 dark:bg-[#3A9B9B]/20 text-xs font-black text-[#3A9B9B]">{s.step}</div>
+                      <p className="pt-1 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium text-justify">{s.text}</p>
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-center">
+                <div className="hidden lg:flex items-center justify-center">
                   <div className="rounded-[2.5rem] bg-zinc-50 dark:bg-zinc-900 p-14 text-8xl border border-zinc-100 dark:border-zinc-800">🧮</div>
                 </div>
               </div>
@@ -603,28 +605,30 @@ export default function EmiCalculator() {
           </section>
           <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-8 py-6 sm:px-10 text-center">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">The Formula</p>
-              <h2 className="mt-1 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">How do EMI Calculators work?</h2>
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 text-center">
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">The Formula</p>
+              <h2 className="mt-1 text-lg sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">How do EMI Calculators work?</h2>
             </div>
-            <div className="p-8 md:p-10">
+            <div className="p-6 sm:p-10">
               <div className="mx-auto max-w-3xl">
-                <p className="text-lg font-medium text-zinc-600 dark:text-zinc-400">The formula for calculating EMI is:</p>
-                <div className="relative overflow-hidden mt-6 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm px-8 py-6 text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight shadow-sm">
+                <p className="text-base sm:text-lg font-medium text-zinc-600 dark:text-zinc-400 text-center">The formula for calculating EMI is:</p>
+                <div className="relative overflow-hidden mt-4 rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm px-4 py-4 sm:px-8 sm:py-6 text-sm sm:text-xl md:text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tight shadow-sm text-center">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
                   EMI = [P × r × (1 + r)^n] / [(1 + r)^n − 1]
                 </div>
-                <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {[
                     { var: "P", label: "Principal", desc: "The original loan amount borrowed" },
                     { var: "r", label: "Rate", desc: "Monthly interest rate (annual rate ÷ 12 ÷ 100)" },
                     { var: "n", label: "Tenure", desc: "Total number of monthly installments" },
                   ].map((v, idx) => (
-                    <div key={v.var} className={`flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 hover:shadow-md transition-all duration-300 ${idx === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
+                    <div key={v.var} className={`flex flex-col relative overflow-hidden rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-5 hover:shadow-md transition-all duration-300 ${idx === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                      <div className="text-3xl font-black text-[#3A9B9B]">{v.var}</div>
-                      <div className="mt-1 text-sm font-bold text-zinc-900 dark:text-zinc-100">{v.label}</div>
-                      <div className="mt-auto pt-2 text-xs text-zinc-500 dark:text-zinc-400 leading-5">{v.desc}</div>
+                      <div className="flex items-center gap-2">
+                        <div className="text-2xl sm:text-3xl font-black text-[#3A9B9B]">{v.var}</div>
+                        <div className="text-xs sm:text-sm font-bold text-zinc-900 dark:text-zinc-100">{v.label}</div>
+                      </div>
+                      <div className="mt-2 text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed text-justify">{v.desc}</div>
                     </div>
                   ))}
                 </div>
