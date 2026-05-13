@@ -1,13 +1,16 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import FluidCursor from '@/components/FluidCursor';
-import HeroSection from '@/components/homepage/HeroSection';
-import WhatWeDo from '@/components/homepage/WhatWeDo';
-import WhatWeServe from '@/components/homepage/WhatWeServe';
-import TestimonialsSection from '@/components/homepage/TestimonialsSection';
-import InfiniteUpdateBar from '@/components/InfiniteUpdateBar';
-import { useTranslations } from 'next-intl';
+import { motion } from "framer-motion";
+import FluidCursor from "@/components/FluidCursor";
+import HeroSection from "@/components/homepage/HeroSection";
+import WhatWeDo from "@/components/homepage/WhatWeDo";
+import WhatWeServe from "@/components/homepage/WhatWeServe";
+import FeaturedInnovations from "@/components/homepage/FeaturedInnovations";
+import NewsEvents from "@/components/homepage/NewsEvents";
+import TestimonialsSection from "@/components/homepage/TestimonialsSection";
+import InfiniteUpdateBar from "@/components/InfiniteUpdateBar";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const FadeInSection = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -21,16 +24,12 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Home = () => {
-  const t = useTranslations('home');
+  const t = useTranslations("home");
   const updates = [
     {
-      title: t('updateTitle'),
-      route: "/",
+      title: t("updateTitle3"),
+      route: "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
     },
-    {
-      title: t('updateTitle2'),
-      route: "https://sites.google.com/thapar.edu/roft2026",
-    }
   ];
 
   return (
@@ -38,8 +37,7 @@ const Home = () => {
       <FadeInSection>
         <div className="relative pt-20">
           <FluidCursor />
-
-          <div className="w-full relative z-30 mb-2">
+          <div className="w-full relative z-30 ">
             <InfiniteUpdateBar updates={updates} />
           </div>
 
@@ -47,6 +45,7 @@ const Home = () => {
           <HeroSection />
         </div>
       </FadeInSection>
+
 
       <FadeInSection>
         <WhatWeDo />
@@ -56,12 +55,19 @@ const Home = () => {
         <WhatWeServe />
       </FadeInSection>
 
+      <FadeInSection>
+        <FeaturedInnovations />
+      </FadeInSection>
+
+      <FadeInSection>
+        <NewsEvents />
+      </FadeInSection>
+
       {/* <FadeInSection>
         <TestimonialsSection />
       </FadeInSection> */}
 
       <FadeInSection>
-
         {/* ── Bottom CTA strip ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -71,14 +77,14 @@ const Home = () => {
           className=" flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
         >
           <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
-            Ready to start your collaboration journey?
+            {t('readyToStart')}
           </p>
-          <a
+          <Link
             href="/contact"
-            className="text-sm font-black text-[#84CC16] hover:underline underline-offset-4 transition-all"
+            className="text-sm font-black text-[#3A9B9B] hover:underline underline-offset-4 transition-all"
           >
-            Contact us →
-          </a>
+            {t('contactUs')}
+          </Link>
         </motion.div>
       </FadeInSection>
     </>

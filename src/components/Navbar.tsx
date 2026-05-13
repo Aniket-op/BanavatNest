@@ -25,11 +25,9 @@ const Navbar = () => {
             name: t('aboutUs'),
             path: '/about' as const,
             subItems: [
-                { name: t('ourName'), path: '/about/name' as const },
-                { name: t('philosophy'), path: '/about/philosophy' as const },
-                { name: t('mission'), path: '/about/mission' as const },
-                { name: t('ourTeam'), path: '/about/team' as const },
-                { name: t('board'), path: '/about/board' as const },
+                { name: t('ourName'), path: '/aboutUs' as const },
+                { name: t('ourEcosystem'), path: '/bridge/collaboration' as const },
+                { name: t('ourSupportNetwork'), path: '/about/board' as const },
             ]
         },
         {
@@ -44,17 +42,35 @@ const Navbar = () => {
             name: t('bridge'),
             path: '/bridge' as const,
             subItems: [
-                { name: t('collaboration'), path: '/bridge/collaboration' as const },
+                // { name: t('collaboration'), path: '/bridge/collaboration' as const },
                 { name: t('opportunities'), path: '/bridge/opportunities' as const },
                 { name: t('faculty'), path: '/bridge/faculty' as const },
                 { name: t('partnerships'), path: '/bridge/partnerships' as const },
             ]
         },
-        { name: t('contact'), path: '/contact' as const },
+        // {
+        //     name: t('toolsUtilities'),
+        //     path: '/tools' as const,
+        //     subItems: [
+        //         { name: t('emiCalculator'), path: "/tools/emi-calculator" as const },
+        //         { name: t('gstCalculator'), path: "/tools/gst-calculator" as const },
+        //     ]
+        // },
     ];
 
     const handleDropdownEnter = (name: string) => {
         setActiveDropdown(name);
+    };
+
+    // Paths that belong to one nav section but are listed under another
+    const pathOverrides: Record<string, string> = {
+        '/bridge/collaboration': '/about',
+        '/about/board': '/about',
+    };
+
+    const isActive = (linkPath: string) => {
+        const effective = pathOverrides[pathname] ?? pathname;
+        return effective.startsWith(linkPath);
     };
 
     const handleDropdownLeave = () => {
@@ -62,7 +78,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-white/90 dark:bg-[#09090b]/90 backdrop-blur-xl border-b border-gray-100/50 dark:border-zinc-800/50 transition-colors duration-300">
+        <nav className="fixed top-0 w-full z-50 bg-white/90  backdrop-blur-xl border-b border-gray-100/50 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
                     <Link href="/" className="flex items-center transition-transform hover:scale-[1.01]">
@@ -80,9 +96,9 @@ const Navbar = () => {
                             >
                                 {link.subItems ? (
                                     <button
-                                        className={`text-sm font-bold transition-all flex items-center gap-1 py-1 ${pathname.startsWith(link.path)
-                                            ? 'text-[#84CC16]'
-                                            : 'text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100'
+                                        className={`text-sm font-bold transition-all flex items-center gap-1 py-1 ${isActive(link.path)
+                                            ? 'text-[#3A9B9B] dark:text-[#3A9B9B]'
+                                            : 'text-gray-600 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-900'
                                             }`}
                                     >
                                         {link.name}
@@ -92,15 +108,15 @@ const Navbar = () => {
                                     <Link
                                         href={link.path}
                                         className={`text-sm font-bold transition-all relative py-1 ${pathname === link.path
-                                            ? 'text-[#84CC16]'
-                                            : 'text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100'
+                                            ? 'text-[#3A9B9B] dark:text-[#3A9B9B]'
+                                            : 'text-gray-600 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-900'
                                             }`}
                                     >
                                         {link.name}
                                         {pathname === link.path && (
                                             <motion.div
                                                 layoutId="navUnderline"
-                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#84CC16] rounded-full"
+                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3A9B9B] rounded-full"
                                             />
                                         )}
                                     </Link>
@@ -115,13 +131,13 @@ const Navbar = () => {
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                                 exit={{ opacity: 0, y: 5, scale: 0.95 }}
                                                 transition={{ duration: 0.2 }}
-                                                className="absolute top-full left-0 w-64 bg-white dark:bg-[#09090b] border border-gray-100 dark:border-zinc-800 rounded-xl shadow-xl overflow-hidden py-2"
+                                                className="absolute top-full left-0 w-64 bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden py-2"
                                             >
                                                 {link.subItems.map((subItem) => (
                                                     <Link
                                                         key={subItem.path}
                                                         href={subItem.path}
-                                                        className="block px-4 py-3 text-sm text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-900 hover:text-[#84CC16] dark:hover:text-[#84CC16] font-medium transition-colors"
+                                                        className="block px-4 py-3 text-sm text-gray-600 dark:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-50 hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B] font-medium transition-colors"
                                                     >
                                                         {subItem.name}
                                                     </Link>
@@ -132,13 +148,13 @@ const Navbar = () => {
                                 )}
                             </div>
                         ))}
-                        <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-gray-200 dark:border-zinc-800">
+                        <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-gray-200 dark:border-gray-200">
                             <LanguageSwitcher />
                             <ThemeToggle />
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link
                                     href="/contact"
-                                    className="bg-[#5D3A1A] dark:bg-zinc-100 text-white dark:text-zinc-900 px-7 py-2.5 rounded-full text-sm font-bold flex items-center hover:bg-[#4B2C13] dark:hover:bg-zinc-200 transition-all shadow-lg hover:shadow-[#84CC16]/20"
+                                    className="bg-[#2D3561] text-white px-7 py-2.5 rounded-full text-sm font-bold flex items-center hover:bg-[#1f2545] transition-all shadow-lg hover:shadow-[#3A9B9B]/20"
                                 >
                                     {t('contact')} <ArrowUpRight className="ml-2 w-4 h-4" />
                                 </Link>
@@ -152,7 +168,7 @@ const Navbar = () => {
                         <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100 focus:outline-none p-2"
+                            className="text-gray-600 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-900 focus:outline-none p-2"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -167,22 +183,22 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white dark:bg-[#09090b] border-b border-gray-100 dark:border-zinc-800 px-4 pt-2 pb-6 space-y-4 shadow-xl overflow-y-auto max-h-[80vh]"
+                        className="md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-4 shadow-xl overflow-y-auto max-h-[80vh]"
                     >
                         {navLinks.map((link) => (
                             <div key={link.name}>
                                 {link.subItems ? (
-                                    <div className="py-2 border-b border-gray-50 dark:border-zinc-800 last:border-0 pointer-events-auto">
-                                        <span className="block text-lg font-bold text-gray-900 dark:text-zinc-100 mb-2">
+                                    <div className="py-2 border-b border-gray-50 last:border-0 pointer-events-auto">
+                                        <span className="block text-lg font-bold text-gray-900 dark:text-gray-900 mb-2">
                                             {link.name}
                                         </span>
-                                        <div className="pl-4 space-y-2 border-l-2 border-gray-100 dark:border-zinc-800">
+                                        <div className="pl-4 space-y-2 border-l-2 border-gray-100">
                                             {link.subItems.map(subItem => (
                                                 <Link
                                                     key={subItem.path}
                                                     href={subItem.path}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="block text-sm font-medium text-gray-600 dark:text-zinc-400 hover:text-[#84CC16] py-1"
+                                                    className="block text-sm font-medium text-gray-600 dark:text-gray-600 hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B] py-1"
                                                 >
                                                     {subItem.name}
                                                 </Link>
@@ -193,7 +209,7 @@ const Navbar = () => {
                                     <Link
                                         href={link.path}
                                         onClick={() => setIsOpen(false)}
-                                        className="block text-lg font-bold text-gray-900 dark:text-zinc-100 hover:text-[#84CC16] py-2 border-b border-gray-50 dark:border-zinc-800 last:border-0"
+                                        className="block text-lg font-bold text-gray-900 dark:text-gray-900 hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B] py-2 border-b border-gray-50 last:border-0"
                                     >
                                         {link.name}
                                     </Link>
@@ -203,7 +219,7 @@ const Navbar = () => {
                         <Link
                             href="/contact"
                             onClick={() => setIsOpen(false)}
-                            className="block w-full text-center bg-[#5D3A1A] dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-4 rounded-xl font-bold shadow-lg mt-4"
+                            className="block w-full text-center bg-[#2D3561] text-white px-6 py-4 rounded-xl font-bold shadow-lg mt-4"
                         >
                             {t('contact')}
                         </Link>

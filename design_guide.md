@@ -2,6 +2,8 @@
 
 A comprehensive reference distilled from the entire codebase to ensure **visual consistency** across all future pages, components, and features.
 
+> **v2 Update:** Color theme updated to match the official BanavatNest logo — navy blue primary, teal accent, and leaf green CTA. The previous lime-green (`#84CC16`) and warm brown (`#5D3A1A`) palette has been fully replaced.
+
 ---
 
 ## 1. Color Palette
@@ -10,10 +12,12 @@ A comprehensive reference distilled from the entire codebase to ensure **visual 
 
 | Role | Light Mode | Dark Mode | Tailwind Class | Hex |
 |---|---|---|---|---|
-| **Primary Accent** | Lime green | Lime green | `text-[#84CC16]`, `bg-[#84CC16]` | `#84CC16` |
-| **Primary Accent (hover/pressed)** | Darker lime | Darker lime | `hover:bg-[#65A30D]` | `#65A30D` |
-| **CTA Button** | Warm brown | Zinc-100 | `bg-[#5D3A1A]` / `dark:bg-zinc-100` | `#5D3A1A` |
-| **CTA Button (hover)** | Darker brown | Zinc-200 | `hover:bg-[#4B2C13]` / `dark:hover:bg-zinc-200` | `#4B2C13` |
+| **Primary (Navy)** | Deep navy | Deep navy | `text-[#2D3561]`, `bg-[#2D3561]` | `#2D3561` |
+| **Primary (hover)** | Darker navy | Darker navy | `hover:bg-[#1f2545]` | `#1f2545` |
+| **Accent (Teal)** | Teal | Teal | `text-[#3A9B9B]`, `bg-[#3A9B9B]` | `#3A9B9B` |
+| **Accent (hover)** | Darker teal | Darker teal | `hover:bg-[#2a7676]` | `#2a7676` |
+| **CTA Button** | Leaf green | Teal | `bg-[#5BBD4A]` / `dark:bg-[#3A9B9B]` | `#5BBD4A` |
+| **CTA Button (hover)** | Darker green | Darker teal | `hover:bg-[#3a8a2c]` / `dark:hover:bg-[#2a7676]` | `#3a8a2c` |
 
 ### Neutral / Background Colors
 
@@ -24,7 +28,7 @@ A comprehensive reference distilled from the entire codebase to ensure **visual 
 | **Footer Background** | `bg-white` | `dark:bg-[#070708]` | Footer only |
 | **Navbar** | `bg-white/90` | `dark:bg-[#09090b]/90` | Fixed top nav with `backdrop-blur-xl` |
 | **Input Fields** | `bg-zinc-50` or `bg-white` | `dark:bg-zinc-950` | Form elements |
-| **Subtle Surface** | `bg-zinc-50` or `bg-gray-50` | `dark:bg-zinc-800/50` | Secondary panels, icon bg |
+| **Subtle Surface** | `bg-[#E8F7F7]` or `bg-[#EAF8EA]` | `dark:bg-zinc-800/50` | Secondary panels, icon bg |
 
 ### Text Colors
 
@@ -33,7 +37,9 @@ A comprehensive reference distilled from the entire codebase to ensure **visual 
 | **Heading / Primary** | `text-zinc-900` | `dark:text-zinc-100` |
 | **Body / Secondary** | `text-zinc-600` or `text-gray-500` | `dark:text-zinc-400` |
 | **Muted / Tertiary** | `text-zinc-500` or `text-gray-400` | `dark:text-zinc-500` |
-| **Active Nav / Highlight** | `text-[#84CC16]` | `text-[#84CC16]` |
+| **Active Nav / Highlight** | `text-[#3A9B9B]` | `text-[#3A9B9B]` |
+| **Brand Name — "Banavat"** | `text-[#2D3561]` | `dark:text-zinc-100` |
+| **Brand Name — "Nest"** | `text-[#3A9B9B]` | `text-[#3A9B9B]` |
 
 ### Border Colors
 
@@ -42,7 +48,8 @@ A comprehensive reference distilled from the entire codebase to ensure **visual 
 | **Card / Section Borders** | `border-zinc-100` or `border-zinc-200` | `dark:border-zinc-800` |
 | **Navbar Border** | `border-gray-100/50` | `dark:border-zinc-800/50` |
 | **Footer Separator** | `border-gray-100` | `dark:border-zinc-900` |
-| **Focus State (forms)** | `focus:border-[#84CC16]` | `focus:border-[#84CC16]` |
+| **Focus State (forms)** | `focus:border-[#3A9B9B]` | `focus:border-[#3A9B9B]` |
+| **Card hover (teal)** | `hover:border-[#3A9B9B]/30` | `dark:hover:border-[#3A9B9B]/30` |
 
 ### Accent Colors (per domain / focus area)
 
@@ -50,13 +57,13 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 
 | Domain | Accent | Usage |
 |---|---|---|
-| AI/ML | `text-blue-500` / `text-[#84CC16]` | R&D, AI cards |
-| Cybersecurity | `text-green-500` / `text-emerald-500` | Cyber cards |
-| Smart Systems | `text-teal-500` / `text-purple-500` | Smart cards |
-| Agriculture | `text-lime-500` / `text-amber-500` | Agri cards |
+| AI/ML | `text-blue-500` / `text-[#2D3561]` | R&D, AI cards |
+| Cybersecurity | `text-[#3A9B9B]` / `text-teal-500` | Cyber cards |
+| Smart Systems | `text-purple-500` / `text-violet-500` | Smart cards |
+| Agriculture | `text-[#5BBD4A]` / `text-emerald-500` | Agri cards |
 
 > [!IMPORTANT]
-> The **primary accent is always `#84CC16` (lime-500)**. Domain-specific accents are only for icon tints and hover borders on cards. Every other UI element (nav highlight, active indicator, focus rings, CTA, links) must use `#84CC16`.
+> The **primary accent is always `#3A9B9B` (teal)**. The **CTA / submit color is `#5BBD4A` (leaf green)**. The **brand primary is `#2D3561` (navy)**. Domain-specific accents are only for icon tints and hover borders on cards. Every other UI element (nav highlight, active indicator, focus rings, links) must use `#3A9B9B`.
 
 ---
 
@@ -104,7 +111,7 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 - **Section vertical padding**: `py-24` or `pt-24 pb-20`
 
 ### Grid System
-- **2-column layout**: `grid grid-cols-1 md:grid-cols-2 gap-12` (pages like Board, Contact)
+- **2-column layout**: `grid grid-cols-1 md:grid-cols-2 gap-12`
 - **4-column footer**: `grid grid-cols-1 md:grid-cols-4 gap-12`
 - **Bento grid (cards)**: `grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8`
 
@@ -139,8 +146,10 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 | **Elevated card (hover)** | `shadow-xl` → `hover:shadow-2xl` | Card hover states |
 | **Navbar** | None (uses border + backdrop-blur) | Nav bar |
 | **CTA buttons** | `shadow-lg` or `shadow-xl` | Primary actions |
-| **Dark mode glow** | `dark:hover:shadow-[0_0_40px_rgba(132,204,22,0.15)]` | Board cards, special hover states |
+| **Dark mode glow** | `dark:hover:shadow-[0_0_40px_rgba(58,155,155,0.15)]` | Board cards, special hover states |
 | **Image overlays** | `shadow-2xl` | Image carousels |
+
+> **Updated:** Dark mode glow now uses teal (`rgba(58,155,155,0.15)`) instead of lime green.
 
 ---
 
@@ -155,8 +164,8 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 1. Every `bg-*` must have a `dark:bg-*` counterpart
 2. Every `text-*` must have a `dark:text-*` counterpart
 3. Every `border-*` must have a `dark:border-*` counterpart
-4. Accent color (`#84CC16`) stays the same in both themes
-5. CTA buttons **invert**: brown in light → zinc-100 in dark
+4. Teal accent (`#3A9B9B`) stays the same in both themes
+5. CTA buttons adapt: green (`#5BBD4A`) in light → teal (`#3A9B9B`) in dark
 
 ---
 
@@ -192,7 +201,7 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="max-w-4xl">
       <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tighter leading-tight">
-        Title <span className="text-[#84CC16]">Highlight</span>
+        Title <span className="text-[#3A9B9B]">Highlight</span>
       </h1>
       <p className="text-xl md:text-2xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
         Subtitle text
@@ -207,12 +216,12 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 - Border: `border border-zinc-100 dark:border-zinc-800`
 - Radius: `rounded-[2.5rem]`
 - Padding: `p-8 md:p-10`
-- Hover: `hover:shadow-2xl` + optional `dark:hover:border-lime-500/30`
+- Hover: `hover:shadow-2xl` + optional `dark:hover:border-teal-500/30`
 
 ### Form Inputs
 - Background: `bg-zinc-50 dark:bg-zinc-950`
 - Border: `border border-zinc-200 dark:border-zinc-800`
-- Focus: `focus:outline-none focus:border-[#84CC16]`
+- Focus: `focus:outline-none focus:border-[#3A9B9B]`
 - Radius: `rounded-xl`
 - Padding: `px-4 py-3`
 
@@ -220,9 +229,10 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 
 | Type | Light Classes | Dark Classes |
 |---|---|---|
-| **Primary CTA** | `bg-[#5D3A1A] text-white rounded-full font-black shadow-xl hover:bg-[#4B2C13]` | `dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200` |
-| **Secondary / Outline** | `border-2 border-zinc-900 bg-transparent text-zinc-900 rounded-full font-black` | `dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700` |
-| **Accent Submit** | `bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold rounded-xl` | Same |
+| **Primary CTA** | `bg-[#5BBD4A] text-white rounded-full font-black shadow-xl hover:bg-[#3a8a2c]` | `dark:bg-[#3A9B9B] dark:text-white dark:hover:bg-[#2a7676]` |
+| **Secondary / Outline** | `border-2 border-[#2D3561] bg-transparent text-[#2D3561] rounded-full font-black` | `dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700` |
+| **Navy / Brand** | `bg-[#2D3561] text-white rounded-full font-black shadow-xl hover:bg-[#1f2545]` | Same |
+| **Accent Submit** | `bg-[#3A9B9B] hover:bg-[#2a7676] text-white font-bold rounded-xl` | Same |
 
 ---
 
@@ -230,7 +240,7 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 
 - **Library**: Lucide React (`lucide-react`)
 - **Standard size**: `w-5 h-5` (nav, footer), `w-6 h-6` (cards, contact), `w-7 h-7` (hero domain icons)
-- **Icon color follows text**: inherits from parent text color or uses `text-[#84CC16]` for accent
+- **Icon color follows text**: inherits from parent text color or uses `text-[#3A9B9B]` for accent
 
 ---
 
@@ -239,13 +249,14 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 | Element | Implementation |
 |---|---|
 | **Grid background** | `.grid-bg` class — radial dot pattern (`40px` spacing, `1.5px` dots) |
-| **Gradient blobs (dark mode)** | `bg-[#84CC16]/10 blur-[130px]` — large blurred circles |
-| **Hover glow (dark mode)** | `.glow-hover` — `box-shadow: 0 0 40px rgba(132, 204, 22, 0.12)` |
-| **Accent bars** | `w-16 h-1 bg-[#84CC16]` — section dividers |
-| **Dot indicators (lists)** | `w-1.5 h-1.5 rounded-full bg-lime-400` or `bg-[#5D3A1A]` |
-| **Carousel dots (active)** | `bg-[#84CC16] w-8 h-2 rounded-full` |
+| **Gradient blobs (dark mode)** | `bg-[#3A9B9B]/10 blur-[130px]` — large blurred teal circles |
+| **Secondary blob** | `bg-[#2D3561]/10 blur-[130px]` — navy blob for depth |
+| **Hover glow (dark mode)** | `.glow-hover` — `box-shadow: 0 0 40px rgba(58, 155, 155, 0.12)` |
+| **Accent bars** | `w-16 h-1 bg-[#3A9B9B]` — section dividers |
+| **Dot indicators (lists)** | `w-1.5 h-1.5 rounded-full bg-[#5BBD4A]` or `bg-[#3A9B9B]` |
+| **Carousel dots (active)** | `bg-[#3A9B9B] w-8 h-2 rounded-full` |
 | **Carousel dots (inactive)** | `bg-gray-300 dark:bg-zinc-700 w-2 h-2` |
-| **Text selection** | `background-color: #bef264; color: #18181b` |
+| **Text selection** | `background-color: #b2e8e8; color: #18181b` |
 | **Glassmorphism** | `backdrop-blur-xl` (navbar), `backdrop-blur-md` (carousel controls) |
 
 ---
@@ -253,25 +264,51 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 ## 11. Known Inconsistencies to Fix
 
 > [!WARNING]
-> The following deviations from the design system were found during the audit:
+> The following deviations from the design system were found during the audit, updated to reflect the new color theme:
 
 | File | Issue | Recommended Fix |
 |---|---|---|
-| [LoadingSpinner.tsx](file:///c:/Users/akani/OneDrive/Desktop/banavatnest/BanavatNest/src/components/LoadingSpinner.tsx) | Uses `#3b82f6` (blue-500) for spinner border — off-brand | Change to `#84CC16` |
-| [LoadingSpinner.tsx](file:///c:/Users/akani/OneDrive/Desktop/banavatnest/BanavatNest/src/components/LoadingSpinner.tsx) | Uses inline styles instead of Tailwind classes | Convert to Tailwind for consistency |
-| [PartnersFeedback.tsx](file:///c:/Users/akani/OneDrive/Desktop/banavatnest/BanavatNest/src/components/PartnersFeedback.tsx) | Form inputs use `rounded-lg` while Contact page uses `rounded-xl` | Standardize to `rounded-xl` |
+| `LoadingSpinner.tsx` | Uses `#3b82f6` (blue-500) for spinner border — off-brand | Change to `#3A9B9B` |
+| `LoadingSpinner.tsx` | Uses inline styles instead of Tailwind classes | Convert to Tailwind for consistency |
+| `PartnersFeedback.tsx` | Form inputs use `rounded-lg` while Contact page uses `rounded-xl` | Standardize to `rounded-xl` |
+| All files | Any remaining `#84CC16` lime-green references | Replace with `#3A9B9B` (teal) for accents or `#5BBD4A` (green) for CTA |
+| All files | Any remaining `#5D3A1A` / `#4B2C13` warm brown references | Replace with `#2D3561` / `#1f2545` (navy) |
+| All files | Dark mode glow using lime rgba | Update to `rgba(58,155,155,0.15)` |
 
 ---
 
-## 12. Quick Reference Cheat Sheet
+## 12. Color Migration Map
+
+> [!NOTE]
+> Quick find-and-replace reference when migrating from the old lime/brown palette:
+
+| Old Value | New Value | Role |
+|---|---|---|
+| `#84CC16` | `#3A9B9B` | Primary accent → Teal accent |
+| `#65A30D` | `#2a7676` | Accent hover → Teal hover |
+| `#5D3A1A` | `#2D3561` | CTA / Button → Navy primary |
+| `#4B2C13` | `#1f2545` | CTA hover → Navy hover |
+| `rgba(132,204,22,...)` | `rgba(58,155,155,...)` | Glow / blob → Teal glow |
+| `#bef264` (text selection) | `#b2e8e8` | Selection highlight → Teal tint |
+
+---
+
+## 13. Quick Reference Cheat Sheet
 
 ```
 ┌─────────────────────────────────────────────────┐
 │  BRAND COLORS                                   │
-│  Primary Accent:    #84CC16  (lime)             │
-│  Accent Hover:      #65A30D  (dark lime)        │
-│  CTA Brown:         #5D3A1A  (warm brown)       │
-│  CTA Brown Hover:   #4B2C13  (darker brown)     │
+│  Navy (Primary):    #2D3561                     │
+│  Navy Hover:        #1f2545                     │
+│  Teal (Accent):     #3A9B9B                     │
+│  Teal Hover:        #2a7676                     │
+│  Green (CTA):       #5BBD4A                     │
+│  Green Hover:       #3a8a2c                     │
+│                                                 │
+│  TINTS / SURFACES                               │
+│  Teal Tint:         #E8F7F7  (cards, badges)   │
+│  Green Tint:        #EAF8EA  (badges, tags)     │
+│  Navy Tint:         #EAECF5  (subtle panels)    │
 │                                                 │
 │  BACKGROUNDS                                    │
 │  Light Page:        zinc-50  (#fafafa)          │
@@ -284,6 +321,7 @@ These secondary accents are used **only for domain-specific cards** (icon tint, 
 │  Dark Heading:      zinc-100                    │
 │  Light Body:        zinc-600 / gray-500         │
 │  Dark Body:         zinc-400                    │
+│  Nav Active:        #3A9B9B (both modes)        │
 │                                                 │
 │  SHAPES                                         │
 │  Cards:             rounded-[2.5rem]            │

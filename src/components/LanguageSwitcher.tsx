@@ -42,7 +42,7 @@ export default function LanguageSwitcher() {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-bold text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-zinc-100 hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-all"
+                className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-bold text-gray-600 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-50 transition-all"
                 aria-label={t('label')}
             >
                 <Globe className="w-4 h-4" />
@@ -59,7 +59,7 @@ export default function LanguageSwitcher() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 4, scale: 0.95 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-[#09090b] border border-gray-100 dark:border-zinc-800 rounded-xl shadow-xl overflow-hidden z-50"
+                        className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-xl overflow-hidden z-50"
                     >
                         {locales.map((locale) => (
                             <button
@@ -67,16 +67,16 @@ export default function LanguageSwitcher() {
                                 onClick={() => switchLocale(locale.code)}
                                 className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors
                   ${currentLocale === locale.code
-                                        ? 'bg-lime-50 dark:bg-lime-900/10 text-[#84CC16]'
-                                        : 'text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-900 hover:text-[#84CC16]'
+                                        ? 'bg-teal-50 text-[#3A9B9B] dark:bg-teal-50 dark:text-[#3A9B9B]'
+                                        : 'text-gray-600 dark:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-50 hover:text-[#3A9B9B] dark:hover:text-[#3A9B9B]'
                                     }`}
                             >
                                 <span className="flex items-center gap-3">
                                     <span className="text-base">{locale.nativeLabel}</span>
-                                    <span className="text-xs text-gray-400 dark:text-zinc-600">{locale.label}</span>
+                                    <span className="text-xs text-gray-400 dark:text-gray-400">{locale.label}</span>
                                 </span>
                                 {currentLocale === locale.code && (
-                                    <Check className="w-4 h-4 text-[#84CC16]" />
+                                    <Check className="w-4 h-4 text-[#3A9B9B] dark:text-[#3A9B9B]" />
                                 )}
                             </button>
                         ))}

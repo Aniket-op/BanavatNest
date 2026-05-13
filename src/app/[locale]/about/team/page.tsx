@@ -13,7 +13,7 @@ export default function TeamPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="max-w-4xl">
                             <h1 className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-8 tracking-tighter leading-tight">
-                                {t('title')} <span className="text-[#84CC16]">{t('titleHighlight')}</span>
+                                {t('title')} <span className="text-[#3A9B9B]">{t('titleHighlight')}</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
                                 {t('subtitle')}
@@ -30,21 +30,21 @@ export default function TeamPage() {
                             </p>
                             <div className="grid md:grid-cols-3 gap-8 mb-12">
                                 <div className="bg-zinc-50 dark:bg-zinc-800/50 p-6 rounded-2xl">
-                                    <strong className="block text-[#84CC16] mb-2 text-xl font-black uppercase">{t('studentsTitle')}</strong>
+                                    <strong className="block text-[#3A9B9B] mb-2 text-xl font-black uppercase">{t('studentsTitle')}</strong>
                                     <p className="text-gray-600 dark:text-zinc-400 text-sm">{t('studentsDesc')}</p>
                                 </div>
                                 <div className="bg-zinc-50 dark:bg-zinc-800/50 p-6 rounded-2xl">
-                                    <strong className="block text-[#84CC16] mb-2 text-xl font-black uppercase">{t('facultyTitle')}</strong>
+                                    <strong className="block text-[#3A9B9B] mb-2 text-xl font-black uppercase">{t('facultyTitle')}</strong>
                                     <p className="text-gray-600 dark:text-zinc-400 text-sm">{t('facultyDesc')}</p>
                                 </div>
                                 <div className="bg-zinc-50 dark:bg-zinc-800/50 p-6 rounded-2xl">
-                                    <strong className="block text-[#84CC16] mb-2 text-xl font-black uppercase">{t('partnersTitle')}</strong>
+                                    <strong className="block text-[#3A9B9B] mb-2 text-xl font-black uppercase">{t('partnersTitle')}</strong>
                                     <p className="text-gray-600 dark:text-zinc-400 text-sm">{t('partnersDesc')}</p>
                                 </div>
                             </div>
 
-                            <div className="p-8 bg-lime-50/50 dark:bg-zinc-800/20 border border-lime-100 dark:border-zinc-700 rounded-3xl text-center">
-                                <p className="text-[#5D3A1A] dark:text-zinc-200 font-bold text-lg m-0">
+                            <div className="p-8 bg-teal-50/50 dark:bg-zinc-800/20 border border-teal-100 dark:border-zinc-700 rounded-3xl text-center">
+                                <p className="text-[#2D3561] dark:text-zinc-200 font-bold text-lg m-0">
                                     {t('quote')}
                                 </p>
                             </div>

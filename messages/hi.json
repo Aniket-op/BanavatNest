@@ -20,6 +20,7 @@
     "nav": {
         "home": "मुख्य पृष्ठ",
         "aboutUs": "हमारे बारे में",
+        "aboutUsMain": "हमारे बारे में",
         "ourName": "हमारा नाम",
         "philosophy": "दर्शन और मूल मूल्य",
         "mission": "मिशन और विज़न",
@@ -28,12 +29,17 @@
         "whatWeDo": "हम क्या करते हैं",
         "focusAreas": "फ़ोकस क्षेत्र",
         "domains": "डोमेन",
-        "bridge": "शिक्षा-उद्योग सेतु",
+        "bridge": "सहयोग",
         "collaboration": "सहयोग मॉडल",
-        "opportunities": "छात्रों के लिए अवसर",
-        "faculty": "संकाय सहभागिता",
-        "partnerships": "उद्योग साझेदारी",
-        "contact": "संपर्क"
+        "opportunities": "छात्र और नवाचारकर्ता",
+        "faculty": "संकाय और शोधकर्ता",
+        "partnerships": "उद्योग और स्टार्टअप",
+        "contact": "संपर्क",
+        "ourEcosystem": "हमारा पारिस्थितिकी तंत्र",
+        "ourSupportNetwork": "हमारा समर्थन नेटवर्क",
+        "toolsUtilities": "उपकरण और उपयोगिताएँ",
+        "emiCalculator": "EMI कैलकुलेटर",
+        "gstCalculator": "GST कैलकुलेटर"
     },
     "footer": {
         "companyName": "BanavatNest Private Limited",
@@ -43,7 +49,105 @@
         "company": "कंपनी",
         "aboutUs": "हमारे बारे में",
         "privacyPolicy": "गोपनीयता नीति",
-        "termsOfUse": "उपयोग की शर्तें"
+        "termsOfUse": "उपयोग की शर्तें",
+        "registeredAddressLabel": "पंजीकृत पता:",
+        "incubationSupportLabel": "इनक्यूबेशन सहायता:",
+        "registeredAddress": "बाजितपुर, सुताहाटा, पश्चिम बंगाल-721645",
+        "incubationSupport": "STEP-TIET, पटियाला, पंजाब-147004"
+    },
+    "newsEvents": {
+        "latestUpdates": "नवीनतम अपडेट",
+        "sectionTitle": "समाचार और",
+        "sectionHighlight": "आयोजन",
+        "viewOnLinkedIn": "LinkedIn पर देखें",
+        "post1Tag": "आयोजन",
+        "post1Date": "अप्रैल 2026",
+        "post1Headline": "BanavatNest ROFT-2026, TIET की क्विज़ प्रतियोगिता का गर्वित प्रायोजक",
+        "post1Body": "BanavatNest Pvt. Ltd. को ROFT-2026 की क्विज़ प्रतियोगिता का प्रायोजक बनकर गर्व हुआ, जो गणित विभाग, थापर इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी द्वारा आयोजित की गई थी। इस आयोजन में उत्साहपूर्ण भागीदारी देखी गई, जो प्रतिभागियों में मजबूत जिज्ञासा और संलग्नता को दर्शाती है।",
+        "post2Tag": "समाचार",
+        "post2Date": "अप्रैल 2026",
+        "post2Headline": "पेटेंट स्मार्ट मछली-फीडिंग सिस्टम के लिए परिनियोजन स्थल अंतिम",
+        "post2Body": "BanavatNest Pvt. Ltd. ने अपने सौर-ऊर्जा संचालित स्वचालित फ्लोटिंग मछली-फीडिंग सिस्टम के फील्ड अध्ययन के लिए परिनियोजन स्थल को अंतिम रूप दिया है। हमें गर्व है कि हमारे एक संस्थापक निदेशक इस पेटेंट तकनीक के आविष्कारक हैं।",
+        "post3Tag": "आगामी आयोजन",
+        "post3Date": "आगामी",
+        "post3Headline": "पूर्णिमा फोटोग्राफी चुनौती",
+        "post3Body": "BanavatNest द्वारा आयोजित निर्देशित फोटोग्राफी और अवलोकन सत्रों के माध्यम से पूर्णिमा की सुंदरता का अनुभव करें। प्लेटफ़ॉर्म दूरबीन, लेंस और कैमरा सहायता प्रदान करेगा। चुने गए प्रविष्टियों को रोमांचक पुरस्कार मिलेंगे।\n\nस्थल: थापर इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी (TIET), पटियाला"
+    },
+    "featuredInnovations": {
+        "ourShowcase": "हमारी प्रदर्शनी",
+        "sectionTitle": "विशेष",
+        "sectionHighlight": "नवाचार",
+        "inn1Tag": "जलकृषि",
+        "inn1Date": "प्रोटोटाइप विकास और फील्ड परिनियोजन",
+        "inn1Headline": "स्मार्ट सौर-ऊर्जा चालित फ्लोटिंग मछली-फीडिंग सिस्टम",
+        "inn1Body": "हमारे एक निदेशक द्वारा आविष्कृत एक पेटेंट स्मार्ट जलकृषि नवाचार, जो एकीकृत सौर-ऊर्जा चालित फ्लोटिंग असेंबली सिस्टम के माध्यम से स्वचालित और टिकाऊ मछली-फीडिंग पर केंद्रित है।",
+        "inn2Tag": "एकीकृत खेती",
+        "inn2Date": "प्रोटोटाइप विकास और अनुसंधान अनुवाद",
+        "inn2Headline": "एकीकृत तालाब और पशुधन आश्रय प्रणाली",
+        "inn2Body": "हमारे एक निदेशक द्वारा आविष्कृत एक पेटेंट एकीकृत खेती नवाचार, जो स्वचालित, बुद्धिमान और संसाधन-कुशल आश्रय और तालाब एकीकरण प्रणालियों के माध्यम से टिकाऊ जलकृषि और पशुधन प्रबंधन का समर्थन करने के लिए डिज़ाइन किया गया है।",
+        "inn3Tag": "सहायक तकनीक",
+        "inn3Date": "पेटेंट प्रकाशित — FER दाखिल",
+        "inn3Headline": "स्मार्ट खाद्य-चुनाई सहायता उपकरण",
+        "inn3Body": "एक अनुसंधान-आधारित बुद्धिमान सहायता नवाचार, जो अनुकूली सेंसिंग, स्मार्ट हैंडलिंग तंत्र और उपयोगकर्ता-उन्मुख डिज़ाइन के माध्यम से स्वचालित खाद्य-चुनाई सहायता पर केंद्रित है।",
+        "inn4Tag": "सॉफ्टवेयर समाधान",
+        "inn4Date": "विकास और अनुसंधान अनुवाद चरण में",
+        "inn4Headline": "वित्तीय प्रणाली और सॉफ्टवेयर समाधान",
+        "inn4Body": "बुद्धिमान वित्तीय विश्लेषण, स्वचालन, निगरानी और निर्णय-समर्थन अनुप्रयोगों के लिए सुरक्षित और स्केलेबल सॉफ्टवेयर समाधान बनाना।",
+        "inn5Tag": "स्मार्ट कृषि",
+        "inn5Date": "अनुसंधान पत्र प्रकाशित — प्रोटोटाइप विकास",
+        "inn5Headline": "स्वचालित सौर-ऊर्जा चालित स्मार्ट सिंचाई प्रणाली",
+        "inn5Body": "एक स्मार्ट और टिकाऊ सिंचाई समाधान, जो सौर-ऊर्जा संचालन, बुद्धिमान निगरानी और कुशल जल प्रबंधन के माध्यम से स्वचालित पौधों की सिंचाई के लिए डिज़ाइन किया गया है।",
+        "inn6Tag": "कस्टम समाधान",
+        "inn6Date": "चल रहे सहयोगी विकास",
+        "inn6Headline": "अनुकूलित समाधान विकास",
+        "inn6Body": "विशिष्ट उद्योग, शैक्षणिक, स्वचालन, विश्लेषण और वास्तविक दुनिया की परिचालन आवश्यकताओं के अनुरूप अनुसंधान-आधारित और प्रौद्योगिकी-उन्मुख अनुकूलित समाधान विकसित करना।",
+        "inn7Tag": "स्वास्थ्य सेवा तकनीक",
+        "inn7Date": "अनुसंधान और समाधान विकास चरण",
+        "inn7Headline": "स्वास्थ्य सेवा प्रणाली विकास",
+        "inn7Body": "अनुसंधान, नवाचार और प्रणाली-उन्मुख विकास के माध्यम से वास्तविक दुनिया की नैदानिक, निगरानी, स्वचालन और रोगी-देखभाल चुनौतियों को हल करने पर केंद्रित बुद्धिमान और प्रौद्योगिकी-चालित स्वास्थ्य सेवा समाधान डिज़ाइन करना।"
+    },
+    "collaborationPage": {
+        "heroQuote": "BanavatNest Pvt. Ltd. — जहाँ अनुसंधान प्रोटोटाइप से मिलता है, और प्रोटोटाइप वास्तविक दुनिया के प्रभाव की ओर बढ़ते हैं।",
+        "whoCanTitle": "कौन",
+        "whoCanHighlight": "सहयोग कर सकता है",
+        "whoCanDesc": "नवाचार और वास्तविक दुनिया के प्रभाव से प्रेरित छात्रों, संकाय, शोधकर्ताओं, स्टार्टअप और उद्योग भागीदारों के लिए खुला।",
+        "journeyTitle": "नवाचार",
+        "journeyHighlight": "यात्रा",
+        "journeyEyebrow": "जिज्ञासा से प्रभाव तक",
+        "journeyHeadline": "जिज्ञासा-चालित विचारों को व्यावहारिक, स्केलेबल और प्रभावशाली वास्तविक दुनिया के समाधानों में बदलना।",
+        "approachTitle": "हमारा",
+        "approachHighlight": "दृष्टिकोण",
+        "approachP1": "हम एक समस्या-चालित दृष्टिकोण अपनाते हैं जहाँ वास्तविक दुनिया की उद्योग चुनौतियों को शैक्षणिक अनुसंधान अवसरों और छात्र-नेतृत्व नवाचार परियोजनाओं में मैप किया जाता है। सहयोग संयुक्त पर्यवेक्षण, मील-पत्थर-आधारित निष्पादन, निरंतर मार्गदर्शन और प्रोटोटाइप-चालित विकास के माध्यम से सक्षम है।",
+        "approachP2": "हमारा पारिस्थितिकी तंत्र अंतर-विषयी सहयोग को प्रोत्साहित करता है जहाँ विचार अनुसंधान, प्रयोग, प्रोटोटाइपिंग और निरंतर नवाचार के माध्यम से विकसित होते हैं।"
+    },
+    "boardPage": {
+        "badge": "नवाचार • मार्गदर्शन • इनक्यूबेशन",
+        "heroTitle": "इनक्यूबेशन और",
+        "heroHighlight": "मेंटरशिप",
+        "tietTitle": "थापर इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी (TIET)",
+        "stat1Val": "70+ वर्ष",
+        "stat1Label": "शैक्षणिक उत्कृष्टता",
+        "stat2Val": "NAAC A++",
+        "stat2Label": "मान्यता प्राप्त संस्थान",
+        "stat3Val": "पारिस्थितिकी तंत्र",
+        "stat3Label": "अनुसंधान से प्रभाव",
+        "desc1": "साइंस एंड टेक्नोलॉजी एंटरप्रेन्योर्स पार्क (STEP) और वेंचर लैब TIET मिलकर TIET में नवाचार और स्टार्टअप इनक्यूबेशन पारिस्थितिकी तंत्र बनाते हैं।",
+        "desc2": "NSTEDB-DST, MeitY स्टार्टअप हब और स्टार्टअप इंडिया द्वारा समर्थিত, यह पारिस्थितिकी तंत्र नवाचार, उद्यमिता और अनुसंधान-आधारित स्टार्टअप विकास को बढ़ावा देता है।",
+        "stepTietTitle": "STEP-TIET",
+        "stepTietSubtitle": "इनक्यूबेशन सेंटर",
+        "supportingText": "सहायता",
+        "supportingIn": "में",
+        "feat1Title": "अनुसंधान-आधारित TEP नवाचार",
+        "feat1Desc": "गहन अनुसंधान के माध्यम से नवाचार को बढ़ावा देना।",
+        "feat2Title": "प्रोटोटाइप-उन्मुख निष्पादन",
+        "feat2Desc": "विचारों को कार्यात्मक प्रोटोटাইপ में बदलना।",
+        "feat3Title": "उद्यमशीलता की यात्रा",
+        "feat3Desc": "विचार से विकास तक स्टार्टअप्स का मार्गदर्शन करना।",
+        "feat4Title": "नेटवर्किंग सहायता",
+        "feat4Desc": "मेंटर और उद्योग के साथ जुड़ना।",
+        "boardTitle": "निदेशक",
+        "boardHighlight": "मंडल",
+        "viewPortfolio": "पोर्टफोलियो देखें"
     },
     "home": {
         "badge": "अनुसंधान-आधारित नवाचार पारिस्थितिकी तंत्र",
@@ -56,6 +160,7 @@
         "ctaBridge": "हमारा सेतु",
         "updateTitle": "BanavatNest की आधिकारिक वेबसाइट लाइव हुई",
         "updateTitle2": "BanavatNest ROFT 2026 के प्रतिभागियों का स्वागत करता है | 👉 इवेंट देखें",
+        "updateTitle3": "BanavatNest Pvt. Ltd. ROFT 2026 क्विज़ प्रतियोगिता के विजेताओं को बधाई देता है।",
         "domainAiTitle": "AI और ML",
         "domainAiDesc": "आर्टिफिशियल इंटेलिजेंस, मशीन लर्निंग और डेटा साइंस",
         "domainCyberTitle": "साइबर सुरक्षा",
@@ -148,7 +253,30 @@
                     }
                 }
             }
-        }
+        },
+        "readyToStart": "अपनी सहयोग यात्रा शुरू करने के लिए तैयार हैं?",
+        "contactUs": "हमसे संपर्क करें →"
+    },
+    "aboutUsPage": {
+        "title": "हमारे बारे",
+        "titleHighlight": "में",
+        "subtitle": "जिज्ञासा से प्रभाव तक विचारों को पोषित करने वाला अनुसंधान-आधारित नवाचार।",
+        "coreValuesTitle": "हमारे मूल",
+        "coreValuesHighlight": "मूल्य",
+        "coreValuesSubheading": "उद्देश्यपूर्ण नवाचार और व्यवस्थित विकास के माध्यम से भविष्य का निर्माण।",
+        "coreValuesIntro": "<brand>BanavatNest</brand> में, हमारा मानना है कि नवाचार केवल विचारों के बारे में नहीं है -- यह उन्हें उद्देश्य, प्रक्रिया और प्रोटोटाइप के माध्यम से तब तक पोषित करने के बारे में है जब तक कि वे सार्थक प्रगति न कर लें।",
+        "meaningHeading": "अर्थ",
+        "whyTheName": "नाम क्यों",
+        "whyTheNameHighlight": "BanavatNest ?",
+        "symbolismLabel": "<brand>BanavatNest</brand> का प्रतीकवाद",
+        "purposeTitle": "उद्देश्य",
+        "purposeDesc": "हम यह क्यों करते हैं",
+        "processTitle": "प्रक्रिया",
+        "processDesc": "हम इसे कैसे अपनाते हैं",
+        "prototypeTitle": "प्रोटोटाइप",
+        "prototypeDesc": "हम क्या बनाते हैं",
+        "progressTitle": "प्रगति",
+        "progressDesc": "इसका क्या प्रभाव पड़ता है"
     },
     "aboutName": {
         "title": "हमारा",
@@ -156,10 +284,13 @@
         "subtitle": "सृजन और नवाचार के पोषण के दर्शन का प्रतीक।",
         "meaningTitle": "अर्थ",
         "banavatTitle": "बनावट",
-        "banavatDesc": "पंजाबी उपयोग से लिया गया, इसका अर्थ है बनाना, गढ़ना, निर्माण करना और सृजन करना। यह सक्रिय निर्माण, विचारशील डिज़ाइन और उद्देश्यपूर्ण रचना की भावना को व्यक्त करता है।",
+        "banavatDesc": "हिंदी से लिया गया और पंजाबी में व्यापक रूप से प्रयुक्त होने वाला शब्द 'बनावट', विचारों को किसी उद्देश्य और इरादे के साथ गढ़ने, निर्मित करने और आकार देने का बोध कराता है।",
         "nestTitle": "घोंसला",
-        "nestDesc": "एक सुरक्षित और पोषणकारी स्थान का प्रतीक जहाँ विचार उड़ान भरने से पहले विकसित, संरक्षित और पनपने दिए जाते हैं।",
-        "quote": "\"मिलकर, BanavatNest एक अनुसंधान-आधारित नवाचार पारिस्थितिकी तंत्र का प्रतिनिधित्व करता है जहाँ जिज्ञासा-चालित विचारों को व्यवस्थित जाँच के माध्यम से आकार दिया जाता है।\""
+        "nestDesc": "एक 'नेस्ट' (Nest) एक ऐसे पोषणकारी स्थान का प्रतीक है, जहाँ विचारों को विकसित किया जाता है, उन्हें परिष्कृत किया जाता है, और उन्हें एक सार्थक प्रभाव में बदलने के लिए तैयार किया जाता है।",
+        "sloganTitle": "हमारा नारा",
+        "sloganText": "उद्देश्य के साथ बनाएं। प्रभाव के लिए पोषित करें।",
+        "closingStatement": "BanavatNest केवल एक नाम नहीं है — यह अनुसंधान और प्रोटोटाइपिंग के माध्यम से विचारों को आकार देने और उन्हें वास्तविक दुनिया के प्रभाव में बदलने की हमारी प्रतिबद्धता है।",
+        "quote": "मिलकर, BanavatNest एक अनुसंधान-आधारित नवाचार पारिस्थितिकी तंत्र का प्रतिनिधित्व करता है जहाँ जिज्ञासा-चालित विचारों को व्यवस्थित जाँच के माध्यम से आकार दिया जाता है।"
     },
     "aboutPhilosophy": {
         "title": "दर्शन",
@@ -195,9 +326,9 @@
         "titleHighlight": "और विज़न",
         "subtitle": "अनुसंधान-चालित नवाचार जो विचारों को जिज्ञासा से प्रभाव तक पोषित करता है।",
         "missionTitle": "हमारा मिशन",
-        "missionText": "अनुसंधान और प्रयोगात्मक विकास के माध्यम से विचारों को सृजित और पोषित करना, जिज्ञासा-चालित अवधारणाओं को नवाचारी, व्यावहारिक और स्केलेबल समाधानों में ढालना।",
+        "missionText": "अनुसंधान, डिज़ाइन और प्रोटोटाइपिंग के माध्यम से उद्देश्यपूर्ण विचारों को व्यावहारिक और विस्तार योग्य समाधानों में बदलना।",
         "visionTitle": "हमारा विज़न",
-        "visionText": "एक अनुसंधान-चालित नवाचार पारिस्थितिकी तंत्र बनना जो निरंतर प्रयोग और सीखने के माध्यम से विचारों को जिज्ञासा से प्रभाव तक पोषित करता है।"
+        "visionText": "एक ऐसा अनुसंधान-आधारित नवाचार पारिस्थितिकी तंत्र निर्मित करना, जहाँ विचार केवल जिज्ञासा से आगे बढ़कर वास्तविक दुनिया में सार्थक प्रभाव उत्पन्न करें।"
     },
     "aboutTeam": {
         "title": "हमारी",
@@ -213,17 +344,16 @@
         "quote": "\"हम शिक्षा जगत, उद्योग और समाज के बीच एक सेतु के रूप में कार्य करते हैं, सहयोगी नवाचार को सक्षम करते हैं।\""
     },
     "aboutBoard": {
-        "title": "निदेशक",
-        "titleHighlight": "मंडल",
-        "subtitle": "शैक्षणिक उत्कृष्टता और उद्योग की जरूरतों के बीच संरेखण सुनिश्चित करने वाला रणनीतिक नेतृत्व।",
         "sukhdevName": "डॉ. सुखदेव सिंह",
-        "sukhdevRole": "निदेशक | पीएचडी (IIT पटना)",
+        "sukhdevEdu": "(पीएचडी, आईआईटी पटना)",
+        "sukhdevRole": "सह-संस्थापक और निदेशक (अनुसंधान और रणनीति)",
         "sukhdevBio": "उच्च शिक्षा में 8 से अधिक वर्षों के अनुभव वाले अनुभवी शिक्षाविद और शोधकर्ता। सांख्यिकीय मॉडलिंग, अनुमान और डेटा-चालित समस्या-समाधान में मजबूत विशेषज्ञता। शिक्षा और उद्योग को जोड़ने में सक्रिय योगदानकर्ता।",
         "sukhdevAch1": "20 से अधिक शोध प्रकाशनों के लेखक",
         "sukhdevAch2": "CSIR जूनियर और सीनियर रिसर्च फेलो",
         "sukhdevAch3": "अनुसंधान योजना में रणनीतिक नेतृत्व",
         "sangitaName": "डॉ. संगीता रॉय",
-        "sangitaRole": "निदेशक | पीएचडी (IIT पटना)",
+        "sangitaEdu": "(पीएचडी, आईआईटी पटना)",
+        "sangitaRole": "सह-संस्थापक और निदेशक (नवाचार और प्रौद्योगिकी)",
         "sangitaBio": "कंप्यूटर विज्ञान में विशेषज्ञता के साथ एक कुशल शिक्षाविद, जो साइबर सुरक्षा, ब्लॉकचेन और आईओटी में विशेष योग्यता रखती हैं। उद्योग-उन्मुख और वित्त पोषित अनुसंधान में अनुभवी।",
         "sangitaAch1": "आईआईटी पटना से पीएचडी, तेल अवीव विश्वविद्यालय (इज़राइल) से पोस्टडॉक",
         "sangitaAch2": "आईआईटी बॉम्बे में पूर्व वरिष्ठ वैज्ञानिक",
@@ -256,90 +386,123 @@
         "agriDesc": "कृषि उत्पादकता और स्थिरता बढ़ाने के लिए उन्नत डेटा विश्लेषण और IoT निगरानी।"
     },
     "collaboration": {
-        "title": "सहयोग",
-        "titleHighlight": "मॉडल",
-        "subtitle": "एक बहु-स्तरीय जुड़ाव ढांचे के माध्यम से अकादमिक कठोरता को औद्योगिक प्रासंगिकता के साथ जोड़ना।",
         "academic": {
-            "title": "अकादमिक सहयोग",
-            "items": [
-                {
-                    "heading": "संयुक्त अनुसंधान और वित्त पोषित परियोजनाएं",
-                    "desc": "बाहरी वित्त पोषण निकायों द्वारा समर्थित सहयोगात्मक जांच और विकास।"
+            "title": "छात्र और नवाचारकर्ता",
+            "items": {
+                "0": {
+                    "heading": "व्यावहारिक प्रोजेक्ट्स",
+                    "desc": "वास्तविक दुनिया के प्रोटोटाइप बनाना और व्यावहारिक इंजीनियरिंग अनुभव प्राप्त करना।"
                 },
-                {
-                    "heading": "छात्र परियोजना मार्गदर्शन",
-                    "desc": "शैक्षणिक परिणामों को बढ़ाने के लिए यूजी/पीजी परियोजनाओं के लिए उद्योग-प्रासंगिक मार्गदर्शन।"
+                "1": {
+                    "heading": "कौशल विकास",
+                    "desc": "निर्देशित कार्यशालाओं के माध्यम से एआई, आईओटी और उभरती प्रौद्योगिकियों में गहन अध्ययन।"
                 },
-                {
-                    "heading": "संकाय विकास कार्यक्रम",
-                    "desc": "सहयोगात्मक कार्यशालाओं और डोमेन-विशिष्ट प्रशिक्षण के माध्यम से कौशल बढ़ाना।"
+                "2": {
+                    "heading": "उद्योग अनुभव",
+                    "desc": "शीर्ष कंपनियों की वास्तविक समस्याओं को हल करके करियर के लिए तैयार होना।"
                 },
-                {
-                    "heading": "पाठ्यक्रम संरेखण",
-                    "desc": "कौशल अंतर को दूर करने के लिए उद्योग की आवश्यकताओं के अनुरूप शैक्षणिक सामग्री का संरेखण।"
+                "3": {
+                    "heading": "मेंटरशिप",
+                    "desc": "शोध, प्रतिष्ठित इंटर्नशिप और स्टार्टअप वेंचर्स के लिए विशेषज्ञ मार्गदर्शन।"
                 }
-            ]
+            }
         },
         "industry": {
-            "title": "उद्योग सहयोग",
-            "items": [
-                {
-                    "heading": "परामर्श और अनुसंधान सेवाएं",
-                    "desc": "विशिष्ट औद्योगिक चुनौतियों को हल करने के लिए विशेषज्ञ मार्गदर्शन।"
+            "title": "उद्योग और स्टार्टअप",
+            "items": {
+                "0": {
+                    "heading": "अनुकूलित समाधान",
+                    "desc": "आपकी सबसे चुनौतीपूर्ण व्यावसायिक समस्याओं को हल करने के लिए अनुकूलित इंजीनियरिंग।"
                 },
-                {
-                    "heading": "प्रूफ-कॉन्सेप्ट (PoC) विकास",
-                    "desc": "व्यावसायिक व्यवहार्यता दर्शाने वाले कार्यात्मक प्रोटोटाइप बनाना।"
+                "1": {
+                    "heading": "कोर टेक अनुसंधान",
+                    "desc": "एआई, आईओटी और उच्च सुरक्षा प्रणाली आर्किटेक्चर में उन्नत विकास।"
                 },
-                {
-                    "heading": "अनुकूलित प्रशिक्षण",
-                    "desc": "कार्यबल के लिए नवीनतम उभरती प्रौद्योगिकियों पर अनुरूप प्रशिक्षण मॉड्यूल।"
+                "2": {
+                    "heading": "तेज़ प्रोटोटाइपिंग",
+                    "desc": "प्रारंभिक अवधारणा से पायलट परिनियोजन तक अत्यधिक गति के साथ बढ़ना।"
                 },
-                {
-                    "heading": "रणनीतिक साझेदारी",
-                    "desc": "दीर्घकालिक नवाचार पहलों के लिए निरंतर सहयोगात्मक जुड़ाव।"
+                "3": {
+                    "heading": "स्केलेबल सिस्टम",
+                    "desc": "बाजार विस्तार के लिए डिज़ाइन किए गए उत्पादन-तैयार, युद्ध-परीक्षणित समाधान।"
                 }
-            ]
+            }
         },
         "startup": {
-            "title": "स्टार्टअप / इनोवेटर सहयोग",
-            "items": [
-                {
-                    "heading": "नवाचार प्रोटोटाइप",
-                    "desc": "प्रारंभिक विचारों को कार्यात्मक, स्केलेबल प्रोटोटाइप में बदलना।"
+            "title": "संकाय और शोधकर्ता",
+            "items": {
+                "0": {
+                    "heading": "अनुसंधान प्रोटोटाइप",
+                    "desc": "शैक्षणिक अनुसंधान को कार्यात्मक, उद्योग-ग्रेड प्रोटोटाइप में बदलना।"
                 },
-                {
-                    "heading": "तकनीकी सत्यापन और परीक्षण",
-                    "desc": "प्रौद्योगिकी तत्परता सुनिश्चित करने के लिए व्यवस्थित परीक्षण और सत्यापन।"
+                "1": {
+                    "heading": "परियोजना समर्थन",
+                    "desc": "वित्त पोषित परियोजना प्रस्तावों और रणनीतिक अनुदान आवेदनों के साथ सहायता।"
                 },
-                {
-                    "heading": "बौद्धिक संपदा सहायता",
-                    "desc": "पेटेंट दस्तावेज़ीकरण और नवाकारी समाधानों के संरक्षण में मार्गदर्शन।"
+                "2": {
+                    "heading": "प्रौद्योगिकी हस्तांतरण",
+                    "desc": "प्रत्यक्ष उद्योग सहयोग और बौद्धिक पूंजी का व्यवसायीकरण।"
                 },
-                {
-                    "heading": "तैनाती रणनीति",
-                    "desc": "प्रोटोटाइप विकास से लेकर बाजार तैनाती की तैयारी तक का समर्थन।"
+                "3": {
+                    "heading": "परिनियोजन समर्थन",
+                    "desc": "डेटा-संचालित सत्यापन और शैक्षणिक समाधानों का वास्तविक दुनिया में परिनियोजन।"
                 }
-            ]
-        },
-        "frameworkTitle": "ढांचा",
-        "item1": "समस्या-संचालित दृष्टिकोण: उद्योग की चुनौतियों को अकादमिक अनुसंधान से जोड़ा गया।",
-        "item2": "संयुक्त पर्यवेक्षण: संकाय और उद्योग मार्गदर्शन के माध्यम से सहयोग सक्षम।",
-        "item3": "मील-पत्थर आधारित निष्पादन: लक्ष्यों और समयसीमाओं के साथ संरेखण सुनिश्चित करना।",
-        "item4": "लचीलापन: विभिन्न प्रौद्योगिकी तत्परता स्तरों (TRLs) के अनुकूल।",
-        "bodyP1": "हमारा सहयोग मॉडल एक बहु-स्तरीय जुड़ाव ढांचे पर बनाया गया है जो छात्रों, संकाय और उद्योग भागीदारों को अच्छी तरह से परिभाषित भूमिकाओं और परिणामों के माध्यम से जोड़ता है।",
-        "bodyP2": "हम एक समस्या-संचालित दृष्टिकोण अपनाते हैं जहाँ उद्योग भागीदार वास्तविक दुनिया की चुनौतियों का प्रस्ताव करते हैं, जिन्हें फिर अकादमिक अनुसंधान समस्याओं और छात्र परियोजनाओं से जोड़ा जाता है। संयुक्त पर्यवेक्षण, मील का पत्थर-आधारित परियोजना कार्यान्वयन और निरंतर तकनीकी परामर्श के माध्यम से सहयोग सक्षम किया जाता है।"
+            }
+        }
     },
     "opportunities": {
         "title": "छात्र",
         "titleHighlight": "विकास",
         "subtitle": "सभी स्तरों के छात्रों के लिए अनुसंधान और नवाचार के अवसर बनाना।",
+        "getStudentsTitle": "छात्रों को क्या",
+        "getStudentsHighlight": "मिलता है",
+        "getStudentsDesc": "सिर्फ एक इंटर्नशिप से कहीं अधिक — आपके भविष्य के करियर और अनुसंधान यात्रा के लिए एक लॉन्चपैড।",
+        "benefit1Title": "व्यावहारिक परियोजना अनुभव",
+        "benefit1Desc": "वास्तविक उद्योग और अनुसंधान समस्याओं पर काम करें जो मापने योग्य प्रभाव पैदा करती हैं।",
+        "benefit2Title": "प्रोटोटाइप विकास अनुभव",
+        "benefit2Desc": "अपने विचार को अवधारणा → डिज़ाइन → पूर्ण रूप से कार्यशील मॉडल तक ले जाएं।",
+        "benefit3Title": "बहु-डोमेन शिक्षण",
+        "benefit3Desc": "AI, साइबर सुरक्षा, IoT, ब्लॉकचेन और स्मार्ट सिस्टम का अन्वेषण करें।",
+        "benefit4Title": "विशेषज्ञों से परामर्श",
+        "benefit4Desc": "शिक्षा और उद्योग के प्रमुख विशेषज्ञों से मार्गदर्शन।",
+        "benefit5Title": "प्रमाणन और मान्यता",
+        "benefit5Desc": "प्रमाण पत्र अर्जित करें, परियोजनाओं का प्रदर्शन करें और सिफारिश पत्र प्राप्त करें।",
+        "typesTitle": "अवसरों के",
+        "typesHighlight": "प्रकार",
+        "internshipsTitle": "इंटर्नशिप",
+        "internshipsItem1": "अल्पकालिक और दीर्घकालिक अवधि",
+        "internshipsItem2": "अनुसंधान + उद्योग-आधारित ट्रैक",
+        "internshipsItem3": "हाइब्रिड / रिमोट विकल्प उपलब्ध",
+        "innovationTitle": "नवाचार और स्टार्टअप समर्थन",
+        "innovationItem1": "चल रही BanavatNest परियोजनाओं पर काम करें",
+        "innovationItem2": "अपने विचार को प्रोटोटाइप में बदलें",
+        "innovationItem3": "फंडिंग और इनक्यूबेशन के लिए मार्गदर्शन",
+        "applyTitle": "कौन आवेदन",
+        "applyHighlight": "कर सकता है?",
+        "eligibilityTitle": "पात्रता मानदंड",
+        "eligibilityItem1": "स्नातक और स्नातकोत्तर छात्र",
+        "eligibilityItem2": "इंजीनियरिंग / विज्ञान / गणित पृष्ठभूमि",
+        "eligibilityItem3": "उत्साही शिक्षार्थी — कौशल अंकों से अधिक मायने रखते हैं",
+        "selectionTitle": "चयन प्रक्रिया — ",
+        "selectionHighlight": "सरल और पारदर्शी",
+        "selectionStep1Title": "ऑनलाइन आवेदन करें",
+        "selectionStep1Desc": "अपनी रुचियों के साथ आवेदन पत्र भरें।",
+        "selectionStep2Title": "विचार और रुचि मूल्यांकन",
+        "selectionStep2Desc": "हम आपके विचारों और रुचि के क्षेत्रों की समीक्षा करते हैं।",
+        "selectionStep3Title": "बातचीत और चर्चा",
+        "selectionStep3Desc": "आपके लक्ष्यों के बारे में एक मैत्रीपूर्ण बातचीत।",
+        "selectionStep4Title": "चयन",
+        "selectionStep4Desc": "चयनित उम्मीदवारों को सूचित और ऑनबोर्ड किया जाता है।",
+        "levelTitle": "स्तर के अनुसार",
+        "levelHighlight": "अवसर",
+        "applyNow": "अभी आवेदन करें",
         "ugTitle": "स्नातक छात्र",
         "ugDesc": "कौशल विकास और प्रारंभिक शोध संपर्क के उद्देश्य से खोजपूर्ण परियोजनाओं, इंटर्नशिप और नवाचार चुनौतियों के माध्यम से जुड़ें।",
         "pgTitle": "स्नातकोत्तर छात्र",
         "pgDesc": "उद्योग की जरूरतों के अनुरूप उन्नत समस्या-समाधान, सिस्टम डिज़ाइन और प्रोटोटाइप विकास पर काम करें।",
         "phdTitle": "डॉक्टरल शोधकर्ता",
-        "phdDesc": "उद्योग-प्रासंगिक शोध समस्याओं, संयुक्त पर्यवेक्षण, वास्तविक डेटासेट तक पहुँच और वित्त पोषित अनुसंधान के अवसरों के माध्यम से समर्थित।"
+        "phdDesc": "उद्योग-प्रासंगिक शोध समस्याओं, संयुक्त पर्यवेक्षण, वास्तविक डेटासेट तक पहुँच और वित्त पोषित अनुसंधान के अवसरों के माध्यम से समर्थित।",
+        "heroAlt": "BanavatNest टाइम्स — अवसर"
     },
     "facultyPage": {
         "title": "संकाय",
@@ -382,24 +545,46 @@
         "p2": "इस वेबसाइट में विभिन्न आंतरिक या बाहरी स्रोतों द्वारा प्रदान की गई जानकारी और लिंक हो सकते हैं। BanavatNest ऐसी जानकारी की स्वतंत्र रूप से पुष्टि, निगरानी या प्रामाणिकता की गारंटी नहीं देता और किसी भी बाहरी वेबसाइट या लिंक किए गए संसाधनों की सामग्री के लिए समर्थन, नियंत्रण या जिम्मेदारी नहीं लेता। इस वेबसाइट के माध्यम से उपलब्ध जानकारी पर निर्भरता पूरी तरह से उपयोगकर्ता के अपने जोखिम पर है।"
     },
     "privacy": {
-        "title": "गोपनीयता नीति",
-        "intro": "BanavatNest Private Limited (\"BanavatNest\", \"हम\", \"हमारा\", \"हमें\") उन सभी उपयोगकर्ताओं, सहयोगियों और हितधारकों की गोपनीयता का सम्मान करता है जो हमारे प्लेटफ़ॉर्म के साथ बातचीत करते हैं। यह गोपनीयता नीति बताती है कि हमारे साथ साझा की गई जानकारी को कैसे संभाला जाता है।",
-        "s1Title": "1. जानकारी जो हम प्राप्त कर सकते हैं",
-        "s1Text": "हम वह जानकारी प्राप्त कर सकते हैं जो आप स्वेच्छा से प्रदान करते हैं, जिसमें शामिल हैं (लेकिन इन तक सीमित नहीं) समस्या कथन, विचार, दस्तावेज़, संदेश, संपर्क विवरण और अन्य सामग्री जो हमारी वेबसाइट, ईमेल, फ़ॉर्म या सहयोग चैनलों के माध्यम से जमा की गई है।",
-        "s2Title": "2. हम जानकारी का उपयोग कैसे करते हैं",
-        "s2Text": "BanavatNest के साथ साझा की गई जानकारी का उपयोग केवल अनुसंधान चर्चा, समस्या विश्लेषण, प्रयोग, सहयोगी नवाचार, व्यवहार्यता मूल्यांकन, पायलट योजना, प्रशिक्षण/सीखने की गतिविधियों और संबंधित संचार के लिए किया जाता है।",
-        "s3Title": "3. साझाकरण और प्रकटीकरण",
-        "s3Item1": "हम जमा की गई जानकारी को तीसरे पक्षों को नहीं बेचते।",
-        "s3Item2": "हम जमा की गई जानकारी को पूर्व सहमति के बिना बाहरी रूप से प्रकट या साझा नहीं करते, सिवाय जहाँ कानून द्वारा आवश्यक हो या सहयोग के लिए स्पष्ट रूप से सहमति हो।",
-        "s3Item3": "सहयोगी सहभागिता के लिए, हम भाग लेने वाले टीम सदस्यों (जैसे छात्र, विद्वान, संकाय सहयोगी) के साथ नैतिक और जिम्मेदार प्रथाओं के अधीन, आवश्यकता-के-आधार पर सीमित जानकारी साझा कर सकते हैं।",
-        "s4Title": "4. गोपनीयता और संवेदनशील जानकारी",
-        "s4Text": "जबकि BanavatNest गोपनीयता का सम्मान करने के लिए उचित देखभाल करता है, प्लेटफ़ॉर्म के माध्यम से जमा करना स्वतः एक गोपनीय संबंध नहीं बनाता। उपयोगकर्ताओं को प्रोत्साहित किया जाता है कि जब तक कोई औपचारिक लिखित समझौता (जैसे NDA) लागू न हो, वे अत्यधिक संवेदनशील, स्वामित्व या गोपनीय जानकारी साझा न करें।",
-        "s5Title": "5. उपयोगकर्ता की जिम्मेदारियाँ",
-        "s5Text": "उपयोगकर्ता यह सुनिश्चित करने के लिए जिम्मेदार हैं कि जमा की गई सामग्री गोपनीयता दायित्वों, बौद्धिक संपदा अधिकारों या तीसरे पक्ष की प्रतिबंधों का उल्लंघन न करे। व्यापार रहस्य, कॉपीराइट सामग्री, या दूसरों की गोपनीय जानकारी को बिना अधिकार के जमा न करें।",
-        "s6Title": "6. डेटा सुरक्षा",
-        "s6Text": "हम जमा की गई जानकारी की सुरक्षा के लिए उचित प्रशासनिक और तकनीकी सावधानियाँ बरतते हैं। हालाँकि, प्रसारण या भंडारण की कोई भी विधि पूरी तरह से सुरक्षित नहीं है; इसलिए, पूर्ण सुरक्षा की गारंटी नहीं दी जा सकती।",
-        "s7Title": "7. संपर्क",
-        "s7Text": "इस गोपनीयता नीति के बारे में प्रश्नों के लिए, कृपया संपर्क करें:"
+        "title": "Privacy Policy",
+        "intro": "BanavatNest Private Limited (\"BanavatNest\", \"we\", \"our\", or \"us\") respects the privacy of all users, collaborators, students, researchers, startups, faculty members, and industry partners interacting with our platform. This Privacy Policy explains how information shared with us may be collected, used, and protected.",
+        "s1Title": "1. Information We May Receive",
+        "s1Text": "We may receive information voluntarily shared with us through our website, forms, email communications, workshops, collaboration channels, or other interactions. Such information may include, but is not limited to:",
+        "s1Item1": "Names and contact details",
+        "s1Item2": "Messages and communication records",
+        "s1Item3": "Problem statements and project ideas",
+        "s1Item4": "Documents, files, research materials, or datasets",
+        "s1Item5": "Collaboration proposals and related submissions",
+        "s2Title": "2. Purpose of Use",
+        "s2Text": "Information shared with BanavatNest may be used for purposes including:",
+        "s2Item1": "Research discussions and analysis",
+        "s2Item2": "Innovation and prototype development",
+        "s2Item3": "Feasibility assessment and pilot planning",
+        "s2Item4": "Academic, training, and learning activities",
+        "s2Item5": "Collaboration and communication",
+        "s2Item6": "Improving our services, programs, and innovation ecosystem",
+        "s3Title": "3. Sharing and Disclosure",
+        "s3Text": "BanavatNest does not sell personal or submitted information to third parties. We do not disclose or externally share submitted information without prior consent, except:",
+        "s3Item1": "where required by applicable law,",
+        "s3Item2": "where necessary for agreed collaborations, or",
+        "s3Item3": "where limited sharing is required among participating team members, mentors, researchers, faculty collaborators, or students on a need-to-know basis and under responsible professional practices.",
+        "s4Title": "4. Confidentiality and Sensitive Information",
+        "s4Text": "BanavatNest respects the confidentiality of information shared with us. However, submission through our website, forms, email, or communication channels does not automatically establish a confidential or legally protected relationship. Users are advised not to share highly sensitive, proprietary, confidential, or trade-secret information unless a formal written agreement (such as a Non-Disclosure Agreement (NDA)) has been executed.",
+        "s5Title": "5. User Responsibilities",
+        "s5Text": "Users are responsible for ensuring that submitted content does not violate:",
+        "s5Item1": "confidentiality obligations,",
+        "s5Item2": "intellectual property rights,",
+        "s5Item3": "copyright restrictions, or",
+        "s5Item4": "third-party agreements.",
+        "s5Footer": "Do not submit confidential or protected material belonging to others without proper authorization.",
+        "s6Title": "6. Data Protection and Security",
+        "s6Text": "BanavatNest takes reasonable administrative and technical precautions to help protect submitted information from unauthorized access, misuse, or disclosure. However, no method of electronic transmission or storage is completely secure, and absolute security cannot be guaranteed.",
+        "s7Title": "7. External Links",
+        "s7Text": "Our website may contain links to external websites or third-party platforms. BanavatNest is not responsible for the privacy practices or content of such external sites.",
+        "s8Title": "8. Policy Updates",
+        "s8Text": "BanavatNest may update this Privacy Policy from time to time. Updated versions will be posted on this page. Continued use of the platform after updates constitutes acceptance of the revised policy.",
+        "s9Title": "9. Contact",
+        "s9Text": "For questions regarding this Privacy Policy, please contact:",
+        "s9Address": "BanavatNest Private Limited"
     },
     "readMore": {
         "readMore": "और पढ़ें",
@@ -496,36 +681,60 @@
         "p4": "उद्योग साझेदारों को विश्लेषणात्मक अंतर्दृष्टि और नवाचारी समाधानों का लाभ मिलता है, जबकि शिक्षा जगत को वास्तविक दुनिया की चुनौतियों का सामना करने का अवसर मिलता है।"
     },
     "terms": {
-        "title": "उपयोग की शर्तें",
-        "intro": "BanavatNest प्लेटफ़ॉर्म तक पहुँच कर या उसका उपयोग करके, आप निम्नलिखित शर्तों से सहमत होते हैं:",
-        "s1Title": "1. प्लेटफ़ॉर्म का उद्देश्य",
-        "s1Text": "BanavatNest एक अनुसंधान और नवाचार प्लेटफ़ॉर्म के रूप में संचालित होता है। सहभागिताएँ खोजपूर्ण प्रकृति की हैं और अनुसंधान-आधारित समस्या-समाधान, प्रयोग और नवाचार का समर्थन करने के लिए हैं।",
-        "s2Title": "2. जमा करने की मौलिकता (उपयोगकर्ता घोषणा)",
-        "s2Text": "उपयोगकर्ता पुष्टि करते हैं कि इस प्लेटफ़ॉर्म पर साझा किए गए कोई भी विचार, समस्या कथन, डेटा या सामग्री उनकी सर्वश्रेष्ठ जानकारी के अनुसार मौलिक हैं, या कि उनके पास इन्हें साझा करने की कानूनी अनुमति है।",
-        "s3Title": "3. स्वतंत्र अनुसंधान और समाधान विकास",
-        "s3Text": "BanavatNest स्वतंत्र विश्लेषण, वैज्ञानिक/तकनीकी तर्क और सहयोगी प्रयास के आधार पर अनुसंधान और प्रयोगात्मक विकास करता है। जब तक स्पष्ट रूप से न कहा जाए, प्लेटफ़ॉर्म के माध्यम से प्रस्तावित समाधान स्वतंत्र अनुसंधान प्रक्रियाओं के माध्यम से विकसित किए जाते हैं।",
-        "s4Title": "4. कोई उल्लंघन आश्वासन नहीं",
-        "s4Text": "उपयोगकर्ता ऐसी सामग्री जमा न करने के लिए सहमत हैं जो दूसरों के बौद्धिक संपदा अधिकारों, व्यापार रहस्यों या गोपनीय जानकारी का उल्लंघन करती हो। BanavatNest उपयोगकर्ता-जमा सामग्री की मौलिकता या स्वामित्व को सत्यापित करने के लिए जिम्मेदार नहीं है।",
-        "s5Title": "5. सहयोगी और खोजपूर्ण प्रकृति (कोई गारंटी नहीं)",
-        "s5Item1": "समस्या कथन जमा करना पूर्ण, सही या क्रियान्वयन योग्य समाधान की गारंटी नहीं देता।",
-        "s5Item2": "अनुसंधान और प्रयोगात्मक विकास स्वभाव से अनिश्चित हैं और अंतिम परिणाम के बजाय आंशिक परिणाम, अंतर्दृष्टि या वैकल्पिक दिशाएँ दे सकते हैं।",
-        "s6Title": "6. बौद्धिक संपदा (IP) और स्वामित्व",
-        "s6Text": "जमा किए गए विचारों और परिणामी अनुसंधान आउटपुट से संबंधित स्वामित्व, लाइसेंसिंग, लेखकत्व/स्वीकृति और उपयोग अधिकार आपसी सहमत शर्तों या अलग लिखित समझौतों द्वारा शासित होंगे।",
-        "s7Title": "7. स्वतंत्र समान कार्य अस्वीकरण",
-        "s7Text": "BanavatNest जमा किए गए विचारों, विधियों या समाधानों के समान विचारों में शामिल हो सकता है या स्वतंत्र रूप से विकसित कर सकता है, बिना किसी दायित्व या देनदारी के, बशर्ते कोई गोपनीय या स्वामित्व जानकारी का दुरुपयोग न हो।",
-        "s8Title": "8. गोपनीयता और औपचारिक समझौते",
-        "s8Text": "प्लेटफ़ॉर्म के माध्यम से जमा करना स्वतः एक गोपनीय संबंध स्थापित नहीं करता। यदि संवेदनशील या स्वामित्व प्रकटीकरण की आवश्यकता है, तो उपयोगकर्ताओं को विस्तृत गोपनीय जानकारी साझा करने से पहले औपचारिक NDA या लिखित समझौते का अनुरोध करना चाहिए।",
-        "s9Title": "9. शैक्षणिक और अनुसंधान उपयोग",
-        "s9Text": "प्लेटफ़ॉर्म पर साझा किए गए विचार और समस्याएँ शैक्षणिक अनुसंधान, छात्र परियोजनाओं या खोजपूर्ण अध्ययनों को सूचित कर सकते हैं। ऐसे कार्य से उत्पन्न होने वाले किसी भी प्रकाशन, प्रस्तुति या सार्वजनिक प्रकटीकरण जिम्मेदार और नैतिक प्रथाओं का पालन करेंगे।",
-        "s10Title": "10. प्रोत्साहित माइक्रो-टास्क और योगदानकर्ता सहभागिता",
-        "s10Text": "जहाँ संभव हो, BanavatNest छात्रों, विद्वानों या संकाय सहयोगियों को अच्छी तरह परिभाषित माइक्रो-समस्याएँ या अनुसंधान कार्य सौंप सकता है और मानदेय या प्रोत्साहन प्रदान कर सकता है।",
-        "s11Title": "11. सहभागिता स्वीकार या अस्वीकार करने का अधिकार",
-        "s11Text": "BanavatNest किसी भी जमा करने या सहभागिता को व्यवहार्यता, संसाधन उपलब्धता, नैतिक विचारों, कानूनी बाधाओं या अपने मिशन के साथ संरेखण के आधार पर स्वीकार, स्थगित या अस्वीकार करने का अधिकार सुरक्षित रखता है।",
-        "s12Title": "12. नैतिक और जिम्मेदार उपयोग",
-        "s12Text": "उपयोगकर्ता गैरकानूनी गतिविधियों, प्रौद्योगिकी के दुरुपयोग या अनैतिक प्रथाओं से संबंधित समस्याएँ या सामग्री जमा न करने के लिए सहमत हैं।",
-        "s13Title": "13. दायित्व की सीमा",
-        "s13Text": "BanavatNest किसी भी नुकसान, क्षति, दावों या विवादों के लिए उत्तरदायी नहीं होगा जो (i) जमा की गई सामग्री के उपयोग, (ii) अनुसंधान परिणामों पर निर्भरता, या (iii) उपयोगकर्ता जमा से संबंधित किसी भी तीसरे पक्ष के दावों से उत्पन्न होते हैं।",
-        "s14Title": "14. इन शर्तों में अद्यतन",
-        "s14Text": "BanavatNest समय-समय पर इन नीतियों को अद्यतन कर सकता है। अद्यतन के बाद प्लेटफ़ॉर्म का निरंतर उपयोग संशोधित शर्तों की स्वीकृति माना जाएगा।"
+        "title": "Terms of Use",
+        "effectiveDate": "Effective Date: [Insert Date]",
+        "intro": "By accessing, browsing, submitting information to, or using the BanavatNest platform, website, forms, or collaboration channels, you agree to these Terms of Use.",
+        "s1Title": "1. Purpose of the Platform",
+        "s1Text": "BanavatNest operates as a research-driven innovation and collaboration platform. Engagements are exploratory in nature and intended to support research-led problem solving, experimentation, prototyping, and innovation.",
+        "s2Title": "2. Originality of Submissions (User Declaration)",
+        "s2Text": "Users confirm that any ideas, problem statements, data, documents, or materials shared through the platform are original to the best of their knowledge, or that they possess lawful permission to share them. Users agree not to knowingly submit content copied from proprietary, copyrighted, confidential, restricted, or unauthorized sources.",
+        "s3Title": "3. Independent Research and Solution Development",
+        "s3Text": "BanavatNest undertakes research, experimentation, and development based on independent scientific, technical, analytical, and collaborative processes. Unless explicitly agreed otherwise in writing, solutions, concepts, prototypes, or research outcomes generated through the platform may arise from independent analysis, experimentation, simulations, prototyping, validation, and collaborative exploration.",
+        "s4Title": "4. User Responsibility and Non-Infringement",
+        "s4Text": "Users agree not to submit content that infringes intellectual property rights, trade secrets, confidentiality obligations, or proprietary rights belonging to others. BanavatNest is not responsible for independently verifying the originality, ownership, legality, or authorization status of user-submitted content.",
+        "s5Title": "5. Collaborative and Exploratory Nature (No Guarantee)",
+        "s5Text": "Research and innovation activities are inherently exploratory and uncertain in nature. Submission of a problem statement, idea, or collaboration request does not guarantee:",
+        "s5Item1": "a complete or implementable solution,",
+        "s5Item2": "technical feasibility,",
+        "s5Item3": "commercial success,",
+        "s5Item4": "patentability,",
+        "s5Item5": "regulatory approval, or",
+        "s5Item6": "finalized outcomes.",
+        "s5Footer": "Research activities may result in partial findings, experimental insights, alternative directions, or exploratory outcomes rather than production-ready solutions.",
+        "s6Title": "6. Intellectual Property (IP) and Ownership",
+        "s6Text": "Ownership, licensing, authorship, acknowledgment, publication rights, commercialization rights, and usage permissions relating to submitted ideas, collaborative work, research outputs, or resulting innovations shall be governed by mutually agreed terms or separate written agreements, where applicable. No transfer of intellectual property rights, exclusivity, partnership, or ownership is implied solely through submission or interaction on the platform.",
+        "s7Title": "7. Independent Similar Work Disclaimer",
+        "s7Text": "BanavatNest may currently be engaged in, or may independently develop, ideas, methods, technologies, prototypes, or solutions similar to those submitted by users, without obligation or liability, provided no confidential or proprietary information is improperly used.",
+        "s8Title": "8. Confidentiality and Formal Agreements",
+        "s8Text": "Submission through the platform does not automatically establish a confidential, fiduciary, partnership, employment, or legally protected relationship. If sensitive, proprietary, or confidential disclosure is required, users should request a formal written agreement (such as an NDA) before sharing detailed confidential information.",
+        "s9Title": "9. Academic and Research Use",
+        "s9Text": "Ideas, problem statements, and research directions shared through the platform may contribute to:",
+        "s9Item1": "academic studies,",
+        "s9Item2": "student projects,",
+        "s9Item3": "prototype development,",
+        "s9Item4": "exploratory research, or",
+        "s9Item5": "innovation activities.",
+        "s9Footer": "Any publication, presentation, acknowledgment, or public disclosure arising from such work shall follow responsible and ethical academic and professional practices and, where applicable, mutually agreed terms.",
+        "s10Title": "10. Incentivized Micro-Tasks and Contributor Engagement",
+        "s10Text": "Where feasible, BanavatNest may assign well-scoped micro-problems, innovation tasks, or research activities to students, scholars, researchers, faculty members, or collaborators. Honoraria, incentives, acknowledgments, timelines, deliverables, and engagement terms may be defined separately for individual activities or collaborations.",
+        "s11Title": "11. Right to Accept or Decline Engagement",
+        "s11Text": "BanavatNest reserves the right to accept, defer, limit, suspend, or decline any submission, proposal, or engagement based on factors including feasibility, ethical considerations, legal constraints, resource availability, or alignment with organizational objectives and values.",
+        "s12Title": "12. Ethical and Responsible Use",
+        "s12Text": "Users agree not to use the platform for unlawful, unethical, harmful, deceptive, or malicious purposes. BanavatNest supports responsible research, innovation, technology development, and ethical collaboration practices.",
+        "s13Title": "13. No Professional Advice",
+        "s13Text": "Any discussions, research insights, technical suggestions, experimental findings, or exploratory recommendations provided through BanavatNest are informational and research-oriented in nature. Such content shall not be construed as legal, financial, medical, regulatory, or other professional advice.",
+        "s14Title": "14. Limitation of Liability",
+        "s14Text": "To the maximum extent permitted by applicable law, BanavatNest shall not be liable for any direct, indirect, incidental, consequential, or third-party claims arising from:",
+        "s14Item1": "the use of submitted content,",
+        "s14Item2": "reliance on research outcomes or experimental findings,",
+        "s14Item3": "collaboration activities, or",
+        "s14Item4": "disputes related to user submissions or intellectual property claims.",
+        "s15Title": "15. Policy Updates",
+        "s15Text": "BanavatNest may update these Terms of Use from time to time. Updated versions will be posted on this page. Continued use of the platform after updates constitutes acceptance of the revised Terms.",
+        "s16Title": "16. Governing Law and Jurisdiction",
+        "s16Text": "These Terms shall be governed by and interpreted in accordance with the laws of India. Any disputes arising in connection with these Terms or the use of the platform shall be subject to the jurisdiction of the competent courts in Punjab, India.",
+        "s17Title": "17. Contact",
+        "s17Text": "For questions regarding these Terms of Use, please contact:",
+        "s17Address": "BanavatNest Private Limited"
     }
 }

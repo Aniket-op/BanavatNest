@@ -20,6 +20,7 @@
     "nav": {
         "home": "Home",
         "aboutUs": "About Us",
+        "aboutUsMain": "About Us",
         "ourName": "Our Name",
         "philosophy": "Philosophy & Core Values",
         "mission": "Mission and Vision",
@@ -28,12 +29,17 @@
         "whatWeDo": "What We Do",
         "focusAreas": "Focus Areas",
         "domains": "Domains",
-        "bridge": "Academia-Industry Bridge",
+        "bridge": "Collaborate",
         "collaboration": "Collaboration Model",
-        "opportunities": "Opportunities for Students",
-        "faculty": "Faculty Engagement",
-        "partnerships": "Industry Partnerships",
-        "contact": "Contact"
+        "opportunities": "Students & Innovators",
+        "faculty": "Faculty & Researchers",
+        "partnerships": "Industry & Startups",
+        "contact": "Contact",
+        "ourEcosystem": "Our Ecosystem",
+        "ourSupportNetwork": "Our Support Network",
+        "toolsUtilities": "Tools & Utilities",
+        "emiCalculator": "EMI Calculator",
+        "gstCalculator": "GST Calculator"
     },
     "footer": {
         "companyName": "BanavatNest Private Limited",
@@ -43,7 +49,106 @@
         "company": "Company",
         "aboutUs": "About Us",
         "privacyPolicy": "Privacy Policy",
-        "termsOfUse": "Terms of Use"
+        "termsOfUse": "Terms of Use",
+        "registeredAddressLabel": "Registered Address:",
+        "incubationSupportLabel": "Incubation Support:",
+        "registeredAddress": "Bajitpur, Sutahata, West Bengal-721645",
+        "incubationSupport": "STEP-TIET, Patiala, Punjab-147004"
+    },
+    "newsEvents": {
+        "latestUpdates": "Latest Updates",
+        "sectionTitle": "News &",
+        "sectionHighlight": "Events",
+        "viewOnLinkedIn": "View on LinkedIn",
+        "post1Tag": "Event",
+        "post1Date": "April 2026",
+        "post1Headline": "BanavatNest Proud Sponsor of the Quiz Competition at ROFT-2026, TIET",
+        "post1Body": "BanavatNest Pvt. Ltd. was proud to sponsor the Quiz Competition at ROFT-2026, organized by the Department of Mathematics, Thapar Institute of Engineering & Technology. The event witnessed enthusiastic participation, reflecting strong curiosity and engagement among the participants.",
+        "post2Tag": "News",
+        "post2Date": "April 2026",
+        "post2Headline": "Deployment Site Finalized for Patented Smart Fish-Feeding System",
+        "post2Body": "BanavatNest Pvt. Ltd. has finalized the deployment site for the field study of its solar-powered automated floating fish-feeding system. We are proud that one of our Founder Directors is the inventor associated with this patented technology.",
+        "post3Tag": "Upcoming Event",
+        "post3Date": "Upcoming",
+        "post3Headline": "Full Moon Photography Challenge",
+        "post3Body": "Experience the beauty of the Full Moon through guided photography and observation sessions hosted by BanavatNest. The platform will provide telescope access, lenses, and camera support to help participants capture detailed moon photographs. Selected entries will receive exciting prizes and recognition.\n\nVenue: Thapar Institute of Engineering and Technology (TIET), Patiala"
+    },
+    "featuredInnovations": {
+        "ourShowcase": "Our Showcase",
+        "sectionTitle": "Featured",
+        "sectionHighlight": "Innovations",
+        "inn1Tag": "Aquaculture",
+        "inn1Date": "Prototype Development & Field Deployment",
+        "inn1Headline": "Smart Solar-Powered Floating Fish-Feeding System",
+        "inn1Body": "A patented smart aquaculture innovation invented by one of our directors, focused on automated and sustainable fish feeding through an integrated solar-powered floating assembly system designed for efficient aquaculture management.",
+        "inn2Tag": "Integrated Farming",
+        "inn2Date": "Prototype Development & Research Translation",
+        "inn2Headline": "Integrated Pond & Livestock Shelter System",
+        "inn2Body": "A patented integrated farming innovation invented by one of our directors, designed to support sustainable aquaculture and livestock management through automated, intelligent, and resource-efficient shelter and pond integration systems.",
+        "inn3Tag": "Assistive Tech",
+        "inn3Date": "Patent Published — FER Filed",
+        "inn3Headline": "Smart Food-Picking Assistance Device",
+        "inn3Body": "A research-driven intelligent assisting innovation focused on automated and efficient food-picking support through adaptive sensing, smart handling mechanisms, and user-oriented design for enhanced accessibility and practical usability.",
+        "inn4Tag": "Software Solutions",
+        "inn4Date": "Under Development & Research Translation Phase",
+        "inn4Headline": "Financial Systems & Software Solutions",
+        "inn4Body": "Building secure and scalable software solutions for intelligent financial analytics, automation, monitoring, and decision-support applications.",
+        "inn5Tag": "Smart Agriculture",
+        "inn5Date": "Research Paper Published — Prototype Development",
+        "inn5Headline": "Automated Solar-Powered Smart Irrigation System",
+        "inn5Body": "A smart and sustainable irrigation solution designed for automated plant watering through solar-powered operation, intelligent monitoring, and efficient water management for precision agriculture and smart farming applications.",
+        "inn6Tag": "Custom Solutions",
+        "inn6Date": "Ongoing Collaborative Development",
+        "inn6Headline": "Customized Solution Development",
+        "inn6Body": "Developing research-driven and technology-oriented customized solutions tailored to specific industry, academic, automation, analytics, and real-world operational requirements.",
+        "inn7Tag": "Healthcare Tech",
+        "inn7Date": "Research & Solution Development Phase",
+        "inn7Headline": "Healthcare System Development",
+        "inn7Body": "Designing intelligent and technology-driven healthcare solutions focused on solving real-world clinical, monitoring, automation, and patient-care challenges through research, innovation, and system-oriented development."
+    },
+    "collaborationPage": {
+        "heroQuote": "BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact.",
+        "whoCanTitle": "Who Can",
+        "whoCanHighlight": "Collaborate",
+        "whoCanDesc": "Open to students, faculty, researchers, startups, and industry partners driven by innovation and real-world impact.",
+        "journeyTitle": "Innovation",
+        "journeyHighlight": "Journey",
+        "journeyEyebrow": "From Curiosity to Impact",
+        "journeyHeadline": "Transforming curiosity-driven ideas into practical, scalable, and impactful real-world solutions.",
+        "approachTitle": "Our",
+        "approachHighlight": "Approach",
+        "approachP1": "We adopt a problem-driven approach where real-world industry challenges are mapped into academic research opportunities and student-led innovation projects. Collaboration is enabled through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.",
+        "approachP2": "Our ecosystem encourages interdisciplinary collaboration where ideas evolve through research, experimentation, prototyping, and continuous innovation."
+    },
+    "boardPage": {
+        "badge": "Innovation • Mentorship • Incubation",
+        "heroTitle": "Incubation &",
+        "heroHighlight": "Mentorship",
+        "heroDesc": "is the startup incubation and innovation support ecosystem at",
+        "tietTitle": "Thapar Institute of Engineering and Technology (TIET)",
+        "stat1Val": "70+ Years",
+        "stat1Label": "of Academic Excellence",
+        "stat2Val": "NAAC A++",
+        "stat2Label": "Accredited Institute",
+        "stat3Val": "Ecosystem",
+        "stat3Label": "Research to Impact",
+        "desc1": "Science & Technology Entrepreneurs Park (STEP) and Venture Lab TIET together form the innovation and startup incubation ecosystem at TIET.",
+        "desc2": "Backed by NSTEDB-DST, Meity Startup Hub, and Startup India, the ecosystem fosters innovation, entrepreneurship, and research-led startup growth.",
+        "stepTietTitle": "STEP-TIET",
+        "stepTietSubtitle": "Incubation Center",
+        "supportingText": "Supporting",
+        "supportingIn": "in",
+        "feat1Title": "Research-led TEP innovation",
+        "feat1Desc": "Driving innovation through deep research.",
+        "feat2Title": "Prototype-oriented execution",
+        "feat2Desc": "Turning ideas into functional prototypes.",
+        "feat3Title": "Entrepreneurial journey",
+        "feat3Desc": "Guiding startups from ideation to growth.",
+        "feat4Title": "Networking support",
+        "feat4Desc": "Connecting with mentors & industry.",
+        "boardTitle": "Board of",
+        "boardHighlight": "Directors",
+        "viewPortfolio": "View Portfolio"
     },
     "home": {
         "badge": "Research-Led Innovation Ecosystem",
@@ -56,6 +161,7 @@
         "ctaBridge": "Our Bridge",
         "updateTitle": "BanavatNest Official Website Goes Live",
         "updateTitle2": "BanavatNest welcomes participants of ROFT 2026 | 👉 Explore Event",
+        "updateTitle3": "BanavatNest Pvt. Ltd. congratulates the winners of the ROFT 2026 Quiz Competition.",
         "domainAiTitle": "AI & ML",
         "domainAiDesc": "Artificial Intelligence, Machine Learning & Data Science",
         "domainCyberTitle": "Cybersecurity",
@@ -64,7 +170,7 @@
         "domainSmartDesc": "Healthcare & Sustainability focus areas",
         "domainAgriTitle": "Agriculture",
         "domainAgriDesc": "Smart Farming and Precision Agriculture",
-        "heroTagline": "BanavatNest Pvt. Ltd. — where research meets prototypes and prototypes move toward real-world impact",
+        "heroTagline": "BanavatNest Pvt. Ltd. — where research meets prototypes, and prototypes move toward real-world impact",
         "whatWeDo": {
             "coreDomainsTitle": "Our Core",
             "coreDomainsHighlight": "Domains",
@@ -148,7 +254,30 @@
                     }
                 }
             }
-        }
+        },
+        "readyToStart": "Ready to start your collaboration journey?",
+        "contactUs": "Contact us →"
+    },
+    "aboutUsPage": {
+        "title": "About",
+        "titleHighlight": "Us",
+        "subtitle": "Research-led innovation nurturing ideas from curiosity to impact.",
+        "coreValuesTitle": "Our Core",
+        "coreValuesHighlight": "Values",
+        "coreValuesSubheading": "Building the future through purposeful innovation and systematic development.",
+        "coreValuesIntro": "At <brand>BanavatNest</brand>, we believe innovation is not just about ideas -- it is about nurturing them through Purpose, Process, and Prototyping until they create meaningful Progress.",
+        "meaningHeading": "Meaning",
+        "whyTheName": "Why the Name",
+        "whyTheNameHighlight": "BanavatNest ?",
+        "symbolismLabel": "The Symbolism of <brand>BanavatNest</brand>",
+        "purposeTitle": "PURPOSE",
+        "purposeDesc": "Why we do it",
+        "processTitle": "PROCESS",
+        "processDesc": "How we approach it",
+        "prototypeTitle": "PROTOTYPE",
+        "prototypeDesc": "What we create",
+        "progressTitle": "PROGRESS",
+        "progressDesc": "What impact it drives"
     },
     "aboutName": {
         "title": "Our",
@@ -156,10 +285,13 @@
         "subtitle": "Symbolizing the philosophy of creation and nurturing innovation.",
         "meaningTitle": "The Meaning",
         "banavatTitle": "Banavat",
-        "banavatDesc": "Drawn from Punjabi usage, signifies making, crafting, building, and creating. It conveys the spirit of active construction, thoughtful design, and purposeful formation.",
+        "banavatDesc": "Drawn from Hindi and widely used in Punjabi, Banavat signifies creating, building, and shaping ideas with purpose and intent.",
         "nestTitle": "Nest",
-        "nestDesc": "Symbolizes a safe and nurturing space where ideas are developed, protected, and allowed to grow before taking flight.",
-        "quote": "\"Together, BanavatNest represents a research-led innovation ecosystem where curiosity-driven ideas are shaped through systematic investigation.\""
+        "nestDesc": "A Nest symbolizes a nurturing space where ideas are developed, refined, and prepared to grow into meaningful impact.",
+        "sloganTitle": "Our Slogan",
+        "sloganText": "Build with Purpose. Nurture to Impact.",
+        "closingStatement": "BanavatNest is not just a name—it is our commitment to shaping ideas through research and prototyping, transforming them into real-world impact.",
+        "quote": "Together, BanavatNest represents a research-led innovation ecosystem where curiosity-driven ideas are shaped through systematic investigation."
     },
     "aboutPhilosophy": {
         "title": "Philosophy",
@@ -195,9 +327,9 @@
         "titleHighlight": "& Vision",
         "subtitle": "Research-driven innovation nurturing ideas from curiosity to impact.",
         "missionTitle": "Our Mission",
-        "missionText": "To create and nurture ideas through research and experimental development, shaping curiosity-driven concepts into innovative, practical, and scalable solutions.",
+        "missionText": "To transform purposeful ideas into practical and scalable solutions through research, design, and prototyping.",
         "visionTitle": "Our Vision",
-        "visionText": "To become a research-driven innovation ecosystem that nurtures ideas from curiosity to impact through continuous experimentation and learning."
+        "visionText": "To build a research-driven innovation ecosystem where ideas evolve from curiosity to meaningful real-world impact."
     },
     "aboutTeam": {
         "title": "Our",
@@ -213,17 +345,16 @@
         "quote": "\"We act as a bridge between academia, industry, and society, enabling collaborative innovation.\""
     },
     "aboutBoard": {
-        "title": "Board of",
-        "titleHighlight": "Directors",
-        "subtitle": "Strategic leadership ensuring alignment between academic excellence and industry needs.",
         "sukhdevName": "Dr. Sukhdev Singh",
-        "sukhdevRole": "Director | PhD (IIT Patna)",
+        "sukhdevEdu": "(Ph.D., IIT Patna)",
+        "sukhdevRole": "Co-Founder & Director (Research & Strategy)",
         "sukhdevBio": "Experienced academic and researcher with over 8 years in higher education. Holds strong expertise in statistical modeling, estimation, and data-driven problem solving. Active contributor to bridging academia and industry.",
         "sukhdevAch1": "Author of 20+ research publications",
         "sukhdevAch2": "CSIR Junior and Senior Research Fellow",
         "sukhdevAch3": "Strategic leadership in research planning",
         "sangitaName": "Dr. Sangita Roy",
-        "sangitaRole": "Director | PhD (IIT Patna)",
+        "sangitaEdu": "(Ph.D., IIT Patna)",
+        "sangitaRole": "Co-Founder & Director (Innovation & Technology)",
         "sangitaBio": "Accomplished academic with expertise in Computer Science, specialized in Cybersecurity, BlockChain, and IoT. Experienced in industry-oriented and funded research.",
         "sangitaAch1": "PhD from IIT Patna, Postdoc from Tel Aviv University (Israel)",
         "sangitaAch2": "Former Senior Scientist at IIT Bombay",
@@ -256,93 +387,123 @@
         "agriDesc": "Advanced data analytics and IoT monitoring to enhance farming productivity and sustainability."
     },
     "collaboration": {
-        "title": "Collaboration",
-        "titleHighlight": "Model",
-        "subtitle": "Connecting academic rigor with industrial relevance through a multi-layer engagement framework.",
         "academic": {
-            "title": "Academic Collaboration",
-            "emoji": "🎓",
-            "items": [
-                {
-                    "heading": "Joint research & funded projects",
-                    "desc": "Collaborative investigation and development supported by external funding bodies."
+            "title": "Students & Innovators",
+            "items": {
+                "0": {
+                    "heading": "Hands-on Projects",
+                    "desc": "Building real-world prototypes and earning practical engineering experience."
                 },
-                {
-                    "heading": "Student innovation & projects",
-                    "desc": "Hands-on capstone projects and research-led innovation by students."
+                "1": {
+                    "heading": "Skill Development",
+                    "desc": "Deep dives into AI, IoT, and emerging technologies through guided workshops."
                 },
-                {
-                    "heading": "Prototype development",
-                    "desc": "Translating academic research into functional, industry-grade prototypes."
+                "2": {
+                    "heading": "Industry Exposure",
+                    "desc": "Solving live problems from top companies to become career-ready."
                 },
-                {
-                    "heading": "Internship & mentorship",
-                    "desc": "Structured programs for student growth and expert professional guidance."
+                "3": {
+                    "heading": "Mentorship",
+                    "desc": "Expert guidance for research, prestigious internships, and startup ventures."
                 }
-            ]
+            }
         },
         "industry": {
-            "title": "Industry Collaboration",
-            "emoji": "🏭",
-            "items": [
-                {
-                    "heading": "Solution development",
-                    "desc": "Problem-driven engineering to address core industrial challenges."
+            "title": "Industry & Startups",
+            "items": {
+                "0": {
+                    "heading": "Customized Solutions",
+                    "desc": "Tailored engineering to solve your most challenging business problems."
                 },
-                {
-                    "heading": "System integration",
-                    "desc": "Advanced implementation of AI, IoT, and secure computing architectures."
+                "1": {
+                    "heading": "Core Tech R&D",
+                    "desc": "Advanced development in AI, IoT, and high-security system architectures."
                 },
-                {
-                    "heading": "Rapid prototyping",
-                    "desc": "Moving from initial concept to pilot deployment with agility and speed."
+                "2": {
+                    "heading": "Rapid Prototyping",
+                    "desc": "Moving from initial concept to pilot deployment with extreme speed."
                 },
-                {
-                    "heading": "Technology partnerships",
-                    "desc": "Long-term relationships for continuous innovation and tech adoption."
+                "3": {
+                    "heading": "Scalable Systems",
+                    "desc": "Production-ready, battle-tested solutions designed for market expansion."
                 }
-            ]
+            }
         },
         "startup": {
-            "title": "Startup / Innovator Collaboration",
-            "emoji": "🚀",
-            "items": [
-                {
-                    "heading": "Idea validation & prototyping",
-                    "desc": "Validating core concepts through expert research and rapid builds."
+            "title": "Faculty & Researchers",
+            "items": {
+                "0": {
+                    "heading": "Research Prototypes",
+                    "desc": "Converting academic research into functional, industry-grade prototypes."
                 },
-                {
-                    "heading": "Technical co-development",
-                    "desc": "Collaborative engineering support to build and refine core technology."
+                "1": {
+                    "heading": "Project Support",
+                    "desc": "Assistance with funded project proposals and strategic grant applications."
                 },
-                {
-                    "heading": "MVP development",
-                    "desc": "Developing lean, functional products ready for initial market entry."
+                "2": {
+                    "heading": "Technology Transfer",
+                    "desc": "Direct industry collaboration and commercialization of intellectual capital."
                 },
-                {
-                    "heading": "Scaling & deployment",
-                    "desc": "Strategic guidance for system expansion and real-world deployment."
+                "3": {
+                    "heading": "Deployment Support",
+                    "desc": "Data-driven validation and real-world deployment of academic solutions."
                 }
-            ]
-        },
-        "frameworkTitle": "The Framework",
-        "item1": "Problem-driven approach: Industry challenges mapped to academic research.",
-        "item2": "Joint Supervision: Collaboration enabled through faculty and industry mentoring.",
-        "item3": "Milestone-based execution: Ensuring alignment with goals and timelines.",
-        "item4": "Flexibility: Adapting to different Technology Readiness Levels (TRLs).",
-        "bodyP1": "Our collaboration model is built on a multi-layer engagement framework that connects students, faculty, and industry partners through well-defined roles and outcomes.",
-        "bodyP2": "We adopt a problem-driven approach where industry partners propose real-world challenges, which are then mapped to academic research problems and student projects. Collaboration is enabled through joint supervision, milestone-based project execution, and continuous technical mentoring."
+            }
+        }
     },
     "opportunities": {
         "title": "Student",
         "titleHighlight": "Growth",
         "subtitle": "Creating research and innovation opportunities for students at all levels.",
+        "getStudentsTitle": "What Students",
+        "getStudentsHighlight": "Get",
+        "getStudentsDesc": "More than an internship — a launchpad for your future career and research journey.",
+        "benefit1Title": "Hands-on Project Experience",
+        "benefit1Desc": "Work on real industry and research problems that create measurable impact.",
+        "benefit2Title": "Prototype Development Exposure",
+        "benefit2Desc": "Take your idea from concept → design → fully working model.",
+        "benefit3Title": "Multidomain Learning",
+        "benefit3Desc": "Explore AI, Cybersecurity, IoT, Blockchain, and Smart Systems.",
+        "benefit4Title": "Mentorship from Experts",
+        "benefit4Desc": "Guidance from leading figures across academia and industry.",
+        "benefit5Title": "Certification & Recognition",
+        "benefit5Desc": "Earn certificates, showcase projects, and receive recommendation letters.",
+        "typesTitle": "Types of",
+        "typesHighlight": "Opportunities",
+        "internshipsTitle": "Internships",
+        "internshipsItem1": "Short-term & Long-term durations",
+        "internshipsItem2": "Research + Industry-based tracks",
+        "internshipsItem3": "Hybrid / Remote options available",
+        "innovationTitle": "Innovation & Startup Support",
+        "innovationItem1": "Work on ongoing BanavatNest projects",
+        "innovationItem2": "Convert your idea into a prototype",
+        "innovationItem3": "Guidance for funding & incubation",
+        "applyTitle": "Who Can",
+        "applyHighlight": "Apply?",
+        "eligibilityTitle": "Eligibility Criteria",
+        "eligibilityItem1": "Undergraduate & Postgraduate Students",
+        "eligibilityItem2": "Engineering / Science / Mathematics backgrounds",
+        "eligibilityItem3": "Passionate learners — skills matter more than marks",
+        "selectionTitle": "Selection Process — ",
+        "selectionHighlight": "Simple & Transparent",
+        "selectionStep1Title": "Apply Online",
+        "selectionStep1Desc": "Fill out the application form with your interests.",
+        "selectionStep2Title": "Idea & Interest Evaluation",
+        "selectionStep2Desc": "We review your ideas and areas of interest.",
+        "selectionStep3Title": "Interaction & Discussion",
+        "selectionStep3Desc": "A friendly conversation about your goals.",
+        "selectionStep4Title": "Selection",
+        "selectionStep4Desc": "Selected candidates are notified and onboarded.",
+        "levelTitle": "Opportunities by",
+        "levelHighlight": "Level",
+        "applyNow": "Apply Now",
         "ugTitle": "Undergraduate Students",
         "ugDesc": "Engage through exploratory projects, internships, and innovation challenges aimed at skill development and early research exposure.",
         "pgTitle": "Postgraduate Students",
         "pgDesc": "Work on advanced problem-solving, system design, and prototype development aligned with industry needs.",
         "phdTitle": "Doctoral Researchers",
-        "phdDesc": "Supported through industry-relevant research problems, joint supervision, access to real datasets, and opportunities for funded research."
+        "phdDesc": "Supported through industry-relevant research problems, joint supervision, access to real datasets, and opportunities for funded research.",
+        "heroAlt": "BanavatNest Times — Opportunities"
     },
     "facultyPage": {
         "title": "Faculty",
@@ -386,29 +547,102 @@
     },
     "privacy": {
         "title": "Privacy Policy",
-        "intro": "BanavatNest Private Limited (\"BanavatNest\", \"we\", \"our\", \"us\") respects the privacy of all users, collaborators, and stakeholders who interact with our platform. This Privacy Policy describes how information shared with us is handled.",
+        "intro": "BanavatNest Private Limited (\"BanavatNest\", \"we\", \"our\", or \"us\") respects the privacy of all users, collaborators, students, researchers, startups, faculty members, and industry partners interacting with our platform. This Privacy Policy explains how information shared with us may be collected, used, and protected.",
         "s1Title": "1. Information We May Receive",
-        "s1Text": "We may receive information that you voluntarily provide, including (but not limited to) problem statements, ideas, documents, messages, contact details, and other materials submitted through our website, email, forms, or collaboration channels.",
-        "s2Title": "2. How We Use Information",
-        "s2Text": "Information shared with BanavatNest is used solely for research discussion, problem analysis, experimentation, collaborative innovation, feasibility assessment, pilot planning, training/learning activities, and related communication.",
+        "s1Text": "We may receive information voluntarily shared with us through our website, forms, email communications, workshops, collaboration channels, or other interactions. Such information may include, but is not limited to:",
+        "s1Item1": "Names and contact details",
+        "s1Item2": "Messages and communication records",
+        "s1Item3": "Problem statements and project ideas",
+        "s1Item4": "Documents, files, research materials, or datasets",
+        "s1Item5": "Collaboration proposals and related submissions",
+        "s2Title": "2. Purpose of Use",
+        "s2Text": "Information shared with BanavatNest may be used for purposes including:",
+        "s2Item1": "Research discussions and analysis",
+        "s2Item2": "Innovation and prototype development",
+        "s2Item3": "Feasibility assessment and pilot planning",
+        "s2Item4": "Academic, training, and learning activities",
+        "s2Item5": "Collaboration and communication",
+        "s2Item6": "Improving our services, programs, and innovation ecosystem",
         "s3Title": "3. Sharing and Disclosure",
-        "s3Item1": "We do not sell submitted information to third parties.",
-        "s3Item2": "We do not disclose or share submitted information externally without prior consent, except where required by law or explicitly agreed upon for collaboration.",
-        "s3Item3": "For collaborative engagements, we may share limited information with participating team members (e.g., students, scholars, faculty collaborators) on a need-to-know basis, subject to ethical and responsible practices.",
+        "s3Text": "BanavatNest does not sell personal or submitted information to third parties. We do not disclose or externally share submitted information without prior consent, except:",
+        "s3Item1": "where required by applicable law,",
+        "s3Item2": "where necessary for agreed collaborations, or",
+        "s3Item3": "where limited sharing is required among participating team members, mentors, researchers, faculty collaborators, or students on a need-to-know basis and under responsible professional practices.",
         "s4Title": "4. Confidentiality and Sensitive Information",
-        "s4Text": "While BanavatNest takes reasonable care to respect confidentiality, submission through the platform does not automatically create a confidential relationship. Users are encouraged not to share highly sensitive, proprietary, or confidential information unless a formal written agreement (e.g., NDA) is in place.",
+        "s4Text": "BanavatNest respects the confidentiality of information shared with us. However, submission through our website, forms, email, or communication channels does not automatically establish a confidential or legally protected relationship. Users are advised not to share highly sensitive, proprietary, confidential, or trade-secret information unless a formal written agreement (such as a Non-Disclosure Agreement (NDA)) has been executed.",
         "s5Title": "5. User Responsibilities",
-        "s5Text": "Users are responsible for ensuring that content submitted does not violate confidentiality obligations, intellectual property rights, or third-party restrictions. Do not submit trade secrets, copyrighted material, or confidential information belonging to others without authorization.",
-        "s6Title": "6. Data Protection",
-        "s6Text": "We take reasonable administrative and technical precautions to protect submitted information. However, no method of transmission or storage is completely secure; therefore, absolute security cannot be guaranteed.",
-        "s7Title": "7. Contact",
-        "s7Text": "For queries regarding this Privacy Policy, please contact:"
+        "s5Text": "Users are responsible for ensuring that submitted content does not violate:",
+        "s5Item1": "confidentiality obligations,",
+        "s5Item2": "intellectual property rights,",
+        "s5Item3": "copyright restrictions, or",
+        "s5Item4": "third-party agreements.",
+        "s5Footer": "Do not submit confidential or protected material belonging to others without proper authorization.",
+        "s6Title": "6. Data Protection and Security",
+        "s6Text": "BanavatNest takes reasonable administrative and technical precautions to help protect submitted information from unauthorized access, misuse, or disclosure. However, no method of electronic transmission or storage is completely secure, and absolute security cannot be guaranteed.",
+        "s7Title": "7. External Links",
+        "s7Text": "Our website may contain links to external websites or third-party platforms. BanavatNest is not responsible for the privacy practices or content of such external sites.",
+        "s8Title": "8. Policy Updates",
+        "s8Text": "BanavatNest may update this Privacy Policy from time to time. Updated versions will be posted on this page. Continued use of the platform after updates constitutes acceptance of the revised policy.",
+        "s9Title": "9. Contact",
+        "s9Text": "For questions regarding this Privacy Policy, please contact:",
+        "s9Address": "BanavatNest Private Limited"
     },
-    "readMore": {
-        "readMore": "Read More",
-        "readLess": "Read Less",
-        "backToDomains": "Back to Domains",
-        "backToFocusAreas": "Back to Focus Areas"
+    "terms": {
+        "title": "Terms of Use",
+        "effectiveDate": "Effective Date: [Insert Date]",
+        "intro": "By accessing, browsing, submitting information to, or using the BanavatNest platform, website, forms, or collaboration channels, you agree to these Terms of Use.",
+        "s1Title": "1. Purpose of the Platform",
+        "s1Text": "BanavatNest operates as a research-driven innovation and collaboration platform. Engagements are exploratory in nature and intended to support research-led problem solving, experimentation, prototyping, and innovation.",
+        "s2Title": "2. Originality of Submissions (User Declaration)",
+        "s2Text": "Users confirm that any ideas, problem statements, data, documents, or materials shared through the platform are original to the best of their knowledge, or that they possess lawful permission to share them. Users agree not to knowingly submit content copied from proprietary, copyrighted, confidential, restricted, or unauthorized sources.",
+        "s3Title": "3. Independent Research and Solution Development",
+        "s3Text": "BanavatNest undertakes research, experimentation, and development based on independent scientific, technical, analytical, and collaborative processes. Unless explicitly agreed otherwise in writing, solutions, concepts, prototypes, or research outcomes generated through the platform may arise from independent analysis, experimentation, simulations, prototyping, validation, and collaborative exploration.",
+        "s4Title": "4. User Responsibility and Non-Infringement",
+        "s4Text": "Users agree not to submit content that infringes intellectual property rights, trade secrets, confidentiality obligations, or proprietary rights belonging to others. BanavatNest is not responsible for independently verifying the originality, ownership, legality, or authorization status of user-submitted content.",
+        "s5Title": "5. Collaborative and Exploratory Nature (No Guarantee)",
+        "s5Text": "Research and innovation activities are inherently exploratory and uncertain in nature. Submission of a problem statement, idea, or collaboration request does not guarantee:",
+        "s5Item1": "a complete or implementable solution,",
+        "s5Item2": "technical feasibility,",
+        "s5Item3": "commercial success,",
+        "s5Item4": "patentability,",
+        "s5Item5": "regulatory approval, or",
+        "s5Item6": "finalized outcomes.",
+        "s5Footer": "Research activities may result in partial findings, experimental insights, alternative directions, or exploratory outcomes rather than production-ready solutions.",
+        "s6Title": "6. Intellectual Property (IP) and Ownership",
+        "s6Text": "Ownership, licensing, authorship, acknowledgment, publication rights, commercialization rights, and usage permissions relating to submitted ideas, collaborative work, research outputs, or resulting innovations shall be governed by mutually agreed terms or separate written agreements, where applicable. No transfer of intellectual property rights, exclusivity, partnership, or ownership is implied solely through submission or interaction on the platform.",
+        "s7Title": "7. Independent Similar Work Disclaimer",
+        "s7Text": "BanavatNest may currently be engaged in, or may independently develop, ideas, methods, technologies, prototypes, or solutions similar to those submitted by users, without obligation or liability, provided no confidential or proprietary information is improperly used.",
+        "s8Title": "8. Confidentiality and Formal Agreements",
+        "s8Text": "Submission through the platform does not automatically establish a confidential, fiduciary, partnership, employment, or legally protected relationship. If sensitive, proprietary, or confidential disclosure is required, users should request a formal written agreement (such as an NDA) before sharing detailed confidential information.",
+        "s9Title": "9. Academic and Research Use",
+        "s9Text": "Ideas, problem statements, and research directions shared through the platform may contribute to:",
+        "s9Item1": "academic studies,",
+        "s9Item2": "student projects,",
+        "s9Item3": "prototype development,",
+        "s9Item4": "exploratory research, or",
+        "s9Item5": "innovation activities.",
+        "s9Footer": "Any publication, presentation, acknowledgment, or public disclosure arising from such work shall follow responsible and ethical academic and professional practices and, where applicable, mutually agreed terms.",
+        "s10Title": "10. Incentivized Micro-Tasks and Contributor Engagement",
+        "s10Text": "Where feasible, BanavatNest may assign well-scoped micro-problems, innovation tasks, or research activities to students, scholars, researchers, faculty members, or collaborators. Honoraria, incentives, acknowledgments, timelines, deliverables, and engagement terms may be defined separately for individual activities or collaborations.",
+        "s11Title": "11. Right to Accept or Decline Engagement",
+        "s11Text": "BanavatNest reserves the right to accept, defer, limit, suspend, or decline any submission, proposal, or engagement based on factors including feasibility, ethical considerations, legal constraints, resource availability, or alignment with organizational objectives and values.",
+        "s12Title": "12. Ethical and Responsible Use",
+        "s12Text": "Users agree not to use the platform for unlawful, unethical, harmful, deceptive, or malicious purposes. BanavatNest supports responsible research, innovation, technology development, and ethical collaboration practices.",
+        "s13Title": "13. No Professional Advice",
+        "s13Text": "Any discussions, research insights, technical suggestions, experimental findings, or exploratory recommendations provided through BanavatNest are informational and research-oriented in nature. Such content shall not be construed as legal, financial, medical, regulatory, or other professional advice.",
+        "s14Title": "14. Limitation of Liability",
+        "s14Text": "To the maximum extent permitted by applicable law, BanavatNest shall not be liable for any direct, indirect, incidental, consequential, or third-party claims arising from:",
+        "s14Item1": "the use of submitted content,",
+        "s14Item2": "reliance on research outcomes or experimental findings,",
+        "s14Item3": "collaboration activities, or",
+        "s14Item4": "disputes related to user submissions or intellectual property claims.",
+        "s15Title": "15. Policy Updates",
+        "s15Text": "BanavatNest may update these Terms of Use from time to time. Updated versions will be posted on this page. Continued use of the platform after updates constitutes acceptance of the revised Terms.",
+        "s16Title": "16. Governing Law and Jurisdiction",
+        "s16Text": "These Terms shall be governed by and interpreted in accordance with the laws of India. Any disputes arising in connection with these Terms or the use of the platform shall be subject to the jurisdiction of the competent courts in Punjab, India.",
+        "s17Title": "17. Contact",
+        "s17Text": "For questions regarding these Terms of Use, please contact:",
+        "s17Address": "BanavatNest Private Limited"
     },
     "domainAgriPage": {
         "pageTitle": "Agriculture & Smart Farming",
@@ -498,37 +732,10 @@
         "h4": "• Mutual Innovation Platform",
         "p4": "Industry partners benefit from analytical insights and innovative solutions, while academia gains exposure to real-world challenges. BanavatNest creates a platform where knowledge, experience, and innovation intersect."
     },
-    "terms": {
-        "title": "Terms of Use",
-        "intro": "By accessing or using the BanavatNest platform, you agree to the following terms:",
-        "s1Title": "1. Purpose of the Platform",
-        "s1Text": "BanavatNest operates as a research and innovation platform. Engagements are exploratory in nature and intended to support research-led problem solving, experimentation, and innovation.",
-        "s2Title": "2. Originality of Submissions (User Declaration)",
-        "s2Text": "Users confirm that any ideas, problem statements, data, or materials shared on this platform are original to the best of their knowledge, or that they have lawful permission to share them. Users agree not to knowingly submit content copied from proprietary, copyrighted, restricted, or confidential sources.",
-        "s3Title": "3. Independent Research and Solution Development",
-        "s3Text": "BanavatNest undertakes research and experimental development based on independent analysis, scientific/technical reasoning, and collaborative effort. Unless explicitly stated otherwise, solutions proposed through the platform are developed through independent research processes (e.g., analysis, experimentation, simulation, prototyping, validation).",
-        "s4Title": "4. No Infringement Assurance",
-        "s4Text": "Users agree not to submit content that infringes intellectual property rights, trade secrets, or confidential information belonging to others. BanavatNest is not responsible for verifying the originality or ownership of user-submitted content.",
-        "s5Title": "5. Collaborative and Exploratory Nature (No Guarantee)",
-        "s5Item1": "Submission of a problem statement does not guarantee a complete, correct, or implementable solution.",
-        "s5Item2": "Research and experimental development are inherently uncertain and may yield partial results, insights, or alternative directions rather than a finalized outcome.",
-        "s6Title": "6. Intellectual Property (IP) and Ownership",
-        "s6Text": "Ownership, licensing, authorship/acknowledgment, and usage rights related to submitted ideas and resulting research outputs shall be governed by mutually agreed terms or separate written agreements, where applicable. No transfer of IP or exclusivity is implied by submission alone.",
-        "s7Title": "7. Independent Similar Work Disclaimer",
-        "s7Text": "BanavatNest may be engaged in or may independently develop ideas, methods, or solutions similar to those submitted, without obligation or liability, provided no confidential or proprietary information is misused.",
-        "s8Title": "8. Confidentiality and Formal Agreements",
-        "s8Text": "Submission through the platform does not automatically establish a confidential relationship. If sensitive or proprietary disclosure is required, users should request a formal NDA or written agreement prior to sharing detailed confidential information.",
-        "s9Title": "9. Academic and Research Use",
-        "s9Text": "Ideas and problems shared on the platform may inform academic research, student projects, or exploratory studies. Any publication, presentation, or public disclosure arising from such work will follow responsible and ethical practices and, where applicable, appropriate acknowledgment and/or agreement.",
-        "s10Title": "10. Incentivized Micro-Tasks and Contributor Engagement",
-        "s10Text": "Where feasible, BanavatNest may assign well-scoped micro-problems or research tasks to students, scholars, or faculty collaborators and may provide honoraria or incentives. Terms (scope, timelines, payments, acknowledgments) may be specified separately for each engagement.",
-        "s11Title": "11. Right to Accept or Decline Engagement",
-        "s11Text": "BanavatNest reserves the right to accept, defer, or decline any submission or engagement based on feasibility, resource availability, ethical considerations, legal constraints, or alignment with its mission.",
-        "s12Title": "12. Ethical and Responsible Use",
-        "s12Text": "Users agree not to submit problems or content related to unlawful activities, misuse of technology, or unethical practices. BanavatNest upholds responsible research and innovation principles.",
-        "s13Title": "13. Limitation of Liability",
-        "s13Text": "BanavatNest shall not be held liable for any loss, damages, claims, or disputes arising from (i) the use of submitted content, (ii) reliance on research outcomes, or (iii) any third-party claims related to user submissions.",
-        "s14Title": "14. Updates to These Terms",
-        "s14Text": "BanavatNest may update these policies from time to time. Continued use of the platform after updates constitutes acceptance of the revised terms."
+    "readMore": {
+        "readMore": "Read More",
+        "readLess": "Read Less",
+        "backToDomains": "Back to Domains",
+        "backToFocusAreas": "Back to Focus Areas"
     }
 }
