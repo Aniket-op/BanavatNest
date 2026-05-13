@@ -232,7 +232,7 @@ export default async function LocaleLayout({
             <body
                 className={`${getFontClass()} antialiased min-h-screen flex flex-col selection:bg-[#3A9B9B]/20 selection:text-[#2D3561] dark:selection:text-zinc-100 transition-colors bg-zinc-50 dark:bg-[#09090b]`}
             >
-                <NextIntlClientProvider messages={messages}>
+                <NextIntlClientProvider locale={locale} messages={messages}>
                     <Navbar />
                     <main className="flex-grow">{children}</main>
                     <Footer />

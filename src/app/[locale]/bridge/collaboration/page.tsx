@@ -442,7 +442,7 @@ export default function CollaborationPage() {
               alt="Our Ecosystem"
               width={1920}
               height={800}
-              className="w-full h-auto object-cover"
+              className="w-full pt-8 h-auto object-cover"
               priority
             />
           </div>
