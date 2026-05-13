@@ -140,7 +140,7 @@ export default function BoardPage() {
                                 </div>
 
                                 {/* Divider */}
-                                <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#3A9B9B]/30 to-transparent" />
+                                <div className="hidden lg:block absolute left-[55%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#3A9B9B]/30 to-transparent" />
 
                                 {/* RIGHT SIDE */}
                                 <div className="relative p-6 md:p-10 lg:p-12">
