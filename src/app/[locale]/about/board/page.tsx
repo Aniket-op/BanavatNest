@@ -273,7 +273,7 @@ export default function BoardPage() {
                                         <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">{t('sukhdevRole')}</p>
                                     </div>
                                 </div>
-                                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">{t('sukhdevBio')}</p>
+                                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed text-justify mb-6 font-medium">{t('sukhdevBio')}</p>
                                 <ul className="space-y-3 text-zinc-500 dark:text-zinc-500 font-bold text-sm mb-8">
                                     <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#3A9B9B]" /> {t('sukhdevAch1')}</li>
                                     <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#3A9B9B]" /> {t('sukhdevAch2')}</li>
@@ -304,7 +304,7 @@ export default function BoardPage() {
                                         <p className="text-[#3A9B9B] font-bold text-sm uppercase tracking-widest leading-tight">{t('sangitaRole')}</p>
                                     </div>
                                 </div>
-                                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 font-medium">{t('sangitaBio')}</p>
+                                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6 text-justify  font-medium">{t('sangitaBio')}</p>
                                 <ul className="space-y-3 text-zinc-500 dark:text-zinc-500 font-bold text-sm mb-8">
                                     <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#3A9B9B]" /> {t('sangitaAch1')}</li>
                                     <li className="flex items-center"><CircleDot className="w-4 h-4 mr-3 text-[#3A9B9B]" /> {t('sangitaAch2')}</li>
