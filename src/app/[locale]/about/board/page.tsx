@@ -37,7 +37,7 @@ export default function BoardPage() {
             <div className="min-h-screen bg-white dark:bg-zinc-900 transition-colors">
 
                 {/* ── Section 1: STEP-TIET Incubation Mentor ── */}
-                <section className="relative pt-16 overflow-hidden grid-bg min-h-[90vh] flex items-center">
+                <section className="relative pt-24 overflow-hidden grid-bg min-h-[90vh] flex items-center">
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-14">
                             <motion.h2
@@ -55,7 +55,7 @@ export default function BoardPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7 }}
-                            className="relative rounded-[2.5rem] border border-white/40 overflow-hidden shadow-[0_20px_60px_rgba(15,23,42,0.1)] backdrop-blur-sm bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 ">
+                            className="relative rounded-[2.5rem] border border-white/40 dark:border-white/10 overflow-hidden shadow-[0_20px_60px_rgba(15,23,42,0.1)] backdrop-blur-sm bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/80 dark:to-[#2D3561]/10">
                             {/* Main Grid */}
                             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
                                 {/* Decorative Accent Line */}
@@ -68,13 +68,13 @@ export default function BoardPage() {
 
                                     <div className="relative z-10">
                                         {/* Heading */}
-                                        <h2 className="text-2xl md:text-4xl font-black tracking-tight text-[#111827] leading-tight mb-6">
+                                        <h2 className="text-2xl md:text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#111827] via-[#2D3561] to-[#3A9B9B] dark:from-white dark:via-zinc-200 dark:to-[#3A9B9B] leading-tight mb-6">
                                             {tBoard('tietTitle')}
                                         </h2>
 
                                         {/* Stats Card */}
-                                        <div className="bg-white/85 backdrop-blur-xl border border-white/60 rounded-[1.5rem] p-5 md:p-6 shadow-md mb-8">
-                                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                        <div className="bg-white/85 dark:bg-zinc-900/85 backdrop-blur-xl border border-white/60 dark:border-white/10 rounded-[1.5rem] p-5 md:p-6 shadow-md mb-8">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 
                                                 {/* Item 1 */}
                                                 <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ export default function BoardPage() {
                                                     </div>
 
                                                     <div>
-                                                        <h4 className="text-lg font-black text-[#111827]">
+                                                        <h4 className="text-lg font-black text-[#111827] dark:text-white">
                                                             {tBoard('stat1Val')}
                                                         </h4>
                                                         <p className="text-xs text-zinc-600 font-medium">
@@ -93,13 +93,13 @@ export default function BoardPage() {
                                                 </div>
 
                                                 {/* Item 2 */}
-                                                <div className="flex items-center gap-3 sm:border-x border-zinc-200 sm:px-4">
+                                                <div className="flex items-center gap-3 border-l border-zinc-200 px-4">
                                                     <div className="h-12 w-12 rounded-xl bg-[#E8F7F7] flex items-center justify-center shrink-0">
                                                         <Star className="w-6 h-6 text-[#148787]" />
                                                     </div>
 
                                                     <div>
-                                                        <h4 className="text-lg font-black text-[#111827]">
+                                                        <h4 className="text-lg font-black text-[#111827] dark:text-white">
                                                             {tBoard('stat2Val')}
                                                         </h4>
                                                         <p className="text-xs text-zinc-600 font-medium">
@@ -109,7 +109,7 @@ export default function BoardPage() {
                                                 </div>
 
                                                 {/* Item 3 */}
-                                                <div className="flex items-center gap-3">
+                                                {/* <div className="flex items-center gap-3">
                                                     <div className="h-12 w-12 rounded-xl bg-[#E8F7F7] flex items-center justify-center shrink-0">
                                                         <Zap className="w-6 h-6 text-[#148787]" />
                                                     </div>
@@ -122,17 +122,17 @@ export default function BoardPage() {
                                                             {tBoard('stat3Label')}
                                                         </p>
                                                     </div>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
-
+                                        <div className="w-full h-[3px] rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
                                         {/* Description */}
                                         <div className="space-y-6">
-                                            <p className="text-lg text-justify md:text-xl leading-relaxed text-[#111827] font-medium opacity-90">
+                                            <p className="text-lg text-justify md:text-xl leading-relaxed text-[#111827] dark:text-zinc-200 font-medium opacity-90">
                                                 {tBoard('desc1')}
                                             </p>
 
-                                            <p className="text-lg text-justify md:text-xl leading-relaxed text-[#111827] font-medium opacity-90">
+                                            <p className="text-lg text-justify md:text-xl leading-relaxed text-[#111827] dark:text-zinc-200 font-medium opacity-90">
                                                 {tBoard('desc2')}
                                             </p>
                                         </div>
@@ -147,7 +147,7 @@ export default function BoardPage() {
                                     <motion.div
                                         whileHover={{ y: -5 }}
                                         transition={{ duration: 0.3 }}
-                                        className="h-full rounded-[2rem] bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgba(15,23,42,0.06)] p-6 md:p-8 ">
+                                        className="h-full rounded-[2rem] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-[0_12px_40px_rgba(15,23,42,0.06)] p-6 md:p-8 ">
                                         {/* Top */}
                                         <div className="flex items-center gap-4 mb-6">
                                             <div className="h-14 w-14 rounded-2xl bg-[#E8F7F7] flex items-center justify-center border border-[#3A9B9B]/10">
@@ -161,7 +161,7 @@ export default function BoardPage() {
                                             </div>
 
                                             <div>
-                                                <h3 className="text-2xl font-black tracking-tight text-[#0F172A]">
+                                                <h3 className="text-2xl font-black tracking-tight text-[#0F172A] dark:text-white">
                                                     {tBoard('stepTietTitle')}
                                                 </h3>
 
@@ -171,12 +171,12 @@ export default function BoardPage() {
                                             </div>
                                         </div>
 
-                                        <div className="h-px bg-zinc-100 mb-6" />
+                                        <div className="h-px bg-zinc-100 dark:bg-zinc-800 mb-6" />
 
                                         {/* Intro */}
-                                        <p className="text-lg leading-relaxed text-[#0F172A] mb-8 font-medium">
+                                        <p className="text-lg leading-relaxed text-[#0F172A] dark:text-zinc-200 mb-8 font-medium">
                                             {tBoard('supportingText')}{" "}
-                                            <span className="font-black text-[#148787]">
+                                            <span className="font-black text-[#148787] dark:text-[#3A9B9B]">
                                                 BanavatNest
                                             </span>{" "}
                                             {tBoard('supportingIn')}
@@ -209,14 +209,14 @@ export default function BoardPage() {
                                             ].map((item, index) => (
                                                 <div
                                                     key={index}
-                                                    className="flex gap-4 pb-4 border-b border-zinc-100 last:border-none last:pb-0"
+                                                    className="flex gap-4 pb-4 border-b border-zinc-100 dark:border-zinc-800 last:border-none last:pb-0"
                                                 >
                                                     <div className="h-12 w-12 rounded-xl bg-[#E8F7F7] border border-[#3A9B9B]/10 flex items-center justify-center shrink-0">
                                                         <item.icon className="w-6 h-6 text-[#148787]" />
                                                     </div>
 
                                                     <div className="pt-0.5">
-                                                        <h4 className="text-lg font-black text-[#0F172A]">
+                                                        <h4 className="text-lg font-black text-[#0F172A] dark:text-white">
                                                             {item.title}
                                                         </h4>
 
