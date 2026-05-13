@@ -286,7 +286,7 @@ export default function WhatWeDo() {
                         perspective: "1200px",
                       }}
                     >
-                      <Card3D className="w-full max-w-[260px]">
+                      <div className="w-full max-w-[260px] relative">
                         <div
                           className="w-full bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col items-center text-center group"
                           style={{
@@ -310,7 +310,7 @@ export default function WhatWeDo() {
                             {t(`whatWeDo.usps.${usp.titleKey}`)}
                           </h4>
                         </div>
-                      </Card3D>
+                      </div>
                     </div>
                   );
                 })}
