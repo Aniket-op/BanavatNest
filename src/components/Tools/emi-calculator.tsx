@@ -116,28 +116,18 @@ export default function EmiCalculator() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans pt-2 grid-bg">
       <div className="print:hidden">
-        <header className="bg-transparent pt-5 pb-1 border-b border-zinc-100 dark:border-zinc-800 mb-12">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl">
-             
-              <h1 className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-6 md:mb-8 tracking-tighter leading-tight">
-                EMI <span className="text-[#3A9B9B]">Calculator</span>
-              </h1>
-              <p className="text-base md:text-xl text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed max-w-2xl">
-                Calculate monthly EMI payments, total interest, and repayment amount instantly.
-              </p>
-            </div>
-          </div>
-        </header>
 
-        <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-24 grid gap-5">
+
+        <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 pb-24 grid gap-5">
           <section className="relative overflow-hidden rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             {/* Decorative accent line */}
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             {/* Section Header */}
-            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-6 py-5 sm:px-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between items-center">
-              <div>
-                <h2 className="mt-1 text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Calculate your loan EMI</h2>
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-5 py-4 sm:px-10 sm:py-6">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-center items-center">
+                <h1 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">
+                  EMI <span className="text-[#3A9B9B]">Calculator</span>
+                </h1>
               </div>
             </div>
             <div className="p-4 pt-2 sm:p-8 sm:pt-4 md:p-10 md:pt-6">
@@ -152,8 +142,8 @@ export default function EmiCalculator() {
                       type="button"
                       onClick={() => setLoanType("home")}
                       className={`flex-1 sm:flex-none rounded-full px-3 sm:px-7 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "home"
-                          ? "bg-[#3A9B9B] text-white shadow-md"
-                          : "text-zinc-500 dark:text-zinc-400"
+                        ? "bg-[#3A9B9B] text-white shadow-md"
+                        : "text-zinc-500 dark:text-zinc-400"
                         }`}
                     >
                       Home
@@ -163,8 +153,8 @@ export default function EmiCalculator() {
                       type="button"
                       onClick={() => setLoanType("personal")}
                       className={`flex-1 sm:flex-none rounded-full px-3 sm:px-7 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "personal"
-                          ? "bg-[#3A9B9B] text-white shadow-md"
-                          : "text-zinc-500 dark:text-zinc-400"
+                        ? "bg-[#3A9B9B] text-white shadow-md"
+                        : "text-zinc-500 dark:text-zinc-400"
                         }`}
                     >
                       Personal
@@ -174,8 +164,8 @@ export default function EmiCalculator() {
                       type="button"
                       onClick={() => setLoanType("car")}
                       className={`flex-1 sm:flex-none rounded-full px-3 sm:px-7 py-2.5 sm:py-3 text-[11px] sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.03] ${loanType === "car"
-                          ? "bg-[#3A9B9B] text-white shadow-md"
-                          : "text-zinc-500 dark:text-zinc-400"
+                        ? "bg-[#3A9B9B] text-white shadow-md"
+                        : "text-zinc-500 dark:text-zinc-400"
                         }`}
                     >
                       Car
@@ -253,8 +243,8 @@ export default function EmiCalculator() {
                           type="button"
                           onClick={() => setTenureType("years")}
                           className={`px-3 sm:px-4 text-xs sm:text-sm font-semibold transition ${tenureType === "years"
-                              ? "bg-[#3A9B9B] text-white"
-                              : "bg-white dark:bg-zinc-900 text-[#3A9B9B]"
+                            ? "bg-[#3A9B9B] text-white"
+                            : "bg-white dark:bg-zinc-900 text-[#3A9B9B]"
                             }`}
                         >
                           Y
@@ -264,8 +254,8 @@ export default function EmiCalculator() {
                           type="button"
                           onClick={() => setTenureType("months")}
                           className={`border-l border-[#3A9B9B] px-3 sm:px-4 text-xs sm:text-sm font-semibold transition ${tenureType === "months"
-                              ? "bg-[#3A9B9B] text-white"
-                              : "bg-white dark:bg-zinc-900 text-[#3A9B9B]"
+                            ? "bg-[#3A9B9B] text-white"
+                            : "bg-white dark:bg-zinc-900 text-[#3A9B9B]"
                             }`}
                         >
                           M
