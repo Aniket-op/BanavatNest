@@ -78,7 +78,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-white/90  backdrop-blur-xl border-b border-gray-100/50 transition-colors duration-300">
+        <nav className="fixed top-0 w-full z-50 bg-white/90  backdrop-blur-xl border-b border-gray-100/50 transition-colors duration-300 no-print print:hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
                     <Link href="/" className="flex items-center transition-transform hover:scale-[1.01]">

@@ -18,7 +18,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-white pt-6 pb-6 border-t-2 border-[#3A9B9B]/30 relative overflow-hidden transition-colors">
+        <footer className="bg-white pt-6 pb-6 border-t-2 border-[#3A9B9B]/30 relative overflow-hidden transition-colors no-print print:hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-1 md:col-span-1">

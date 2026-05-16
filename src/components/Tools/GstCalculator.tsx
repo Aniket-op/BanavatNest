@@ -19,15 +19,6 @@ type ProfitCalculationResult = {
   gstPayable: number;
 };
 
-type PredictedPriceResult = {
-  actualCost: number;
-  gstPaid: number;
-  baseSellingPrice: number;
-  predictedGst: number;
-  predictedSellingPrice: number;
-  predictedSellingLabel: string;
-};
-
 function normalizeBaseAmount(amount: number, rate: number, taxType: TaxType) {
   if (taxType === "inclusive") {
     return amount / (1 + rate / 100);
@@ -44,30 +35,32 @@ export default function GstCalculator() {
   // =========================
   // GST CALCULATOR STATE
   // =========================
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<string>("");
   const [gst, setGst] = useState<number>(18);
   const [type, setType] = useState<TaxType>("exclusive");
 
   // =========================
   // PROFIT CALCULATOR STATE
   // =========================
-  const [cost, setCost] = useState<number>(100);
+  const [cost, setCost] = useState<string>("");
   const [costGst, setCostGst] = useState<number>(18);
-  const [costType, setCostType] = useState<TaxType>("inclusive");
+  const [costType, setCostType] = useState<TaxType>("exclusive");
 
-  const [sell, setSell] = useState<number>(150);
+  const [sell, setSell] = useState<string>("");
   const [sellGst, setSellGst] = useState<number>(18);
   const [sellType, setSellType] = useState<TaxType>("exclusive");
 
   // User-editable desired profit
-  const [desiredProfit, setDesiredProfit] = useState<number>(65);
-  const [profitPercentage, setProfitPercentage] = useState<number>(0);
+  const [desiredProfit, setDesiredProfit] = useState<string>("");
+  const [profitPercentage, setProfitPercentage] = useState<string>("");
 
   // =========================
   // GST CALCULATION
   // =========================
   const gstResult: GstCalculationResult = useMemo(() => {
-    if (!amount) {
+    const numericAmount = Number(amount);
+
+    if (!amount || isNaN(numericAmount)) {
       return {
         actual: 0,
         gstAmount: 0,
@@ -76,22 +69,27 @@ export default function GstCalculator() {
     }
 
     if (type === "exclusive") {
-      const gstAmount = calculateTaxAmount(amount, gst);
+      const gstAmount = calculateTaxAmount(numericAmount, gst);
 
       return {
-        actual: amount,
+        actual: numericAmount,
         gstAmount,
-        total: amount + gstAmount,
+        total: numericAmount + gstAmount,
       };
     }
 
-    const actual = normalizeBaseAmount(amount, gst, "inclusive");
-    const gstAmount = amount - actual;
+    const actual = normalizeBaseAmount(
+      numericAmount,
+      gst,
+      "inclusive"
+    );
+
+    const gstAmount = numericAmount - actual;
 
     return {
       actual,
       gstAmount,
-      total: amount,
+      total: numericAmount,
     };
   }, [amount, gst, type]);
 
@@ -99,19 +97,46 @@ export default function GstCalculator() {
   // PROFIT CALCULATION
   // =========================
   const profitResult: ProfitCalculationResult = useMemo(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
+    const numericCost = Number(cost);
+    const numericSell = Number(sell);
+
+    if (
+      !cost ||
+      !sell ||
+      isNaN(numericCost) ||
+      isNaN(numericSell)
+    ) {
+      return {
+        actualCost: 0,
+        gstPaid: 0,
+        actualSell: 0,
+        gstCollected: 0,
+        profit: 0,
+        gstPayable: 0,
+      };
+    }
+
+    const actualCost = normalizeBaseAmount(
+      numericCost,
+      costGst,
+      costType
+    );
 
     const gstPaid =
       costType === "inclusive"
-        ? cost - actualCost
-        : calculateTaxAmount(cost, costGst);
+        ? numericCost - actualCost
+        : calculateTaxAmount(numericCost, costGst);
 
-    const actualSell = normalizeBaseAmount(sell, sellGst, sellType);
+    const actualSell = normalizeBaseAmount(
+      numericSell,
+      sellGst,
+      sellType
+    );
 
     const gstCollected =
       sellType === "inclusive"
-        ? sell - actualSell
-        : calculateTaxAmount(sell, sellGst);
+        ? numericSell - actualSell
+        : calculateTaxAmount(numericSell, sellGst);
 
     const profit = actualSell - actualCost;
     const gstPayable = gstCollected - gstPaid;
@@ -127,140 +152,122 @@ export default function GstCalculator() {
   }, [cost, costGst, costType, sell, sellGst, sellType]);
 
   // =========================
-  // PREDICTED SELLING PRICE
+  // SYNC CALCULATIONS
   // =========================
-  const predictedResult: PredictedPriceResult = useMemo(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
 
-    const baseSellingPrice = actualCost + desiredProfit;
-    const predictedGst = calculateTaxAmount(baseSellingPrice, sellGst);
+  const syncAllFromProfitPercentage = (percent: string, currentCost: string, cGst: number, cType: TaxType, sGst: number, sType: TaxType) => {
+    const numericPercent = Number(percent);
+    const numericCost = Number(currentCost);
+    if (isNaN(numericPercent) || isNaN(numericCost) || !percent || !currentCost) return;
 
-    let predictedSellingPrice = baseSellingPrice;
-    let predictedSellingLabel = "Exclusive Selling Price";
+    const actualCost = normalizeBaseAmount(numericCost, cGst, cType);
+    const profitAmount = (actualCost * numericPercent) / 100;
+    setDesiredProfit(profitAmount.toFixed(2));
 
-    if (sellType === "exclusive") {
-      predictedSellingPrice = baseSellingPrice;
-      predictedSellingLabel = "Exclusive Selling Price";
-    } else {
-      predictedSellingPrice = baseSellingPrice + predictedGst;
-      predictedSellingLabel = "Inclusive Selling Price";
-    }
+    const baseSell = actualCost + profitAmount;
+    const finalSell = sType === "inclusive" ? baseSell * (1 + sGst / 100) : baseSell;
+    setSell(finalSell.toFixed(2));
+  };
 
-    return {
-      actualCost,
-      gstPaid:
-        costType === "inclusive"
-          ? cost - actualCost
-          : calculateTaxAmount(cost, costGst),
-      baseSellingPrice,
-      predictedGst,
-      predictedSellingPrice,
-      predictedSellingLabel,
-    };
-  }, [cost, costGst, costType, desiredProfit, sellGst, sellType]);
+  const syncAllFromDesiredProfit = (profit: string, currentCost: string, cGst: number, cType: TaxType, sGst: number, sType: TaxType) => {
+    const numericProfit = Number(profit);
+    const numericCost = Number(currentCost);
+    if (isNaN(numericProfit) || isNaN(numericCost) || !profit || !currentCost) return;
 
-  // =========================
-  // SYNC PROFIT % <-> AMOUNT
-  // =========================
-  const actualCostForSync = normalizeBaseAmount(cost, costGst, costType);
+    const actualCost = normalizeBaseAmount(numericCost, cGst, cType);
+    const percentage = (numericProfit / actualCost) * 100;
+    setProfitPercentage(percentage.toFixed(2));
 
-  // when desiredProfit changes → update %
-  const handleDesiredProfitChange = (value: number) => {
-    setDesiredProfit(value);
+    const baseSell = actualCost + numericProfit;
+    const finalSell = sType === "inclusive" ? baseSell * (1 + sGst / 100) : baseSell;
+    setSell(finalSell.toFixed(2));
+  };
 
-    if (actualCostForSync > 0) {
-      setProfitPercentage((value / actualCostForSync) * 100);
-    } else {
-      setProfitPercentage(0);
+  const syncAllFromSell = (sellVal: string, currentCost: string, cGst: number, cType: TaxType, sGst: number, sType: TaxType) => {
+    const numericSell = Number(sellVal);
+    const numericCost = Number(currentCost);
+    if (isNaN(numericSell) || isNaN(numericCost) || !sellVal || !currentCost) return;
+
+    const actualCost = normalizeBaseAmount(numericCost, cGst, cType);
+    const actualSell = normalizeBaseAmount(numericSell, sGst, sType);
+    const profit = actualSell - actualCost;
+
+    setDesiredProfit(profit.toFixed(2));
+    if (actualCost > 0) {
+      setProfitPercentage(((profit / actualCost) * 100).toFixed(2));
     }
   };
 
-  // when % changes → update desiredProfit
-  const handleProfitPercentageChange = (value: number) => {
+  const handleProfitPercentageChange = (value: string) => {
     setProfitPercentage(value);
-
-    const profit = (actualCostForSync * value) / 100;
-    setDesiredProfit(profit);
+    syncAllFromProfitPercentage(value, cost, costGst, costType, sellGst, sellType);
   };
-  // =========================
-  // AUTO SYNC WHEN COST CHANGES
-  // =========================
-  useEffect(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
 
-    if (actualCost > 0) {
-      const profit = (actualCost * profitPercentage) / 100;
-      setDesiredProfit(profit);
+  const handleDesiredProfitChange = (value: string) => {
+    setDesiredProfit(value);
+    syncAllFromDesiredProfit(value, cost, costGst, costType, sellGst, sellType);
+  };
+
+  const handleSellChange = (value: string) => {
+    setSell(value);
+    syncAllFromSell(value, cost, costGst, costType, sellGst, sellType);
+  };
+
+  const handleCostChange = (value: string) => {
+    setCost(value);
+    // When cost changes, we maintain the profit percentage and update sell/desired profit
+    if (profitPercentage) {
+      syncAllFromProfitPercentage(profitPercentage, value, costGst, costType, sellGst, sellType);
+    } else if (sell) {
+      syncAllFromSell(sell, value, costGst, costType, sellGst, sellType);
     }
-  }, [cost, costGst, costType]);
+  };
 
+  // Sync when tax settings change
   useEffect(() => {
-    const actualCost = normalizeBaseAmount(cost, costGst, costType);
-
-    if (actualCost > 0) {
-      const percentage = (desiredProfit / actualCost) * 100;
-      setProfitPercentage(percentage);
+    if (profitPercentage) {
+      syncAllFromProfitPercentage(profitPercentage, cost, costGst, costType, sellGst, sellType);
+    } else if (desiredProfit) {
+      syncAllFromDesiredProfit(desiredProfit, cost, costGst, costType, sellGst, sellType);
     }
-  }, [desiredProfit]);
+  }, [costGst, costType, sellGst, sellType]);
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-100 text-zinc-900">
-      {/* ========================= HEADER ========================= */}
-      <div className="border-b border-zinc-200 bg-white/80 backdrop-blur">
-        <div className="mx-auto max-w-6xl px-4 py-8 text-center sm:px-6 lg:px-8">
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            GST Calculator
-          </h1>
-
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-zinc-600 sm:text-base">
-            Calculate GST, profit, payable tax, and predicted selling price with
-            a cleaner dashboard-style layout.
-          </p>
-        </div>
-      </div>
-
-      <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-8">
+    <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans pt-2 grid-bg">
+      <main className="mx-auto max-w-5xl px-4 py-5 sm:px-6 lg:px-8 pb-24">
+        <div className="grid gap-5">
           {/* ========================= GST CALCULATOR ========================= */}
-          <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-xl shadow-zinc-200/60">
-            <div className="border-b border-zinc-100 bg-gradient-to-r from-[#EAF8EA] to-[#E8F7F7] px-6 py-5 sm:px-8">
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5BBD4A]">
-                    GST Calculator
-                  </p>
-                  <h2 className="mt-1 text-2xl font-bold text-zinc-900">
-                    Calculate GST instantly
-                  </h2>
-                </div>
-                <div className="rounded-full bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm ring-1 ring-zinc-200">
-                  Exclusive / Inclusive
-                </div>
+          <section className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-5 py-4 sm:px-10 sm:py-6">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-center items-center">
+                <h1 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">
+                  GST <span className="text-[#3A9B9B]">Calculator</span>
+                </h1>
               </div>
             </div>
 
-            <div className="px-6 py-6 sm:px-8">
-              <div className="grid gap-5 md:grid-cols-3">
-                {/* Amount */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
+            <div className="p-4 pt-3 sm:p-10 sm:pt-5">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
+                <div className="space-y-1 sm:space-y-2 col-span-2 md:col-span-1">
+                  <label className="text-[11px] sm:text-sm font-bold text-zinc-900 dark:text-zinc-100 px-1">
                     Amount
                   </label>
                   <input
                     type="number"
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#5BBD4A] focus:ring-4 focus:ring-[#5BBD4A]/20"
+                    className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     placeholder="Enter amount"
                     value={amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
+                    onChange={(e) => setAmount(e.target.value)}
                   />
                 </div>
 
-                {/* GST % */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
+                <div className="space-y-1 sm:space-y-2 col-span-1">
+                  <label className="text-[11px] sm:text-sm font-bold text-zinc-900 dark:text-zinc-100 px-1">
                     GST %
                   </label>
                   <select
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#5BBD4A] focus:ring-4 focus:ring-[#5BBD4A]/20"
+                    className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={gst}
                     onChange={(e) => setGst(Number(e.target.value))}
                   >
@@ -272,13 +279,12 @@ export default function GstCalculator() {
                   </select>
                 </div>
 
-                {/* Tax Type */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
+                <div className="space-y-1 sm:space-y-2 col-span-1">
+                  <label className="text-[11px] sm:text-sm font-bold text-zinc-900 dark:text-zinc-100 px-1">
                     Tax Type
                   </label>
                   <select
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#5BBD4A] focus:ring-4 focus:ring-[#5BBD4A]/20"
+                    className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={type}
                     onChange={(e) => setType(e.target.value as TaxType)}
                   >
@@ -288,24 +294,28 @@ export default function GstCalculator() {
                 </div>
               </div>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-center">
-                  <p className="text-sm text-zinc-500">Actual Amount</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-zinc-900">
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                <div className="relative overflow-hidden rounded-xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-3 sm:p-6 text-center hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <p className="text-[10px] sm:text-sm text-zinc-500 dark:text-zinc-400">
+                    Actual Amount
+                  </p>
+                  <p className="mt-0.5 sm:mt-2 text-sm sm:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{gstResult.actual.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#5BBD4A]/30 bg-[#EAF8EA] p-5 text-center">
-                  <p className="text-sm text-[#3a8a2c]">GST Amount</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-[#3a8a2c]">
+                <div className="relative overflow-hidden rounded-xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-3 sm:p-6 text-center hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <p className="text-[10px] sm:text-sm text-[#3A9B9B]">GST Amount</p>
+                  <p className="mt-0.5 sm:mt-2 text-sm sm:text-lg font-bold tracking-tight text-[#3A9B9B]">
                     ₹{gstResult.gstAmount.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#2D3561]/30 bg-[#EAECF5] p-5 text-center">
-                  <p className="text-sm text-[#1f2545]">Total Amount</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-[#1f2545]">
+                <div className="relative overflow-hidden rounded-xl border-none bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] p-3 sm:p-6 text-center shadow-lg shadow-[#3A9B9B]/20">
+                  <p className="text-[10px] sm:text-sm text-teal-50 font-bold">Total Amount</p>
+                  <p className="mt-0.5 sm:mt-2 text-lg sm:text-2xl font-black tracking-tighter text-white">
                     ₹{gstResult.total.toFixed(2)}
                   </p>
                 </div>
@@ -314,63 +324,56 @@ export default function GstCalculator() {
           </section>
 
           {/* ========================= PROFIT CALCULATOR ========================= */}
-          <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-xl shadow-zinc-200/60">
-            <div className="border-b border-zinc-100 bg-gradient-to-r from-[#E8F7F7] to-[#E8F7F7] px-6 py-5 sm:px-8">
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#3A9B9B]">
-                    Profit Calculator
-                  </p>
-                  <h2 className="mt-1 text-2xl font-bold text-zinc-900">
-                    Profit, GST paid, and payable tax
-                  </h2>
-                </div>
-                <div className="rounded-full bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm ring-1 ring-zinc-200">
-                  Live profit summary
-                </div>
+          <section className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
+            <div className="border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 backdrop-blur-sm px-5 py-4 sm:px-10 sm:py-6">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-center items-center">
+                <h1 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-tight">
+                  Profit <span className="text-[#3A9B9B]">Calculator</span>
+                </h1>
               </div>
             </div>
 
-            <div className="px-6 py-6 sm:px-8">
-              <div className="grid gap-5 md:grid-cols-3">
-                {/* Cost Price */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    Cost Price
-                  </label>
-                  <input
-                    type="number"
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
-                    value={cost}
-                    onChange={(e) => setCost(Number(e.target.value))}
-                  />
+            <div className="p-4 pt-3 sm:p-10 sm:pt-8">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+                {/* Buy Action Section */}
+                <div className="col-span-2 md:col-span-1">
+                  <div className="flex items-stretch rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 focus-within:border-[#3A9B9B] focus-within:ring-2 focus-within:ring-[#3A9B9B]/20 transition-all duration-300 overflow-hidden group">
+                    <div className="flex items-center justify-center px-2.5 sm:px-3.5 bg-[#5BBD4A]/8 text-[#5BBD4A] font-bold text-[14px] sm:text-[16px] uppercase border-r border-zinc-100 dark:border-zinc-800/50 rounded-l-xl transition-colors group-focus-within:bg-[#5BBD4A]/12">
+                      Buy
+                    </div>
+                    <div className="flex-1 px-3 py-1.5 sm:px-4 sm:py-2">
+                      <label className="block text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-0.5">
+                        AMOUNT
+                      </label>
+                      <input
+                        type="number"
+                        placeholder="0.00"
+                        className="w-full bg-transparent text-sm sm:text-base font-bold text-zinc-900 dark:text-zinc-100 outline-none placeholder:text-zinc-300 dark:placeholder:text-zinc-700"
+                        value={cost}
+                        onChange={(e) => handleCostChange(e.target.value)}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                {/* GST on Purchase */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    GST on Purchase (%)
-                  </label>
+                <div className="col-span-1">
                   <select
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
+                    className="w-full h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-3.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={costGst}
                     onChange={(e) => setCostGst(Number(e.target.value))}
                   >
                     {[0, 5, 12, 18, 28].map((g) => (
                       <option key={g} value={g}>
-                        {g}%
+                        {g}% GST
                       </option>
                     ))}
                   </select>
                 </div>
 
-                {/* Purchase Tax Type */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    Tax Type (Purchase)
-                  </label>
+                <div className="col-span-1">
                   <select
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
+                    className="w-full h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-3.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={costType}
                     onChange={(e) => setCostType(e.target.value as TaxType)}
                   >
@@ -379,44 +382,44 @@ export default function GstCalculator() {
                   </select>
                 </div>
 
-                {/* Selling Price */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    Selling Price
-                  </label>
-                  <input
-                    type="number"
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
-                    value={sell}
-                    onChange={(e) => setSell(Number(e.target.value))}
-                  />
+                {/* Sell Action Section */}
+                <div className="col-span-2 md:col-span-1">
+                  <div className="flex items-stretch rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 focus-within:border-[#3A9B9B] focus-within:ring-2 focus-within:ring-[#3A9B9B]/20 transition-all duration-300 overflow-hidden group">
+                    <div className="flex items-center justify-center px-2.5 sm:px-3.5 bg-[#F43F5E]/8 text-[#F43F5E] font-bold text-[14px] sm:text-[16px] uppercase border-r border-zinc-100 dark:border-zinc-800/50 rounded-l-xl transition-colors group-focus-within:bg-[#F43F5E]/12">
+                      Sell
+                    </div>
+                    <div className="flex-1 px-3 py-1.5 sm:px-4 sm:py-2">
+                      <label className="block text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-0.5">
+                        AMOUNT
+                      </label>
+                      <input
+                        type="number"
+                        placeholder="0.00"
+                        className="w-full bg-transparent text-sm sm:text-base font-bold text-zinc-900 dark:text-zinc-100 outline-none placeholder:text-zinc-300 dark:placeholder:text-zinc-700"
+                        value={sell}
+                        onChange={(e) => handleSellChange(e.target.value)}
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                {/* GST on Selling */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    GST on Selling (%)
-                  </label>
+                <div className="col-span-1">
                   <select
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
+                    className="w-full h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-3.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={sellGst}
                     onChange={(e) => setSellGst(Number(e.target.value))}
                   >
                     {[0, 5, 12, 18, 28].map((g) => (
                       <option key={g} value={g}>
-                        {g}%
+                        {g}% GST
                       </option>
                     ))}
                   </select>
                 </div>
 
-                {/* Selling Tax Type */}
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    Tax Type (Selling)
-                  </label>
+                <div className="col-span-1">
                   <select
-                    className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
+                    className="w-full h-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:px-4 sm:py-3.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20"
                     value={sellType}
                     onChange={(e) => setSellType(e.target.value as TaxType)}
                   >
@@ -426,580 +429,271 @@ export default function GstCalculator() {
                 </div>
               </div>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                <div className="rounded-2xl border border-[#5BBD4A]/30 bg-[#EAF8EA] p-5 text-center">
-                  <p className="text-sm text-[#3a8a2c]">Profit</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-[#3a8a2c]">
-                    ₹{profitResult.profit.toFixed(2)}
+              {/* Rearranged Result Cards Layout - Responsive 2-column grid */}
+              <div className="mt-4 sm:mt-8 grid grid-cols-2 gap-2 sm:gap-6 lg:gap-4 xl:gap-5">
+                {/* Row 1: Net Profit & GST Paid */}
+                <div className={`relative overflow-hidden rounded-xl sm:rounded-2xl border-none transition-all duration-500 p-2.5 sm:p-5 lg:p-4 text-center shadow-lg ${profitResult.profit < 0
+                    ? "bg-gradient-to-r from-[#F43F5E] to-[#E11D48] shadow-[#F43F5E]/20"
+                    : profitResult.profit > 0
+                      ? "bg-gradient-to-r from-[#5BBD4A] to-[#4A9D3B] shadow-[#5BBD4A]/20"
+                      : "bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] shadow-[#3A9B9B]/20"
+                  }`}>
+                  <p className="text-[10px] sm:text-sm lg:text-xs text-white/90 font-black uppercase tracking-widest">
+                    {profitResult.profit < 0 ? "Net Loss" : "Net Profit"}
+                  </p>
+                  <p className="mt-0.5 sm:mt-2 lg:mt-1 text-base sm:text-2xl lg:text-xl font-black tracking-tighter text-white">
+                    ₹{Math.abs(profitResult.profit).toFixed(2)}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-center">
-                  <p className="text-sm text-zinc-500">GST Paid</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-zinc-900">
+                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-2.5 sm:p-5 lg:p-4 text-center hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <p className="text-[10px] sm:text-sm lg:text-xs text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-widest">
+                    GST Paid
+                  </p>
+                  <p className="mt-0.5 sm:mt-2 lg:mt-1 text-base sm:text-xl lg:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{profitResult.gstPaid.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-center">
-                  <p className="text-sm text-zinc-500">GST Collected</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-zinc-900">
+                {/* Row 2: Profit % & GST Collected */}
+                <div className="flex flex-col relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-2.5 sm:p-5 lg:p-4 hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <label className="text-[10px] sm:text-sm lg:text-xs font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">
+                    Profit %
+                  </label>
+                  <input
+                    type="number"
+                    placeholder='%'
+                    className="mt-1 sm:mt-3 lg:mt-2 w-full rounded-lg sm:rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-2 py-1.5 sm:px-4 sm:py-3 lg:py-2 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20 text-sm sm:text-lg lg:text-base font-bold"
+                    value={profitPercentage}
+                    onChange={(e) => handleProfitPercentageChange(e.target.value)}
+                  />
+                </div>
+
+                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-2.5 sm:p-5 lg:p-4 text-center hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <p className="text-[10px] sm:text-sm lg:text-xs text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-widest">
+                    GST Collected
+                  </p>
+                  <p className="mt-0.5 sm:mt-2 lg:mt-1 text-base sm:text-xl lg:text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
                     ₹{profitResult.gstCollected.toFixed(2)}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-[#2D3561]/30 bg-[#EAECF5] p-5 text-center">
-                  <p className="text-sm text-[#1f2545]">GST Payable</p>
-                  <p className="mt-2 text-2xl font-bold tracking-tight text-[#1f2545]">
-                    ₹{profitResult.gstPayable.toFixed(2)}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-10 grid gap-6 lg:grid-cols-3">
-                {/* Profit Percentage */}
-                <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-                  <label className="text-sm font-semibold text-zinc-700">
-                    Profit Percentage (%)
-                  </label>
-                  <input
-                    type="number"
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
-                    value={profitPercentage}
-                    onChange={(e) =>
-                      handleProfitPercentageChange(Number(e.target.value))
-                    }
-                  />
-                </div>
-
-                {/* Desired Profit */}
-                <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-                  <label className="text-sm font-semibold text-zinc-700">
+                {/* Row 3: Desired Profit & GST Payable */}
+                <div className="flex flex-col relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-2.5 sm:p-5 lg:p-4 hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <label className="text-[10px] sm:text-sm lg:text-xs font-black text-zinc-900 dark:text-zinc-100 uppercase tracking-widest">
                     Desired Profit
                   </label>
                   <input
                     type="number"
-                    className="mt-2 w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 outline-none transition focus:border-[#3A9B9B] focus:ring-4 focus:ring-[#3A9B9B]/20"
+                    placeholder="Amount"
+                    className="mt-1 sm:mt-3 lg:mt-2 w-full rounded-lg sm:rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-2 py-1.5 sm:px-4 sm:py-3 lg:py-2 text-zinc-900 dark:text-zinc-100 outline-none transition focus:border-[#3A9B9B] focus:ring-2 focus:ring-[#3A9B9B]/20 text-sm sm:text-lg lg:text-base font-bold"
                     value={desiredProfit}
-                    onChange={(e) =>
-                      handleDesiredProfitChange(Number(e.target.value))
-                    }
+                    onChange={(e) => handleDesiredProfitChange(e.target.value)}
                   />
                 </div>
 
-                {/* Predicted Selling Price */}
-                <div className="rounded-2xl border border-[#3A9B9B]/30 bg-[#E8F7F7] p-5">
-                  <label className="text-sm font-semibold text-[#2a7676]">
-                    Predicted Selling Price
-                  </label>
-                  <input
-                    type="number"
-                    className="mt-2 w-full rounded-2xl border border-[#3A9B9B]/30 bg-white px-4 py-3 text-zinc-900 outline-none"
-                    value={predictedResult.predictedSellingPrice.toFixed(2)}
-                    readOnly
-                  />
-                  <p className="mt-3 text-xs leading-5 text-[#2a7676]/80">
-                    {predictedResult.predictedSellingLabel} based on your
-                    desired profit and selling tax type.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
-                <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-                  <p className="text-sm text-zinc-500">Actual Cost</p>
-                  <p className="mt-1 text-xl font-bold text-zinc-900">
-                    ₹{predictedResult.actualCost.toFixed(2)}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-                  <p className="text-sm text-zinc-500">Base Selling Price</p>
-                  <p className="mt-1 text-xl font-bold text-zinc-900">
-                    ₹{predictedResult.baseSellingPrice.toFixed(2)}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-[#5BBD4A]/30 bg-[#EAF8EA] p-5 shadow-sm">
-                  <p className="text-sm text-[#3a8a2c]">
-                    Predicted GST on Sale
-                  </p>
-                  <p className="mt-1 text-xl font-bold text-[#3a8a2c]">
-                    ₹{predictedResult.predictedGst.toFixed(2)}
+                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-2.5 sm:p-5 lg:p-4 text-center hover:shadow-md transition-all duration-300">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                  <p className="text-[10px] sm:text-sm lg:text-xs text-[#3A9B9B] font-black uppercase tracking-widest">GST Payable</p>
+                  <p className="mt-0.5 sm:mt-2 lg:mt-1 text-base sm:text-xl lg:text-lg font-black tracking-tight text-[#3A9B9B]">
+                    ₹{profitResult.gstPayable.toFixed(2)}
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-lg shadow-zinc-200/50 sm:p-8">
-            {/* HEADER */}
+          {/* ========================= USER GUIDE ========================= */}
+          <section className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#3A9B9B]">
-                User Guide
-              </p>
 
-              <h2 className="mt-2 text-3xl font-bold text-zinc-900">
-                How to Use the GST Calculator
+              <h2 className="mt-2 text-xl sm:text-3xl font-black text-zinc-900 dark:text-zinc-100">
+                <span className="text-[#3A9B9B]">User Guide </span>
               </h2>
-
-              <p className="mx-auto mt-4 max-w-3xl leading-7 text-zinc-600">
-                Easily calculate GST amounts, total prices, profits, and GST
-                payable using the calculator above. Simply enter your amount,
-                select the GST percentage, and choose whether the tax is
-                inclusive or exclusive.
-              </p>
             </div>
 
-            {/* STEP CARDS */}
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {/* Step 1 */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A9B9B]/20 text-lg font-bold text-[#2a7676]">
-                  1
+            <div className="mt-6 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 hover:shadow-md transition-all duration-300 group">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-zinc-200 dark:bg-zinc-800 transition-colors group-hover:bg-[#3A9B9B]" />
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#3A9B9B]/10 text-sm font-bold text-[#3A9B9B]">1</div>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">Enter Amount</h3>
                 </div>
-
-                <h3 className="mt-4 text-lg font-bold text-zinc-900">
-                  Enter Amount
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  Enter the product or service amount in the calculator input
-                  field.
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Input the product or service amount in the calculator&apos;s price field.
                 </p>
               </div>
 
-              {/* Step 2 */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5BBD4A]/20 text-lg font-bold text-[#3a8a2c]">
-                  2
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 hover:shadow-md transition-all duration-300 group">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-zinc-200 dark:bg-zinc-800 transition-colors group-hover:bg-[#3A9B9B]" />
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#3A9B9B]/10 text-sm font-bold text-[#3A9B9B]">2</div>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">Select GST %</h3>
                 </div>
-
-                <h3 className="mt-4 text-lg font-bold text-zinc-900">
-                  Select GST Rate
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  Choose the applicable GST slab such as 5%, 12%, 18%, or 28%
-                  based on your product or service category.
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Choose the correct slab (5%, 12%, 18%, or 28%) for your product category.
                 </p>
               </div>
 
-              {/* Step 3 */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2D3561]/20 text-lg font-bold text-[#1f2545]">
-                  3
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 hover:shadow-md transition-all duration-300 group">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-zinc-200 dark:bg-zinc-800 transition-colors group-hover:bg-[#3A9B9B]" />
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#3A9B9B]/10 text-sm font-bold text-[#3A9B9B]">3</div>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">Tax Type</h3>
                 </div>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Select <strong className="text-zinc-800 dark:text-zinc-200">Inclusive</strong> if price has tax, or <strong className="text-zinc-800 dark:text-zinc-200">Exclusive</strong> if tax is extra.
+                </p>
+              </div>
 
-                <h3 className="mt-4 text-lg font-bold text-zinc-900">
-                  Choose Tax Type
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  Select Inclusive if GST is already included in the amount or
-                  Exclusive if GST should be added separately.
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-4 sm:p-6 hover:shadow-md transition-all duration-300 group">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-zinc-200 dark:bg-zinc-800 transition-colors group-hover:bg-[#3A9B9B]" />
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#3A9B9B]/10 text-sm font-bold text-[#3A9B9B]">4</div>
+                  <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">Profit Goals</h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  Set a <strong className="text-zinc-800 dark:text-zinc-200">Profit %</strong> or <strong className="text-zinc-800 dark:text-zinc-200">Desired Amount</strong> to auto-calculate the sell price.
                 </p>
               </div>
             </div>
 
-            {/* EXAMPLE SECTION */}
-            <div className="mt-10 rounded-3xl border border-[#5BBD4A]/30 bg-gradient-to-r from-[#EAF8EA] to-[#E8F7F7] p-6">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                {/* LEFT */}
-                <div className="max-w-2xl">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#3a8a2c]">
-                    Example Calculation
-                  </p>
-
-                  <h3 className="mt-2 text-2xl font-bold text-zinc-900">
-                    GST Calculation Example
-                  </h3>
-
-                  <p className="mt-3 leading-7 text-zinc-700">
-                    Suppose a product costs <strong>₹100</strong> and GST is
-                    <strong> 18%</strong>.
-                  </p>
-
-                  <div className="mt-5 space-y-3">
-                    <div className="rounded-2xl bg-white/80 p-4 shadow-sm">
-                      <p className="text-sm font-medium text-zinc-600">
-                        Exclusive GST
-                      </p>
-
-                      <p className="mt-1 text-lg font-bold text-zinc-900">
-                        ₹100 + 18 Total Amount = ₹118
-                      </p>
-
-                      <p className="mt-1 text-sm text-zinc-600">
-                        Actual Amount = ₹100 | GST Amount = ₹18
-                      </p>
-                    </div>
-
-                    <div className="rounded-2xl bg-white/80 p-4 shadow-sm">
-                      <p className="text-sm font-medium text-zinc-600">
-                        Inclusive GST
-                      </p>
-
-                      <p className="mt-1 text-lg font-bold text-zinc-900">
-                        Total Amount ₹100 already includes GST
-                      </p>
-
-                      <p className="mt-1 text-sm text-zinc-600">
-                        Actual Amount = ₹84.75 | GST Amount = ₹15.25
-                      </p>
-                    </div>
+            {/* Pro Insights Grid */}
+            <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-950/40 p-5 sm:p-8 backdrop-blur-md">
+                <div className="absolute top-0 left-0 h-full w-1 bg-[#3A9B9B]" />
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl sm:text-3xl">🔄</div>
+                  <div>
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Input Tax Credit (ITC)</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 text-justify">
+                      Businesses can reduce their GST liability by claiming credit for GST already paid on purchases. The calculator shows <strong className="text-[#3A9B9B]">GST Payable</strong> by subtracting GST Paid from GST Collected.
+                    </p>
                   </div>
                 </div>
+              </div>
 
-                {/* RIGHT SIDE */}
-                <div className="grid gap-4 sm:grid-cols-2 lg:w-[360px]">
-                  <div className="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-sm">
-                    <p className="text-sm text-zinc-500">Actual Amount</p>
-
-                    <p className="mt-2 text-3xl font-bold text-zinc-900">
-                      ₹100
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-sm">
-                    <p className="text-sm text-[#3a8a2c]">GST Amount (18%)</p>
-
-                    <p className="mt-2 text-3xl font-bold text-[#3a8a2c]">
-                      ₹18
-                    </p>
-                  </div>
-
-                  <div className="sm:col-span-2 rounded-2xl border border-white/60 bg-white/90 p-5 text-center shadow-sm">
-                    <p className="text-sm text-[#1f2545]">Total Amount</p>
-
-                    <p className="mt-2 text-4xl font-bold text-[#1f2545]">
-                      ₹118
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-950/40 p-5 sm:p-8 backdrop-blur-md">
+                <div className="absolute top-0 left-0 h-full w-1 bg-[#5BBD4A]" />
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl sm:text-3xl">📈</div>
+                  <div>
+                    <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Profit Maximization Tip</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 text-justify">
+                      Always calculate margins on the <strong className="text-[#5BBD4A]">base amount before GST</strong>. Tax collected is a liability to the government, not part of your business&apos;s operational profit.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* PREDICTED SELLING PRICE GUIDE */}
-            <div className="mt-10 rounded-3xl border border-[#3A9B9B]/30 bg-gradient-to-r from-[#E8F7F7] to-[#EAECF5] p-6">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                {/* LEFT CONTENT */}
-                <div className="max-w-2xl">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2a7676]">
-                    Selling Price Prediction
-                  </p>
+            {/* Example Section */}
+            <div className="mt-8 sm:mt-12 rounded-[1.5rem] sm:rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 bg-white/20 dark:bg-zinc-900/20 p-4 sm:p-8 md:p-10">
+              <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
+                <p className="text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">Example Calculation</p>
+                <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
+              </div>
 
-                  <h3 className="mt-2 text-2xl font-bold text-zinc-900">
-                    How to Use Predicted Selling Price
-                  </h3>
-
-                  <p className="mt-4 leading-7 text-zinc-700">
-                    The calculator can automatically predict the selling price
-                    required to achieve your desired profit based on the GST
-                    type and your cost price.
-                  </p>
-
-                  {/* STEPS */}
-                  <div className="mt-6 space-y-4">
-                    <div className="rounded-2xl bg-white/80 p-4 shadow-sm">
-                      <p className="font-semibold text-zinc-900">
-                        Step 1 — Enter Cost Price
-                      </p>
-
-                      <p className="mt-1 text-sm leading-6 text-zinc-600">
-                        Add the original purchase price of the product along
-                        with GST details.
-                      </p>
+              <div className="space-y-6">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 p-5 border border-zinc-100 dark:border-zinc-800 shadow-sm">
+                  <div className="lg:w-72 shrink-0">
+                    <span className="inline-block rounded-full bg-[#3A9B9B]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#3A9B9B]">Exclusive GST</span>
+                    <p className="mt-2 text-base font-bold text-zinc-900 dark:text-zinc-100">₹100 + 18% GST</p>
+                    <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Tax is added to the base price. Customer pays ₹118.</p>
+                  </div>
+                  <div className="flex-1 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+                    <div className="rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 p-4 text-center">
+                      <p className="text-[10px] text-zinc-500 dark:text-zinc-500 font-bold uppercase">Base</p>
+                      <p className="text-lg font-black text-zinc-900 dark:text-zinc-100">₹100</p>
                     </div>
-
-                    <div className="rounded-2xl bg-white/80 p-4 shadow-sm">
-                      <p className="font-semibold text-zinc-900">
-                        Step 2 — Enter Desired Profit or Profit %
-                      </p>
-
-                      <p className="mt-1 text-sm leading-6 text-zinc-600">
-                        You can either enter the exact profit amount you want or
-                        simply provide the desired profit percentage.
-                      </p>
+                    <div className="rounded-xl border border-[#3A9B9B]/20 bg-white dark:bg-zinc-900 p-4 text-center">
+                      <p className="text-[10px] text-[#3A9B9B] font-bold uppercase">GST (18%)</p>
+                      <p className="text-lg font-black text-[#3A9B9B]">₹18</p>
                     </div>
-
-                    <div className="rounded-2xl bg-white/80 p-4 shadow-sm">
-                      <p className="font-semibold text-zinc-900">
-                        Step 3 — Get Predicted Selling Price
-                      </p>
-
-                      <p className="mt-1 text-sm leading-6 text-zinc-600">
-                        The calculator automatically predicts the final selling
-                        price needed to achieve your target profit after GST
-                        calculations.
-                      </p>
+                    <div className="col-span-2 lg:col-span-1 rounded-xl bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] p-4 text-center">
+                      <p className="text-[10px] text-teal-100 font-bold uppercase">Total</p>
+                      <p className="text-lg font-black text-white">₹118</p>
                     </div>
                   </div>
                 </div>
 
-                {/* RIGHT SIDE EXAMPLE */}
-                <div className="w-full max-w-md rounded-3xl border border-white/70 bg-white/90 p-6 shadow-lg">
-                  <h4 className="text-lg font-bold text-zinc-900">Example</h4>
-
-                  <div className="mt-5 space-y-4">
-                    <div className="flex items-center justify-between rounded-2xl bg-zinc-50 px-4 py-3">
-                      <span className="text-sm text-zinc-600">Cost Price</span>
-
-                      <span className="font-bold text-zinc-900">₹100</span>
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-center rounded-2xl bg-white/60 dark:bg-zinc-900/60 p-5 border border-zinc-100 dark:border-zinc-800 shadow-sm">
+                  <div className="lg:w-72 shrink-0">
+                    <span className="inline-block rounded-full bg-[#2D3561]/10 dark:bg-[#2D3561]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#2D3561] dark:text-indigo-300">Inclusive GST</span>
+                    <p className="mt-2 text-base font-bold text-zinc-900 dark:text-zinc-100">₹100 (Tax Included)</p>
+                    <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Tax is already inside the price. Base value is extracted.</p>
+                  </div>
+                  <div className="flex-1 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+                    <div className="rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 p-4 text-center">
+                      <p className="text-[10px] text-zinc-500 dark:text-zinc-500 font-bold uppercase">Base</p>
+                      <p className="text-lg font-black text-zinc-900 dark:text-zinc-100">₹84.75</p>
                     </div>
-
-                    <div className="flex items-center justify-between rounded-2xl bg-zinc-50 px-4 py-3">
-                      <span className="text-sm text-zinc-600">
-                        Desired Profit
-                      </span>
-
-                      <span className="font-bold text-[#3a8a2c]">₹50</span>
+                    <div className="rounded-xl border border-[#3A9B9B]/20 bg-white dark:bg-zinc-900 p-4 text-center">
+                      <p className="text-[10px] text-[#3A9B9B] font-bold uppercase">GST (18%)</p>
+                      <p className="text-lg font-black text-[#3A9B9B]">₹15.25</p>
                     </div>
-
-                    <div className="flex items-center justify-between rounded-2xl bg-zinc-50 px-4 py-3">
-                      <span className="text-sm text-zinc-600">GST Rate</span>
-
-                      <span className="font-bold text-zinc-900">18%</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-[#3A9B9B]/30 bg-[#E8F7F7] p-5 text-center">
-                      <p className="text-sm text-[#2a7676]">
-                        Predicted Selling Price
-                      </p>
-
-                      <p className="mt-2 text-4xl font-bold text-[#2a7676]">
-                        ₹177
-                      </p>
-
-                      <p className="mt-2 text-xs leading-5 text-[#2a7676]/80">
-                        ₹150 base selling price + 18% GST
-                      </p>
+                    <div className="col-span-2 lg:col-span-1 rounded-xl bg-gradient-to-br from-[#2D3561] to-[#3A9B9B] p-4 text-center">
+                      <p className="text-[10px] text-teal-100 font-bold uppercase">Total</p>
+                      <p className="text-lg font-black text-white">₹100</p>
                     </div>
                   </div>
                 </div>
               </div>
-
-              {/* BOTTOM TIPS */}
-              <div className="mt-8 grid gap-5 md:grid-cols-3">
-                <div className="rounded-2xl border border-[#5BBD4A]/30 bg-[#EAF8EA] p-5">
-                  <h4 className="text-lg font-bold text-[#2D3561]">
-                    🎯 Desired Profit
-                  </h4>
-
-                  <p className="mt-2 text-sm leading-6 text-[#3a8a2c]">
-                    Enter the exact amount of profit you want to earn from the
-                    product.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-[#3A9B9B]/30 bg-[#E8F7F7] p-5">
-                  <h4 className="text-lg font-bold text-[#2D3561]">
-                    📊 Profit Percentage
-                  </h4>
-
-                  <p className="mt-2 text-sm leading-6 text-[#2a7676]">
-                    Instead of fixed profit, you can use profit percentage like
-                    20%, 30%, or 50% to automatically calculate selling price.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-[#2D3561]/30 bg-[#EAECF5] p-5">
-                  <h4 className="text-lg font-bold text-[#2D3561]">
-                    🧾 Base Selling Price
-                  </h4>
-
-                  <p className="mt-2 text-sm leading-6 text-[#1f2545]">
-                    Base selling price is the actual product price before adding
-                    GST on the final sale.
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* EXTRA TIPS */}
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
-              <div className="rounded-2xl border border-[#3A9B9B]/30 bg-[#E8F7F7] p-5">
-                <h3 className="text-lg font-bold text-[#2D3561]">
-                  💡 Inclusive vs Exclusive
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-[#2a7676]">
-                  Inclusive prices already contain GST inside the amount.
-                  Exclusive prices add GST separately after calculation.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#2D3561]/30 bg-[#EAECF5] p-5">
-                <h3 className="text-lg font-bold text-[#2D3561]">
-                  📈 Profit Calculation
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-[#1f2545]">
-                  The Profit Calculator helps businesses understand actual
-                  earnings after considering GST paid and GST collected.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* ========================= INFO SECTION ========================= */}
-          <section className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-lg shadow-zinc-200/50 sm:p-8">
-            <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                Learn GST
-              </p>
-
-              <h2 className="mt-2 text-3xl font-bold text-zinc-900">
-                GST — Goods and Services Tax
-              </h2>
-
-              <p className="mx-auto mt-4 max-w-3xl leading-7 text-zinc-600">
-                GST is an indirect tax introduced in India on July 1, 2017. It
-                is applied to the supply of goods and services and replaced
-                multiple indirect taxes such as VAT, Service Tax, and Excise
-                Duty.
-              </p>
-            </div>
-
-            {/* INFO CARDS */}
-            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {/* What is GST */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-                <div className="mb-3 text-3xl">📘</div>
-
-                <h3 className="text-lg font-bold text-zinc-900">
-                  What is GST?
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  GST is a value-added tax charged on goods and services at
-                  every stage of sale. Businesses collect GST from customers and
-                  pay it to the government after adjusting input tax credits.
-                </p>
-              </div>
-
-              {/* Inclusive GST */}
-              <div className="rounded-2xl border border-[#5BBD4A]/30 bg-[#EAF8EA] p-5">
-                <div className="mb-3 text-3xl">💰</div>
-
-                <h3 className="text-lg font-bold text-[#2D3561]">
-                  Inclusive GST
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-[#3a8a2c]">
-                  Inclusive GST means the GST amount is already included in the
-                  entered price.
-                </p>
-
-                <div className="mt-4 rounded-xl bg-white/80 p-3 text-sm font-medium text-[#2D3561]">
-                  Example: ₹118 inclusive of 18% GST
-                  <br />
-                  Actual Price = ₹100
-                  <br />
-                  GST = ₹18
-                </div>
-              </div>
-
-              {/* Exclusive GST */}
-              <div className="rounded-2xl border border-[#2D3561]/30 bg-[#EAECF5] p-5">
-                <div className="mb-3 text-3xl">🧾</div>
-
-                <h3 className="text-lg font-bold text-[#2D3561]">
-                  Exclusive GST
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-[#1f2545]">
-                  Exclusive GST means GST is added separately on top of the
-                  entered amount.
-                </p>
-
-                <div className="mt-4 rounded-xl bg-white/80 p-3 text-sm font-medium text-[#2D3561]">
-                  Example: ₹100 + 18% GST
-                  <br />
-                  GST = ₹18
-                  <br />
-                  Final Amount = ₹118
-                </div>
-              </div>
-
-              {/* Input Tax Credit */}
-              <div className="rounded-2xl border border-[#2D3561]/30 bg-[#EAECF5] p-5">
-                <div className="mb-3 text-3xl">🔄</div>
-
-                <h3 className="text-lg font-bold text-[#2D3561]">
-                  Input Tax Credit (ITC)
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-[#1f2545]">
-                  Businesses can reduce the GST they owe by claiming credit for
-                  GST already paid on purchases and expenses.
-                </p>
-              </div>
-
-              {/* GST Slabs */}
-              <div className="rounded-2xl border border-[#3A9B9B]/30 bg-[#E8F7F7] p-5">
-                <div className="mb-3 text-3xl">📊</div>
-
-                <h3 className="text-lg font-bold text-[#2D3561]">
-                  Common GST Slabs
-                </h3>
-
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  {[0, 5, 12, 18, 28].map((rate) => (
-                    <div
-                      key={rate}
-                      className="rounded-xl bg-white px-4 py-3 text-center shadow-sm"
-                    >
-                      <p className="text-xl font-bold text-[#2a7676]">
-                        {rate}%
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Profit Tip */}
-              <div className="rounded-2xl border border-[#5BBD4A]/30 bg-[#EAF8EA] p-5">
-                <div className="mb-3 text-3xl">📈</div>
-
-                <h3 className="text-lg font-bold text-[#2D3561]">Profit Tip</h3>
-
-                <p className="mt-2 text-sm leading-6 text-[#3a8a2c]">
-                  Always calculate profit using the base amount before GST. GST
-                  collected from customers is payable to the government and
-                  should not be treated as business profit.
-                </p>
-              </div>
-            </div>
-
-            {/* BOTTOM NOTE */}
-            <div className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-              <h3 className="text-lg font-bold text-zinc-900">
+            {/* Quick Summary Points */}
+            <div className="mt-8 sm:mt-12 p-6 sm:p-10 rounded-2xl bg-zinc-900/5 dark:bg-white/5 border border-zinc-200 dark:border-zinc-800">
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#3A9B9B]" />
                 Quick Summary
               </h3>
-
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
-                <li>
-                  ✅ Inclusive tax means GST is already included in the amount.
-                </li>
-
-                <li>
-                  ✅ Exclusive tax means GST is added separately to the amount.
-                </li>
-
-                <li>
-                  ✅ Businesses can claim GST paid on purchases using Input Tax
-                  Credit.
-                </li>
-
-                <li>✅ GST payable = GST collected − GST paid.</li>
-
-                <li>
-                  ✅ Profit should always be calculated before GST adjustments.
-                </li>
-              </ul>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-[#3A9B9B]">✅</span>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400"><strong className="text-zinc-900 dark:text-zinc-100">Inclusive:</strong> GST is already included in the amount.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-[#3A9B9B]">✅</span>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400"><strong className="text-zinc-900 dark:text-zinc-100">Exclusive:</strong> GST is added separately to the price.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-[#3A9B9B]">✅</span>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400"><strong className="text-zinc-900 dark:text-zinc-100">ITC:</strong> Claim credit for GST paid on business purchases.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-[#3A9B9B]">✅</span>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400"><strong className="text-zinc-900 dark:text-zinc-100">GST Payable:</strong> Calculated as Collected − Paid.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-[#3A9B9B]">✅</span>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400"><strong className="text-zinc-900 dark:text-zinc-100">Calculations:</strong> Always base profit on pre-GST figures.</p>
+                </div>
+              </div>
             </div>
           </section>
+
+          {/* ========================= FEEDBACK SECTION ========================= */}
+          <div className="mt-10 sm:mt-16 text-center">
+            <p className="text-lg sm:text-xl font-medium text-zinc-500/70 dark:text-zinc-500/70">
+              Have suggestions?
+
+              <span className="block sm:inline sm:ml-1">
+                Write to{" "}
+                <a
+                  href="mailto:info@banavatnest.com"
+                  className="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors duration-300"
+                >
+                  info@banavatnest.com
+                </a>
+              </span>
+            </p>
+          </div>
         </div>
       </main>
     </div>
