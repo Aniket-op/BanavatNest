@@ -512,11 +512,9 @@ export default function GstCalculator() {
           <section className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300">
             <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="text-center">
-              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#3A9B9B]">
-                Centralized Help & Education
-              </p>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-black text-zinc-900 dark:text-zinc-100">
-                User Guide & <span className="text-[#3A9B9B]">GST Insights</span>
+              
+              <h2 className="mt-2 text-xl sm:text-3xl font-black text-zinc-900 dark:text-zinc-100">
+                <span className="text-[#3A9B9B]">User Guide </span>
               </h2>
             </div>
 
