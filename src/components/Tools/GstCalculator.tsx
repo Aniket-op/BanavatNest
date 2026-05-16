@@ -339,7 +339,7 @@ export default function GstCalculator() {
                 {/* Buy Action Section */}
                 <div className="col-span-2 md:col-span-1">
                   <div className="flex items-stretch rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 focus-within:border-[#3A9B9B] focus-within:ring-2 focus-within:ring-[#3A9B9B]/20 transition-all duration-300 overflow-hidden group">
-                    <div className="flex items-center justify-center px-2.5 sm:px-3.5 bg-[#5BBD4A]/8 text-[#5BBD4A] font-semibold text-[10px] sm:text-[11px] uppercase border-r border-zinc-100 dark:border-zinc-800/50 rounded-l-xl transition-colors group-focus-within:bg-[#5BBD4A]/12">
+                    <div className="flex items-center justify-center px-2.5 sm:px-3.5 bg-[#5BBD4A]/8 text-[#5BBD4A] font-bold text-[14px] sm:text-[16px] uppercase border-r border-zinc-100 dark:border-zinc-800/50 rounded-l-xl transition-colors group-focus-within:bg-[#5BBD4A]/12">
                       Buy
                     </div>
                     <div className="flex-1 px-3 py-1.5 sm:px-4 sm:py-2">
@@ -385,7 +385,7 @@ export default function GstCalculator() {
                 {/* Sell Action Section */}
                 <div className="col-span-2 md:col-span-1">
                   <div className="flex items-stretch rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 focus-within:border-[#3A9B9B] focus-within:ring-2 focus-within:ring-[#3A9B9B]/20 transition-all duration-300 overflow-hidden group">
-                    <div className="flex items-center justify-center px-2.5 sm:px-3.5 bg-[#F43F5E]/8 text-[#F43F5E] font-semibold text-[10px] sm:text-[11px] uppercase border-r border-zinc-100 dark:border-zinc-800/50 rounded-l-xl transition-colors group-focus-within:bg-[#F43F5E]/12">
+                    <div className="flex items-center justify-center px-2.5 sm:px-3.5 bg-[#F43F5E]/8 text-[#F43F5E] font-bold text-[14px] sm:text-[16px] uppercase border-r border-zinc-100 dark:border-zinc-800/50 rounded-l-xl transition-colors group-focus-within:bg-[#F43F5E]/12">
                       Sell
                     </div>
                     <div className="flex-1 px-3 py-1.5 sm:px-4 sm:py-2">
@@ -432,13 +432,12 @@ export default function GstCalculator() {
               {/* Rearranged Result Cards Layout - Responsive 2-column grid */}
               <div className="mt-4 sm:mt-8 grid grid-cols-2 gap-2 sm:gap-6 lg:gap-4 xl:gap-5">
                 {/* Row 1: Net Profit & GST Paid */}
-                <div className={`relative overflow-hidden rounded-xl sm:rounded-2xl border-none transition-all duration-500 p-2.5 sm:p-5 lg:p-4 text-center shadow-lg ${
-                  profitResult.profit < 0 
-                    ? "bg-gradient-to-r from-[#F43F5E] to-[#E11D48] shadow-[#F43F5E]/20" 
+                <div className={`relative overflow-hidden rounded-xl sm:rounded-2xl border-none transition-all duration-500 p-2.5 sm:p-5 lg:p-4 text-center shadow-lg ${profitResult.profit < 0
+                    ? "bg-gradient-to-r from-[#F43F5E] to-[#E11D48] shadow-[#F43F5E]/20"
                     : profitResult.profit > 0
                       ? "bg-gradient-to-r from-[#5BBD4A] to-[#4A9D3B] shadow-[#5BBD4A]/20"
                       : "bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] shadow-[#3A9B9B]/20"
-                }`}>
+                  }`}>
                   <p className="text-[10px] sm:text-sm lg:text-xs text-white/90 font-black uppercase tracking-widest">
                     {profitResult.profit < 0 ? "Net Loss" : "Net Profit"}
                   </p>
@@ -512,7 +511,7 @@ export default function GstCalculator() {
           <section className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-[#3A9B9B]/20 bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm p-5 sm:p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300">
             <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] rounded-t-3xl" />
             <div className="text-center">
-              
+
               <h2 className="mt-2 text-xl sm:text-3xl font-black text-zinc-900 dark:text-zinc-100">
                 <span className="text-[#3A9B9B]">User Guide </span>
               </h2>
@@ -526,7 +525,7 @@ export default function GstCalculator() {
                   <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">Enter Amount</h3>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                  Input the product or service amount in the calculator's price field.
+                  Input the product or service amount in the calculator&apos;s price field.
                 </p>
               </div>
 
@@ -586,7 +585,7 @@ export default function GstCalculator() {
                   <div>
                     <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Profit Maximization Tip</h3>
                     <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 text-justify">
-                      Always calculate margins on the <strong className="text-[#5BBD4A]">base amount before GST</strong>. Tax collected is a liability to the government, not part of your business's operational profit.
+                      Always calculate margins on the <strong className="text-[#5BBD4A]">base amount before GST</strong>. Tax collected is a liability to the government, not part of your business&apos;s operational profit.
                     </p>
                   </div>
                 </div>
@@ -678,6 +677,23 @@ export default function GstCalculator() {
               </div>
             </div>
           </section>
+
+          {/* ========================= FEEDBACK SECTION ========================= */}
+          <div className="mt-10 sm:mt-16 text-center">
+            <p className="text-lg sm:text-xl font-medium text-zinc-500/70 dark:text-zinc-500/70">
+              Have suggestions?
+
+              <span className="block sm:inline sm:ml-1">
+                Write to{" "}
+                <a
+                  href="mailto:info@banavatnest.com"
+                  className="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors duration-300"
+                >
+                  info@banavatnest.com
+                </a>
+              </span>
+            </p>
+          </div>
         </div>
       </main>
     </div>

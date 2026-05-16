@@ -625,6 +625,23 @@ export default function EmiCalculator() {
               </div>
             </div>
           </section>
+
+          {/* ========================= FEEDBACK SECTION ========================= */}
+          <div className="mt-10 sm:mt-16 text-center">
+            <p className="text-lg sm:text-xl font-medium text-zinc-500/70 dark:text-zinc-500/70">
+              Have suggestions?
+
+              <span className="block sm:inline sm:ml-1">
+                Write to{" "}
+                <a
+                  href="mailto:info@banavatnest.com"
+                  className="hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors duration-300"
+                >
+                  info@banavatnest.com
+                </a>
+              </span>
+            </p>
+          </div>
         </main>
       </div>
       {/* --- PRINT ONLY LAYOUT --- */}
