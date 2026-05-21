@@ -49,6 +49,7 @@ export default function IndustryAcademiaCollaborationPage() {
         { heading: t('h2'), content: t('p2') },
         { heading: t('h3'), content: t('p3') },
         { heading: t('h4'), content: t('p4') },
+        { heading: t('h5'), content: t('p5') },
     ];
 
     return (
