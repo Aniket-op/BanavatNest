@@ -19,19 +19,19 @@ export default function TermsOfUsePage() {
                 <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-zinc-300">
                     <p>{t('intro')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s1Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s1Title')}</h3>
                     <p>{t('s1Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s2Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s2Title')}</h3>
                     <p>{t('s2Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s3Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s3Title')}</h3>
                     <p>{t('s3Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s4Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s4Title')}</h3>
                     <p>{t('s4Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s5Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s5Title')}</h3>
                     <p>{t('s5Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s5Item1')}</li>
@@ -43,16 +43,16 @@ export default function TermsOfUsePage() {
                     </ul>
                     <p className="mt-4">{t('s5Footer')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s6Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s6Title')}</h3>
                     <p>{t('s6Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s7Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s7Title')}</h3>
                     <p>{t('s7Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s8Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s8Title')}</h3>
                     <p>{t('s8Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s9Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s9Title')}</h3>
                     <p>{t('s9Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s9Item1')}</li>
@@ -63,19 +63,19 @@ export default function TermsOfUsePage() {
                     </ul>
                     <p className="mt-4">{t('s9Footer')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s10Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s10Title')}</h3>
                     <p>{t('s10Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s11Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s11Title')}</h3>
                     <p>{t('s11Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s12Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s12Title')}</h3>
                     <p>{t('s12Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s13Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s13Title')}</h3>
                     <p>{t('s13Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s14Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s14Title')}</h3>
                     <p>{t('s14Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s14Item1')}</li>
@@ -84,13 +84,13 @@ export default function TermsOfUsePage() {
                         <li>{t('s14Item4')}</li>
                     </ul>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s15Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s15Title')}</h3>
                     <p>{t('s15Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s16Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s16Title')}</h3>
                     <p>{t('s16Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s17Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s17Title')}</h3>
                     <p>{t('s17Text')}</p>
                     <div className="mt-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800">
                         <p className="font-bold text-[#2D3561] dark:text-zinc-100 mb-1">{t('s17Address')}</p>

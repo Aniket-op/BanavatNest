@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
                 <div className="prose dark:prose-invert max-w-none text-gray-700 dark:text-zinc-300">
                     <p>{t('intro')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s1Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold">{t('s1Title')}</h3>
                     <p>{t('s1Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s1Item1')}</li>
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
                         <li>{t('s1Item5')}</li>
                     </ul>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s2Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s2Title')}</h3>
                     <p>{t('s2Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s2Item1')}</li>
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
                         <li>{t('s2Item6')}</li>
                     </ul>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s3Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s3Title')}</h3>
                     <p>{t('s3Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s3Item1')}</li>
@@ -48,10 +48,10 @@ export default function PrivacyPolicyPage() {
                         <li>{t('s3Item3')}</li>
                     </ul>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s4Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s4Title')}</h3>
                     <p>{t('s4Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s5Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s5Title')}</h3>
                     <p>{t('s5Text')}</p>
                     <ul className="list-disc pl-6 space-y-1">
                         <li>{t('s5Item1')}</li>
@@ -61,16 +61,16 @@ export default function PrivacyPolicyPage() {
                     </ul>
                     <p className="mt-4">{t('s5Footer')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s6Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s6Title')}</h3>
                     <p>{t('s6Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s7Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s7Title')}</h3>
                     <p>{t('s7Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s8Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s8Title')}</h3>
                     <p>{t('s8Text')}</p>
 
-                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4">{t('s9Title')}</h3>
+                    <h3 className="text-[#2D3561] dark:text-[#3A9B9B] mt-8 mb-4 font-bold ">{t('s9Title')}</h3>
                     <p>{t('s9Text')}</p>
                     <div className="mt-4 p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800">
                         <p className="font-bold text-[#2D3561] dark:text-zinc-100 mb-1">{t('s9Address')}</p>
