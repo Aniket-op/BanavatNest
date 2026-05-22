@@ -316,26 +316,7 @@ export default function WhatWeDo() {
                 })}
               </motion.div>
 
-              {/* Top shadow mask — suggests card above */}
-              <div
-                className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, var(--mask-bg, #fff) 0%, transparent 100%)",
-                }}
-              />
-              {/* Bottom shadow mask — suggests card below */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
-                style={{
-                  background:
-                    "linear-gradient(to top, var(--mask-bg, #fff) 0%, transparent 100%)",
-                }}
-              />
-              <style>{`
-                :root { --mask-bg: #fff; }
-                .dark { --mask-bg: #18181b; }
-              `}</style>
+
 
               {/* Vertical Navigation Controls */}
               <div className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-30 hidden xl:flex">

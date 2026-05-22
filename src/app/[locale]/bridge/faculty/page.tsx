@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
     ArrowRight,
+    ArrowDown,
     BookOpen,
     Lightbulb,
     FlaskConical,
@@ -12,7 +13,6 @@ import {
     Cpu,
     MessageSquare,
     Network,
-    ChevronDown,
     Users,
     Globe,
     Layers,
@@ -251,29 +251,22 @@ const grantProcess = [
 
 // ── Open Opportunities ────────────────────────────────────────────────────────
 const opportunities = [
-    { title: 'AI/ML Research Mentors', color: '#2D3561', bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-    { title: 'Blockchain & Cybersecurity', color: '#3A9B9B', bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-    { title: 'Joint Grant Proposal Opportunities', color: '#5BBD4A', bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+    { title: 'AI/ML Research Mentors', color: '#3A9B9B', bg: ' bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg' },
+    { title: 'Blockchain & Cybersecurity', color: '#3A9B9B', bg: ' bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg' },
+    { title: 'Joint Grant Proposal Opportunities', color: '#3A9B9B', bg: ' bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5 dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10 backdrop-blur-sm shadow-lg' },
 ];
 
 // ── Section Heading ───────────────────────────────────────────────────────────
 const SectionHeading = ({
-    preLabel,
     title,
     highlight,
     subtitle,
 }: {
-    preLabel?: string;
     title: string;
     highlight?: string;
     subtitle?: string;
 }) => (
     <div className="text-center mb-10 md:mb-16">
-        {preLabel && (
-            <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] mb-3 px-4 py-1.5 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
-                {preLabel}
-            </span>
-        )}
         <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -284,7 +277,7 @@ const SectionHeading = ({
             {title}{' '}
             {highlight && <span className="text-[#3A9B9B]">{highlight}</span>}
         </motion.h2>
-        {subtitle && (
+        {/* {subtitle && (
             <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -294,7 +287,7 @@ const SectionHeading = ({
             >
                 {subtitle}
             </motion.p>
-        )}
+        )} */}
     </div>
 );
 
@@ -307,7 +300,7 @@ export default function FacultyEngagementPage() {
             <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
 
                 {/* ── HERO ──────────────────────────────────────────────────────────── */}
-                <header className="relative bg-white dark:bg-zinc-900/40 pt-32 pb-20 border-b border-gray-100 dark:border-zinc-800 grid-bg overflow-hidden">
+                <header className="relative bg-white dark:bg-zinc-900/40 pt-32 pb-12 border-b border-gray-100 dark:border-zinc-800 grid-bg overflow-hidden">
                     {/* Decorative blobs */}
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3A9B9B]/8 blur-[120px] rounded-full pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2D3561]/6 blur-[100px] rounded-full pointer-events-none" />
@@ -320,10 +313,10 @@ export default function FacultyEngagementPage() {
                             transition={{ duration: 0.5 }}
                             className="mb-6"
                         >
-                            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] px-4 py-1.5 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
+                            {/* <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] px-4 py-1.5 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
                                 <GraduationCap className="w-3.5 h-3.5" />
                                 BanavatNest Bridge
-                            </span>
+                            </span> */}
                         </motion.div>
 
                         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -333,7 +326,7 @@ export default function FacultyEngagementPage() {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7 }}
-                                    className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-6 leading-tight tracking-tighter"
+                                    className="text-4xl md:text-6xl font-black text-zinc-900 dark:text-zinc-100 mb-4 leading-tight tracking-tighter"
                                 >
                                     Faculty &{' '}
                                     <span className="text-[#3A9B9B]">Researchers</span>
@@ -342,14 +335,48 @@ export default function FacultyEngagementPage() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7, delay: 0.15 }}
-                                    className="text-lg md:text-xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed mb-8 max-w-lg"
+                                    className="text-base md:text-lg text-gray-500 dark:text-zinc-400 font-medium leading-relaxed mb-6 max-w-lg"
                                 >
                                     Where academic expertise meets real-world innovation. Collaborate, research, mentor, and transform ideas into impact.
                                 </motion.p>
+
+                                <div className="grid grid-cols-2 gap-3 mb-6">
+                                    {stats.map((stat, i) => {
+                                        const Icon = stat.icon;
+                                        return (
+                                            <motion.div
+                                                key={i}
+                                                initial={{ opacity: 0, y: 16 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
+                                                whileHover={{ y: -3, scale: 1.02 }}
+                                                className="relative rounded-2xl overflow-hidden flex items-center gap-3
+                                                    bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5
+                                                    dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
+                                                    backdrop-blur-sm border border-[#3A9B9B]/20 shadow-sm
+                                                    p-3 cursor-default transition-all duration-300"
+                                            >
+                                                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
+                                                <div className="w-9 h-9 rounded-xl bg-[#3A9B9B]/10 flex items-center justify-center shrink-0">
+                                                    <Icon className="w-4 h-4 text-[#3A9B9B]" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-2xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter leading-none">
+                                                        {stat.value}
+                                                    </div>
+                                                    <div className="text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                                                        {stat.label}
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.3 }}
+                                    transition={{ duration: 0.6, delay: 0.55 }}
                                     className="flex flex-wrap gap-4"
                                 >
                                     <Link
@@ -370,7 +397,7 @@ export default function FacultyEngagementPage() {
                                 <GlassCard className="p-6 md:p-8">
                                     <div className="pt-2">
                                         <p className="text-xs font-black uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 mb-5">
-                                            Visual Collaboration Workflow
+                                            How it works
                                         </p>
                                         <div className="flex flex-col gap-0">
                                             {workflowSteps.map((step, i) => {
@@ -396,13 +423,16 @@ export default function FacultyEngagementPage() {
                                                         </motion.div>
                                                         {i < workflowSteps.length - 1 && (
                                                             <motion.div
-                                                                initial={{ scaleY: 0 }}
-                                                                animate={{ scaleY: 1 }}
+                                                                initial={{ opacity: 0 }}
+                                                                animate={{ opacity: 1 }}
                                                                 transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
-                                                                className="flex flex-col items-center py-1"
+                                                                className="flex flex-col items-center py-1 gap-0.5"
                                                             >
-                                                                <div className="w-0.5 h-3 bg-gradient-to-b from-[#3A9B9B]/60 to-[#2D3561]/40" />
-                                                                <ChevronDown className="w-3.5 h-3.5 text-[#3A9B9B]" />
+                                                                {/* <div className="w-px h-2 bg-gradient-to-b from-[#3A9B9B]/70 to-[#3A9B9B]/20" /> */}
+                                                                <div className="w-5 h-5 rounded-full border border-[#3A9B9B]/30 bg-white/60 dark:bg-zinc-800/60 flex items-center justify-center">
+                                                                    <ArrowDown className="w-15 h-15 text-[#3A9B9B]" />
+                                                                </div>
+                                                                {/* <div className="w-px h-2 bg-gradient-to-b from-[#3A9B9B]/20 to-[#2D3561]/40" /> */}
                                                             </motion.div>
                                                         )}
                                                     </div>
@@ -416,47 +446,9 @@ export default function FacultyEngagementPage() {
                     </div>
                 </header>
 
-                {/* ── STATS ─────────────────────────────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                        {stats.map((stat, i) => {
-                            const Icon = stat.icon;
-                            return (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: i * 0.08 }}
-                                    whileHover={{ y: -4, scale: 1.02 }}
-                                    className="relative rounded-[2rem] overflow-hidden
-                    bg-gradient-to-br from-[#3A9B9B]/5 via-white/60 to-[#2D3561]/5
-                    dark:from-[#3A9B9B]/10 dark:via-zinc-900/60 dark:to-[#2D3561]/10
-                    backdrop-blur-sm border-2 border-[#3A9B9B]/20 shadow-md
-                    p-6 text-center group cursor-default transition-all duration-300"
-                                >
-                                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561]" />
-                                    <div className="flex justify-center mb-3">
-                                        <div className="w-10 h-10 rounded-xl bg-[#3A9B9B]/10 flex items-center justify-center">
-                                            <Icon className="w-5 h-5 text-[#3A9B9B]" />
-                                        </div>
-                                    </div>
-                                    <div className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-zinc-100 mb-1 tracking-tighter">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-xs md:text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
-                                        {stat.label}
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-                </section>
-
                 {/* ── WHAT FACULTY CAN DO ────────────────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                     <SectionHeading
-                        preLabel="Capabilities"
                         title="What Faculty &"
                         highlight="Researchers Can Do"
                         subtitle="A wide spectrum of impactful collaboration modes designed for academic and research professionals."
@@ -506,9 +498,8 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── CORE DOMAINS ──────────────────────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                     <SectionHeading
-                        preLabel="Research Areas"
                         title="Core Domains &"
                         highlight="Research Areas"
                     />
@@ -562,7 +553,7 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── WHY COLLABORATE + WHO CAN APPLY ─────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* Why Collaborate */}
                         <motion.div
@@ -641,9 +632,8 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── COLLABORATION PROCESS ──────────────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                     <SectionHeading
-                        preLabel="How It Works"
                         title="Collaboration"
                         highlight="Process"
                         subtitle="A simple, transparent pathway from your first connection to active collaboration."
@@ -706,9 +696,8 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── GRANT COLLABORATION PROCESS ───────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                     <SectionHeading
-                        preLabel="Funding & Grants"
                         title="Grant Collaboration Process —"
                         highlight="From Idea to Funding"
                         subtitle="A structured pathway that transforms research ideas into funded, impactful projects."
@@ -759,7 +748,7 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── OUR APPROACH ──────────────────────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -769,9 +758,9 @@ export default function FacultyEngagementPage() {
                         <GlassCard className="p-6 md:p-12">
                             <div className="pt-2 grid md:grid-cols-2 gap-8 items-center">
                                 <div>
-                                    <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] mb-4 px-3 py-1 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
+                                    {/* <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] mb-4 px-3 py-1 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
                                         Our Philosophy
-                                    </span>
+                                    </span> */}
                                     <h2 className="text-2xl md:text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4">
                                         Our{' '}
                                         <span className="text-[#3A9B9B]">Approach</span>
@@ -826,9 +815,8 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── CURRENT / OPEN OPPORTUNITIES ─────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 pb-24">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16">
                     <SectionHeading
-                        preLabel="Now Open"
                         title="Current / Open"
                         highlight="Opportunities"
                     />

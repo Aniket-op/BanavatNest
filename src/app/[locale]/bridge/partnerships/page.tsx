@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     ArrowRight,
@@ -8,7 +8,6 @@ import {
     FlaskConical,
     Rocket,
     MessageSquare,
-    Beaker,
     Users,
     Network,
     Building2,
@@ -25,14 +24,14 @@ import {
     Microscope,
     TrendingUp,
     Target,
-    Globe,
     Layers,
     Zap,
     ExternalLink,
-    Package,
     BookOpen,
     Atom,
     GraduationCap,
+    ChevronUp,
+    ChevronDown,
 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import PageWrapper from '@/components/PageWrapper';
@@ -72,22 +71,13 @@ const GlassCard = ({
 
 // ── Section Heading ───────────────────────────────────────────────────────────
 const SectionHeading = ({
-    preLabel,
     title,
     highlight,
-    subtitle,
 }: {
-    preLabel?: string;
     title: string;
     highlight?: string;
-    subtitle?: string;
 }) => (
     <div className="text-center mb-10 md:mb-16">
-        {preLabel && (
-            <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] mb-3 px-4 py-1.5 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
-                {preLabel}
-            </span>
-        )}
         <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,17 +88,6 @@ const SectionHeading = ({
             {title}{' '}
             {highlight && <span className="text-[#3A9B9B]">{highlight}</span>}
         </motion.h2>
-        {subtitle && (
-            <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed"
-            >
-                {subtitle}
-            </motion.p>
-        )}
     </div>
 );
 
@@ -292,6 +271,46 @@ const openOpportunities = [
 export default function IndustryPartnershipsPage() {
     const [_activeStep, setActiveStep] = useState<number | null>(null);
 
+    // ── Rolling Dice for Open Opportunities ──────────────────────────────────
+    const oppCount = openOpportunities.length;
+    const oppRotationStep = 360 / oppCount;
+    const [oppTotalRotation, setOppTotalRotation] = useState(0);
+    const [activeOppIndex, setActiveOppIndex] = useState(0);
+    const [isOppManual, setIsOppManual] = useState(false);
+
+    useEffect(() => {
+        if (isOppManual) return;
+        const interval = setInterval(() => {
+            setOppTotalRotation((prev) => prev - oppRotationStep);
+            setActiveOppIndex((prev) => (prev + 1) % oppCount);
+        }, 3500);
+        return () => clearInterval(interval);
+    }, [isOppManual, oppRotationStep, oppCount]);
+
+    const oppNext = () => {
+        setOppTotalRotation((prev) => prev - oppRotationStep);
+        setActiveOppIndex((prev) => (prev + 1) % oppCount);
+        setIsOppManual(true);
+        setTimeout(() => setIsOppManual(false), 8000);
+    };
+    const oppPrev = () => {
+        setOppTotalRotation((prev) => prev + oppRotationStep);
+        setActiveOppIndex((prev) => (prev - 1 + oppCount) % oppCount);
+        setIsOppManual(true);
+        setTimeout(() => setIsOppManual(false), 8000);
+    };
+    const oppGoTo = (idx: number) => {
+        const currentCycle = Math.round(oppTotalRotation / 360);
+        let target = currentCycle * 360 - idx * oppRotationStep;
+        if (Math.abs(target - oppTotalRotation) > 180) {
+            target += target > oppTotalRotation ? -360 : 360;
+        }
+        setOppTotalRotation(target);
+        setActiveOppIndex(idx);
+        setIsOppManual(true);
+        setTimeout(() => setIsOppManual(false), 8000);
+    };
+
     return (
         <PageWrapper>
             <div className="min-h-screen bg-zinc-50 dark:bg-[#09090b] transition-colors">
@@ -303,19 +322,6 @@ export default function IndustryPartnershipsPage() {
                     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2D3561]/6 blur-[100px] rounded-full pointer-events-none" />
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                        {/* Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="mb-6"
-                        >
-                            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] px-4 py-1.5 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
-                                <Building2 className="w-3.5 h-3.5" />
-                                BanavatNest Bridge
-                            </span>
-                        </motion.div>
-
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             {/* Left — Text */}
                             <div>
@@ -404,10 +410,8 @@ export default function IndustryPartnershipsPage() {
                 {/* ── WHAT INDUSTRY & STARTUPS CAN DO ──────────────────────── */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <SectionHeading
-                        preLabel="Capabilities"
                         title="What Industry &"
                         highlight="Startups Can Do"
-                        subtitle="A comprehensive range of collaboration modes built for industrial relevance, startup growth, and technology impact."
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                         {capabilities.map((cap, i) => {
@@ -455,7 +459,6 @@ export default function IndustryPartnershipsPage() {
                 {/* ── AREAS OF COLLABORATION ────────────────────────────────── */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
                     <SectionHeading
-                        preLabel="Domains"
                         title="Areas of"
                         highlight="Collaboration"
                     />
@@ -520,9 +523,6 @@ export default function IndustryPartnershipsPage() {
                         >
                             <GlassCard className="p-6 md:p-10 h-full">
                                 <div className="pt-2">
-                                    <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-[#3A9B9B] mb-4 px-3 py-1 rounded-full bg-[#3A9B9B]/10 border border-[#3A9B9B]/20">
-                                        Why Join
-                                    </span>
                                     <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6">
                                         Why Collaborate with{' '}
                                         <span className="text-[#3A9B9B]">BanavatNest</span>
@@ -557,9 +557,6 @@ export default function IndustryPartnershipsPage() {
                         >
                             <GlassCard className="p-6 md:p-10 h-full">
                                 <div className="pt-2">
-                                    <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-[#2D3561] dark:text-zinc-300 mb-4 px-3 py-1 rounded-full bg-[#2D3561]/10 dark:bg-zinc-700/30 border border-[#2D3561]/20 dark:border-zinc-600/40">
-                                        Eligibility
-                                    </span>
                                     <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-6">
                                         Who Can{' '}
                                         <span className="text-[#3A9B9B]">Apply</span>
@@ -590,10 +587,8 @@ export default function IndustryPartnershipsPage() {
                 {/* ── HOW TO COLLABORATE ────────────────────────────────────── */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
                     <SectionHeading
-                        preLabel="How It Works"
                         title="How to"
                         highlight="Collaborate"
-                        subtitle="A clear, step-by-step journey from your first contact to active partnership."
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                         {howToCollaborate.map((step, i) => {
@@ -652,10 +647,8 @@ export default function IndustryPartnershipsPage() {
                 {/* ── INDUSTRY COLLABORATION PROCESS ───────────────────────── */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
                     <SectionHeading
-                        preLabel="End-to-End Process"
                         title="Industry Collaboration Process —"
                         highlight="From Problem to Solution"
-                        subtitle="A rigorous, outcome-driven pipeline from challenge identification to technology deployment."
                     />
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
@@ -703,10 +696,8 @@ export default function IndustryPartnershipsPage() {
                 {/* ── POTENTIAL OUTCOMES ────────────────────────────────────── */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
                     <SectionHeading
-                        preLabel="Results"
                         title="Potential"
                         highlight="Outcomes"
-                        subtitle="What collaboration with BanavatNest can produce for your organization."
                     />
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                         {potentialOutcomes.map((outcome, i) => {
@@ -743,40 +734,240 @@ export default function IndustryPartnershipsPage() {
                 </section>
 
                 {/* ── OPEN OPPORTUNITIES ────────────────────────────────────── */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 overflow-hidden">
                     <SectionHeading
-                        preLabel="Now Open"
                         title="Current / Open"
                         highlight="Opportunities"
                     />
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
-                        {openOpportunities.map((opp, i) => (
+
+                    <div className="flex flex-col items-center gap-8">
+
+                        {/* MAIN 3D CONTAINER */}
+                        <div
+                            className="relative w-full max-w-2xl h-[360px] flex items-center justify-center"
+                            style={{
+                                perspective: '2400px',
+                            }}
+                        >
+
+                            {/* ROLLING DICE */}
                             <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: i * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className={`group relative rounded-[2rem] overflow-hidden ${opp.bg}
-                  border border-white/30 dark:border-zinc-700/40
-                  p-7 text-center transition-all duration-300`}
+                                animate={{
+                                    rotateX: oppTotalRotation,
+                                }}
+                                transition={{
+                                    type: 'spring',
+                                    stiffness: 42,
+                                    damping: 18,
+                                    mass: 1.4,
+                                }}
+                                style={{
+                                    transformStyle: 'preserve-3d',
+                                    width: '100%',
+                                    height: '100%',
+                                    position: 'relative',
+                                    willChange: 'transform',
+                                }}
                             >
-                                <div
-                                    className="absolute top-0 left-0 right-0 h-1.5"
-                                    style={{ background: `linear-gradient(to right, ${NAVY}, ${opp.color})` }}
-                                />
-                                <div
-                                    className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                                    style={{ backgroundColor: `${opp.color}20`, color: opp.color }}
-                                >
-                                    <Zap className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-base font-black text-zinc-900 dark:text-zinc-100">
-                                    {opp.title}
-                                </h3>
+
+                                {openOpportunities.map((opp, index) => {
+
+                                    const pos =
+                                        (((oppTotalRotation / -oppRotationStep) % oppCount) +
+                                            oppCount) %
+                                        oppCount;
+
+                                    const raw = Math.abs(pos - index);
+                                    const dist = Math.min(raw, oppCount - raw);
+
+                                    const isActive = dist < 0.45;
+                                    const isNear = dist >= 0.45 && dist < 1.2;
+
+                                    const opacity = isActive ? 1 : isNear ? 0.32 : 0.04;
+                                    const scale = isActive ? 1 : isNear ? 0.88 : 0.72;
+
+                                    return (
+                                        <div
+                                            key={index}
+                                            style={{
+                                                position: 'absolute',
+                                                inset: 0,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+
+                                                transform: `
+                                    rotateX(${index * oppRotationStep}deg)
+                                    translateZ(170px)
+                                `,
+
+                                                backfaceVisibility: 'hidden',
+                                                WebkitBackfaceVisibility: 'hidden',
+
+                                                opacity,
+
+                                                transition:
+                                                    'opacity 0.45s ease, transform 0.45s ease',
+                                            }}
+                                        >
+                                            <motion.div
+                                                whileHover={{
+                                                    scale: isActive ? 1.03 : scale,
+                                                }}
+                                                className="
+                                    relative
+                                    w-full
+                                    max-w-[520px]
+                                    rounded-[2.2rem]
+                                    overflow-hidden
+                                    border
+                                    border-white/10
+                                    dark:border-white/5
+                                    bg-white
+                                    dark:bg-zinc-900
+                                    shadow-[0_20px_80px_rgba(0,0,0,0.18)]
+                                    px-10
+                                    py-12
+                                "
+                                                style={{
+                                                    transform: `scale(${scale})`,
+                                                    transition:
+                                                        'all 0.45s cubic-bezier(0.22,1,0.36,1)',
+                                                }}
+                                            >
+
+                                                {/* Decorative Accent Line */}
+                                                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] z-20" />
+
+                                                {/* ICON */}
+                                                <div
+                                                    className="mx-auto mb-6 w-16 h-16 rounded-[1.4rem] flex items-center justify-center"
+                                                    style={{
+                                                        backgroundColor: `${opp.color}12`,
+                                                        color: opp.color,
+                                                    }}
+                                                >
+                                                    <Zap className="w-8 h-8" />
+                                                </div>
+
+                                                {/* TITLE */}
+                                                <h3 className="
+                                    text-2xl
+                                    md:text-3xl
+                                    font-black
+                                    tracking-tight
+                                    text-zinc-900
+                                    dark:text-zinc-100
+                                    text-center
+                                    leading-snug
+                                ">
+                                                    {opp.title}
+                                                </h3>
+
+                                                {/* SUB LINE */}
+                                                <div
+                                                    className="mt-6 h-[2px] w-24 rounded-full mx-auto"
+                                                    style={{
+                                                        background: `linear-gradient(to right, transparent, ${opp.color}, transparent)`,
+                                                    }}
+                                                />
+
+                                                {/* FLOATING LIGHT */}
+                                                <div
+                                                    className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[220px] h-[120px] blur-3xl opacity-10"
+                                                    style={{
+                                                        background: opp.color,
+                                                    }}
+                                                />
+                                            </motion.div>
+                                        </div>
+                                    );
+                                })}
                             </motion.div>
-                        ))}
+
+                            <div
+                                className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
+                                style={{ background: 'linear-gradient(to bottom, var(--bg-page, #fafafa), transparent)' }}
+                            />
+
+                            <div
+                                className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
+                                style={{ background: 'linear-gradient(to top, var(--bg-page, #fafafa), transparent)' }}
+                            />
+                            <style>{`:root{--bg-page:#fafafa}.dark{--bg-page:#09090b}`}</style>
+                        </div>
+
+                        {/* CONTROLS */}
+                        <div className="flex items-center gap-5">
+
+                            {/* PREV */}
+                            <button
+                                onClick={oppPrev}
+                                className="
+                    flex
+                    items-center
+                    justify-center
+                    w-11
+                    h-11
+                    rounded-full
+                    bg-white
+                    dark:bg-zinc-900
+                    border
+                    border-zinc-200
+                    dark:border-zinc-800
+                    shadow-lg
+                    transition-all
+                    duration-300
+                    hover:scale-110
+                    hover:border-[#3A9B9B]
+                "
+                            >
+                                <ChevronUp className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />
+                            </button>
+
+                            {/* DOTS */}
+                            <div className="flex items-center gap-3">
+                                {openOpportunities.map((_, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => oppGoTo(idx)}
+                                        className={`
+                            rounded-full
+                            transition-all
+                            duration-500
+                            ${idx === activeOppIndex
+                                                ? 'w-8 h-2 bg-[#3A9B9B]'
+                                                : 'w-2 h-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400'}
+                        `}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* NEXT */}
+                            <button
+                                onClick={oppNext}
+                                className="
+                    flex
+                    items-center
+                    justify-center
+                    w-11
+                    h-11
+                    rounded-full
+                    bg-white
+                    dark:bg-zinc-900
+                    border
+                    border-zinc-200
+                    dark:border-zinc-800
+                    shadow-lg
+                    transition-all
+                    duration-300
+                    hover:scale-110
+                    hover:border-[#3A9B9B]
+                "
+                            >
+                                <ChevronDown className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />
+                            </button>
+                        </div>
                     </div>
                 </section>
 
