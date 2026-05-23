@@ -333,8 +333,8 @@ function VerticalCarousel({ items }: { items: typeof coreDomains }) {
                             transition={{ duration: 0.5, ease: 'easeInOut' }}
                             onClick={() => setActiveIndex(i)}
                             className={`flex items-center gap-3 px-4 py-3 rounded-2xl cursor-pointer transition-all duration-300 ${isActive
-                                    ? 'shadow-md'
-                                    : 'hover:opacity-80'
+                                ? 'shadow-md'
+                                : 'hover:opacity-80'
                                 }`}
                             style={{
                                 background: isActive ? `${domain.color}12` : `${domain.color}06`,
@@ -533,7 +533,7 @@ export default function FacultyEngagementPage() {
                 </header>
 
                 {/* ── WHAT FACULTY CAN DO ────────────────────────────────────────────── */}
-                <section className="grid-bg bg-white dark:bg-zinc-900/20 py-16">
+                <section className="grid-bg bg-white dark:bg-zinc-900/20 pt-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
                             title="What Faculty &"
@@ -589,7 +589,7 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── COLLABORATION PROCESS + CORE DOMAINS (Combined) ──────────────── */}
-                <section className="grid-bg bg-white dark:bg-[#09090b] py-16">
+                <section className="grid-bg bg-white dark:bg-[#09090b] pt-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
                             title="Collaboration Process &"
@@ -704,14 +704,14 @@ export default function FacultyEngagementPage() {
                                         <div className="flex-1">
                                             <VerticalCarousel items={coreDomains} />
                                         </div>
-                                        <div className="mt-4 pt-4 border-t border-[#3A9B9B]/10">
+                                        {/* <div className="mt-4 pt-4 border-t border-[#3A9B9B]/10">
                                             <Link
                                                 href="/what-we-do"
                                                 className="inline-flex items-center gap-2 text-sm font-black text-[#3A9B9B] hover:text-[#2a7676] transition-colors"
                                             >
                                                 Explore All Core Domains <ArrowRight className="w-4 h-4" />
                                             </Link>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </GlassCard>
                             </motion.div>
@@ -720,7 +720,7 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── WHY COLLABORATE + WHO CAN APPLY ─────────────────────────────── */}
-                <section className="grid-bg bg-white dark:bg-zinc-900/20 py-16">
+                <section className="grid-bg bg-white dark:bg-zinc-900/20 pt-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid md:grid-cols-2 gap-6 items-stretch">
                             {/* Why Collaborate */}
@@ -797,7 +797,7 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── GRANT COLLABORATION PROCESS ───────────────────────────────────── */}
-                <section className="grid-bg bg-white dark:bg-[#09090b] py-16">
+                <section className="grid-bg bg-white dark:bg-[#09090b] pt-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
                             title="Grant Collaboration Process —"
@@ -851,7 +851,7 @@ export default function FacultyEngagementPage() {
                 </section>
 
                 {/* ── OUR APPROACH + CURRENT/OPEN OPPORTUNITIES (Combined) ─────────── */}
-                <section className="grid-bg bg-white dark:bg-zinc-900/20 py-16 pb-20">
+                <section className="grid-bg bg-white dark:bg-zinc-900/20 pt-16 pb-20">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
