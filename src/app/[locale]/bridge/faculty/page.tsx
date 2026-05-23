@@ -31,6 +31,8 @@ import {
     HeartPulse,
     Settings,
     RotateCw,
+    ChevronUp,
+    ChevronDown,
 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import PageWrapper from '@/components/PageWrapper';
@@ -296,87 +298,50 @@ const SectionHeading = ({
     </div>
 );
 
-// ── Vertical Auto-Scroll Carousel ─────────────────────────────────────────────
-function VerticalCarousel({ items }: { items: typeof coreDomains }) {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const doubled = [...items, ...items]; // duplicate for seamless loop feel
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % items.length);
-        }, 2200);
-        return () => clearInterval(interval);
-    }, [items.length]);
-
-    return (
-        <div className="relative h-full flex flex-col gap-2 overflow-hidden">
-            <AnimatePresence mode="popLayout" initial={false}>
-                {items.map((domain, i) => {
-                    const Icon = domain.icon;
-                    const isActive = i === activeIndex;
-                    const distance = Math.min(
-                        Math.abs(i - activeIndex),
-                        Math.abs(i - activeIndex + items.length),
-                        Math.abs(i - activeIndex - items.length)
-                    );
-                    const opacity = distance === 0 ? 1 : distance === 1 ? 0.6 : 0.3;
-                    const scale = distance === 0 ? 1 : distance === 1 ? 0.97 : 0.94;
-
-                    return (
-                        <motion.div
-                            key={domain.label}
-                            animate={{
-                                opacity,
-                                scale,
-                                y: (i - activeIndex) * 0,
-                            }}
-                            transition={{ duration: 0.5, ease: 'easeInOut' }}
-                            onClick={() => setActiveIndex(i)}
-                            className={`flex items-center gap-3 px-4 py-3 rounded-2xl cursor-pointer transition-all duration-300 ${isActive
-                                ? 'shadow-md'
-                                : 'hover:opacity-80'
-                                }`}
-                            style={{
-                                background: isActive ? `${domain.color}12` : `${domain.color}06`,
-                                border: isActive ? `1.5px solid ${domain.color}40` : `1.5px solid ${domain.color}15`,
-                            }}
-                        >
-                            <motion.div
-                                animate={{ scale: isActive ? 1.1 : 1 }}
-                                transition={{ duration: 0.3 }}
-                                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                                style={{ backgroundColor: `${domain.color}20`, color: domain.color }}
-                            >
-                                <Icon className="w-4 h-4" />
-                            </motion.div>
-                            <span
-                                className="text-sm font-bold leading-tight"
-                                style={{ color: isActive ? domain.color : undefined }}
-                            >
-                                <span className={isActive ? '' : 'text-zinc-700 dark:text-zinc-300'}>
-                                    {domain.label}
-                                </span>
-                            </span>
-                            {isActive && (
-                                <motion.div
-                                    initial={{ opacity: 0, x: -4 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    className="ml-auto"
-                                >
-                                    <ExternalLink className="w-3.5 h-3.5" style={{ color: domain.color }} />
-                                </motion.div>
-                            )}
-                        </motion.div>
-                    );
-                })}
-            </AnimatePresence>
-        </div>
-    );
-}
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 export default function FacultyEngagementPage() {
     const [activeGrantStep, setActiveGrantStep] = useState<number | null>(null);
+
+    // ── 3D Dice roller for Core Domains ───────────────────────────────────────
+    const diceCount = coreDomains.length;
+    const diceRotationStep = 360 / diceCount;
+    const [diceTotalRotation, setDiceTotalRotation] = useState(0);
+    const [activeDiceIndex, setActiveDiceIndex] = useState(0);
+    const [isDiceManual, setIsDiceManual] = useState(false);
+
+    useEffect(() => {
+        if (isDiceManual) return;
+        const interval = setInterval(() => {
+            setDiceTotalRotation((prev) => prev - diceRotationStep);
+            setActiveDiceIndex((prev) => (prev + 1) % diceCount);
+        }, 3500);
+        return () => clearInterval(interval);
+    }, [isDiceManual, diceRotationStep, diceCount]);
+
+    const diceNext = () => {
+        setDiceTotalRotation((prev) => prev - diceRotationStep);
+        setActiveDiceIndex((prev) => (prev + 1) % diceCount);
+        setIsDiceManual(true);
+        setTimeout(() => setIsDiceManual(false), 8000);
+    };
+    const dicePrev = () => {
+        setDiceTotalRotation((prev) => prev + diceRotationStep);
+        setActiveDiceIndex((prev) => (prev - 1 + diceCount) % diceCount);
+        setIsDiceManual(true);
+        setTimeout(() => setIsDiceManual(false), 8000);
+    };
+    const diceGoTo = (idx: number) => {
+        const currentCycle = Math.round(diceTotalRotation / 360);
+        let target = currentCycle * 360 - idx * diceRotationStep;
+        if (Math.abs(target - diceTotalRotation) > 180) {
+            target += target > diceTotalRotation ? -360 : 360;
+        }
+        setDiceTotalRotation(target);
+        setActiveDiceIndex(idx);
+        setIsDiceManual(true);
+        setTimeout(() => setIsDiceManual(false), 8000);
+    };
 
     return (
         <PageWrapper>
@@ -701,17 +666,105 @@ export default function FacultyEngagementPage() {
                                                 View All <ArrowRight className="w-3 h-3" />
                                             </Link>
                                         </div>
-                                        <div className="flex-1">
-                                            <VerticalCarousel items={coreDomains} />
-                                        </div>
-                                        {/* <div className="mt-4 pt-4 border-t border-[#3A9B9B]/10">
-                                            <Link
-                                                href="/what-we-do"
-                                                className="inline-flex items-center gap-2 text-sm font-black text-[#3A9B9B] hover:text-[#2a7676] transition-colors"
+                                        {/* 2D Vertical Carousel */}
+                                        <div className="flex-1 flex flex-col items-center justify-center gap-5 overflow-hidden">
+                                            <div
+                                                className="relative w-full h-[320px] flex items-center justify-center"
                                             >
-                                                Explore All Core Domains <ArrowRight className="w-4 h-4" />
-                                            </Link>
-                                        </div> */}
+                                                <motion.div
+                                                    style={{
+                                                        width: '90%',
+                                                        height: '90%',
+                                                        position: 'relative',
+                                                    }}
+                                                >
+                                                    {coreDomains.map((area, index) => {
+                                                        const Icon = area.icon;
+
+                                                        // Calculate continuous float position based on the rotation state
+                                                        const currentFloatPos = diceTotalRotation / -diceRotationStep;
+
+                                                        // Find shortest signed distance for infinite looping
+                                                        let signedDist = index - currentFloatPos;
+                                                        while (signedDist > diceCount / 2) signedDist -= diceCount;
+                                                        while (signedDist < -diceCount / 2) signedDist += diceCount;
+
+                                                        const dist = Math.abs(signedDist);
+                                                        const isActive = dist < 0.45;
+                                                        const isNear = dist >= 0.45 && dist < 1.5;
+
+                                                        const opacity = isActive ? 1 : isNear ? 0.45 : 0;
+                                                        const scale = isActive ? 1 : isNear ? 0.9 : 0.78;
+                                                        const yOffset = signedDist * 140; // 140px vertical spacing
+
+                                                        return (
+                                                            <div
+                                                                key={index}
+                                                                style={{
+                                                                    position: 'absolute',
+                                                                    inset: 0,
+                                                                    display: 'flex',
+                                                                    alignItems: 'center',
+                                                                    justifyContent: 'center',
+                                                                    transform: `translateY(${yOffset}px) scale(${scale})`,
+                                                                    opacity,
+                                                                    zIndex: isActive ? 30 : isNear ? 20 : 10,
+                                                                    transition: 'all 0.45s cubic-bezier(0.22,1,0.36,1)',
+                                                                    pointerEvents: isActive ? 'auto' : 'none',
+                                                                }}
+                                                            >
+                                                                <div
+                                                                    className="relative w-full max-w-[340px] rounded-[2rem] overflow-hidden border border-white/10 dark:border-white/5 bg-white dark:bg-zinc-900 shadow-[0_16px_60px_rgba(0,0,0,0.15)] px-8 py-10 flex flex-col items-center text-center"
+                                                                >
+                                                                    <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#2D3561] via-[#3A9B9B] to-[#2D3561] z-20" />
+                                                                    <div
+                                                                        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+                                                                        style={{ backgroundColor: `${area.color}18`, color: area.color }}
+                                                                    >
+                                                                        <Icon className="w-8 h-8" />
+                                                                    </div>
+                                                                    <h3
+                                                                        className="text-lg font-black tracking-tight leading-snug"
+                                                                        style={{ color: isActive ? area.color : '#18181b' }}
+                                                                    >
+                                                                        {area.label}
+                                                                    </h3>
+                                                                    <div
+                                                                        className="mt-4 h-[2px] w-16 rounded-full"
+                                                                        style={{ background: `linear-gradient(to right, transparent, ${area.color}, transparent)` }}
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </motion.div>
+                                            </div>
+
+                                            {/* Controls */}
+                                            <div className="flex items-center gap-4 pt-6">
+                                                <button
+                                                    onClick={dicePrev}
+                                                    className="flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-md transition-all hover:scale-110 hover:border-[#3A9B9B]"
+                                                >
+                                                    <ChevronUp className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
+                                                </button>
+                                                <div className="flex items-center gap-2">
+                                                    {coreDomains.map((_, idx) => (
+                                                        <button
+                                                            key={idx}
+                                                            onClick={() => diceGoTo(idx)}
+                                                            className={`rounded-full transition-all duration-500 ${idx === activeDiceIndex ? 'w-6 h-2 bg-[#3A9B9B]' : 'w-2 h-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400'}`}
+                                                        />
+                                                    ))}
+                                                </div>
+                                                <button
+                                                    onClick={diceNext}
+                                                    className="flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-md transition-all hover:scale-110 hover:border-[#3A9B9B]"
+                                                >
+                                                    <ChevronDown className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </GlassCard>
                             </motion.div>
