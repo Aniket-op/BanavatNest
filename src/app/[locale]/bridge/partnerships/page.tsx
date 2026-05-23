@@ -539,7 +539,7 @@ export default function IndustryPartnershipsPage() {
                 </section>
 
                 {/* ── HOW TO COLLABORATE + AREAS OF COLLABORATION (Combined) ── */}
-                <section className="grid-bg bg-zinc-50 dark:bg-[#09090b] py-16">
+                <section className="grid-bg bg-white dark:bg-[#09090b] py-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
                             title="How to Collaborate &"
@@ -831,7 +831,7 @@ export default function IndustryPartnershipsPage() {
                 </section>
 
                 {/* ── INDUSTRY COLLABORATION PROCESS ───────────────────────── */}
-                <section className="grid-bg bg-zinc-50 dark:bg-[#09090b] py-16">
+                <section className="grid-bg bg-white dark:bg-[#09090b] py-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
                             title="Industry"
