@@ -27,8 +27,16 @@ const Home = () => {
   const t = useTranslations("home");
   const updates = [
     {
-      title: t("updateTitle3"),
-      route: "https://www.linkedin.com/posts/banavatnest-pvt-ltd_roft-tiet-banavatnest-activity-7454384336398749696-fsg9/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEEkrQ8BAmFKR5_nCElptw3wEOI9e4H7p1g",
+      title: "Advisory Board Announcements — Stay Tuned",
+      route: "https://www.linkedin.com/feed/update/urn:li:activity:7462725911419883521",
+    },
+    {
+      title: "BanavatNest Pvt. Ltd. welcomes participants to the 5-day Research Methodology Workshop",
+      route: "https://www.linkedin.com/feed/update/urn:li:activity:7464158390064267264",
+    },
+    {
+      title: "Deployment site finalized for the fisheries project.",
+      route: "https://www.linkedin.com/feed/update/urn:li:activity:7454019410836754432",
     },
   ];
 
