@@ -633,7 +633,12 @@
     "emailLabel": "ईमेल",
     "emailPlaceholder": "your@email.com",
     "messageLabel": "संदेश",
-    "messagePlaceholder": "आपका संदेश..."
+    "messagePlaceholder": "आपका संदेश...",
+    "sending": "भेज रहा है...",
+    "successTitle": "संदेश सफलतापूर्वक भेजा गया!",
+    "successMessage": "हमसे संपर्क करने के लिए धन्यवाद। हम जल्द ही आपसे संपर्क करेंगे।",
+    "errorTitle": "संदेश भेजने में विफल",
+    "errorMessage": "कुछ गलत हो गया। कृपया पुन: प्रयास करें या सीधे info@banavatnest.com पर ईमेल करें।"
   },
   "disclaimer": {
     "title": "अस्वीकरण",

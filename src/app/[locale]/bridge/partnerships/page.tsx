@@ -430,7 +430,7 @@ export default function IndustryPartnershipsPage() {
                                         Connect With Us <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
-                                        href="/"
+                                        href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-black border-2 border-[#2D3561] dark:border-zinc-600 text-[#2D3561] dark:text-zinc-100 hover:bg-[#2D3561] hover:text-white dark:hover:bg-zinc-700 transition-all duration-300 hover:scale-[1.04] active:scale-95"
                                     >
                                         Submit Collaboration Interest
@@ -1003,7 +1003,7 @@ export default function IndustryPartnershipsPage() {
                                         Connect With Us <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
-                                        href="/"
+                                        href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-black text-sm border-2 border-[#2D3561] dark:border-zinc-600 text-[#2D3561] dark:text-zinc-100 hover:bg-[#2D3561] hover:text-white dark:hover:bg-zinc-700 transition-all duration-300 hover:scale-[1.04] active:scale-95"
                                     >
                                         Submit Collaboration Interest

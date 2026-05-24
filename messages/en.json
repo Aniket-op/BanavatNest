@@ -634,7 +634,12 @@
     "emailLabel": "Email",
     "emailPlaceholder": "your@email.com",
     "messageLabel": "Message",
-    "messagePlaceholder": "Your message..."
+    "messagePlaceholder": "Your message...",
+    "sending": "Sending...",
+    "successTitle": "Message Sent Successfully!",
+    "successMessage": "Thank you for reaching out. We will get back to you shortly.",
+    "errorTitle": "Failed to Send Message",
+    "errorMessage": "Something went wrong. Please try again or email us directly at info@banavatnest.com."
   },
   "disclaimer": {
     "title": "Disclaimer",

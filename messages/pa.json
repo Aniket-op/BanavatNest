@@ -633,7 +633,12 @@
     "emailLabel": "ਈਮੇਲ",
     "emailPlaceholder": "your@email.com",
     "messageLabel": "ਸੁਨੇਹਾ",
-    "messagePlaceholder": "ਤੁਹਾਡਾ ਸੁਨੇਹਾ..."
+    "messagePlaceholder": "ਤੁਹਾਡਾ ਸੁਨੇਹਾ...",
+    "sending": "ਭੇਜ ਰਿਹਾ ਹੈ...",
+    "successTitle": "ਸੁਨੇਹਾ ਸਫਲਤਾਪੂਰਵਕ ਭੇਜਿਆ ਗਿਆ!",
+    "successMessage": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰਨ ਲਈ ਧੰਨਵਾਦ। ਅਸੀਂ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰਾਂਗੇ।",
+    "errorTitle": "ਸੁਨੇਹਾ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ",
+    "errorMessage": "ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਸਿੱਧੇ info@banavatnest.com 'ਤੇ ਈਮੇਲ ਕਰੋ।"
   },
   "disclaimer": {
     "title": "ਦਾਅਵਾ-ਰਹਿਤ ਬਿਆਨ",

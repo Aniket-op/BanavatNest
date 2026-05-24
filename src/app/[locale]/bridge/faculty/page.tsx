@@ -1038,7 +1038,7 @@ export default function FacultyEngagementPage() {
                                         Connect With Us <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
-                                        href="/"
+                                        href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-black text-sm
                         border-2 border-[#2D3561] dark:border-zinc-600
                         text-[#2D3561] dark:text-zinc-100
