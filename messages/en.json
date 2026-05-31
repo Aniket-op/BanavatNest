@@ -623,6 +623,158 @@
     "bodyP1": "Industry partners benefit from rapid prototyping, academic validation, and access to skilled talent, while academic participants gain exposure to real-world constraints and deployment challenges.",
     "successNote": "Successful PoCs can progress toward technology transfer, startup incubation, or long-term industry adoption."
   },
+  "partnershipsPage": {
+    "heroTitle": "Industry &",
+    "heroTitleHighlight": "Startups",
+    "heroSubtitle": "Collaborating Innovation with Real-World Impact",
+    "heroCta1": "Connect With Us",
+    "heroCta2": "Submit Collaboration Interest",
+    "heroGrid": {
+      "problemDriven": "Problem-Driven",
+      "prototypeDev": "Prototype Dev",
+      "startupSupport": "Startup Support",
+      "sponsoredResearch": "Sponsored Research",
+      "studentTalent": "Student Talent",
+      "techTransfer": "Tech Transfer"
+    },
+    "sectionWhatTitle": "What Industry &",
+    "sectionWhatHighlight": "Startups Can Do",
+    "capabilities": {
+      "0": {
+        "title": "Industry Problem Solving",
+        "desc": "Collaborate on practical industrial challenges through research-driven and technology-oriented solution development."
+      },
+      "1": {
+        "title": "Research & Innovation Collaboration",
+        "desc": "Work with faculty members, researchers, and interdisciplinary teams on innovation-focused projects and emerging technologies."
+      },
+      "2": {
+        "title": "Prototype Development Support",
+        "desc": "Collaborate in developing, testing, and refining functional prototypes aligned with industry and market requirements."
+      },
+      "3": {
+        "title": "Startup & Product Innovation",
+        "desc": "Engage in product development, innovation strategy, startup incubation activities, and technology commercialization pathways."
+      },
+      "4": {
+        "title": "Technical Consultation",
+        "desc": "Access academic expertise, analytical guidance, and technical consultation across emerging domains and industrial applications."
+      },
+      "5": {
+        "title": "Industry-Sponsored Research",
+        "desc": "Support and participate in collaborative research initiatives, sponsored projects, and application-oriented technology development."
+      },
+      "6": {
+        "title": "Talent & Student Engagement",
+        "desc": "Connect with students, interns, and innovation teams through mentorship, project collaboration, internships, and technical activities."
+      },
+      "7": {
+        "title": "Academia–Industry Networking",
+        "desc": "Build meaningful collaborations with faculty members, researchers, startups, and innovation ecosystems for long-term technological growth."
+      }
+    },
+    "sectionHowTitle": "How to Collaborate &",
+    "sectionHowHighlight": "Areas of Collaboration",
+    "howToCollaborateLabel": "How to Collaborate",
+    "areasOfCollaborationLabel": "Areas of Collaboration",
+    "viewAll": "View All",
+    "howToCollaborate": {
+      "0": {
+        "title": "Connect with Us",
+        "desc": "Share your industry challenge, innovation requirement, startup idea, or collaboration interest."
+      },
+      "1": {
+        "title": "Requirement & Idea Discussion",
+        "desc": "We discuss objectives, technical requirements, challenges, and collaboration possibilities."
+      },
+      "2": {
+        "title": "Research & Solution Planning",
+        "desc": "Relevant researchers, faculty members, students, and technical teams are aligned for solution development."
+      },
+      "3": {
+        "title": "Collaboration & Execution",
+        "desc": "Projects, research activities, prototype development, mentoring, or innovation initiatives are jointly executed."
+      }
+    },
+    "collaborationAreas": {
+      "0": "Artificial Intelligence & Machine Learning",
+      "1": "Cybersecurity",
+      "2": "IoT & Smart Systems",
+      "3": "Data Science",
+      "4": "Blockchain",
+      "5": "Healthcare Technologies",
+      "6": "Automation & Embedded Systems"
+    },
+    "sectionWhyTitle": "Why Collaborate with",
+    "sectionWhyHighlight": "BanavatNest",
+    "sectionWhoTitle": "Who Can",
+    "sectionWhoHighlight": "Apply",
+    "whyReasons": {
+      "0": "Industry-oriented prototype development",
+      "1": "Academia–industry collaboration opportunities",
+      "2": "Startup and innovation support",
+      "3": "Student engagement and talent collaboration",
+      "4": "Flexible project collaboration models",
+      "5": "Grant and funded research collaboration",
+      "6": "Technology-focused problem solving"
+    },
+    "whoCanApply": {
+      "0": "Industries and corporate organizations",
+      "1": "Startups and innovation-driven ventures",
+      "2": "MSMEs and technology companies",
+      "3": "R&D teams and innovation departments",
+      "4": "Incubators and innovation centers"
+    },
+    "sectionProcessTitle": "Industry",
+    "sectionProcessHighlight": "Collaboration Process",
+    "industryProcess": {
+      "0": {
+        "title": "Identify Industry Challenge",
+        "desc": "Industry partners or startups identify a practical challenge, research opportunity, or technology requirement."
+      },
+      "1": {
+        "title": "Collaborative Discussion",
+        "desc": "BanavatNest collaborates with industry experts, researchers, and technical teams to define objectives, scope, and expected outcomes."
+      },
+      "2": {
+        "title": "Research & Development Planning",
+        "desc": "A structured plan is developed covering technical strategy, prototype scope, implementation roadmap, timelines, and deliverables."
+      },
+      "3": {
+        "title": "Prototype & Solution Development",
+        "desc": "Research, experimentation, prototyping, testing, and technology development activities are carried out collaboratively."
+      },
+      "4": {
+        "title": "Validation & Deployment Support",
+        "desc": "Solutions are refined, validated, and prepared for practical implementation, scalability, and deployment readiness."
+      },
+      "5": {
+        "title": "Innovation & Technology Advancement",
+        "desc": "The outcomes may lead to product innovation, technology transfer, startup growth, publications, patents, or industry adoption."
+      }
+    },
+    "stepLabel": "Step",
+    "sectionOutcomesTitle": "Potential",
+    "sectionOutcomesHighlight": "Outcomes",
+    "sectionOpportunitiesTitle": "Current / Open",
+    "sectionOpportunitiesHighlight": "Opportunities",
+    "openForCollaboration": "Open for collaboration",
+    "potentialOutcomes": {
+      "0": "Prototype Systems",
+      "1": "Industry Solutions",
+      "2": "Research Publications",
+      "3": "Product Innovation",
+      "4": "Technology Transfer",
+      "5": "Startup Growth Opportunities",
+      "6": "Grant & Funded Projects",
+      "7": "Student Innovation Projects"
+    },
+    "openOpportunities": {
+      "0": "Industry collaborations in AI & Healthcare",
+      "1": "Startup partnerships in Smart Systems & IoT",
+      "2": "Joint grant proposal opportunities"
+    }
+  },
   "contact": {
     "title": "Get in",
     "titleHighlight": "Touch",

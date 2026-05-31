@@ -37,6 +37,7 @@ import {
 import { Link } from '@/i18n/navigation';
 import PageWrapper from '@/components/PageWrapper';
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 // ── Brand tokens ─────────────────────────────────────────────────────────────
 const NAVY = '#2D3561';
@@ -92,260 +93,69 @@ const SectionHeading = ({
     </div>
 );
 
-// ── Data ──────────────────────────────────────────────────────────────────────
-
-const capabilities = [
-    {
-        icon: Target,
-        title: 'Industry Problem Solving',
-        desc: 'Collaborate on practical industrial challenges through research-driven and technology-oriented solution development.',
-        color: NAVY,
-        bg: 'bg-[#EAECF5] dark:bg-[#111936]',
-    },
-    {
-        icon: Atom,
-        title: 'Research & Innovation Collaboration',
-        desc: 'Work with faculty members, researchers, and interdisciplinary teams on innovation-focused projects and emerging technologies.',
-        color: TEAL,
-        bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]',
-    },
-    {
-        icon: Cpu,
-        title: 'Prototype Development Support',
-        desc: 'Collaborate in developing, testing, and refining functional prototypes aligned with industry and market requirements.',
-        color: GREEN,
-        bg: 'bg-[#EAF8EA] dark:bg-[#142614]',
-    },
-    {
-        icon: Rocket,
-        title: 'Startup & Product Innovation',
-        desc: 'Engage in product development, innovation strategy, startup incubation activities, and technology commercialization pathways.',
-        color: NAVY,
-        bg: 'bg-[#EAECF5] dark:bg-[#111936]',
-    },
-    {
-        icon: MessageSquare,
-        title: 'Technical Consultation',
-        desc: 'Access academic expertise, analytical guidance, and technical consultation across emerging domains and industrial applications.',
-        color: TEAL,
-        bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]',
-    },
-    {
-        icon: FlaskConical,
-        title: 'Industry-Sponsored Research',
-        desc: 'Support and participate in collaborative research initiatives, sponsored projects, and application-oriented technology development.',
-        color: GREEN,
-        bg: 'bg-[#EAF8EA] dark:bg-[#142614]',
-    },
-    {
-        icon: GraduationCap,
-        title: 'Talent & Student Engagement',
-        desc: 'Connect with students, interns, and innovation teams through mentorship, project collaboration, internships, and technical activities.',
-        color: NAVY,
-        bg: 'bg-[#EAECF5] dark:bg-[#111936]',
-    },
-    {
-        icon: Network,
-        title: 'Academia–Industry Networking',
-        desc: 'Build meaningful collaborations with faculty members, researchers, startups, and innovation ecosystems for long-term technological growth.',
-        color: TEAL,
-        bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]',
-    },
+// ── Static icon/color data (non-translatable) ─────────────────────────────────
+const capabilityMeta = [
+    { icon: Target, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { icon: Atom,   color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+    { icon: Cpu,    color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+    { icon: Rocket, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { icon: MessageSquare, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+    { icon: FlaskConical,  color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+    { icon: GraduationCap, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { icon: Network, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
 ];
 
-const collaborationAreas = [
-    { label: 'Artificial Intelligence & Machine Learning', icon: Brain, color: NAVY },
-    { label: 'Cybersecurity', icon: Shield, color: TEAL },
-    { label: 'IoT & Smart Systems', icon: Wifi, color: GREEN },
-    { label: 'Data Science', icon: BarChart3, color: NAVY },
-    { label: 'Blockchain', icon: Link2, color: TEAL },
-    { label: 'Healthcare Technologies', icon: HeartPulse, color: GREEN },
-    { label: 'Automation & Embedded Systems', icon: Settings, color: NAVY },
+const collaborationAreaMeta = [
+    { icon: Brain,     color: NAVY },
+    { icon: Shield,    color: TEAL },
+    { icon: Wifi,      color: GREEN },
+    { icon: BarChart3, color: NAVY },
+    { icon: Link2,     color: TEAL },
+    { icon: HeartPulse, color: GREEN },
+    { icon: Settings,  color: NAVY },
 ];
 
-const whyReasons = [
-    'Industry-oriented prototype development',
-    'Academia–industry collaboration opportunities',
-    'Startup and innovation support',
-    'Student engagement and talent collaboration',
-    'Flexible project collaboration models',
-    'Grant and funded research collaboration',
-    'Technology-focused problem solving',
+const howToCollaborateMeta = [
+    { icon: FileText,    color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]', step: '01' },
+    { icon: MessageSquare, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]', step: '02' },
+    { icon: Microscope,  color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]', step: '03' },
+    { icon: CheckCircle2, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]', step: '04' },
 ];
 
-const whoCanApply = [
-    'Industries and corporate organizations',
-    'Startups and innovation-driven ventures',
-    'MSMEs and technology companies',
-    'R&D teams and innovation departments',
-    'Incubators and innovation centers',
+const industryProcessMeta = [
+    { color: NAVY },
+    { color: TEAL },
+    { color: GREEN },
+    { color: NAVY },
+    { color: TEAL },
+    { color: GREEN },
 ];
 
-const howToCollaborate = [
-    {
-        step: '01',
-        title: 'Connect with Us',
-        desc: 'Share your industry challenge, innovation requirement, startup idea, or collaboration interest.',
-        icon: FileText,
-        color: NAVY,
-        bg: 'bg-[#EAECF5] dark:bg-[#111936]',
-    },
-    {
-        step: '02',
-        title: 'Requirement & Idea Discussion',
-        desc: 'We discuss objectives, technical requirements, challenges, and collaboration possibilities.',
-        icon: MessageSquare,
-        color: TEAL,
-        bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]',
-    },
-    {
-        step: '03',
-        title: 'Research & Solution Planning',
-        desc: 'Relevant researchers, faculty members, students, and technical teams are aligned for solution development.',
-        icon: Microscope,
-        color: GREEN,
-        bg: 'bg-[#EAF8EA] dark:bg-[#142614]',
-    },
-    {
-        step: '04',
-        title: 'Collaboration & Execution',
-        desc: 'Projects, research activities, prototype development, mentoring, or innovation initiatives are jointly executed.',
-        icon: CheckCircle2,
-        color: NAVY,
-        bg: 'bg-[#EAECF5] dark:bg-[#111936]',
-    },
+const potentialOutcomeMeta = [
+    { icon: Cpu,       color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { icon: Building2, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+    { icon: BookOpen,  color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+    { icon: Rocket,    color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { icon: TrendingUp, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+    { icon: Zap,       color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+    { icon: Layers,    color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { icon: Lightbulb, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
 ];
 
-const industryProcess = [
-    {
-        step: '01',
-        title: 'Identify Industry Challenge',
-        desc: 'Industry partners or startups identify a practical challenge, research opportunity, or technology requirement.',
-        color: NAVY,
-    },
-    {
-        step: '02',
-        title: 'Collaborative Discussion',
-        desc: 'BanavatNest collaborates with industry experts, researchers, and technical teams to define objectives, scope, and expected outcomes.',
-        color: TEAL,
-    },
-    {
-        step: '03',
-        title: 'Research & Development Planning',
-        desc: 'A structured plan is developed covering technical strategy, prototype scope, implementation roadmap, timelines, and deliverables.',
-        color: GREEN,
-    },
-    {
-        step: '04',
-        title: 'Prototype & Solution Development',
-        desc: 'Research, experimentation, prototyping, testing, and technology development activities are carried out collaboratively.',
-        color: NAVY,
-    },
-    {
-        step: '05',
-        title: 'Validation & Deployment Support',
-        desc: 'Solutions are refined, validated, and prepared for practical implementation, scalability, and deployment readiness.',
-        color: TEAL,
-    },
-    {
-        step: '06',
-        title: 'Innovation & Technology Advancement',
-        desc: 'The outcomes may lead to product innovation, technology transfer, startup growth, publications, patents, or industry adoption.',
-        color: GREEN,
-    },
+const openOpportunityMeta = [
+    { color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+    { color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+    { color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
 ];
-
-const potentialOutcomes = [
-    { label: 'Prototype Systems', icon: Cpu, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-    { label: 'Industry Solutions', icon: Building2, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-    { label: 'Research Publications', icon: BookOpen, color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
-    { label: 'Product Innovation', icon: Rocket, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-    { label: 'Technology Transfer', icon: TrendingUp, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-    { label: 'Startup Growth Opportunities', icon: Zap, color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
-    { label: 'Grant & Funded Projects', icon: Layers, color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-    { label: 'Student Innovation Projects', icon: Lightbulb, color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-];
-
-const openOpportunities = [
-    { title: 'Industry collaborations in AI & Healthcare', color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-    { title: 'Startup partnerships in Smart Systems & IoT', color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-    { title: 'Joint grant proposal opportunities', color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
-];
-
-// ── Vertical Carousel (reused from faculty pattern) ───────────────────────────
-function VerticalCarousel({ items }: { items: typeof collaborationAreas }) {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % items.length);
-        }, 2200);
-        return () => clearInterval(interval);
-    }, [items.length]);
-
-    return (
-        <div className="relative h-full flex flex-col gap-2">
-            {items.map((area, i) => {
-                const Icon = area.icon;
-                const isActive = i === activeIndex;
-                const distance = Math.min(
-                    Math.abs(i - activeIndex),
-                    Math.abs(i - activeIndex + items.length),
-                    Math.abs(i - activeIndex - items.length)
-                );
-                const opacity = distance === 0 ? 1 : distance === 1 ? 0.6 : 0.3;
-                const scale = distance === 0 ? 1 : distance === 1 ? 0.97 : 0.94;
-
-                return (
-                    <motion.div
-                        key={area.label}
-                        animate={{ opacity, scale }}
-                        transition={{ duration: 0.5, ease: 'easeInOut' }}
-                        onClick={() => setActiveIndex(i)}
-                        className="flex items-center gap-3 px-4 py-3 rounded-2xl cursor-pointer transition-all duration-300"
-                        style={{
-                            background: isActive ? `${area.color}12` : `${area.color}06`,
-                            border: isActive ? `1.5px solid ${area.color}40` : `1.5px solid ${area.color}15`,
-                        }}
-                    >
-                        <motion.div
-                            animate={{ scale: isActive ? 1.1 : 1 }}
-                            transition={{ duration: 0.3 }}
-                            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                            style={{ backgroundColor: `${area.color}20`, color: area.color }}
-                        >
-                            <Icon className="w-4 h-4" />
-                        </motion.div>
-                        <span
-                            className="text-sm font-bold leading-tight"
-                            style={{ color: isActive ? area.color : undefined }}
-                        >
-                            <span className={isActive ? '' : 'text-zinc-700 dark:text-zinc-300'}>
-                                {area.label}
-                            </span>
-                        </span>
-                        {isActive && (
-                            <motion.div
-                                initial={{ opacity: 0, x: -4 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                className="ml-auto"
-                            >
-                                <ExternalLink className="w-3.5 h-3.5" style={{ color: area.color }} />
-                            </motion.div>
-                        )}
-                    </motion.div>
-                );
-            })}
-        </div>
-    );
-}
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 export default function IndustryPartnershipsPage() {
+    const t = useTranslations('partnershipsPage');
+
     const [_activeStep, setActiveStep] = useState<number | null>(null);
 
     // ── 3D Dice roller for Areas of Collaboration ────────────────────────────
-    const diceCount = collaborationAreas.length;
+    const diceCount = collaborationAreaMeta.length;
     const diceRotationStep = 360 / diceCount;
     const [diceTotalRotation, setDiceTotalRotation] = useState(0);
     const [activeDiceIndex, setActiveDiceIndex] = useState(0);
@@ -384,6 +194,16 @@ export default function IndustryPartnershipsPage() {
         setTimeout(() => setIsDiceManual(false), 8000);
     };
 
+    // ── Hero grid items ───────────────────────────────────────────────────────
+    const heroGridItems = [
+        { icon: Target,       label: t('heroGrid.problemDriven'),    color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+        { icon: Cpu,          label: t('heroGrid.prototypeDev'),      color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+        { icon: Rocket,       label: t('heroGrid.startupSupport'),    color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+        { icon: FlaskConical, label: t('heroGrid.sponsoredResearch'), color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
+        { icon: Users,        label: t('heroGrid.studentTalent'),     color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
+        { icon: TrendingUp,   label: t('heroGrid.techTransfer'),      color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
+    ];
+
     return (
         <PageWrapper>
             <div className="min-h-screen bg-white dark:bg-[#09090b] transition-colors">
@@ -405,8 +225,8 @@ export default function IndustryPartnershipsPage() {
                                         transition={{ duration: 0.7 }}
                                         className="text-5xl md:text-7xl font-black text-zinc-900 dark:text-zinc-100 mb-6 leading-tight tracking-tighter"
                                     >
-                                        Industry &{' '}
-                                        <span className="text-[#3A9B9B]">Startups</span>
+                                        {t('heroTitle')}{' '}
+                                        <span className="text-[#3A9B9B]">{t('heroTitleHighlight')}</span>
                                     </motion.h1>
                                     <motion.p
                                         initial={{ opacity: 0, y: 20 }}
@@ -414,7 +234,7 @@ export default function IndustryPartnershipsPage() {
                                         transition={{ duration: 0.7, delay: 0.15 }}
                                         className="text-lg md:text-xl text-gray-500 dark:text-zinc-400 font-medium leading-relaxed mb-8 max-w-lg"
                                     >
-                                        Collaborating Innovation with Real-World Impact
+                                        {t('heroSubtitle')}
                                     </motion.p>
                                 </div>
                                 <motion.div
@@ -427,13 +247,13 @@ export default function IndustryPartnershipsPage() {
                                         href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-black text-white bg-[#3A9B9B] dark:bg-[#0d2a2a] dark:hover:bg-[#2a7676] shadow-xl transition-all duration-300 hover:scale-[1.04] active:scale-95"
                                     >
-                                        Connect With Us <ArrowRight className="w-4 h-4" />
+                                        {t('heroCta1')} <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-black border-2 border-[#2D3561] dark:border-zinc-600 text-[#2D3561] dark:text-zinc-100 hover:bg-[#2D3561] hover:text-white dark:hover:bg-zinc-700 transition-all duration-300 hover:scale-[1.04] active:scale-95"
                                     >
-                                        Submit Collaboration Interest
+                                        {t('heroCta2')}
                                     </Link>
                                 </motion.div>
                             </div>
@@ -447,14 +267,7 @@ export default function IndustryPartnershipsPage() {
                             >
                                 <GlassCard className="p-6 md:p-8 flex-1">
                                     <div className="pt-2 grid grid-cols-2 gap-4 h-full content-center">
-                                        {[
-                                            { icon: Target, label: 'Problem-Driven', color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-                                            { icon: Cpu, label: 'Prototype Dev', color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-                                            { icon: Rocket, label: 'Startup Support', color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
-                                            { icon: FlaskConical, label: 'Sponsored Research', color: NAVY, bg: 'bg-[#EAECF5] dark:bg-[#111936]' },
-                                            { icon: Users, label: 'Student Talent', color: TEAL, bg: 'bg-[#E8F7F7] dark:bg-[#0d2a2a]' },
-                                            { icon: TrendingUp, label: 'Tech Transfer', color: GREEN, bg: 'bg-[#EAF8EA] dark:bg-[#142614]' },
-                                        ].map((item, i) => {
+                                        {heroGridItems.map((item, i) => {
                                             const Icon = item.icon;
                                             return (
                                                 <motion.div
@@ -488,11 +301,11 @@ export default function IndustryPartnershipsPage() {
                 <section className="grid-bg bg-white dark:bg-zinc-900/20 py-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
-                            title="What Industry &"
-                            highlight="Startups Can Do"
+                            title={t('sectionWhatTitle')}
+                            highlight={t('sectionWhatHighlight')}
                         />
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                            {capabilities.map((cap, i) => {
+                            {capabilityMeta.map((cap, i) => {
                                 const Icon = cap.icon;
                                 return (
                                     <motion.div
@@ -521,10 +334,10 @@ export default function IndustryPartnershipsPage() {
                                         </div>
                                         <div>
                                             <h3 className="text-base font-black text-zinc-900 dark:text-zinc-100 leading-snug mb-2">
-                                                {cap.title}
+                                                {t(`capabilities.${i}.title`)}
                                             </h3>
                                             <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                                                {cap.desc}
+                                                {t(`capabilities.${i}.desc`)}
                                             </p>
                                         </div>
                                         <div
@@ -542,8 +355,8 @@ export default function IndustryPartnershipsPage() {
                 <section className="grid-bg bg-white dark:bg-[#09090b] py-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
-                            title="How to Collaborate &"
-                            highlight="Areas of Collaboration"
+                            title={t('sectionHowTitle')}
+                            highlight={t('sectionHowHighlight')}
                         />
                         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
@@ -557,12 +370,12 @@ export default function IndustryPartnershipsPage() {
                                 <GlassCard className="p-6 md:p-8 h-full">
                                     <div className="pt-2 h-full flex flex-col">
                                         <p className="text-xs font-black uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 mb-5">
-                                            How to Collaborate
+                                            {t('howToCollaborateLabel')}
                                         </p>
                                         {/* 2×2 clockwise grid */}
                                         <div className="relative flex-1">
                                             <div className="grid grid-cols-2 gap-4 h-full">
-                                                {howToCollaborate.map((step, i) => {
+                                                {howToCollaborateMeta.map((step, i) => {
                                                     const Icon = step.icon;
                                                     const orderMap = [0, 1, 3, 2];
                                                     return (
@@ -591,10 +404,10 @@ export default function IndustryPartnershipsPage() {
                                                             </div>
                                                             <div>
                                                                 <h3 className="text-sm font-black text-zinc-900 dark:text-zinc-100 mb-1 leading-tight">
-                                                                    {step.title}
+                                                                    {t(`howToCollaborate.${i}.title`)}
                                                                 </h3>
                                                                 <p className="text-xs text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                                                                    {step.desc}
+                                                                    {t(`howToCollaborate.${i}.desc`)}
                                                                 </p>
                                                             </div>
                                                             <div
@@ -626,7 +439,7 @@ export default function IndustryPartnershipsPage() {
                                 </GlassCard>
                             </motion.div>
 
-                            {/* RIGHT — Areas of Collaboration: 3D dice roller */}
+                            {/* RIGHT — Areas of Collaboration: vertical carousel */}
                             <motion.div
                                 initial={{ opacity: 0, x: 30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -637,13 +450,13 @@ export default function IndustryPartnershipsPage() {
                                     <div className="pt-2 h-full flex flex-col">
                                         <div className="flex items-center justify-between mb-5">
                                             <p className="text-xs font-black uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                                                Areas of Collaboration
+                                                {t('areasOfCollaborationLabel')}
                                             </p>
                                             <Link
                                                 href="/what-we-do"
                                                 className="inline-flex items-center gap-1 text-xs font-black text-[#3A9B9B] hover:text-[#2a7676] transition-colors"
                                             >
-                                                View All <ArrowRight className="w-3 h-3" />
+                                                {t('viewAll')} <ArrowRight className="w-3 h-3" />
                                             </Link>
                                         </div>
 
@@ -659,13 +472,11 @@ export default function IndustryPartnershipsPage() {
                                                         position: 'relative',
                                                     }}
                                                 >
-                                                    {collaborationAreas.map((area, index) => {
+                                                    {collaborationAreaMeta.map((area, index) => {
                                                         const Icon = area.icon;
 
-                                                        // Calculate continuous float position based on the rotation state
                                                         const currentFloatPos = diceTotalRotation / -diceRotationStep;
 
-                                                        // Find shortest signed distance for infinite looping
                                                         let signedDist = index - currentFloatPos;
                                                         while (signedDist > diceCount / 2) signedDist -= diceCount;
                                                         while (signedDist < -diceCount / 2) signedDist += diceCount;
@@ -676,7 +487,7 @@ export default function IndustryPartnershipsPage() {
 
                                                         const opacity = isActive ? 1 : isNear ? 0.45 : 0;
                                                         const scale = isActive ? 1 : isNear ? 0.9 : 0.78;
-                                                        const yOffset = signedDist * 140; // 140px vertical spacing
+                                                        const yOffset = signedDist * 140;
 
                                                         return (
                                                             <div
@@ -708,7 +519,7 @@ export default function IndustryPartnershipsPage() {
                                                                         className="text-lg font-black tracking-tight leading-snug"
                                                                         style={{ color: isActive ? area.color : '#18181b' }}
                                                                     >
-                                                                        {area.label}
+                                                                        {t(`collaborationAreas.${index}`)}
                                                                     </h3>
                                                                     <div
                                                                         className="mt-4 h-[2px] w-16 rounded-full"
@@ -730,7 +541,7 @@ export default function IndustryPartnershipsPage() {
                                                     <ChevronUp className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                                                 </button>
                                                 <div className="flex items-center gap-2">
-                                                    {collaborationAreas.map((_, idx) => (
+                                                    {collaborationAreaMeta.map((_, idx) => (
                                                         <button
                                                             key={idx}
                                                             onClick={() => diceGoTo(idx)}
@@ -766,13 +577,13 @@ export default function IndustryPartnershipsPage() {
                                 className="flex flex-col"
                             >
                                 <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4">
-                                    Why Collaborate with{' '}
-                                    <span className="text-[#3A9B9B]">BanavatNest</span>
+                                    {t('sectionWhyTitle')}{' '}
+                                    <span className="text-[#3A9B9B]">{t('sectionWhyHighlight')}</span>
                                 </h2>
                                 <GlassCard className="p-6 md:p-10 flex-1 mt-2">
                                     <div className="pt-2">
                                         <ul className="space-y-3">
-                                            {whyReasons.map((reason, i) => (
+                                            {[0, 1, 2, 3, 4, 5, 6].map((i) => (
                                                 <motion.li
                                                     key={i}
                                                     initial={{ opacity: 0, x: -15 }}
@@ -783,7 +594,7 @@ export default function IndustryPartnershipsPage() {
                                                 >
                                                     <div className="w-2 h-2 rounded-full bg-[#3A9B9B] mt-2 shrink-0" />
                                                     <span className="text-base font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                                                        {reason}
+                                                        {t(`whyReasons.${i}`)}
                                                     </span>
                                                 </motion.li>
                                             ))}
@@ -801,13 +612,13 @@ export default function IndustryPartnershipsPage() {
                                 className="flex flex-col"
                             >
                                 <h2 className="text-2xl md:text-3xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4">
-                                    Who Can{' '}
-                                    <span className="text-[#3A9B9B]">Apply</span>
+                                    {t('sectionWhoTitle')}{' '}
+                                    <span className="text-[#3A9B9B]">{t('sectionWhoHighlight')}</span>
                                 </h2>
                                 <GlassCard className="p-6 md:p-10 flex-1 mt-2">
                                     <div className="pt-2">
                                         <ul className="space-y-4">
-                                            {whoCanApply.map((who, i) => (
+                                            {[0, 1, 2, 3, 4].map((i) => (
                                                 <motion.li
                                                     key={i}
                                                     initial={{ opacity: 0, x: 15 }}
@@ -818,7 +629,7 @@ export default function IndustryPartnershipsPage() {
                                                 >
                                                     <CheckCircle2 className="w-5 h-5 text-[#5BBD4A] dark:text-[#3A9B9B] mt-0.5 shrink-0" />
                                                     <span className="text-base font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                                                        {who}
+                                                        {t(`whoCanApply.${i}`)}
                                                     </span>
                                                 </motion.li>
                                             ))}
@@ -834,8 +645,8 @@ export default function IndustryPartnershipsPage() {
                 <section className="grid-bg bg-white dark:bg-[#09090b] py-16">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <SectionHeading
-                            title="Industry"
-                            highlight="Collaboration Process"
+                            title={t('sectionProcessTitle')}
+                            highlight={t('sectionProcessHighlight')}
                         />
                         <motion.div
                             initial={{ opacity: 0, y: 24 }}
@@ -845,7 +656,7 @@ export default function IndustryPartnershipsPage() {
                         >
                             <GlassCard className="p-6 md:p-10">
                                 <div className="pt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                                    {industryProcess.map((step, i) => (
+                                    {industryProcessMeta.map((step, i) => (
                                         <motion.div
                                             key={i}
                                             initial={{ opacity: 0, scale: 0.95 }}
@@ -864,14 +675,14 @@ export default function IndustryPartnershipsPage() {
                                                     className="text-xs font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-full"
                                                     style={{ backgroundColor: `${step.color}15`, color: step.color }}
                                                 >
-                                                    Step {step.step}
+                                                    {t('stepLabel')} {String(i + 1).padStart(2, '0')}
                                                 </span>
                                             </div>
                                             <h3 className="text-base font-black text-zinc-900 dark:text-zinc-100 mb-2 leading-snug">
-                                                {step.title}
+                                                {t(`industryProcess.${i}.title`)}
                                             </h3>
                                             <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                                                {step.desc}
+                                                {t(`industryProcess.${i}.desc`)}
                                             </p>
                                         </motion.div>
                                     ))}
@@ -894,12 +705,12 @@ export default function IndustryPartnershipsPage() {
                                 transition={{ duration: 0.6 }}
                             >
                                 <h2 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4">
-                                    Potential{' '}
-                                    <span className="text-[#3A9B9B]">Outcomes</span>
+                                    {t('sectionOutcomesTitle')}{' '}
+                                    <span className="text-[#3A9B9B]">{t('sectionOutcomesHighlight')}</span>
                                 </h2>
                                 <div className="w-16 h-1 rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
                                 <div className="grid grid-cols-2 gap-4">
-                                    {potentialOutcomes.map((outcome, i) => {
+                                    {potentialOutcomeMeta.map((outcome, i) => {
                                         const Icon = outcome.icon;
                                         return (
                                             <motion.div
@@ -924,7 +735,7 @@ export default function IndustryPartnershipsPage() {
                                                     <Icon className="w-5 h-5" />
                                                 </div>
                                                 <p className="text-sm font-black text-zinc-800 dark:text-zinc-200 leading-tight">
-                                                    {outcome.label}
+                                                    {t(`potentialOutcomes.${i}`)}
                                                 </p>
                                             </motion.div>
                                         );
@@ -941,13 +752,12 @@ export default function IndustryPartnershipsPage() {
                                 className="flex flex-col h-full"
                             >
                                 <h2 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter mb-4">
-                                    Current / Open{' '}
-                                    <span className="text-[#3A9B9B]">Opportunities</span>
+                                    {t('sectionOpportunitiesTitle')}{' '}
+                                    <span className="text-[#3A9B9B]">{t('sectionOpportunitiesHighlight')}</span>
                                 </h2>
                                 <div className="w-16 h-1 rounded-full bg-gradient-to-r from-[#2D3561] to-[#3A9B9B] mb-6" />
                                 <div className="flex flex-col gap-4 flex-1 justify-between">
-                                    {openOpportunities.map((opp, i) => {
-                                        const oppColors = [NAVY, TEAL, GREEN];
+                                    {openOpportunityMeta.map((opp, i) => {
                                         const color = opp.color;
                                         return (
                                             <motion.div
@@ -973,10 +783,10 @@ export default function IndustryPartnershipsPage() {
                                                 </div>
                                                 <div className="flex-1">
                                                     <h3 className="text-base font-black text-zinc-900 dark:text-zinc-100">
-                                                        {opp.title}
+                                                        {t(`openOpportunities.${i}`)}
                                                     </h3>
                                                     <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium mt-1">
-                                                        Open for collaboration
+                                                        {t('openForCollaboration')}
                                                     </p>
                                                 </div>
                                                 <ArrowRight
@@ -1000,13 +810,13 @@ export default function IndustryPartnershipsPage() {
                                         href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-black text-white text-sm bg-[#3A9B9B] dark:bg-[#0d2a2a] dark:hover:bg-[#2a7676] shadow-xl transition-all duration-300 hover:scale-[1.04] active:scale-95"
                                     >
-                                        Connect With Us <ArrowRight className="w-4 h-4" />
+                                        {t('heroCta1')} <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <Link
                                         href="/contact"
                                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-black text-sm border-2 border-[#2D3561] dark:border-zinc-600 text-[#2D3561] dark:text-zinc-100 hover:bg-[#2D3561] hover:text-white dark:hover:bg-zinc-700 transition-all duration-300 hover:scale-[1.04] active:scale-95"
                                     >
-                                        Submit Collaboration Interest
+                                        {t('heroCta2')}
                                     </Link>
                                 </motion.div>
                             </motion.div>
