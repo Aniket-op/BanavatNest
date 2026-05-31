@@ -998,5 +998,107 @@
     "readLess": "Read Less",
     "backToDomains": "Back to Domains",
     "backToFocusAreas": "Back to Focus Areas"
+  },
+  "facultyPage": {
+    "heroTitle": "Faculty &",
+    "heroTitleHighlight": "Researchers",
+    "heroSubtitle": "Where academic expertise meets real-world innovation. Collaborate, research, mentor, and transform ideas into impact.",
+    "heroCta": "Submit Collaboration Interest",
+    "howItWorks": "How it works",
+    "workflowSteps": {
+      "0": "Industry Problem",
+      "1": "Research Mapping",
+      "2": "Faculty & Researchers Collaboration",
+      "3": "Student Innovation",
+      "4": "Prototype / Publication / Grant / Deployment"
+    },
+    "stats": {
+      "collaborators": "Collaborators",
+      "domains": "Domains",
+      "researchInitiatives": "Research Initiatives",
+      "prototypeConcepts": "Prototype Concepts"
+    },
+    "sectionWhatTitle": "What Faculty &",
+    "sectionWhatHighlight": "Researchers Can Do",
+    "capabilities": {
+      "0": { "title": "Research Collaboration", "desc": "Work on interdisciplinary and application-oriented research projects with academic and industry relevance." },
+      "1": { "title": "Publications & Knowledge Creation", "desc": "Contribute to research publications, technical documentation, analytical studies, patents, and innovation-driven knowledge development." },
+      "2": { "title": "Industry-Linked Research", "desc": "Collaborate on practical problem statements aligned with real-world industrial and societal needs." },
+      "3": { "title": "Startup & Research Grant Collaboration", "desc": "Collaborate on startup initiatives, funded research proposals, startup incubation activities, and interdisciplinary project development." },
+      "4": { "title": "Project Mentorship", "desc": "Guide students, interns, and innovation teams through research, experimentation, and development activities." },
+      "5": { "title": "Prototype & Innovation Support", "desc": "Contribute toward transforming research ideas into functional systems and technological solutions." },
+      "6": { "title": "Technical Consultation", "desc": "Provide domain expertise, analytical guidance, and technical direction across emerging technologies and research domains." },
+      "7": { "title": "Academic–Industry Networking", "desc": "Engage with faculty members, researchers, startups, and industry professionals to build meaningful research and innovation partnerships." }
+    },
+    "sectionProcessTitle": "Collaboration Process &",
+    "sectionProcessHighlight": "Core Domains",
+    "collaborationProcessLabel": "Collaboration Process",
+    "coreDomainsLabel": "Core Domains & Research Areas",
+    "viewAll": "View All",
+    "collabProcess": {
+      "0": { "title": "Apply or Connect", "desc": "Share your research interests, expertise, or collaboration ideas." },
+      "1": { "title": "Research & Idea Evaluation", "desc": "We review the proposed ideas, domains, and collaboration objectives." },
+      "2": { "title": "Interaction & Discussion", "desc": "A collaborative discussion to explore goals, opportunities, and possible research directions." },
+      "3": { "title": "Collaboration Onboarding", "desc": "Selected collaborators are connected with relevant projects, research activities, or innovation initiatives." }
+    },
+    "coreDomains": {
+      "0": "Artificial Intelligence & Machine Learning",
+      "1": "Cybersecurity",
+      "2": "IoT & Smart Systems",
+      "3": "Data Science",
+      "4": "Blockchain",
+      "5": "Healthcare Technologies",
+      "6": "Automation & Embedded Systems"
+    },
+    "sectionWhyTitle": "Why Collaborate with",
+    "sectionWhyHighlight": "BanavatNest",
+    "sectionWhoTitle": "Who Can",
+    "sectionWhoHighlight": "Apply",
+    "whyReasons": {
+      "0": "Interdisciplinary research opportunities",
+      "1": "Industry-linked projects and problem statements",
+      "2": "Startup and research grant collaboration",
+      "3": "Student mentorship and project guidance",
+      "4": "Networking with researchers, startups, and industry experts",
+      "5": "Flexible Collaboration Modes"
+    },
+    "whoCanApply": {
+      "0": "Faculty members from academic institutions",
+      "1": "Research scholars and postdoctoral researchers",
+      "2": "Industry experts and technical professionals",
+      "3": "Startup founders and innovators",
+      "4": "Domain specialists from interdisciplinary fields"
+    },
+    "sectionGrantTitle": "Grant Collaboration Process —",
+    "sectionGrantHighlight": "From Idea to Funding",
+    "stepLabel": "Step",
+    "grantProcess": {
+      "0": { "title": "Identify Research Problem", "desc": "Faculty members, researchers, or industry partners identify a real-world challenge, innovation idea, or research opportunity." },
+      "1": { "title": "Collaborative Discussion", "desc": "BanavatNest collaborates with academic and industry experts to refine objectives, scope, methodology, and expected outcomes." },
+      "2": { "title": "Proposal Development", "desc": "A structured grant proposal is prepared, including technical objectives, implementation strategy, budget planning, milestones, and impact analysis." },
+      "3": { "title": "Submission to Funding Agencies", "desc": "The proposal is submitted to suitable government funding agencies, innovation missions, incubation programs, CSR initiatives, or industry-sponsored research opportunities." },
+      "4": { "title": "Research, Development & Execution", "desc": "Upon approval, collaborative research, prototype development, testing, deployment activities, and project execution are carried out jointly." },
+      "5": { "title": "Innovation, Impact & Technology Translation", "desc": "The project outcomes are directed toward publications, prototypes, technology transfer, startup opportunities, and real-world impact generation." }
+    },
+    "sectionApproachTitle": "Our",
+    "sectionApproachHighlight": "Approach",
+    "approachDesc": "We adopt a problem-driven approach where real-world industry challenges are mapped into academic research opportunities and student-led innovation projects. Collaboration is enabled through joint supervision, milestone-based execution, continuous mentoring, and prototype-driven development.",
+    "exploreEcosystem": "Explore our ecosystem",
+    "approachPillars": {
+      "0": "Problem-Driven",
+      "1": "Joint Supervision",
+      "2": "Milestone Execution",
+      "3": "Prototype-Driven"
+    },
+    "sectionOpportunitiesTitle": "Current / Open",
+    "sectionOpportunitiesHighlight": "Opportunities",
+    "openForCollaboration": "Open for collaboration",
+    "opportunities": {
+      "0": "AI/ML Research Mentors",
+      "1": "Blockchain & Cybersecurity",
+      "2": "Joint Grant Proposal Opportunities"
+    },
+    "connectWithUs": "Connect With Us",
+    "submitCollabInterest": "Submit Collaboration Interest"
   }
 }
